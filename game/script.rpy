@@ -31,6 +31,8 @@ label start:
 
     e "Moikka maailma"
 
+    e "dialogia"
+
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
     # This ends the game.
