@@ -6,8 +6,10 @@ default bpoints = 0
 default ypoints = 0
 
 default upgradesbought = []
-default upgrade1 = 0
-default upgrade2 = 0
+default upgrade1count = 0
+default upgrade2count = 0
+default upgrade3count = 0
+default upgrade4count = 0
 
 default focusupgradename = "0"
 default focusdescription = ""
@@ -15,6 +17,16 @@ default focusupgradeid = ""
 default frcost = 0
 default fbcost = 0
 default fycost = 0
+
+label upgradecount:
+    python:
+        upgrade1count = upgradesbought.count('upgrade1')
+        upgrade2count = upgradesbought.count('upgrade2')
+        upgrade3count = upgradesbought.count('upgrade3')
+        upgrade4count = upgradesbought.count('upgrade4')
+    "[upgrade1count] [upgrade2count] [upgrade3count] [upgrade4count]"
+    return
+
 
 label upgradetree:
     $ rpoints +=2
