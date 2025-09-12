@@ -1,61 +1,61 @@
 init:
     image bg upgradetree = "#000"
 
-default rpoints = 0
-default bpoints = 0
-default ypoints = 0
+default rPoints = 0
+default bPoints = 0
+default yPoints = 0
 
-default upgradesbought = []
-default upgrade1count = 0
-default upgrade2count = 0
-default upgrade3count = 0
-default upgrade4count = 0
+default upgradesBought = []
+default upgrade1Count = 0
+default upgrade2Count = 0
+default upgrade3Count = 0
+default upgrade4Count = 0
 
-default focusupgradename = "0"
-default focusdescription = ""
-default focusupgradeid = ""
-default frcost = 0
-default fbcost = 0
-default fycost = 0
+default focusUpgradeName = "0"
+default focusDescription = ""
+default focusUpgradeID = ""
+default frCost = 0
+default fbCost = 0
+default fyCost = 0
 
-label upgradecount:
+label upgradeCount:
     python:
-        upgrade1count = upgradesbought.count('upgrade1')
-        upgrade2count = upgradesbought.count('upgrade2')
-        upgrade3count = upgradesbought.count('upgrade3')
-        upgrade4count = upgradesbought.count('upgrade4')
-    "[upgrade1count] [upgrade2count] [upgrade3count] [upgrade4count]"
+        upgrade1Count = upgradesBought.count('upgrade1')
+        upgrade2Count = upgradesBought.count('upgrade2')
+        upgrade3Count = upgradesBought.count('upgrade3')
+        upgrade4Count = upgradesBought.count('upgrade4')
+    "[upgrade1Count] [upgrade2Count] [upgrade3Count] [upgrade4Count]"
     return
 
 
-label upgradetree:
-    $ rpoints +=2
-    $ bpoints +=1
-    $ ypoints +=1
+label upgradeTree:
+    $ rPoints +=2
+    $ bPoints +=1
+    $ yPoints +=1
     menu upgrade_phase:
         "Upgrade?"
 
         "Yes":
             hide quickmenu
-            call screen upgradetree
+            call screen upgradeTree
 
         "No":
             pass
     "Done"
     return
 
-screen upgradenode(name, upgradeid, rcost, bcost, ycost, description):
+screen upgradeNode(name, upgradeID, rCost, bCost, yCost, description):
     button:
         text name:
-            if not (rpoints >= rcost and bpoints >= bcost and ypoints >= ycost):
+            if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost):
                 color("#888888")
-        action [SetVariable("focusupgradename", name), SetVariable("focusupgradeid", upgradeid), SetVariable("frcost", rcost), SetVariable("fbcost", bcost), SetVariable("fycost", ycost), SetVariable("focusdescription", description)]
+        action [SetVariable("focusUpgradeName", name), SetVariable("focusUpgradeID", upgradeID), SetVariable("frCost", rCost), SetVariable("fbCost", bCost), SetVariable("fyCost", yCost), SetVariable("focusDescription", description)]
 
 
 
 
 
-screen upgradetree:
+screen upgradeTree:
     add "bg upgradetree"
     tag menu
     modal True
@@ -68,16 +68,16 @@ screen upgradetree:
         spacing 10
         frame:
             padding (10, 10)
-            text "{outlinecolor=#000}{color=#ff0000}Redpoints: [rpoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#ff0000}Redpoints: [rPoints]{/color}{/outlinecolor}"
         frame:
             padding (10, 10)
-            text "{outlinecolor=#000}{color=#0000ff}Bluepoints: [bpoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#0000ff}Bluepoints: [bPoints]{/color}{/outlinecolor}"
         frame:
             padding (10, 10)
-            text "{outlinecolor=#000}{color=#fbfb00}Yellowpoints: [ypoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#fbfb00}Yellowpoints: [yPoints]{/color}{/outlinecolor}"
         frame:
             padding (10, 10)
-            text "Upgrades: [upgradesbought]"
+            text "Upgrades: [upgradesBought]"
     
     #return button
     frame:
@@ -85,50 +85,50 @@ screen upgradetree:
         xalign 0.01
         yalign 0.01
         textbutton "Return":
-            action [SetVariable("focusupgradename", 0), Return()]
+            action [SetVariable("focusUpgradeName", "0"), Return()]
 
     #upgrade nodes
     frame:
         padding (10,10)
         xalign 0.5
         yalign 0.5
-        use upgradenode("Upgrade 1","upgrade1", 1, 1, 1, "Lorem ipsum")
-    if 'upgrade1' in upgradesbought:
+        use upgradeNode("Upgrade 1","upgrade1", 1, 1, 1, "Lorem ipsum")
+    if 'upgrade1' in upgradesBought:
         frame:
             padding (10,10)
             xalign 0.4
             yalign 0.4
-            use upgradenode("Upgrade 2","upgrade2", 1, 0, 0, "Lorem ipsum")
-    if 'upgrade1' in upgradesbought:
+            use upgradeNode("Upgrade 2","upgrade2", 1, 0, 0, "Lorem ipsum")
+    if 'upgrade1' in upgradesBought:
         frame:
             padding (10,10)
             xalign 0.6
             yalign 0.4
-            use upgradenode("Upgrade 3","upgrade3", 0, 1, 0, "Lorem ipsum")
-    if 'upgrade1' in upgradesbought:
+            use upgradeNode("Upgrade 3","upgrade3", 0, 1, 0, "Lorem ipsum")
+    if 'upgrade1' in upgradesBought:
         frame:
             padding (10,10)
             xalign 0.6
             yalign 0.6
-            use upgradenode("Upgrade 4","upgrade4", 0, 0, 1, "Lorem ipsum")
+            use upgradeNode("Upgrade 4","upgrade4", 0, 0, 1, "Lorem ipsum")
 
     #buy screen
-    if focusupgradename != "0":
+    if focusUpgradeName != "0":
         frame:
             padding (10, 10)
             xalign 0.95
             yalign 0.95
             vbox:
                 spacing 10
-                text "[focusupgradename]"
-                text "[focusdescription]"
-                text "Cost: {outlinecolor=#000}{color=#ff0000}[frcost] red {/color}{color=#0000ff}[fbcost] blue {/color}{color=#fbfb00}[fycost] yellow {/color}{/outlinecolor}" 
+                text "[focusUpgradeName]"
+                text "[focusDescription]"
+                text "Cost: {outlinecolor=#000}{color=#ff0000}[frCost] red {/color}{color=#0000ff}[fbCost] blue {/color}{color=#fbfb00}[fyCost] yellow {/color}{/outlinecolor}" 
                 frame:
                     padding (10, 10)
                     button:
                         text "Buy"
-                        if rpoints >= frcost and bpoints >= fbcost and ypoints >= fycost:
-                            action [AddToSet(upgradesbought, focusupgradeid), IncrementVariable("rpoints", -frcost), IncrementVariable("bpoints", -fbcost), IncrementVariable("ypoints", -fycost)]
+                        if rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost:
+                            action [AddToSet(upgradesBought, focusUpgradeID), IncrementVariable("rPoints", -frCost), IncrementVariable("bPoints", -fbCost), IncrementVariable("yPoints", -fyCost)]
 
 screen unused:
     textbutton "upgrade1":
