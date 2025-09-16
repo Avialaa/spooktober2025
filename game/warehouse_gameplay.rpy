@@ -2,6 +2,7 @@
 default itemIndex = 0
 default itemsInBox = []
 default maxBoxItems = 4
+default itemTypeList = ["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"] #list of item names/item types
 default itemsOnConveyer = [] #items that will be spawned on conveyer; not currently visible items
 
 init python:
@@ -41,7 +42,47 @@ init python:
     itemsInBox.clear()
 
   def generateOrder():
+    #function that generates a list of item names
+    #Maybe should generate an "order" object instead???
+    #TODO: test if this function works, maybe refactor to return an object instead
     global maxBoxItems
+    global itemTypeList
+    #Note:If we want orders to always be the same size, the following section can be simplified
+    #order size is always a few slots smaller than box capacity to allow space for fish and extra items
+    if maxBoxItems < 8:
+      orderSize = maxBoxItems - renpy.random.randint(1,2)
+    else:
+      orderSize = maxBoxItems - renpy.random.randint(2,4)
+    
+    #orders can have 2 or 3 item types
+    numberOfOrderTypes = renpy.random.randint(2,3)
+
+    #make a copy of list of items so we can remove stuff without affecting the original list
+    copiedItemTypeList = itemTypeList.copy()
+    orderTypes = []
+
+    #randomize as many item types as needed, add them to a list
+    while numberOfOrderTypes > 0:
+      orderType = copiedItemTypeList.pop(renpy.random.choice(copiedItemTypeList))
+      orderTypes.append(orderType)
+      numberOfOrderTypes -= 1
+    
+    orderList = []
+
+    #make sure there is at least one of each chosen item in the order
+    for order in orderTypes:
+      orderList.append(order)
+
+    #fill rest of the order with random items of chosen types
+    while len(orderList) < orderSize:
+      item = renpy.random.choice(orderTypes)
+      orderList.append(item)
+    
+    return orderList
+
+
+
+    
     
   
 
