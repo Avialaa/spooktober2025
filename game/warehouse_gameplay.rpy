@@ -97,12 +97,19 @@ transform box_shake:
 
 screen warehouse_box:
 
-    add "box.png":
-      at box_shake
+  frame style 'empty' xysize (600,450): 
+    xalign 0.5 yalign 0.5
+    background Frame("box.png",0,0)
+    at box_shake
+    text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}":
+        xcenter 0.5 ycenter 0.5
 
-    frame:
-      at box_shake
-      text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}" yoffset -400
+  #add "box.png":
+      #at box_shake
+
+    #frame:
+      #at box_shake
+      #text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}" yoffset -400
 
 
 
