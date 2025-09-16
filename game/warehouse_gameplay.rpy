@@ -2,8 +2,7 @@
 default itemIndex = 0
 default itemsInBox = []
 default maxBoxItems = 4
-#items that will be spawned on conveyer; not currently visible items
-default itemsOnConveyer = []
+default itemsOnConveyer = [] #items that will be spawned on conveyer; not currently visible items
 
 init python:
   def hideItem(tag):
@@ -18,21 +17,32 @@ init python:
       self.image = "{0}_{1}".format(self.name, self.tier)
     
   def showItemsOnConveyer():
+    #Checks if anything to spawn on conveyer belt, and spawns first item from list
     global itemIndex #this tells Python that we want to use the global variable itemIndex
     if len(itemsOnConveyer) > 0:
+      #pop returns the item and removes it from list
       item = itemsOnConveyer.pop(0)
     else:
       return
-    #item = Item("ankka", 1)
+    #increment itemIndex so we get a different tag for each new spawned button
     itemIndex += 1
     item.setImage()
     renpy.show_screen("conveyer_item", item, 5, _tag=f"item_{itemIndex}")
 
   def addItemsToConveyerList(numberOfItems):
+    #placeholder function to add items to conveyer list; remove/replace with ordering items via tablet
     while numberOfItems > 0:
       item = Item("ankka", 1)
       itemsOnConveyer.append(item)
       numberOfItems = numberOfItems -1
+  
+  def sendOrder():
+    #TODO: call points calculation function here etc
+    itemsInBox.clear()
+
+  def generateOrder():
+    global maxBoxItems
+    
   
 
 label warehouse_gameplay:
@@ -44,6 +54,7 @@ screen warehouse_gameplay:
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
   use conveyer_belt(1)
   use warehouse_box
+  use send_order_button
   
 
 #TARVITAAN
@@ -77,13 +88,13 @@ screen conveyer_item(item, timeOnConveyer):
       #TODO: AddToSet ei toimi, kun yrittää lisätä "ankka":aa monta kertaa; ongelmana että python ei lisää duplikaatteja samasta referenssistä listalle tai jotain?
       action [Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item)] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
-      xpos 0.1 ypos 0.5
+      xpos 0.1 ypos 0.3
       on show:
         linear timeOnConveyer xpos 0.7
   
   text "[renpy.current_screen().tag]":
     at transform:
-      xpos 0.1 ypos 0.45
+      xpos 0.1 ypos 0.25
       on show:
         linear timeOnConveyer xpos 0.7
   #hide item and return it to conveyer spawn list
@@ -103,24 +114,12 @@ screen warehouse_box:
     at box_shake
     text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}":
         xcenter 0.5 ycenter 0.5
+  
+screen send_order_button:
+  textbutton "Send order":
+    xalign 0.4 yalign 0.9
+    action Function(sendOrder)
 
-  #add "box.png":
-      #at box_shake
-
-    #frame:
-      #at box_shake
-      #text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}" yoffset -400
-
-
-
-#Funktio, joka ajetaan kun painetaan lähetä tilaus-nappia
-
-#Verrataan laatikkolistaa tilaukseen
-#Pisteytyssysteemi: jokaisesta oikeasta tavarasta pluspisteitä, puuttuvasta tavarasta miinuspisteitä 
-#(ja ehkä joku virhemerkintä joka tulee sit sähköpostilla jos on puuttunut tavaroita)
-#lisäksi tai sen sijaan hahmo/tavaratyyppikohtaiset pisteet
-
-#kun pisteytys on tehty, laatikkolista tyhjennetään
 
 
 
