@@ -8,6 +8,7 @@ screen magicPad:
         auto "images/padPohja %s.png"
         align (0.05, 0.2)
         
+        #buttons to call loot items to conveyor belt
         hotspot (326, 40, 162, 122) action Function(addMeat)
         hotspot (490, 43, 168, 119) action Function(addWeapon)
         hotspot (322, 163, 164, 147) action Function(addTreasure)
