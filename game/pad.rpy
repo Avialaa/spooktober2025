@@ -6,7 +6,7 @@ screen magicPad:
     zorder 100
     imagemap:
         auto "images/padPohja %s.png"
-        align (0.1, 0.1)
+        align (0.05, 0.2)
         
         hotspot (326, 40, 162, 122) action Function(addMeat)
         hotspot (490, 43, 168, 119) action Function(addWeapon)
@@ -16,3 +16,9 @@ screen magicPad:
         hotspot (491, 316, 164, 180) action Function(addFish)
         hotspot (323, 501, 160, 159) action Function(addKeys)
         hotspot (491, 498, 164, 167) action Function(addBone)
+
+screen order_display:
+    vbox:
+        hbox:
+            #put stuff here
+            pass
