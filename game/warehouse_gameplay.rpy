@@ -43,6 +43,7 @@ init python:
     #TODO: call points calculation function here etc
     global orders
 
+    generateOrder()
     orders.pop(0) #remove finished order
     itemsInBox.clear()
 

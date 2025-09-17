@@ -26,6 +26,7 @@ screen magicPad:
             $ uniqueItems = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
             for item in uniqueItems:
                 hbox:
+                    add "[item]_1_idle" zoom 0.5 #current order has icons; next orders don't
                     text "{color=#ff0000}[item]  {/color}"
                     text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
             text " "
