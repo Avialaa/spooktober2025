@@ -185,32 +185,34 @@ screen upgradeNode(name, upgradeID, rCost, bCost, yCost, description):
         action [SetVariable("focusUpgradeName", name), SetVariable("focusUpgradeID", upgradeID), SetVariable("frCost", rCost), SetVariable("fbCost", bCost), SetVariable("fyCost", yCost), SetVariable("focusDescription", description)]
 
 
-
-
+screen pointView:
+    hbox:
+        xalign 1
+        yalign 0.01
+        spacing 10
+        #frame:
+        #    padding (10, 10)
+        #    text "{outlinecolor=#000}{color=#ff0000}Redpoints: [rPoints]{/color}{/outlinecolor}"
+        #frame:
+        #    padding (10, 10)
+        #    text "{outlinecolor=#000}{color=#0000ff}Bluepoints: [bPoints]{/color}{/outlinecolor}"
+        #frame:
+        #    padding (10, 10)
+        #    text "{outlinecolor=#000}{color=#fbfb00}Yellowpoints: [yPoints]{/color}{/outlinecolor}"
+        #frame:
+        #    padding (10, 10)
+        #    text "Upgrades: [upgradesBought]"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#fbfb00}Meat Points: [roundrPoints]{/color}{/outlinecolor}"
 
 screen upgradeTree:
     add "bg upgradetree"
     tag menu
     modal True
 
-
     #point status view
-    hbox:
-        xalign 0.5
-        yalign 0.01
-        spacing 10
-        frame:
-            padding (10, 10)
-            text "{outlinecolor=#000}{color=#ff0000}Redpoints: [rPoints]{/color}{/outlinecolor}"
-        frame:
-            padding (10, 10)
-            text "{outlinecolor=#000}{color=#0000ff}Bluepoints: [bPoints]{/color}{/outlinecolor}"
-        frame:
-            padding (10, 10)
-            text "{outlinecolor=#000}{color=#fbfb00}Yellowpoints: [yPoints]{/color}{/outlinecolor}"
-        frame:
-            padding (10, 10)
-            text "Upgrades: [upgradesBought]"
+    use pointView
     
     #return button
     frame:

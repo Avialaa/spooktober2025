@@ -109,6 +109,7 @@ screen warehouse_gameplay:
   use conveyer_belt(1)
   use warehouse_box
   use send_order_button
+  use pointView
   #use tablet_item_buttons
   #use magicPad
   $ renpy.show_screen("magicPad", _zorder=100)
