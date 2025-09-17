@@ -4,6 +4,38 @@ init:
 default rPoints = 0
 default bPoints = 0
 default yPoints = 0
+default oPoints = 0
+default gPoints = 0
+default vPoints = 0
+default pPoints = 0
+default lPoints = 0
+
+default orderrPoints = 0
+default orderbPoints = 0
+default orderyPoints = 0
+default orderoPoints = 0
+default ordergPoints = 0
+default ordervPoints = 0
+default orderpPoints = 0
+default orderlPoints = 0
+
+default roundrPoints = 0
+default roundbPoints = 0
+default roundyPoints = 0
+default roundoPoints = 0
+default roundgPoints = 0
+default roundvPoints = 0
+default roundpPoints = 0
+default roundlPoints = 0
+
+default rPointValue = 1
+default bPointValue = 1
+default yPointValue = 1
+default oPointValue = 1
+default gPointValue = 1
+default vPointValue = 1
+default pPointValue = 1
+default lPointValue = 1
 
 default upgradesBought = []
 default upgrade1Count = 0
@@ -18,7 +50,84 @@ default frCost = 0
 default fbCost = 0
 default fyCost = 0
 
+default orderCounter = dict()
+default itemCountDict = dict()
+default itemCountList = []
+default itemValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
+default tier2ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
+default tier3ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
+
+
+init python:
+
+    def pointCount():
+        #counts points when order is sent
+        itemCountList = [] #list is used to count items one tier at a time
+        #zeroing the initial point count of the order
+        orderrPoints = 0
+        orderbPoints = 0
+        orderyPoints = 0
+        orderoPoints = 0
+        ordergPoints = 0
+        ordervPoints = 0
+        orderpPoints = 0
+        orderlPoints = 0
+        #adding tier 1 items into the counting list
+        for item in itemsInBox:
+            if item.tier == 1:
+                itemCountList.append(item.name)
+        itemCountDict= Counter(itemCountList) #tallies items in counting list into a dictionary
+        #storing tier 1 item point values into order-specific variables
+        orderrPoints = objectCountDict.get("meat") * itemValueDict.get("meat")
+        orderbPoints = objectCountDict.get("weapon") * itemValueDict.get("weapon")
+        orderyPoints = objectCountDict.get("treasure") * itemValueDict.get("treasure")
+        orderoPoints = objectCountDict.get("light") * itemValueDict.get("light")
+        ordergPoints = objectCountDict.get("sleep") * itemValueDict.get("sleep")
+        ordervPoints = objectCountDict.get("fish") * itemValueDict.get("fish")
+        orderpPoints = objectCountDict.get("keys") * itemValueDict.get("keys")
+        orderlPoints = objectCountDict.get("bone") * itemValueDict.get("bone")
+        itemCountList = [] #clearing counting list for tier 2 items
+        #repeating process for tier 2 items
+        for item in itemsInBox:
+            if item.tier == 2:
+                itemCountList.append(item.name)
+        itemCountDict= Counter(itemCountList)
+        #this time tier 2 point multiplier is applied
+        orderrPoints += objectCountDict.get("meat") * itemValueDict.get("meat") * tier2ValueDict.get("meat")
+        orderbPoints += objectCountDict.get("weapon") * itemValueDict.get("weapon") * tier2ValueDict.get("weapon")
+        orderyPoints += objectCountDict.get("treasure") * itemValueDict.get("treasure") * tier2ValueDict.get("treasure")
+        orderoPoints += objectCountDict.get("light") * itemValueDict.get("light") * tier2ValueDict.get("light")
+        ordergPoints += objectCountDict.get("sleep") * itemValueDict.get("sleep") * tier2ValueDict.get("sleep")
+        ordervPoints += objectCountDict.get("fish") * itemValueDict.get("fish") * tier2ValueDict.get("fish")
+        orderpPoints += objectCountDict.get("keys") * itemValueDict.get("keys") * tier2ValueDict.get("keys")
+        orderlPoints += objectCountDict.get("bone") * itemValueDict.get("bone") * tier2ValueDict.get("bone")
+        itemCountList = []
+        #then the same for tier 3 items
+        for item in itemsInBox:
+            if item.tier == 3:
+                itemCountList.append(item.name)
+        itemCountDict= Counter(itemCountList)
+        orderrPoints += objectCountDict.get("meat") * itemValueDict.get("meat") * tier3ValueDict.get("meat")
+        orderbPoints += objectCountDict.get("weapon") * itemValueDict.get("weapon") * tier3ValueDict.get("weapon")
+        orderyPoints += objectCountDict.get("treasure") * itemValueDict.get("treasure") * tier3ValueDict.get("treasure")
+        orderoPoints += objectCountDict.get("light") * itemValueDict.get("light") * tier3ValueDict.get("light")
+        ordergPoints += objectCountDict.get("sleep") * itemValueDict.get("sleep") * tier3ValueDict.get("sleep")
+        ordervPoints += objectCountDict.get("fish") * itemValueDict.get("fish") * tier3ValueDict.get("fish")
+        orderpPoints += objectCountDict.get("keys") * itemValueDict.get("keys") * tier3ValueDict.get("keys")
+        orderlPoints += objectCountDict.get("bone") * itemValueDict.get("bone") * tier3ValueDict.get("bone")
+        #adding order point totals into round point count       
+        roundrPoints += orderrPoints
+        roundbPoints += orderbPoints
+        roundyPoints += orderyPoints
+        roundoPoints += orderoPoints
+        roundgPoints += ordergPoints
+        roundvPoints += ordervPoints
+        roundpPoints += orderpPoints
+        roundlPoints += orderlPoints
+
+
 label upgradeCount:
+    #label that counts the amount of each type of upgrade bought
     python:
         upgrade1Count = upgradesBought.count('upgrade1')
         upgrade2Count = upgradesBought.count('upgrade2')
