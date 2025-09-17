@@ -38,7 +38,7 @@ init python:
     global orders
     global isOrderCorrect
     isOrderCorrect = checkOrderValidity()
-    #pointCount() TODO: Tuukka epäkommentoi tää kun haluat testata pointCount-funktion toimintaa (ajetaan kun painaa send order nappia)
+    pointCount() #TODO: Tuukka epäkommentoi tää kun haluat testata pointCount-funktion toimintaa (ajetaan kun painaa send order nappia)
     generateOrder()
     orders.pop(0) #remove finished order
     itemsInBox.clear()
@@ -119,6 +119,7 @@ screen warehouse_gameplay:
   use conveyer_belt(1)
   use warehouse_box
   use send_order_button
+  use pointView
   #use tablet_item_buttons
   #use magicPad
   $ renpy.show_screen("magicPad", _zorder=100)
