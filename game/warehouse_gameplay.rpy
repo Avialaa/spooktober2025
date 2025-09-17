@@ -42,7 +42,7 @@ init python:
   def sendOrder():
     #TODO: call points calculation function here etc
     global orders
-
+    #pointCount() TODO: Tuukka epäkommentoi tää kun haluat testata pointCount-funktion toimintaa (ajetaan kun painaa send order nappia)
     generateOrder()
     orders.pop(0) #remove finished order
     itemsInBox.clear()
