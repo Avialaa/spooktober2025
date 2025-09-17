@@ -99,20 +99,16 @@ screen warehouse_gameplay:
   use conveyer_belt(1)
   use warehouse_box
   use send_order_button
-  use tablet_item_buttons
+  #use tablet_item_buttons
+  #use magicPad
+  $ renpy.show_screen("magicPad", _zorder=100)
   
-
-#TARVITAAN
-#funktio, joka määrittää mikä tavara tulee liukuhihnalle
-
-
-#funktio, joka määrittää mikä tavara tulee liukuhihnalle:
-#Lista, jolle voi lisätä tavaroita 
-#tavaroita voi lisätä pädiltä, ja liukuhihnalla ohimenneet tavarat myös palaavat listan perälle (tehty)
-#pädiltä lisätessä on takaraja, kuinka monta itemiä voi lisätä 
-# --> tämä ominaisuus vain, jos saadaan implementoitua tavaroiden roskiin heittäminen
+#TARVITAAN:
+#-tilausten näyttäminen pädillä
+#tilaus-backlogin generointi ja tallentaminen ja näyttäminen
 
 screen conveyer_belt(conveyerInterval):
+  zorder 20
   modal True 
 
   text "{outlinecolor=#000}{color=#ff0000}Ducks: [itemIndex] Order list: [orderList] {/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
@@ -123,6 +119,7 @@ screen conveyer_belt(conveyerInterval):
 
 screen conveyer_item(item, timeOnConveyer):
   modal False
+  zorder 50
   
   imagebutton:
     auto "{}_%s.png".format(item.image)
@@ -166,19 +163,19 @@ screen send_order_button:
     action Function(sendOrder)
 
 
-screen tablet_item_buttons:
+# screen tablet_item_buttons:
 
-  vbox:
-    xalign 0.0 yalign 0.5
+#   vbox:
+#     xalign 0.0 yalign 0.5
 
-    textbutton "light" action Function(addLight)
-    textbutton "sleep" action Function(addSleep)
-    textbutton "fish" action Function(addFish)
-    textbutton "bone" action Function(addBone)
-    textbutton "meat" action Function(addMeat)
-    textbutton "weapon" action Function(addWeapon)
-    textbutton "keys" action Function(addKeys)
-    textbutton "treasure" action Function(addTreasure)
+#     textbutton "light" action Function(addLight)
+#     textbutton "sleep" action Function(addSleep)
+#     textbutton "fish" action Function(addFish)
+#     textbutton "bone" action Function(addBone)
+#     textbutton "meat" action Function(addMeat)
+#     textbutton "weapon" action Function(addWeapon)
+#     textbutton "keys" action Function(addKeys)
+#     textbutton "treasure" action Function(addTreasure)
 
 init python:
   #items are spawned using list indexes, so that if item names change, it won't break these functions. List order must always stay the same.
