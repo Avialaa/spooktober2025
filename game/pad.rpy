@@ -35,7 +35,7 @@ screen magicPad:
             for item in uniqueItems:
                 hbox:
                     text "{color=#ff0000}[item]  {/color}"
-                    text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
+                    text "{color=#ff0000}x[orders[1].count(item)]{/color}" #returns number of items
             text " "
         vbox: #next next order
             text "{color=#ff0000}Next next order{/color}"
@@ -43,6 +43,6 @@ screen magicPad:
             for item in uniqueItems:
                 hbox:
                     text "{color=#ff0000}[item]  {/color}"
-                    text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
+                    text "{color=#ff0000}x[orders[2].count(item)]{/color}" #returns number of items
             text " "
 

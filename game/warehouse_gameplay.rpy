@@ -1,7 +1,7 @@
 
 default itemIndex = 0
 default itemsInBox = []
-default maxBoxItems = 5 #must be at least as big as max order size
+default maxBoxItems = 6 #must be at least as big as max order size
 default itemTypeList = ["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"] #list of item names/item types. DO NOT CHANGE ORDER
 default itemsOnConveyer = [] #items that will be spawned on conveyer; not currently visible items
 default orderList = [] #list of items in last generated order
