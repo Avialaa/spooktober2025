@@ -187,7 +187,7 @@ screen upgradeNode(name, upgradeID, rCost, bCost, yCost, description):
 
 screen pointView:
     hbox:
-        xalign 1
+        xalign 0.9
         yalign 0.01
         spacing 10
         #frame:
