@@ -62,6 +62,29 @@ init python:
 
     def pointCount():
         #counts points when order is sent
+
+        global orderrPoints
+        global orderbPoints
+        global orderyPoints
+        global orderoPoints
+        global ordergPoints
+        global ordervPoints
+        global orderpPoints
+        global orderlPoints
+
+        global roundrPoints
+        global roundbPoints
+        global roundyPoints
+        global roundoPoints
+        global roundgPoints
+        global roundvPoints
+        global roundpPoints
+        global roundlPoints
+
+        global itemValueDict
+        global tier2ValueDict
+        global tier3ValueDict
+
         itemCountList = [] #list is used to count items one tier at a time
         #zeroing the initial point count of the order
         orderrPoints = 0
