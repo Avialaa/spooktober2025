@@ -1,9 +1,10 @@
 
 default itemIndex = 0
 default itemsInBox = []
-default maxBoxItems = 4
-default itemTypeList = ["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"] #list of item names/item types
+default maxBoxItems = 5 #must be at least as big as max order size
+default itemTypeList = ["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"] #list of item names/item types. DO NOT CHANGE ORDER
 default itemsOnConveyer = [] #items that will be spawned on conveyer; not currently visible items
+default orderList = [] #list of items in last generated order
 
 init python:
   def hideItem(tag):
@@ -43,19 +44,19 @@ init python:
 
   def generateOrder():
     #function that generates a list of item names
-    #Maybe should generate an "order" object instead???
-    #TODO: test if this function works, maybe refactor to return an object instead
+    #TODO: maybe refactor to return an object instead if needed
     global maxBoxItems
     global itemTypeList
-    #Note:If we want orders to always be the same size, the following section can be simplified
-    #order size is always a few slots smaller than box capacity to allow space for fish and extra items
+
+    #TODO: Test game and set order sizes that feel good; decide if box size affects order size
+    #Or maybe order size could grow as days pass?
     if maxBoxItems < 8:
-      orderSize = maxBoxItems - renpy.random.randint(1,2)
+      orderSize =  renpy.random.randint(4,5)
     else:
-      orderSize = maxBoxItems - renpy.random.randint(2,4)
+      orderSize = renpy.random.randint(4,6)
     
     #orders can have 2 or 3 item types
-    numberOfOrderTypes = renpy.random.randint(2,3)
+    numberOfOrderTypes = renpy.random.randint(2,4)
 
     #make a copy of list of items so we can remove stuff without affecting the original list
     copiedItemTypeList = itemTypeList.copy()
@@ -63,7 +64,8 @@ init python:
 
     #randomize as many item types as needed, add them to a list
     while numberOfOrderTypes > 0:
-      orderType = copiedItemTypeList.pop(renpy.random.choice(copiedItemTypeList))
+      orderType = renpy.random.choice(copiedItemTypeList)
+      copiedItemTypeList.remove(orderType)
       orderTypes.append(orderType)
       numberOfOrderTypes -= 1
     
@@ -88,7 +90,8 @@ init python:
 
 label warehouse_gameplay:
   #TODO: remove when items can be added via tablet
-  $ addItemsToConveyerList(8)
+  #$ addItemsToConveyerList(8)
+  $ orderList = generateOrder()
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:
@@ -96,6 +99,7 @@ screen warehouse_gameplay:
   use conveyer_belt(1)
   use warehouse_box
   use send_order_button
+  use tablet_item_buttons
   
 
 #TARVITAAN
@@ -111,7 +115,7 @@ screen warehouse_gameplay:
 screen conveyer_belt(conveyerInterval):
   modal True 
 
-  text "{outlinecolor=#000}{color=#ff0000}Ducks: [itemIndex]  Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]{/color}{/outlinecolor}"
+  text "{outlinecolor=#000}{color=#ff0000}Ducks: [itemIndex] Order list: [orderList] {/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
   timer conveyerInterval:
     action [Function(showItemsOnConveyer)]
     repeat True
@@ -162,9 +166,60 @@ screen send_order_button:
     action Function(sendOrder)
 
 
+screen tablet_item_buttons:
 
+  vbox:
+    xalign 0.0 yalign 0.5
 
+    textbutton "light" action Function(addLight)
+    textbutton "sleep" action Function(addSleep)
+    textbutton "fish" action Function(addFish)
+    textbutton "bone" action Function(addBone)
+    textbutton "meat" action Function(addMeat)
+    textbutton "weapon" action Function(addWeapon)
+    textbutton "keys" action Function(addKeys)
+    textbutton "treasure" action Function(addTreasure)
 
+init python:
+  #items are spawned using list indexes, so that if item names change, it won't break these functions. List order must always stay the same.
+  #["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"]
+  def addLight():
+    tier = 1 #TODO: make tier depend on percentages
+    item = Item(itemTypeList[0], tier)
+    itemsOnConveyer.append(item)
 
+  def addSleep():
+    tier = renpy.random.randint(1,3) #TODO: make tier depend on percentages
+    item = Item(itemTypeList[1], tier)
+    itemsOnConveyer.append(item)
 
+  def addFish():
+    tier = renpy.random.randint(1,3) #TODO: make tier depend on percentages
+    item = Item(itemTypeList[2], tier)
+    itemsOnConveyer.append(item)
+  
+  def addBone():
+    tier = renpy.random.randint(1,3) #TODO: make tier depend on percentages
+    item = Item(itemTypeList[3], tier)
+    itemsOnConveyer.append(item)
+  
+  def addMeat():
+    tier = renpy.random.randint(1,3) #TODO: make tier depend on percentages
+    item = Item(itemTypeList[4], tier)
+    itemsOnConveyer.append(item)
+  
+  def addWeapon():
+    tier = renpy.random.randint(1,3) #TODO: make tier depend on percentages
+    item = Item(itemTypeList[5], tier)
+    itemsOnConveyer.append(item)
+  
+  def addKeys():
+    tier = renpy.random.randint(1,3) #TODO: make tier depend on percentages
+    item = Item(itemTypeList[6], tier)
+    itemsOnConveyer.append(item)
+  
+  def addTreasure():
+    tier = renpy.random.randint(1,3) #TODO: make tier depend on percentages
+    item = Item(itemTypeList[7], tier)
+    itemsOnConveyer.append(item)
 
