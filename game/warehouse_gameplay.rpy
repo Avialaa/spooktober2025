@@ -6,6 +6,7 @@ default itemTypeList = ["light", "sleep", "fish", "bone", "meat", "weapon", "key
 default itemsOnConveyer = [] #items that will be spawned on conveyer; not currently visible items
 default orderList = [] #list of items in last generated order
 default orders = [] #list of orders (list of nested lists?)
+default isOrderCorrect = True
 
 init python:
   def hideItem(tag):
@@ -31,17 +32,12 @@ init python:
     itemIndex += 1
     item.setImage()
     renpy.show_screen("conveyer_item", item, 5, _tag=f"item_{itemIndex}")
-
-  def addItemsToConveyerList(numberOfItems):
-    #placeholder function to add items to conveyer list; remove/replace with ordering items via tablet
-    while numberOfItems > 0:
-      item = Item("ankka", 1)
-      itemsOnConveyer.append(item)
-      numberOfItems = numberOfItems -1
   
   def sendOrder():
     #TODO: call points calculation function here etc
     global orders
+    global isOrderCorrect
+    isOrderCorrect = checkOrderValidity()
     #pointCount() TODO: Tuukka epäkommentoi tää kun haluat testata pointCount-funktion toimintaa (ajetaan kun painaa send order nappia)
     generateOrder()
     orders.pop(0) #remove finished order
@@ -49,7 +45,6 @@ init python:
 
   def generateOrder():
     #function that generates a list of item names
-    #TODO: maybe refactor to return an object instead if needed
     global maxBoxItems
     global itemTypeList
     global orders
@@ -89,15 +84,30 @@ init python:
     
     orders.append(orderList) #add order to orders list for storage
 
+  def checkOrderValidity():
+    global orders
+    global itemsInBox
 
+    #make a copy of order so we can remove stuff without affecting the original list
+    copiedOrder = orders[0].copy()
+
+    isOrderCorrect = True
+
+    for item in itemsInBox:
+      if item.name in copiedOrder:
+        #TODO: give points for correct item?
+        copiedOrder.remove(item.name)
+      else:
+        #TODO: remove points for incorrect item?
+        isOrderCorrect = False
+    
+    return isOrderCorrect
 
     
     
   
 
 label warehouse_gameplay:
-  #TODO: remove when items can be added via tablet
-  #$ addItemsToConveyerList(8)
   #generate 3 orders at the start of the minigame
   $ generateOrder()
   $ generateOrder()
@@ -121,7 +131,7 @@ screen conveyer_belt(conveyerInterval):
   zorder 20
   modal True 
 
-  text "{outlinecolor=#000}{color=#ff0000}Ducks: [itemIndex] Order list: [orderList] {/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
+  text "{outlinecolor=#000}{color=#ff0000}Ducks: [itemIndex] Order list: [orderList] Is latest order correct? [isOrderCorrect]{/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
   timer conveyerInterval:
     action [Function(showItemsOnConveyer)]
     repeat True
@@ -137,7 +147,6 @@ screen conveyer_item(item, timeOnConveyer):
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     if len(itemsInBox) +1 <= maxBoxItems:
-      #TODO: AddToSet ei toimi, kun yrittää lisätä "ankka":aa monta kertaa; ongelmana että python ei lisää duplikaatteja samasta referenssistä listalle tai jotain?
       action [Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item)] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
       xpos 0.1 ypos 0.3
