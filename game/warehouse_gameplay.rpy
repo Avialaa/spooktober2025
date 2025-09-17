@@ -41,6 +41,9 @@ init python:
   
   def sendOrder():
     #TODO: call points calculation function here etc
+    global orders
+
+    orders.pop(0) #remove finished order
     itemsInBox.clear()
 
   def generateOrder():
@@ -48,6 +51,8 @@ init python:
     #TODO: maybe refactor to return an object instead if needed
     global maxBoxItems
     global itemTypeList
+    global orders
+    global orderList
 
     #TODO: Test game and set order sizes that feel good; decide if box size affects order size
     #Or maybe order size could grow as days pass?
@@ -81,7 +86,7 @@ init python:
       item = renpy.random.choice(orderTypes)
       orderList.append(item)
     
-    return orderList
+    orders.append(orderList) #add order to orders list for storage
 
 
 
@@ -92,8 +97,10 @@ init python:
 label warehouse_gameplay:
   #TODO: remove when items can be added via tablet
   #$ addItemsToConveyerList(8)
-  $ orderList = generateOrder()
-  $ orders.append(orderList)
+  #generate 3 orders at the start of the minigame
+  $ generateOrder()
+  $ generateOrder()
+  $ generateOrder()
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:

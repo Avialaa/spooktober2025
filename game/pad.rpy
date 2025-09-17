@@ -19,11 +19,30 @@ screen magicPad:
         hotspot (491, 498, 164, 167) action Function(addBone)
     
     vbox: #kaikki orderit
+        #TODO: wrong item counts are displayed in game, fix!!!
         align (0.05, 0.2)
         vbox: #current order
+            text "{color=#ff0000}Current order{/color}"
             $ uniqueItems = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
             for item in uniqueItems:
                 hbox:
                     text "{color=#ff0000}[item]  {/color}"
                     text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
+            text " "
+        vbox: #next order
+            text "{color=#ff0000}Next order{/color}"
+            $ uniqueItems = set(orders[1]) 
+            for item in uniqueItems:
+                hbox:
+                    text "{color=#ff0000}[item]  {/color}"
+                    text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
+            text " "
+        vbox: #next next order
+            text "{color=#ff0000}Next next order{/color}"
+            $ uniqueItems = set(orders[2])
+            for item in uniqueItems:
+                hbox:
+                    text "{color=#ff0000}[item]  {/color}"
+                    text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
+            text " "
 
