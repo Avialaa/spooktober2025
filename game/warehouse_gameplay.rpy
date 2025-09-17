@@ -88,23 +88,22 @@ init python:
     global orders
     global itemsInBox
 
-    #make a copy of order so we can remove stuff without affecting the original list
     copiedOrder = orders[0].copy()
-
     isOrderCorrect = True
 
-    for item in itemsInBox:
-      if item.name in copiedOrder:
-        #TODO: give points for correct item?
-        copiedOrder.remove(item.name)
-      else:
-        #TODO: remove points for incorrect item?
-        isOrderCorrect = False
-    
+    # Create a list of item names from itemsInBox
+    itemNamesInBox = [item.name for item in itemsInBox]
+
+    for orderItem in copiedOrder:
+        if orderItem in itemNamesInBox:
+          #TODO: give points for correct item?
+          itemNamesInBox.remove(orderItem)  # Remove to handle duplicates correctly
+        else:
+          #TODO: remove points for incorrect item?
+          isOrderCorrect = False
+
     return isOrderCorrect
 
-    
-    
   
 
 label warehouse_gameplay:
