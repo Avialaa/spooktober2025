@@ -45,6 +45,7 @@ label upgradeTree:
     return
 
 screen upgradeNode(name, upgradeID, rCost, bCost, yCost, description):
+    #button type for upgrade nodes in upgrade tree
     button:
         text name:
             if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost):
