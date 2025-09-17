@@ -57,6 +57,8 @@ default itemValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1
 default tier2ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 default tier3ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 
+default failPoints = 0
+default validityFactor = 0
 
 init python:
 
@@ -84,6 +86,8 @@ init python:
         global itemValueDict
         global tier2ValueDict
         global tier3ValueDict
+
+        global isOrderCorrect
 
         itemCountList = [] #list is used to count items one tier at a time
         #zeroing the initial point count of the order
@@ -138,15 +142,23 @@ init python:
         ordervPoints += itemCountList.count("fish") * itemValueDict.get("fish") * tier3ValueDict.get("fish")
         orderpPoints += itemCountList.count("keys") * itemValueDict.get("keys") * tier3ValueDict.get("keys")
         orderlPoints += itemCountList.count("bone") * itemValueDict.get("bone") * tier3ValueDict.get("bone")
+        
+        #checking for order validity and applying point multiplier
+
+        if isOrderCorrect:
+            validityFactor = 1
+        else:
+            validityFactor = failPoints
+        
         #adding order point totals into round point count       
-        roundrPoints += orderrPoints
-        roundbPoints += orderbPoints
-        roundyPoints += orderyPoints
-        roundoPoints += orderoPoints
-        roundgPoints += ordergPoints
-        roundvPoints += ordervPoints
-        roundpPoints += orderpPoints
-        roundlPoints += orderlPoints
+        roundrPoints += orderrPoints*validityFactor
+        roundbPoints += orderbPoints*validityFactor
+        roundyPoints += orderyPoints*validityFactor
+        roundoPoints += orderoPoints*validityFactor
+        roundgPoints += ordergPoints*validityFactor
+        roundvPoints += ordervPoints*validityFactor
+        roundpPoints += orderpPoints*validityFactor
+        roundlPoints += orderlPoints*validityFactor
 
 
 label upgradeCount:
