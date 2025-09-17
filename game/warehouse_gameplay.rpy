@@ -5,6 +5,7 @@ default maxBoxItems = 5 #must be at least as big as max order size
 default itemTypeList = ["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"] #list of item names/item types. DO NOT CHANGE ORDER
 default itemsOnConveyer = [] #items that will be spawned on conveyer; not currently visible items
 default orderList = [] #list of items in last generated order
+default orders = [] #list of orders (list of nested lists?)
 
 init python:
   def hideItem(tag):
@@ -92,6 +93,7 @@ label warehouse_gameplay:
   #TODO: remove when items can be added via tablet
   #$ addItemsToConveyerList(8)
   $ orderList = generateOrder()
+  $ orders.append(orderList)
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:

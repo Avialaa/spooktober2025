@@ -16,9 +16,13 @@ screen magicPad:
         hotspot (491, 316, 164, 180) action Function(addFish)
         hotspot (323, 501, 160, 159) action Function(addKeys)
         hotspot (491, 498, 164, 167) action Function(addBone)
+    
+    vbox: #kaikki orderit
+        align (0.05, 0.2)
+        vbox: #current order
+            $ uniqueItems = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
+            for item in uniqueItems:
+                hbox:
+                    text "{color=#ff0000}[item]  {/color}"
+                    text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
 
-screen order_display:
-    vbox:
-        hbox:
-            #put stuff here
-            pass
