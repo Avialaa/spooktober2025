@@ -9,6 +9,7 @@ define e = Character("Eileen")
 # The game starts here.
 
 label start:
+    e "Hei maailma"
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     call warehouse_gameplay
