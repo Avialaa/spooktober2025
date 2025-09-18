@@ -1,4 +1,3 @@
-
 default itemIndex = 0
 default itemsInBox = []
 default maxBoxItems = 6 #must be at least as big as max order size
@@ -7,6 +6,8 @@ default itemsOnConveyer = [] #items that will be spawned on conveyer; not curren
 default orderList = [] #list of items in last generated order
 default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
+default boxReady = True
+default boxAnimDuration = 0.5
 
 init python:
   def hideItem(tag):
@@ -103,7 +104,6 @@ init python:
           isOrderCorrect = False
 
     return isOrderCorrect
-  
 
 label warehouse_gameplay:
   #generate 3 orders at the start of the minigame
@@ -149,7 +149,7 @@ screen conveyer_item(item, timeOnConveyer):
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     if len(itemsInBox) +1 <= maxBoxItems:
-      action [Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
+      action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")], false=None)#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
       xpos -100 ypos 0.3
       on show:
@@ -172,6 +172,14 @@ transform box_shake:
     linear 0.15 xoffset -5
     linear 0.15 xoffset 5
     linear 0.1 xoffset 0
+  on hide:
+    linear (boxAnimDuration/3) yoffset -10
+    linear (boxAnimDuration - boxAnimDuration/3) yoffset 100 alpha 0.0
+  on show:
+    alpha 0.0 xoffset 100
+    linear (boxAnimDuration - boxAnimDuration/3) xoffset -10 alpha 1.0
+    linear (boxAnimDuration/3) xoffset 0 
+
 
 screen warehouse_box:
 
@@ -182,10 +190,17 @@ screen warehouse_box:
     text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}":
         xcenter 0.5 ycenter 0.5
   
+screen button_disable_timer:
+  on "show":
+    action SetVariable("boxReady", False)
+  timer boxAnimDuration:
+    action [SetVariable("boxReady", True), Show("warehouse_box"), Hide()]
+
+  
 screen send_order_button:
   textbutton "Send order":
     xalign 0.1 yalign 0.9
-    action Function(sendOrder)
+    action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
 
 
 # screen tablet_item_buttons:
