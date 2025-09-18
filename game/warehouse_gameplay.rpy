@@ -103,7 +103,6 @@ init python:
           isOrderCorrect = False
 
     return isOrderCorrect
-
   
 
 label warehouse_gameplay:
@@ -116,12 +115,15 @@ label warehouse_gameplay:
 screen warehouse_gameplay:
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
   use conveyer_belt(1)
-  use warehouse_box
+  #use warehouse_box
   use send_order_button
   use pointView
   #use tablet_item_buttons
   #use magicPad
   $ renpy.show_screen("magicPad", _zorder=100)
+  on "show":
+    action [Show("warehouse_box")]
+
   
 #TARVITAAN:
 #-tilausten näyttäminen pädillä
@@ -147,25 +149,29 @@ screen conveyer_item(item, timeOnConveyer):
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     if len(itemsInBox) +1 <= maxBoxItems:
-      action [Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item)] #TODO: If player tries to click item when box is full, box numbers shake
+      action [Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
-      xpos 0.1 ypos 0.3
+      xpos -100 ypos 0.3
       on show:
         linear timeOnConveyer xpos 0.7
+      on hide:
+        linear 0.1 yoffset -50
+        linear 0.2 yoffset 100 alpha 0.0
   
   text "[renpy.current_screen().tag]":
     at transform:
-      xpos 0.1 ypos 0.25
+      xpos -100 ypos 0.25
       on show:
         linear timeOnConveyer xpos 0.7
   #hide item and return it to conveyer spawn list
   timer timeOnConveyer action [Hide(), AddToSet(itemsOnConveyer, item)]
 
 transform box_shake:
-  xalign 0.7 yalign 1.1
-  on show:
-    linear 0.2 align (0.7, 1.0)
-    linear 0.2 align (0.7, 1.1)
+  xalign 0.3 yalign 1.1
+  on replace:
+    linear 0.15 xoffset -5
+    linear 0.15 xoffset 5
+    linear 0.1 xoffset 0
 
 screen warehouse_box:
 
@@ -178,7 +184,7 @@ screen warehouse_box:
   
 screen send_order_button:
   textbutton "Send order":
-    xalign 0.4 yalign 0.9
+    xalign 0.1 yalign 0.9
     action Function(sendOrder)
 
 

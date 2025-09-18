@@ -6,7 +6,7 @@ screen magicPad:
     zorder 100
     imagemap:
         auto "images/padPohja %s.png"
-        align (0.05, 0.2)
+        align (0.95, 0.25)
         
         #buttons to call loot items to conveyor belt
         hotspot (326, 40, 162, 122) action Function(addMeat)
@@ -20,7 +20,7 @@ screen magicPad:
     
     vbox: #kaikki orderit
         #TODO: wrong item counts are displayed in game, fix!!!
-        align (0.05, 0.2)
+        align (0.72, 0.25)
         vbox: #current order
             text "{color=#ff0000}Current order{/color}"
             $ uniqueItems = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
