@@ -63,26 +63,26 @@ label roundEnd:
 screen roundEndScreen:
     
     #Timers to show point numbers
-    timer 0.2 action SetVariable("roundEndrPoints", True)
-    timer 0.4 action SetVariable("roundEndbPoints", True)
-    timer 0.6 action SetVariable("roundEndyPoints", True)
-    timer 0.8 action SetVariable("roundEndgPoints", True)
-    timer 1.0 action SetVariable("roundEndoPoints", True)
-    timer 1.2 action SetVariable("roundEndvPoints", True)
-    timer 1.4 action SetVariable("roundEndpPoints", True)
-    timer 1.6 action SetVariable("roundEndlPoints", True)
+    timer 1.2 action SetVariable("roundEndrPoints", True)
+    timer 1.4 action SetVariable("roundEndbPoints", True)
+    timer 1.6 action SetVariable("roundEndyPoints", True)
+    timer 1.8 action SetVariable("roundEndgPoints", True)
+    timer 2.0 action SetVariable("roundEndoPoints", True)
+    timer 2.2 action SetVariable("roundEndvPoints", True)
+    timer 2.4 action SetVariable("roundEndpPoints", True)
+    timer 2.6 action SetVariable("roundEndlPoints", True)
 
-    timer 1.8 action SetVariable("roundEndTotalrPoints", True)
-    timer 2.0 action SetVariable("roundEndTotalbPoints", True)
-    timer 2.2 action SetVariable("roundEndTotalyPoints", True)
-    timer 2.4 action SetVariable("roundEndTotalgPoints", True)
-    timer 2.6 action SetVariable("roundEndTotaloPoints", True)
-    timer 2.8 action SetVariable("roundEndTotalvPoints", True)
-    timer 3.0 action SetVariable("roundEndTotalpPoints", True)
-    timer 3.2 action SetVariable("roundEndTotallPoints", True)
+    timer 2.8 action SetVariable("roundEndTotalrPoints", True)
+    timer 3.0 action SetVariable("roundEndTotalbPoints", True)
+    timer 3.2 action SetVariable("roundEndTotalyPoints", True)
+    timer 3.4 action SetVariable("roundEndTotalgPoints", True)
+    timer 3.6 action SetVariable("roundEndTotaloPoints", True)
+    timer 3.8 action SetVariable("roundEndTotalvPoints", True)
+    timer 4.0 action SetVariable("roundEndTotalpPoints", True)
+    timer 4.2 action SetVariable("roundEndTotallPoints", True)
 
     #Returns automatically TODO: quicken with action
-    timer 5.0 action Return()
+    timer 6.0 action Return()
 
     hbox:
         align(0.5, 0.5)
