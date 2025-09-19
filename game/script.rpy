@@ -11,6 +11,7 @@ define e = Character("Eileen")
 label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
+    call roundEnd
     call warehouse_gameplay
     call padTest
     call upgradeTree

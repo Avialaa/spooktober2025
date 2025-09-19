@@ -103,7 +103,6 @@ init python:
         for item in itemsInBox:
             if item.tier == 1:
                 itemCountList.append(item.name)
-        #itemCountDict= Counter(itemCountList) #tallies items in counting list into a dictionary
         #storing tier 1 item point values into order-specific variables
         orderrPoints = itemCountList.count("meat") * itemValueDict.get("meat")
         orderbPoints = itemCountList.count("weapon") * itemValueDict.get("weapon")
@@ -118,7 +117,6 @@ init python:
         for item in itemsInBox:
             if item.tier == 2:
                 itemCountList.append(item.name)
-        #itemCountDict= Counter(itemCountList)
         #this time tier 2 point multiplier is applied
         orderrPoints += itemCountList.count("meat") * itemValueDict.get("meat") * tier2ValueDict.get("meat")
         orderbPoints += itemCountList.count("weapon") * itemValueDict.get("weapon") * tier2ValueDict.get("weapon")
@@ -133,7 +131,7 @@ init python:
         for item in itemsInBox:
             if item.tier == 3:
                 itemCountList.append(item.name)
-        #itemCountDict= Counter(itemCountList)
+                
         orderrPoints += itemCountList.count("meat") * itemValueDict.get("meat") * tier3ValueDict.get("meat")
         orderbPoints += itemCountList.count("weapon") * itemValueDict.get("weapon") * tier3ValueDict.get("weapon")
         orderyPoints += itemCountList.count("treasure") * itemValueDict.get("treasure") * tier3ValueDict.get("treasure")
