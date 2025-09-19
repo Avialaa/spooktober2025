@@ -8,14 +8,31 @@ default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
 default boxReady = True
 default boxAnimDuration = 0.5
+default roundDuration = 100
+default minigameOver = False
+
+image countdown = DynamicDisplayable(show_countdown)
 
 image box = ConditionSwitch(
   "boxReady == True", "box_open.png",
   "boxReady == False", "box_closed.png",
   "True", "box_open.png"
 )
+init python:
+
+  def show_countdown(st, at):
+    global roundDuration
+    if st > roundDuration:
+      return Text("0.0"), None
+    else:
+      d = Text("{:.1f}".format(roundDuration - st)) #{color=#ff0000}{/color}
+      return d, 0.1
 
 init python:
+  def hideMinigame():
+    renpy.hide_screen("warehouse_box")
+    renpy.hide_screen("magicPad")
+
   def hideItem(tag):
     renpy.hide_screen(tag)
   
@@ -138,11 +155,10 @@ screen warehouse_gameplay:
   $ renpy.show_screen("magicPad", _zorder=100)
   on "show":
     action [Show("warehouse_box")]
-
   
-#TARVITAAN:
-#-tilausten näyttäminen pädillä
-#tilaus-backlogin generointi ja tallentaminen ja näyttäminen
+  timer roundDuration:
+    action [Hide(transition = fade), Function(hideMinigame), SetVariable("minigameOver", True), Return()]
+  #visual timer is shown in magicPad screen
 
 screen conveyer_belt(conveyerInterval):
   zorder 20
@@ -209,7 +225,9 @@ screen button_disable_timer:
   on "show":
     action SetVariable("boxReady", False)
   timer boxAnimDuration:
-    action [SetVariable("boxReady", True), Show("warehouse_box"), Hide()]
+    if minigameOver == False:
+      action [SetVariable("boxReady", True), Show("warehouse_box"), Hide()]
+
 
   
 screen send_order_button:

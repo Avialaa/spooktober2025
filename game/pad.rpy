@@ -4,6 +4,9 @@ label padTest:
 
 screen magicPad:
     zorder 100
+    #show visual timer (actual timer is in warehouse_gameplay screen)
+    add "countdown" xalign 0.95 yalign 0.95 
+
     imagemap:
         auto "images/padPohja %s.png"
         align (0.95, 0.25)
@@ -17,6 +20,7 @@ screen magicPad:
         hotspot (491, 316, 164, 180) action Function(addFish)
         hotspot (323, 501, 160, 159) action Function(addKeys)
         hotspot (491, 498, 164, 167) action Function(addBone)
+    
     
     vbox: #kaikki orderit
         #TODO: wrong item counts are displayed in game, fix!!!
@@ -46,4 +50,3 @@ screen magicPad:
                     text "{color=#ff0000}[item]  {/color}"
                     text "{color=#ff0000}x[orders[2].count(item)]{/color}" #returns number of items
             text " "
-
