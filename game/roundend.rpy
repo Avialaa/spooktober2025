@@ -19,6 +19,7 @@ default roundEndTotallPoints = False
 
 
 label roundEnd:
+    #Minigame is concluded by calling this label
     python:
         rPoints += roundrPoints
         bPoints += roundbPoints
@@ -61,6 +62,7 @@ label roundEnd:
 
 screen roundEndScreen:
     
+    #Timers to show point numbers
     timer 0.2 action SetVariable("roundEndrPoints", True)
     timer 0.4 action SetVariable("roundEndbPoints", True)
     timer 0.6 action SetVariable("roundEndyPoints", True)
@@ -79,6 +81,7 @@ screen roundEndScreen:
     timer 3.0 action SetVariable("roundEndTotalpPoints", True)
     timer 3.2 action SetVariable("roundEndTotallPoints", True)
 
+    #Returns automatically TODO: quicken with action
     timer 5.0 action Return()
 
     hbox:
