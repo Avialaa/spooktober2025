@@ -1,4 +1,3 @@
-
 default itemIndex = 0
 default itemsInBox = []
 default maxBoxItems = 6 #must be at least as big as max order size
@@ -7,10 +6,25 @@ default itemsOnConveyer = [] #items that will be spawned on conveyer; not curren
 default orderList = [] #list of items in last generated order
 default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
+default boxReady = True
+default boxAnimDuration = 0.5
+
+image box = ConditionSwitch(
+  "boxReady == True", "box_open.png",
+  "boxReady == False", "box_closed.png",
+  "True", "box_open.png"
+)
 
 init python:
   def hideItem(tag):
     renpy.hide_screen(tag)
+  
+  def closeBox():
+    global itemsInBox
+    global boxReady
+
+    if len(itemsInBox) == maxBoxItems:
+      boxReady = False
 
   class Item:
     def __init__(self, name, tier):
@@ -88,24 +102,21 @@ init python:
     global orders
     global itemsInBox
 
-    #make a copy of order so we can remove stuff without affecting the original list
     copiedOrder = orders[0].copy()
-
     isOrderCorrect = True
 
-    for item in itemsInBox:
-      if item.name in copiedOrder:
-        #TODO: give points for correct item?
-        copiedOrder.remove(item.name)
-      else:
-        #TODO: remove points for incorrect item?
-        isOrderCorrect = False
-    
-    return isOrderCorrect
+    # Create a list of item names from itemsInBox
+    itemNamesInBox = [item.name for item in itemsInBox]
 
-    
-    
-  
+    for orderItem in copiedOrder:
+        if orderItem in itemNamesInBox:
+          #TODO: give points for correct item?
+          itemNamesInBox.remove(orderItem)  # Remove to handle duplicates correctly
+        else:
+          #TODO: remove points for incorrect item?
+          isOrderCorrect = False
+
+    return isOrderCorrect
 
 label warehouse_gameplay:
   #generate 3 orders at the start of the minigame
@@ -117,12 +128,15 @@ label warehouse_gameplay:
 screen warehouse_gameplay:
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
   use conveyer_belt(1)
-  use warehouse_box
+  #use warehouse_box
   use send_order_button
   use pointView
   #use tablet_item_buttons
   #use magicPad
   $ renpy.show_screen("magicPad", _zorder=100)
+  on "show":
+    action [Show("warehouse_box")]
+
   
 #TARVITAAN:
 #-tilausten näyttäminen pädillä
@@ -132,7 +146,7 @@ screen conveyer_belt(conveyerInterval):
   zorder 20
   modal True 
 
-  text "{outlinecolor=#000}{color=#ff0000}Ducks: [itemIndex] Order list: [orderList] Is latest order correct? [isOrderCorrect]{/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
+  text "{outlinecolor=#000}{color=#ff0000}BoxReady: [boxReady] Order list: [orderList] Is latest order correct? [isOrderCorrect]{/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
   timer conveyerInterval:
     action [Function(showItemsOnConveyer)]
     repeat True
@@ -148,55 +162,61 @@ screen conveyer_item(item, timeOnConveyer):
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     if len(itemsInBox) +1 <= maxBoxItems:
-      action [Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item)] #TODO: If player tries to click item when box is full, box numbers shake
+      action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=None)#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
-      xpos 0.1 ypos 0.3
+      xpos -100 ypos 0.3
       on show:
         linear timeOnConveyer xpos 0.7
+      on hide:
+        linear 0.1 yoffset -50
+        linear 0.2 yoffset 100 alpha 0.0
   
   text "[renpy.current_screen().tag]":
     at transform:
-      xpos 0.1 ypos 0.25
+      xpos -100 ypos 0.25
       on show:
         linear timeOnConveyer xpos 0.7
   #hide item and return it to conveyer spawn list
   timer timeOnConveyer action [Hide(), AddToSet(itemsOnConveyer, item)]
 
 transform box_shake:
-  xalign 0.7 yalign 1.1
+  xalign 0.3 yalign 1.1
+  on replace:
+    linear 0.15 xoffset -5
+    linear 0.15 xoffset 5
+    linear 0.1 xoffset 0
+  on hide:
+    linear (boxAnimDuration/3) yoffset -10
+    linear (boxAnimDuration - boxAnimDuration/3) yoffset 100 alpha 0.0
   on show:
-    linear 0.2 align (0.7, 1.0)
-    linear 0.2 align (0.7, 1.1)
+    alpha 0.0 xoffset 100
+    linear (boxAnimDuration - boxAnimDuration/3) xoffset -10 alpha 1.0
+    linear (boxAnimDuration/3) xoffset 0 
+
 
 screen warehouse_box:
 
-  frame style 'empty' xysize (600,450): 
+  frame style 'empty' xysize (773,600): 
     xalign 0.5 yalign 0.5
-    background Frame("box.png",0,0)
+    background Frame("box", 0,0)
     at box_shake
     text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}":
         xcenter 0.5 ycenter 0.5
   
+screen button_disable_timer:
+  on "show":
+    action SetVariable("boxReady", False)
+  timer boxAnimDuration:
+    action [SetVariable("boxReady", True), Show("warehouse_box"), Hide()]
+
+  
 screen send_order_button:
   textbutton "Send order":
-    xalign 0.4 yalign 0.9
-    action Function(sendOrder)
+    xalign 0.1 yalign 0.9
+    action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
 
 
-# screen tablet_item_buttons:
-
-#   vbox:
-#     xalign 0.0 yalign 0.5
-
-#     textbutton "light" action Function(addLight)
-#     textbutton "sleep" action Function(addSleep)
-#     textbutton "fish" action Function(addFish)
-#     textbutton "bone" action Function(addBone)
-#     textbutton "meat" action Function(addMeat)
-#     textbutton "weapon" action Function(addWeapon)
-#     textbutton "keys" action Function(addKeys)
-#     textbutton "treasure" action Function(addTreasure)
-
+#Item button spawn functions
 init python:
   #items are spawned using list indexes, so that if item names change, it won't break these functions. List order must always stay the same.
   #["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"]
