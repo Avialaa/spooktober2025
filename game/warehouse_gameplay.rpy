@@ -9,9 +9,22 @@ default isOrderCorrect = True
 default boxReady = True
 default boxAnimDuration = 0.5
 
+image box = ConditionSwitch(
+  "boxReady == True", "box_open.png",
+  "boxReady == False", "box_closed.png",
+  "True", "box_open.png"
+)
+
 init python:
   def hideItem(tag):
     renpy.hide_screen(tag)
+  
+  def closeBox():
+    global itemsInBox
+    global boxReady
+
+    if len(itemsInBox) == maxBoxItems:
+      boxReady = False
 
   class Item:
     def __init__(self, name, tier):
@@ -133,7 +146,7 @@ screen conveyer_belt(conveyerInterval):
   zorder 20
   modal True 
 
-  text "{outlinecolor=#000}{color=#ff0000}Ducks: [itemIndex] Order list: [orderList] Is latest order correct? [isOrderCorrect]{/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
+  text "{outlinecolor=#000}{color=#ff0000}BoxReady: [boxReady] Order list: [orderList] Is latest order correct? [isOrderCorrect]{/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
   timer conveyerInterval:
     action [Function(showItemsOnConveyer)]
     repeat True
@@ -149,7 +162,7 @@ screen conveyer_item(item, timeOnConveyer):
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     if len(itemsInBox) +1 <= maxBoxItems:
-      action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")], false=None)#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
+      action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=None)#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
       xpos -100 ypos 0.3
       on show:
@@ -183,9 +196,9 @@ transform box_shake:
 
 screen warehouse_box:
 
-  frame style 'empty' xysize (600,450): 
+  frame style 'empty' xysize (773,600): 
     xalign 0.5 yalign 0.5
-    background Frame("box.png",0,0)
+    background Frame("box", 0,0)
     at box_shake
     text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}":
         xcenter 0.5 ycenter 0.5
@@ -203,20 +216,7 @@ screen send_order_button:
     action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
 
 
-# screen tablet_item_buttons:
-
-#   vbox:
-#     xalign 0.0 yalign 0.5
-
-#     textbutton "light" action Function(addLight)
-#     textbutton "sleep" action Function(addSleep)
-#     textbutton "fish" action Function(addFish)
-#     textbutton "bone" action Function(addBone)
-#     textbutton "meat" action Function(addMeat)
-#     textbutton "weapon" action Function(addWeapon)
-#     textbutton "keys" action Function(addKeys)
-#     textbutton "treasure" action Function(addTreasure)
-
+#Item button spawn functions
 init python:
   #items are spawned using list indexes, so that if item names change, it won't break these functions. List order must always stay the same.
   #["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"]
