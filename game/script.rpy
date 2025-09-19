@@ -9,9 +9,9 @@ define e = Character("Eileen")
 # The game starts here.
 
 label start:
-    e "heippa :-D"
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
+    call roundEnd
     call warehouse_gameplay
     call padTest
     call upgradeTree
