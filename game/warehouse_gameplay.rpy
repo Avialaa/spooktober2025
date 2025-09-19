@@ -126,6 +126,8 @@ label warehouse_gameplay:
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:
+  add "bigspace_day.png"
+  add "conveyer.png" xalign 0.0 yalign 0.45
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
   use conveyer_belt(1)
   #use warehouse_box
@@ -164,7 +166,7 @@ screen conveyer_item(item, timeOnConveyer):
     if len(itemsInBox) +1 <= maxBoxItems:
       action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=None)#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
-      xpos -100 ypos 0.3
+      xpos -100 ypos 0.25
       on show:
         linear timeOnConveyer xpos 0.7
       on hide:
@@ -180,7 +182,7 @@ screen conveyer_item(item, timeOnConveyer):
   timer timeOnConveyer action [Hide(), AddToSet(itemsOnConveyer, item)]
 
 transform box_shake:
-  xalign 0.3 yalign 1.1
+  xalign 0.3 yalign 1.2
   on replace:
     linear 0.15 xoffset -5
     linear 0.15 xoffset 5
@@ -211,9 +213,13 @@ screen button_disable_timer:
 
   
 screen send_order_button:
-  textbutton "Send order":
-    xalign 0.1 yalign 0.9
-    action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
+
+  imagebutton:
+    xalign 0.05 yalign 0.9
+    auto "send_%s.png"
+    #if len(itemsInBox) +1 <= maxBoxItems:
+    if len(itemsInBox) > 0:
+      action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
 
 
 #Item button spawn functions
