@@ -1,32 +1,35 @@
-label 1-2: 
+label day1_2: 
 
 # Post-minigame
 
-    scene bg_warehouse
-        "Done!"
-        "The new system will take some getting used to. Until now, I've had to carry everything by hand. The boss always knew which boxes were mine because of the slime stains. I can say goodbye to that."
-        # siipien läpsytys
-        # Agatha fades in, smiling
-        A "…"
-        MC "Hi, Agatha."
-        A "Good afternoon, MC! Did you sleep well?"
-        MC "Same as always?"
-        A "Excellent!"
-        A "I was hoping to hear your thoughts on the new dispatch ecosystem. After testing the fruits of the wizard's innovation all morning, I'm sure you have some solid constructive feedback."
+    scene bg warehouse
+    "Done!"
+    "The new system will take some getting used to. Until now, I've had to carry everything by hand. The boss always knew which boxes were mine because of the slime stains. I can say goodbye to that."
+    # siipien läpsytys
+    # Agatha fades in, smiling
+    show agatha iloinen suukiinni at cleft, hop
+    A "…"
+    MC "Hi, Agatha."
+    A "Good afternoon, MC! Did you sleep well?"
+    MC "Same as always?"
+    A "Excellent!"
+    A "I was hoping to hear your thoughts on the new dispatch ecosystem. After testing the fruits of the wizard's innovation all morning, I'm sure you have some solid constructive feedback."
 
-            menu:
-                "“It's more work than before.”"
-                    A "…While I'm sure the boss appreciates all feedback… Maybe that's a bit… But of course, I don't want to put words in your mouth! But…"
-                    "She looks conflicted."
-                "“It's easy.”"
-                    A "Great! As expected of the second best employee of the year!"
-                    "If I recall, she came in first. I don't think she meant ill with that."
+    menu:
+        "“It's more work than before.”":
+            A "…While I'm sure the boss appreciates all feedback… Maybe that's a bit… But of course, I don't want to put words in your mouth! But…"
+            "She looks conflicted."
+        "“It's easy.”":
+            A "Great! As expected of the second best employee of the year!"
+            "If I recall, she came in first. I don't think she meant ill with that."
 
-        A "I'm sure you're aware, but the boss is relying on us. That he has left us unsupervised signifies great trust."
-        A "GREAT trust."
-        A "Let's show up properly this week, and be the best versions of ourselves!"
-        "She flutters back into the warehouse."
-        "Well, the lunch hour's wasting. Not that it's ever an hour, but 30 minutes. Presently, only 28 remain."
+    A "I'm sure you're aware, but the boss is relying on us. That he has left us unsupervised signifies great trust."
+    A "GREAT trust."
+    A "Let's show up properly this week, and be the best versions of ourselves!"
+    "She flutters back into the warehouse."
+    "Well, the lunch hour's wasting. Not that it's ever an hour, but 30 minutes. Presently, only 28 remain."
+
+
 
 # scene bg_corridor
 # "Huh? That's…"

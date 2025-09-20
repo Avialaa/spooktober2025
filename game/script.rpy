@@ -14,7 +14,8 @@ define C = Character("Cee")
 label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
-    call warehouse_gameplay
+    call day1_2
+    #call warehouse_gameplay
     call roundEnd
     call after_minigame
     #call padTest
