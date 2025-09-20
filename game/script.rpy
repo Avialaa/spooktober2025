@@ -8,6 +8,7 @@ define A = Character("Agatha")
 define MC = Character("McName") # myöhemmin sit nimenvalinta
 define K = Character("Karkhos")
 define C = Character("Cee")
+define All = Character("All")
 
 # The game starts here.
 
