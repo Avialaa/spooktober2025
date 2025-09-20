@@ -145,7 +145,7 @@ label day1_2:
     "I sigh deeply."
     "The quickest way out would be to give an answer."
 
-   # tää valinta märää, onks seuraava kohtaus 1.3 A, B vai C. Mut se kohtaus tulee vast kun tää nykyinen on loppunu.
+# tää valinta märää, onks seuraava kohtaus 1.3 A, B vai C. Mut se kohtaus tulee vast kun tää nykyinen on loppunu.
     menu:
         "“Working hard is important” (agree with Agatha)":
             $ agreewithagatha = True
@@ -169,4 +169,126 @@ label day1_2:
     "What can I even say? The fight has been beaten out of me. I'm starting to question everything I held true. Maybe being noncommittal IS unforgivable. The power of being outvoted sure is frightening."
     MC "Okay. I promise to give it some thought. If that's everything, I still need to eat."
     "They scatter, but keep giving me secretive glances."
+
+label day1_4A:
+
+    scene bg warehouse
+    show agatha iloinen at center, hop
+    A "Good work, MC! You shipped a lot of good orders today."
+    A "I knew I could count on you!"
+    MC "Uh, thanks?"
+    "How on earth has she kept track of my performance? I never see her eyes leave the…"
+    #ehkä zoom in A? yks siipi wink
+    show agatha vinkkaus 
+    "My gaze is drawn down. One of her wing eyes winks at me."
+
+label day1_6A:
+
+    scene bg breakroom
+    
+    "Okay, I made it through my first day with the new system pretty respectably."
+    "Can't wait to get home and snack on the rest of that rare moss I've been saving."
+    "My body starts to salivate just thinking about it."
+    show agatha perus at center
+    A "MC!"
+    MC "Moss! I mean Agatha!" 
+    #A pikku hyppy
+    show agatha iloinen at hop
+    A "?"
+    A "I just wanted to reiterate, great work today! Your numbers were off the charts… The old charts, anyway."
+    "She's been really nice to me ever since I was pressured into voting. It's getting pretty transparent, but oh well."
+    MC "Thanks. Maybe I'll catch up to you if I keep it up, haha!"
+    #A twitch
+    show agatha pelokas
+    A "Haha! Maybe you will!"
+    "..."
+    MC "Anyway, I should get…"
+    show agatha perus 
+    A "If you don't mind, [MC], could I have a moment of your time?"
+    "Moss…"
+    MC "Sure. What's up?"
+    A "I think I can tell you're… a kindred spirit, [MC]. I hope you don't mind me being so bold."
+    A "You're such a reliable presence at the warehouse."
+    A "I can't always rely on the others to do their part, but I can trust that you will."
+    MC "It's nothing? I just do my job?"
+    #Make A bigger
+    show agatha perus at zoom_in
+    A "EXACTLY!"
+    show agatha perus at zoom_normal
+    #Make A normal size
+    A "Don't sell yourself short, [MC]! What you do means a lot. Really."
+    "Yeah, she's being REALLY nice. I know she just wants to butter me up… But it's kind of nice to be appreciated."
+    A "And not just to me. Every piece of loot we ship could save a monster's life, you know." 
+    A "But despite that, Cee has no appreciation for what Boss has created here. And Karkhos…"
+    "I can see her going to great trouble, trying to find a diplomatic way to put this."
+    MC "...Yeah. Karkhos."
+    #A smile
+    show agatha iloinen
+    A "Well put."
+    show agatha perus
+    A "You know, the two of them may think they \"just work here\", but their slacking off affects a lot of others: us here, because we have to make up for it, and all of the monsters out there in the world who depend on Loot to protect them!"
+    "That's a bit lofty, but I guess her passion for work must come from somewhere. The bit about just working here I feel in my gel."
+    MC "I do wish Karkhos and Cee would help a bit more, sometimes."
+    A "That's putting it mildly."
+    A "But if you support me and we get everyone on board, I know we can take Loot to new heights."
+    A "I have so many ideas to improve our productivity for the good of all monsterkind."
+    A "More incentives for hard work! Less distractions!"
+    "I can't help being enticed by the idea of incentives. It would be nice to get some thanks when I do a good job."
+    A "Not to mention expansion!"
+    A "There's still room to spread more awareness, and as demand grows, I think the Warehouse will eventually spawn branches."
+    A "When that happens, I want to be there to lead the charge."
+    #neutraali ilme, shake
+    A "Uh. If they'll have me."
+    "Boss's shoes are pretty big for her to fill, literally, but she seems really motivated."
+    menu:
+        "Sure. Maybe you'll get lucky.":
+            A "Right. I'll do my best."
+        "Go for it! I believe in you.":
+            A "Oh!"
+            #A smile
+            A "Thank you, [MC]."
+    A "Our work is important, and I want to give all I can to it."
+    A "You know, life is hard for monsters living out in the Human Wilds, and it was even harder before the Loot system."
+    #Shake A
+    A "When you'd come across a human, it was fight, run or die."
+    MC "Yikes!"
+    A "Yes. It was even harder for the smaller monsters who don't stand a chance in terms of size."
+    A "I mean, some have venom or spikes, but not all."
+    A "Without a natural weapon or magic, your only options would be running or dying."
+    A "Never leave the dungeon without carrying Loot, MC. Trust me on this."
+    A "Humans are scary…"
+    menu:
+        "Are you speaking from experience?":
+            "Her eyes snap to mine and then turn away again."
+            A "...Some."
+            "She picks at the hair on her arm absentmindedly. I guess she doesn't want to elaborate."
+        "You got it.":
+            A "Good. Don't forget it."
+    A "How about you, [MC]? Have you had any human encounters?"
+    MC "No, thank goo. I coalesced in a dungeon like most slimes, so I haven't been out much."
+    A "I'm glad. That's how it should be for everyone."
+    "When did the mood get this heavy?"
+    #Shake A
+    A "In any case, I've kept you long enough, [MC]. I should also get going."
+    A "Thank you for taking the time for me…"
+    "She seems way gloomy. It was surprisingly nice chatting to her, so it'd be a shame to send her off like this."
+    "I want to cheer her up, and I know just the thing."
+    MC "No proble-moth!"
+    "I garnish my pun with a wink."
+    "I've been practicing, but my face still looks a bit weird when I focus on closing one eye. Hopefully she doesn't notice."
+    #A smile
+    A "Pff."
+    "Was that a genuine chuckle?"
+    A "Nice one, [MC]. Problemoth…"
+    "She chuckles again. Yes!!"
+    A "Get a good rest, so you can bring your best tomorrow as well!"
+    MC "You too, Agatha!"
+    "She turns back towards the workroom."
+    MC "Wait, you're not going home?"
+    A "I just want to pack a few more boxes. I'll be right behind you, promise."
+    MC "Okay…"
+    #A fade out
+    "Oh well, to each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
+    "Moss, sweet moss…"
+
 return
