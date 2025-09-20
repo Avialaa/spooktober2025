@@ -4,7 +4,7 @@
 # name of the character.
 
 define e = Character("Eileen")
-define A = Character("Agatha"
+define A = Character("Agatha")
 define MC = Character("McName") # myöhemmin sit nimenvalinta
 define K = Character("Karkhos")
 define C = Character("Cee")
