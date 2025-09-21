@@ -44,7 +44,7 @@ label day1_2:
     "He's sitting down. I can feel his snoring through the rock floor."
     # K neutral sprite
     show karkhos perus at hop
-    K "…mornin', MC."
+    K "…mornin', [MC]."
     MC "Hey Karkhos. Have you been sleeping here the entire shift?"
     show karkhos pikkuviha
     K "...'course not. Stuffed them boxes real hard 'n proper. Just like you."
@@ -86,7 +86,7 @@ label day1_2:
     C "Have you managed to feast your eyeballs on the devastation in the warehouse? The infernal machinery has been wound up, and no longer is there any stopping it."
     MC "Everyone seems to have a strong opinion on the new system."
     show cee perus
-    C "Are we, the four heralds of this abysmal lair, content with only trimming the moss, whilst the rock remains unmoved? It's about the rock, MC, the rock."
+    C "Are we, the four heralds of this abysmal lair, content with only trimming the moss, whilst the rock remains unmoved? It's about the rock, [MC], the rock."
     MC "Um… The wall moss does need a trim, doesn't it?"
     # Fluttering sound
     # Agatha appears
@@ -109,7 +109,7 @@ label day1_2:
     "Well, not gonna ruin my day. As long as they're leaving me out of it."
     # A smile
     show agatha iloinen
-    A "What's your stance, MC?"
+    A "What's your stance, [MC]?"
     # C smile
     show cee iloinen
     C "Yes, do join and settle this petty dispute of Fools."
@@ -122,7 +122,7 @@ label day1_2:
     MC "I really don't mind. I'm not even involved."
     K "Wow. I wouldn't have thought you'd stoop so low."
     MC "...wait, what?"
-    C "Oh MC, you must know…"
+    C "Oh [MC], you must know…"
     A "...that the only thing separating us from lowly humans is…"
     # all angry
     All "...DEMOCRACY!"
@@ -190,7 +190,7 @@ label day1_3A:
     "But this time, even though she gets there well ahead of me…"
     #A smile
     show agatha iloinen zorder 2
-    A "Go ahead, MC."
+    A "Go ahead, [MC]."
     MC "Uh, thanks? That's gentlemonsterly of you."
     A "Why, of course. There's no rush. There are still…"
     "She glances at the clock on the wall."
@@ -260,7 +260,7 @@ label day1_3B:
     "To finish eating in time, I had to forgo pre-digestion. The food chunks floating in my body ludge around unpleasantly."
     # footsteps, K neutral appears
     show karkhos perus at middle with moveinright
-    K "Hey, MC. Already back to the grind, yeah?"
+    K "Hey, [MC]. Already back to the grind, yeah?"
     MC "Didn't you start your break before me?"
     K "I'll just make up the minutes later. The break's way too short to begin with."
     K "Just because our job's important, shouldn't mean we'll have to work until even our bones are ground to dust."
@@ -368,7 +368,7 @@ label day1_3C:
     "Fish? They want me to pack fish with the orders?"
     C "It would please me immensely."
     MC "Um, I'll think about it, I guess."
-    C "Marvelous. I'll be observing you, MC."
+    C "Marvelous. I'll be observing you, [MC]."
     "Oh no. I can already feel the performance anxiety hitting." 
 
 
@@ -377,7 +377,7 @@ label day1_4A:
 
     scene bg warehouse
     show agatha iloinen at middle, hop
-    A "Good work, MC! You shipped a lot of good orders today."
+    A "Good work, [MC]! You shipped a lot of good orders today."
     A "I knew I could count on you!"
     MC "Uh, thanks?"
     "How on earth has she kept track of my performance? I never see her eyes leave the…"
@@ -385,15 +385,45 @@ label day1_4A:
     show agatha vinkkaus 
     "My gaze is drawn down. One of her wing eyes winks at me."
 
+label day1_4C: #Cee congratulates MC
+
+    scene bg warehouse
+    "Thank goo I didn't mess anything up."
+    # Cee appears
+    # Cee iloinen
+    show cee iloinen at middle with moveinleft
+    show cee iloinen at hop
+    C "Well done, [MC]. I'm happy to inform you that I'm pleased with your performance."
+    MC "Glad to hear that, Cee."
+    "Now this is a surprise. I haven't seen Cee this peppy before."
+    # Cee tosi iloinen 
+    show cee tosi iloinen
+    C "You are well beyond capable. Perhaps we should host a soiree to celebrate your prowess."
+    MC "Now now, Cee, you're exaggerating. I was simply doing my job."
+    C "No need to be so modest, my dear sluggish companion. You were MARVELOUS." 
+
+    C "A raging tempest destroying everything in its way. Nay, a ferocious SHARK gnashing its teeth and tearing through innocent flesh!"
+    "All I did was slip in some fish, and they're this pleased with me? Wow."
+    C "Ahhh, I just might shed a tear if I could."
+    # Cee iloinen
+    show cee iloinen
+    MC "Um, sure. If you say so."
+    "I'm pretty sure I haven't done anything extraordinary, but here Cee is, singing my praises."
+    C "Small fish like us could use a shark like you. Even the bravest landlubbers go pale at the sight of a shark baring its teeth."
+    MC "I'm still pondering my options here, but thanks, Cee. I'll let you know when I've made my decision."
+    "I start to take my leave, nodding at Cee before I go."     
+    C "Even if you remain vacillating, I shall wait patiently."
+
+
 label day1_6A:
 
-    scene bg breakroom
+    scene bg breakroom night
     
     "Okay, I made it through my first day with the new system pretty respectably."
     "Can't wait to get home and snack on the rest of that rare moss I've been saving."
     "My body starts to salivate just thinking about it."
     show agatha perus at middle
-    A "MC!"
+    A "[MC]!"
     MC "Moss! I mean Agatha!" 
     #A pikku hyppy
     show agatha iloinen at hop
@@ -458,7 +488,7 @@ label day1_6A:
     A "Yes. It was even harder for the smaller monsters who don't stand a chance in terms of size."
     A "I mean, some have venom or spikes, but not all."
     A "Without a natural weapon or magic, your only options would be running or dying."
-    A "Never leave the dungeon without carrying Loot, MC. Trust me on this."
+    A "Never leave the dungeon without carrying Loot, [MC]. Trust me on this."
     A "Humans are scary…"
     menu:
         "Are you speaking from experience?":
@@ -493,5 +523,78 @@ label day1_6A:
     #A fade out
     "Oh well, to each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
     "Moss, sweet moss…"
+
+label day1_6B:
+
+    "Done with the day! I'm so tired! When I stretched earlier, so many air bubbles in me popped that it was mildly alarming."
+    "Agatha is still working, but the other two seem to have already gone home. I worked hard, and have earned a good night's rest."
+
+    # Käytävä bg
+    scene bg hallway night
+    show karkhos perus at middle
+    "Hm? Karkhos is idling in the corridor. Why hasn't he gone home yet?"
+    K "Hey. Good work out there."
+    "I should return the compliment, but in light of today's events…"
+    MC "Thanks. You look tired as well."
+    K "For sure. Could say I'm …DEAD tired."
+    MC "..."
+    K "Anyway."
+    K "The new system's more thinking and less hauling than I'm used to. Agatha said it's just the learning curve, but I dunno. Sounds like a trick. A real fact is that my brain's overheating."
+    # sad sprite
+    K "And where will Wormy go if my skull's a sauna?"
+    show karkhos perus mato
+    "The top of Karkhos' brain writhes. \"Wormy\" pokes out and nods empathically."
+    MC "I get it. My body temperature also goes up when I move around."
+    MC "One summer, when Agatha was sick and we had to work overtime, it was so hot I turned into a puddle. I had to be scraped off the floor and put into the ice box. Took hours before I could move again."
+    K "Cee told me about that! Goes to show how important getting to regulate our own breaks is. My previous job in the chain also had unreasonable demands, but at least I got to take a five whenever I wanted."
+    "Uh oh. I think he's told me what his previous job was, but I've forgotten."
+
+    menu: 
+        "(pretend you remember)":
+            MC "Right, it was the job with the, the thing with the…"
+            # happy sprite
+            show karkhos iloinen
+            K "Loot deliveries, yeah. You remembered."
+            "I'm sorry."
+        "(admit you don't)":
+            MC "I feel you might have told me, but I can't seem to remember what your previous job was."
+            # sad sprite
+            "Karkhos looks disappointed, but he bravely pushes the disappointment away."
+            K "It's cool. We've all got our hands full."
+            # normal sprite
+            K "I used to do Loot deliveries."
+
+    K "I kinda miss it. Took the Loot to \"the monster that needs it\". Nobody was looking over my shoulder, so when I was tired, it was okay to sit down and take a well-timed power nap."
+    K "Day after day was a huge deal of running, so much that I wondered if I would die a second time. But the naps under the trees made up for it."
+    # K happy silmät kiinni
+    show karkhos tosi iloinen
+    K "I woke up to birds singing and the sun shining, the wind in my hair and blades of grass brushing against my bones."
+    "He seems to get lost in the good memory."
+    MC "Why'd you leave then?"
+    show karkhos perus
+    K "Didn't. Got the boot. Must've been cuz they hate zombies or something."
+    MC "..."
+    K "Over here, it's all different. I haven't seen the sun in years."
+    MC "That IS a downside of working in a dungeon."
+    "Karkhos looks at the wall contemplatively. If he's so tired, how come he doesn't find a less taxing job? But there's no way I'm asking that."
+    MC "So… See you tomorrow?"
+    show karkhos perus at hop
+    K "Oh, I've kept you, haven't I?"
+    K "Gotta be honest here. I feel like you get where I'm coming from. The other two are stubborn, and the Boss thinks he's always right. But you're not like that. It's like you adapt to what's around you."
+    MC "Thanks, I get that alot."
+    K "Just be careful, 'kay? Being too malleable might mean someone can use that. Against you."
+    MC "That is actually exactly what all slime babies get taught in slime school."
+    K "Really?! Damn. Guess I was insensitive."
+
+    menu:
+        "I appreciate the sentiment.":
+            K "Sorry, I said something stupid again. There's a reason they never called me Karkhos the Poet."
+        "I still haven't made up my mind.":
+            K "For sure. Better be certain, so you can stand behind your choice."
+    show karkhos iloinen
+    K "Was nice having a proper heart to hear with you. Can't believe how little we've chatted up till now."
+    K "Let's go for drinks sometime? If we ever get a day off, that is."
+
+    # (???? joku loppu-juttu viel, PLACEHOLDER julialle)
 
 return
