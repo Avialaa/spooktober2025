@@ -1,3 +1,6 @@
+default agreewithagatha = False
+default agreewithkarkhos = False
+default agreewithcee = False
 
 
 label day1_2: 
@@ -12,7 +15,7 @@ label day1_2:
     show agatha iloinen suukiinni at middle, hop
     A "…"
     MC "Hi, Agatha."
-    A "Good afternoon, MC! Did you sleep well?"
+    A "Good afternoon, [MC]! Did you sleep well?"
     MC "Same as always?"
     A "Excellent!"
     A "I was hoping to hear your thoughts on the new dispatch ecosystem. After testing the fruits of the wizard's innovation all morning, I'm sure you have some solid constructive feedback."
@@ -172,10 +175,10 @@ label day1_2:
 
     if agreewithagatha:
         jump day1_3A
-    # if agreewithkarkhos: 
-    #     jump day1_3B
-    # if agreewithcee: 
-    #     jump day1_3C
+    if agreewithkarkhos: 
+        jump day1_3B
+    if agreewithcee: 
+        jump day1_3C
 
 label day1_3A:
     scene bg breakroom
@@ -247,6 +250,127 @@ label day1_3A:
     MC "Thanks, you too?"
     "...Was that a well-wish or a threat?"
     
+
+#(kohtauksessa 1.2 valitun coworkkerin scene)
+
+label day1_3B:
+
+    # Corridor BG
+    scene bg hallway
+    "To finish eating in time, I had to forgo pre-digestion. The food chunks floating in my body ludge around unpleasantly."
+    # footsteps, K neutral appears
+    show karkhos perus at middle with moveinright
+    K "Hey, MC. Already back to the grind, yeah?"
+    MC "Didn't you start your break before me?"
+    K "I'll just make up the minutes later. The break's way too short to begin with."
+    K "Just because our job's important, shouldn't mean we'll have to work until even our bones are ground to dust."
+    K "Though you haven't got any bones, do you?"
+    MC "Neither does Agatha. Cee has some, I think."
+    K "Bones or not, everyone gets tired. Been wanting to tell this to Boss for ages. But I know he won't listen, not unless all four of us stand behind a single demand. Power in numbers. Like with the uniforms!"
+    MC "Oh, true. I still can't imagine what Boss was thinking, putting us in evil cultist getups. It was inconvenient."
+    K "Putting it mildly. The robes were a huge pain. Mine always got soggy with gut juice, and the hem made me trip more times than I can remember. The ones we have now are much better. And I don't gotta wear a shirt."
+    MC "It was nice that Boss listened, even though he really liked the evil cult look. He's reasonable when it really counts. Must've been because all four of us insisted on it."
+    K "This time's no different. We need a unified front. What could be more important than the longevity of the very monsters doing all the heavy lifting?"
+    # warehouse BG
+    scene bg warehouse with fade
+    show karkhos perus at middle
+    K "I've been thinking—crazy I know."
+    K "As long as we send out enough boxes, doesn't really matter what's inside. Leave some empty space in those boxes, will you? Easier to carry. That would show you agree with me."
+    K "We'll show that the warehouse is plenty efficient if we work reasonable hours. Maybe we'll even be MORE efficient with enough breaks. When the Boss returns, he'll have no choice but to agree."
+    MC "How much more free time were you thinking?"
+    K "Wasn't. Those details will come naturally later. Flexibility, and so on. As I've gotten older, I've understood it's important to not set plans in stone too early."
+    "I feel he might have misunderstood some sound advice there. No way am I correcting him, though."
+    MC "Uh, speaking of working."
+    K "Maybe I've kept you \"too long\"?"
+    "He makes air quotes."
+    MC "Are you going to continue your …break?"
+    K "Nah, I'll get to packing shortly. Promised to work normally until you decide. We even shook on it, me and the two hurrywarts."
+    K "None of us want the other two to start doing whatever. It's the one thing we agreed on. Agatha's the most vocal, but Cee's also unbelievably stubborn. So until this thing's settled, I'll go on as usual."
+    # K angry
+    show karkhos vihainen
+    K "They just don't know what's good for them. But they'll run out of fuel soon."
+
+    # (loppujuttu PLACEHOLDER julialle)
+
+label day1_3C:
+
+    scene bg warehouse
+    # Cee appears
+    # Cee perus
+    show cee iloinen at middle with moveinleft
+    C "Greetings, my fellow prisoner. Sorry about the brusquerie, but do you have a minute? A fleeting moment to spare?"
+    MC "Um, sure thing, Cee. What's up?"
+    C "Nay, [MC], nay. What I have to say is FAR more important so please heed my words."
+    MC "Alright, Cee, I'm all ears. Um. If I HAD ears, I mean."
+    C "Wonderful."
+    show cee perus
+    C "Do you have any idea what we're up against? Or rather, what kind of a monster is standing in our way, sitting at the top of our corporation?"
+    "Cee is talking about Boss, right?"
+
+    menu: 
+        "\"Um… dragon?\"":
+            MC "Don't dragons like, I don't know, sitting on piles of gold?"
+            # Cee iloinen
+            show cee iloinen at hop
+            C "Ha! Good guess, but nothing quite so fiery."
+            "I was already imagining Boss breathing fire. Haha." 
+
+        "\"Boss is a werewolf, isn\'t he?\"":
+            MC "I thought you knew that. You've MET Boss, right?"
+            C "You poor creature and your lack of imagination. Do you always take everything so literally?"
+            "Hey! It's not my fault you're asking strange questions."
+        
+        "\"I have no idea what you're trying to imply.\"":
+            #Cee iloinen
+            show cee iloinen at hop
+            C "Then allow me to explain, my obtuse comrade."
+            "Obtuse?"
+            "I have no idea what that word means, but I have a hunch it's nothing flattering…"
+    # Cee perus
+    show cee perus
+    C "Small fish like us have a ghost of a chance against a ferocious KRAKEN unless we join forces. We simply must turn this ghastly ship around while we still can, and steer it towards a brighter future."
+
+    C "Now that the beast is gone, we have the perfect moment to strike. It’s going to be too late when the kraken is back, my fellow prisoner. It's going to be far too late…"
+    "Cee stares into the distance and shudders."
+    MC "Wait, kraken?"
+    C "Aye."
+    MC "Boss? Our boss?"
+    C "Précis. That imposing fur is hiding dozens, nay, HUNDREDS of grisly tentacles ready to grab any poor fish trying to escape the frigid currents of oppression."
+    MC "Wow. Um, okay, you certainly have some strong opinions on this topic."
+
+    C "Why yes, my benighted friend. If not me, who else? The others do not see what I see."
+    "Hehe. See and Cee. They are a SEA monster after all."
+    C "They lack the ability to comprehend such complicated matters - bless their piteous little brains. I, on the other hand, am well beyond capable of creating a new, better world for us all."
+    MC "You sure have been thinking about this a lot, haven't you, Cee?"
+    C "Indeed I have. Heed my words, for I shall not be abased any longer."
+    C "We must strike NOW, before the tentacles grab us and drag us back into the abyss. We have suffered long enough and 'tis finally time for justice!"
+    # Cee looks determined
+    MC "Huh. I guess, when you put it like that…"
+
+    # Cee iloinen
+    C "I shall wait patiently until our temporary leader is decided, and the others shall too. However, IF either of those fools tries to intervene in the process…"
+    # Cee karmiva hymy
+    "Yikes!"
+    MC "I'm pretty sure they won't. They want it fair and square, just like you and me."
+    C "They better."
+    MC "Don't worry, Cee. I'm feeling optimistic about this."
+    # Cee perus
+    C "Very well then. Thank you for this colloquy."
+
+    "They sure use a lot of fancy words. I wish there was a fancy word for someone using too many fancy words."
+
+    C "Now then, I suppose you have some work to do. The infernal machine awaits."
+    MC "Oh, right."
+    C "Before you start, I have a suggestion. You know what makes any shipment better?"
+    MC "Uh…"
+    # Cee tosi iloinen
+    C "Fish, of course! I suggest you use your slimy little appendages and slip in as many fish as you can."
+    "Fish? They want me to pack fish with the orders?"
+    C "It would please me immensely."
+    MC "Um, I'll think about it, I guess."
+    C "Marvelous. I'll be observing you, MC."
+    "Oh no. I can already feel the performance anxiety hitting." 
+
 
 
 label day1_4A:
