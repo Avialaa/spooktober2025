@@ -15,6 +15,7 @@ define All = Character("All")
 label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
+    call day2_5A
     call day1_2
     #call warehouse_gameplay
     call roundEnd
