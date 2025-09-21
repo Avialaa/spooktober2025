@@ -9,7 +9,7 @@ label day1_2:
     "The new system will take some getting used to. Until now, I've had to carry everything by hand. The boss always knew which boxes were mine because of the slime stains. I can say goodbye to that."
     # siipien läpsytys
     # Agatha fades in, smiling
-    show agatha iloinen suukiinni at center, hop
+    show agatha iloinen suukiinni at middle, hop
     A "…"
     MC "Hi, Agatha."
     A "Good afternoon, MC! Did you sleep well?"
@@ -37,7 +37,7 @@ label day1_2:
     "Huh? That's…"
 
     # Show K sprite. Silmät kiinni?
-    show karkhos nukkuva at center
+    show karkhos nukkuva at middle
     "He's sitting down. I can feel his snoring through the rock floor."
     # K neutral sprite
     show karkhos perus at hop
@@ -74,7 +74,7 @@ label day1_2:
 
     scene bg breakroom
     "Because of the delays, when I reach the breakroom, I'm not the first one."
-    show cee iloinen zorder 3 at hop, center
+    show cee iloinen zorder 3 at hop, middle
     # C happy sprite
     C "Top of the morning, fellow prisoner."
     MC "Good morning to you too, Cee."
@@ -170,10 +170,89 @@ label day1_2:
     MC "Okay. I promise to give it some thought. If that's everything, I still need to eat."
     "They scatter, but keep giving me secretive glances."
 
+    if agreewithagatha:
+        jump day1_3A
+    # if agreewithkarkhos: 
+    #     jump day1_3B
+    # if agreewithcee: 
+    #     jump day1_3C
+
+label day1_3A:
+    scene bg breakroom
+    "I feel like if I don't put my metaphorical foot down now, I won't have time to {i}eat{/i} on this \"sacredly\"-whatever lunch break."
+    #eat itallics
+    #wing flaps sound
+    show agatha perus with moveinleft
+    "Ah. As usual, it's a race to the ice box between me and Agatha. I don't often win, but then, she has wings."
+    "But this time, even though she gets there well ahead of me…"
+    #A smile
+    show agatha iloinen zorder 2
+    A "Go ahead, MC."
+    MC "Uh, thanks? That's gentlemonsterly of you."
+    A "Why, of course. There's no rush. There are still…"
+    "She glances at the clock on the wall."
+    A "... 7 minutes and 23 seconds left of lunch. I'm not worried about my spotless attendance record. Even a little. Not at all."
+    MC "Your… Sure."
+    "I grab my lunchbox, and she rushes to grab her thermos after me."
+    A "Now, I saw it in your eyes. No - don't say anything! I wouldn't want to cheat, but I can tell you sympathize with my views." 
+    A "As expected of our second best employee!"
+    MC "..."
+    "She's sitting down on the table next to me."
+    "I hoped the rest of my lunch break would be peaceful, but I guess it was too good to be true."
+    "She pops open her homemade nectar. Its strong, fruity aroma gives my NutriMold a weird undertaste."
+    A "You know, the Loot Chain has given us so much. Stable employment, safe and cozy caves, a purpose."
+    A "I think it's the least we can do to give our best in return."
+    MC "I do agree about the benefits. Life's hard outside of the dungeon, what with all the humans."
+    A "Right? And by doing our part, we get to make life better {i}outside{/i} of the dungeon as well. Good loot saves lives!"
+    #outside itallics
+    A "And, although this is a bit more crass to bring up…"
+    "She lowers her voice conspiratorially."
+    A "Who do you think Boss will consider for a promotion when our business inevitably booms?"
+    A "With how things are going, it's not going to be {i}him{/i}."
+    #him itallics
+    #Show Karkhos
+    show agatha perus at cleft zorder 2 with moveinleft
+    show karkhos perus at cright zorder 1
+    "She gives Karkhos the side-eye of the century."
+    menu:
+        "I don't really want a promotion.":
+        #A smile
+            A "Well, I would also be happy to help you improve your productivity from a managerial position." 
+        "You're probably not wrong.":
+        #A frown?
+            A "Right? I don't want to foster a hostile atmosphere in the workplace, but…"
+            A "Sometimes I feel like he's not motivated to work."
+    hide karkhos with moveoutright
+    show agatha perus at middle
+    "Agatha sips the last of her nectar and stands up."
+    MC "Going already? There's still two minutes left."
+    A "Can't neglect my record! Which, by the way, you should mind as well!"
+    A "Of course, I'm just doing my work as usual. Normally. Until you cast your vote."
+    A "Since we all agreed not to meddle until you pick m- a side."
+    "Feeling confident, I see."
+    A "{i}If{/i} you want to support me for the good of all, I'd ask you to just work as hard as you can!"
+    #if itallics
+    A "Ship as many orders as you can muster!"
+    A "But remember how Boss gets about mistakes."
+    #Shake A
+    show agatha pelokas at shake #shake pitää lopettaa, muuten jää päälle
+    "She shudders."
+    show agatha perus at middle
+    MC "Yeah. I never want to have another… What did he call it? 'Chit-chat' with him."
+    A "Yes. We should strive for that."
+    A "Anyway, I'm counting on you to ship as many flawless orders as possible!"
+    A "Have a productive afternoon, [MC]!"
+    hide agatha with moveoutleft
+    #A bounces off
+    MC "Thanks, you too?"
+    "...Was that a well-wish or a threat?"
+    
+
+
 label day1_4A:
 
     scene bg warehouse
-    show agatha iloinen at center, hop
+    show agatha iloinen at middle, hop
     A "Good work, MC! You shipped a lot of good orders today."
     A "I knew I could count on you!"
     MC "Uh, thanks?"
@@ -189,7 +268,7 @@ label day1_6A:
     "Okay, I made it through my first day with the new system pretty respectably."
     "Can't wait to get home and snack on the rest of that rare moss I've been saving."
     "My body starts to salivate just thinking about it."
-    show agatha perus at center
+    show agatha perus at middle
     A "MC!"
     MC "Moss! I mean Agatha!" 
     #A pikku hyppy

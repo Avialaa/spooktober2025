@@ -1,13 +1,29 @@
+default hopHeight = 30
+
 transform cleft:
-    xalign 0.05 yalign 1.0 yoffset 100
+    xalign 0.05 yanchor 1.0 ypos (1080 + hopHeight)
 
 transform cright:
-    xalign 0.95 yalign 1.0 yoffset 100
+    xalign 0.95 yanchor 1.0 ypos (1080 + hopHeight)
 
+transform middle:
+    xalign 0.5 yanchor 1.0 ypos (1080 + hopHeight)
+
+transform shake:
+    linear 0.090 xoffset -10
+    linear 0.090 xoffset +0
+    linear 0.090 yoffset -10
+    linear 0.090 yoffset +0
+    repeat
 
 transform hop:
-    linear 0.2 yoffset -20
+    linear 0.2 yoffset -hopHeight
     linear 0.3 yoffset 0
+    #at hop
+
+# transform ahop:
+#     linear 0.2 yoffset -20
+#     linear 0.3 yoffset 0
     #at hop
 
 transform zoom_in:
