@@ -16,6 +16,14 @@ default correctOrders = 0
 default incorrectOrders = 0
 default activeConveyerTags = [] #keep track of current conveyer tags so we can hide the screens when the minigame ends
 
+default agathaPoints = 0
+default ceePoints = 0
+default karkhosPoints = 0
+default currentStoryRoute = None
+default correctOrdersDemandedByAgatha = 5
+default fishDemandedByCee = 5
+
+
 image countdown = DynamicDisplayable(show_countdown)
 
 image box = ConditionSwitch(
@@ -34,6 +42,64 @@ init python:
       return d, 0.1
 
 init python:
+  def chooseRoute():
+    global agathaPoints
+    global ceePoints
+    global karkhosPoints
+    global currentStoryRoute
+    global correctOrders
+    global incorrectOrders
+
+    thisRoundWinner = None
+    if (correctOrders - incorrectOrders) >= correctOrdersDemandedByAgatha:
+      agathaPoints += 1
+      thisRoundWinner = "agatha"
+    else:
+      karkhosPoints += 1
+      thisRoundWinner = "karkhos"
+    
+    #TODO: cee points and route determination
+    #if fish >= fishDemandedByCee:
+      #ceePoints +=1
+      #thisRoundWinner = "cee"
+
+    #if there's a clear point winner, select their route
+    if ceePoints > agathaPoints and ceePoints > karkhosPoints:
+      currentStoryRoute = "cee"
+    elif agathaPoints > karkhosPoints and agathaPoints > ceePoints:
+      currentStoryRoute = "agatha"
+    elif karkhosPoints > agathaPoints and karkhosPoints > ceePoints:
+      currentStoryRoute = "karkhos"
+    
+    #in case of a 3-way tie, use current round winner as the selected route
+    elif ceePoints == agathaPoints and ceePoints == karkhosPoints and agathaPoints == karkhosPoints:
+      currentStoryRoute = thisRoundWinner
+
+    #if there's a tie between 2 characters, route is round winner, unless round winner has the least amount of points, in which case route is randomized between tie members
+    elif ceePoints == agathaPoints or ceePoints == karkhosPoints or agathaPoints == karkhosPoints:
+      if ceePoints == agathaPoints:
+        if thisRoundWinner != "karkhos":
+          currentStoryRoute = thisRoundWinner
+        else:
+          currentStoryRoute = renpy.random.choice("cee", "agatha")
+      elif ceePoints == karkhosPoints:
+        if thisRoundWinner != "agatha":
+          currentStoryRoute = thisRoundWinner
+        else:
+          currentStoryRoute = renpy.random.choice("cee", "karkhos")
+      elif agathaPoints == karkhosPoints:
+        if thisRoundWinner != "cee":
+          currentStoryRoute = thisRoundWinner
+        else:
+          currentStoryRoute = renpy.random.choice("agatha", "karkhos")
+
+
+        
+
+
+
+
+
   def hideMinigame():
     renpy.hide_screen("warehouse_box")
     renpy.hide_screen("magicPad")
