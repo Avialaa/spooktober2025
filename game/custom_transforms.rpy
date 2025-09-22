@@ -9,6 +9,13 @@ transform cright:
 transform middle:
     xalign 0.5 yanchor 1.0 ypos (1080 + hopHeight)
 
+transform agathabreakroom:
+    xalign 0.2 yanchor 1.0 ypos (1080 + hopHeight)
+    zoom 0.9
+
+transform zoomToNormalSize:
+    linear 0.5 zoom 1.0
+
 transform shake:
     linear 0.090 xoffset -10
     linear 0.090 xoffset +0
