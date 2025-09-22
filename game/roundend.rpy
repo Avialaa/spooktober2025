@@ -32,7 +32,7 @@ label roundEnd:
         pPoints += roundpPoints
         lPoints += roundlPoints
 
-        fishTotal += roundpPoints
+        fishTotal += roundpPoints #kalojen kokonaismäärä
 
         roundEndrPoints = False
         roundEndbPoints = False
