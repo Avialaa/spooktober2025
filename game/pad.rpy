@@ -23,7 +23,7 @@ screen magicPad:
     
     
     vbox: #kaikki orderit
-        #TODO: wrong item counts are displayed in game, fix!!!
+        #TODO: Fix potential bug here (indexList out of range kummallisissa kohdissa peliä)
         align (0.72, 0.25)
         vbox: #current order
             text "{color=#ff0000}Current order{/color}"
