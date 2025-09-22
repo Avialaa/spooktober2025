@@ -8,12 +8,13 @@ default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
 default boxReady = True
 default boxAnimDuration = 0.5
-default roundDuration = 100
+default roundDuration = 15
 default minigameOver = False
 default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
 default subsequentCorrectOrders = 0
 default correctOrders = 0
 default incorrectOrders = 0
+default activeConveyerTags = [] #keep track of current conveyer tags so we can hide the screens when the minigame ends
 
 image countdown = DynamicDisplayable(show_countdown)
 
@@ -36,9 +37,18 @@ init python:
   def hideMinigame():
     renpy.hide_screen("warehouse_box")
     renpy.hide_screen("magicPad")
+    hideAllConveyerItems()
 
   def hideItem(tag):
     renpy.hide_screen(tag)
+    if tag in activeConveyerTags:
+        activeConveyerTags.remove(tag)
+  
+  def hideAllConveyerItems():
+    global activeConveyerTags
+    for tag in activeConveyerTags:
+        renpy.hide_screen(tag)
+    activeConveyerTags.clear()
   
   def closeBox():
     global itemsInBox
@@ -58,6 +68,7 @@ init python:
   def showItemsOnConveyer():
     #Checks if anything to spawn on conveyer belt, and spawns first item from list
     global itemIndex #this tells Python that we want to use the global variable itemIndex
+    global activeConveyerTags
     if len(itemsOnConveyer) > 0:
       #pop returns the item and removes it from list
       item = itemsOnConveyer.pop(0)
@@ -66,7 +77,9 @@ init python:
     #increment itemIndex so we get a different tag for each new spawned button
     itemIndex += 1
     item.setImage()
-    renpy.show_screen("conveyer_item", item, 5, _tag=f"item_{itemIndex}")
+    tag = f"item_{itemIndex}"
+    activeConveyerTags.append(tag)
+    renpy.show_screen("conveyer_item", item, 5, _tag=tag)
   
   def sendOrder():
     #TODO: call points calculation function here etc
@@ -245,12 +258,13 @@ screen button_disable_timer:
   
 screen send_order_button:
 
-  imagebutton:
-    xalign 0.05 yalign 0.9
-    auto "send_%s.png"
-    #if len(itemsInBox) +1 <= maxBoxItems:
-    if len(itemsInBox) > 0:
-      action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
+  showif minigameOver == False:
+    imagebutton:
+      xalign 0.05 yalign 0.9
+      auto "send_%s.png"
+      #if len(itemsInBox) +1 <= maxBoxItems:
+      if len(itemsInBox) > 0:
+        action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
 
 
 #Item button spawn functions
