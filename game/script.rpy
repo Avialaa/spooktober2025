@@ -65,3 +65,4 @@ label choose_name:
     
     MC "test test test"
     MC "test test"
+    return

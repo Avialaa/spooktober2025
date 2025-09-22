@@ -316,8 +316,9 @@ screen warehouse_box:
     xalign 0.5 yalign 0.5
     background Frame("box", 0,0)
     at box_shake
-    text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}":
+    text "Items: [len(itemsInBox)] / [maxBoxItems]":
         xcenter 0.5 ycenter 0.5
+        style "padStyle"
   
 screen button_disable_timer:
   on "show":
