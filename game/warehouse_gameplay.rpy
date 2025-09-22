@@ -11,6 +11,9 @@ default boxAnimDuration = 0.5
 default roundDuration = 100
 default minigameOver = False
 default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
+default subsequentCorrectOrders = 0
+default correctOrders = 0
+default incorrectOrders = 0
 
 image countdown = DynamicDisplayable(show_countdown)
 
@@ -26,7 +29,7 @@ init python:
     if st > roundDuration:
       return Text("0.0"), None
     else:
-      d = Text("{:.1f}".format(roundDuration - st)) #{color=#ff0000}{/color}
+      d = Text("{:.1f}".format(roundDuration - st), color ="#ff0000") #{color=#ff0000}{/color}
       return d, 0.1
 
 init python:
@@ -119,6 +122,7 @@ init python:
   def checkOrderValidity():
     global orders
     global itemsInBox
+    global subsequentCorrectOrders
 
     copiedOrder = orders[0].copy()
     isOrderCorrect = True
@@ -133,6 +137,14 @@ init python:
         else:
           #TODO: remove points for incorrect item?
           isOrderCorrect = False
+    
+    #track how many orders have been correct in a row
+    if isOrderCorrect == True:
+      subsequentCorrectOrders += 1
+      correctOrders +=1
+    else:
+      subsequentCorrectOrders = 0
+      incorrectOrders += 1
 
     return isOrderCorrect
 
