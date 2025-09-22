@@ -10,6 +10,7 @@ default boxReady = True
 default boxAnimDuration = 0.5
 default roundDuration = 100
 default minigameOver = False
+default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
 
 image countdown = DynamicDisplayable(show_countdown)
 
@@ -146,7 +147,7 @@ screen warehouse_gameplay:
   add "bigspace_day.png"
   add "conveyer.png" xalign 0.0 yalign 0.45
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
-  use conveyer_belt(1)
+  use conveyer_belt(conveyerInterval)
   #use warehouse_box
   use send_order_button
   use pointView
