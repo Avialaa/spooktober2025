@@ -8,7 +8,7 @@ default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
 default boxReady = True
 default boxAnimDuration = 0.5
-default roundDuration = 15
+default roundDuration = 40
 default minigameOver = False
 default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
 default subsequentCorrectOrders = 0
@@ -38,7 +38,7 @@ init python:
     if st > roundDuration:
       return Text("0.0"), None
     else:
-      d = Text("{:.1f}".format(roundDuration - st), color ="#ff0000") #{color=#ff0000}{/color}
+      d = Text("{:.1f}".format(roundDuration - st), color ="#a32453", font = "Silkscreen-Regular.ttf")
       return d, 0.1
 
 init python:
@@ -92,6 +92,10 @@ init python:
           currentStoryRoute = thisRoundWinner
         else:
           currentStoryRoute = renpy.random.choice("agatha", "karkhos")
+    
+    else:
+      #if all else fails, randomize route (this should never happen if logic is correct)
+      currentStoryRoute = renpy.random.choice("agatha,", "karkhos", "cee")
 
 
         
@@ -202,6 +206,8 @@ init python:
     global orders
     global itemsInBox
     global subsequentCorrectOrders
+    global correctOrders
+    global incorrectOrders
 
     copiedOrder = orders[0].copy()
     isOrderCorrect = True

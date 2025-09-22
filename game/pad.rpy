@@ -1,3 +1,7 @@
+style padStyle:
+    font "Silkscreen-Regular.ttf"
+    color "#a32453"
+
 label padTest:
     call screen magicPad
     return
@@ -24,30 +28,31 @@ screen magicPad:
     add "countdown" xalign 0.9 yalign 0.75 
 
     vbox: #kaikki orderit
+        
         #TODO: Fix potential bug here (indexList out of range kummallisissa kohdissa peliä)
         align (0.72, 0.25)
         vbox: #current order
-            text "{color=#ff0000}Current order{/color}"
+            text "Current order" style "padStyle"
             $ uniqueItems = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
             for item in uniqueItems:
                 hbox:
                     add "[item]_1_idle" zoom 0.5 #current order has icons; next orders don't
-                    text "{color=#ff0000}[item]  {/color}"
-                    text "{color=#ff0000}x[orders[0].count(item)]{/color}" #returns number of items
+                    text "[item]  " style "padStyle"
+                    text "x[orders[0].count(item)]" style "padStyle"#returns number of items
             text " "
         vbox: #next order
-            text "{color=#ff0000}Next order{/color}"
+            text "Next order" style "padStyle"
             $ uniqueItems = set(orders[1]) 
             for item in uniqueItems:
                 hbox:
-                    text "{color=#ff0000}[item]  {/color}"
-                    text "{color=#ff0000}x[orders[1].count(item)]{/color}" #returns number of items
+                    text "[item]  "style "padStyle"
+                    text "x[orders[1].count(item)]" style "padStyle" #returns number of items
             text " "
         vbox: #next next order
-            text "{color=#ff0000}Next next order{/color}"
+            text "Next next order" style "padStyle"
             $ uniqueItems = set(orders[2])
             for item in uniqueItems:
                 hbox:
-                    text "{color=#ff0000}[item]  {/color}"
-                    text "{color=#ff0000}x[orders[2].count(item)]{/color}" #returns number of items
+                    text "[item]  " style "padStyle"
+                    text "x[orders[2].count(item)]" style "padStyle" #returns number of items
             text " "
