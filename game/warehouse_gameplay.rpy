@@ -29,7 +29,7 @@ init python:
     if st > roundDuration:
       return Text("0.0"), None
     else:
-      d = Text("{:.1f}".format(roundDuration - st)) #{color=#ff0000}{/color}
+      d = Text("{:.1f}".format(roundDuration - st), color ="#ff0000") #{color=#ff0000}{/color}
       return d, 0.1
 
 init python:

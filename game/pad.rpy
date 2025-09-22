@@ -5,7 +5,7 @@ label padTest:
 screen magicPad:
     zorder 100
     #show visual timer (actual timer is in warehouse_gameplay screen)
-    add "countdown" xalign 0.95 yalign 0.95 
+    
 
     imagemap:
         auto "images/padPohja %s.png"
@@ -21,7 +21,8 @@ screen magicPad:
         hotspot (323, 501, 160, 159) action Function(addKeys)
         hotspot (491, 498, 164, 167) action Function(addBone)
     
-    
+    add "countdown" xalign 0.9 yalign 0.75 
+
     vbox: #kaikki orderit
         #TODO: Fix potential bug here (indexList out of range kummallisissa kohdissa peliä)
         align (0.72, 0.25)
