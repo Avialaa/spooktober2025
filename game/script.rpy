@@ -36,8 +36,8 @@ label start:
     #call roundEnd
     #call after_minigame
 
-    call day2_5A
-    #call day1_2
+    #call day2_5A
+    call day1_2
     
     
     #call padTest
