@@ -12,6 +12,8 @@ default roundDuration = 100
 default minigameOver = False
 default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
 default subsequentCorrectOrders = 0
+default correctOrders = 0
+default incorrectOrders = 0
 
 image countdown = DynamicDisplayable(show_countdown)
 
@@ -139,8 +141,10 @@ init python:
     #track how many orders have been correct in a row
     if isOrderCorrect == True:
       subsequentCorrectOrders += 1
+      correctOrders +=1
     else:
       subsequentCorrectOrders = 0
+      incorrectOrders += 1
 
     return isOrderCorrect
 
