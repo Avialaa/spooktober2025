@@ -183,6 +183,7 @@ init python:
     generateOrder()
     orders.pop(0) #remove finished order
     itemsInBox.clear()
+    updateOrders() #update orders for pad UI
 
   def generateOrder():
     #function that generates a list of item names
@@ -225,6 +226,7 @@ init python:
     
     orders.append(orderList) #add order to orders list for storage
 
+
   def checkOrderValidity():
     global orders
     global itemsInBox
@@ -261,6 +263,7 @@ label warehouse_gameplay:
   $ generateOrder()
   $ generateOrder()
   $ generateOrder()
+  $ updateOrders() #update orders for pad UI
   $ quick_menu = False #hide the quick menu during minigame
   $ minigameOver = False
   call screen warehouse_gameplay

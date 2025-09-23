@@ -1,3 +1,7 @@
+default orderItems1 = []
+default orderItems2 = []
+default orderItems3 = []
+
 style padStyle:
     font "Silkscreen-Regular.ttf"
     color "#2c2326"
@@ -13,6 +17,18 @@ style padNextStyle:
 label padTest:
     call screen magicPad
     return
+
+init python:
+    def updateOrders():
+        global orderItems1
+        global orderItems2
+        global orderItems3
+
+        orderItems1 = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
+        if len(orders) > 1:
+            orderItems2 = set(orders[1])
+        if len(orders) > 2:
+            orderItems3 = set(orders[2])
 
 screen magicPad:
     zorder 100
@@ -49,28 +65,23 @@ screen magicPad:
             #align (0.72, 0.25)
             vbox: #current order
                 text "Current order" style "padStyle"
-                $ uniqueItems = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
-                for item in uniqueItems:
+                for item in orderItems1:
                     hbox:
                         add "order [item]" #current order has icons; next orders don't
-                        # text "[item]  " style "padStyle" yalign 0.5
-                        # text "x[orders[0].count(item)]" style "padStyle" yalign 0.5 #returns number of items 
                         vbox:
                             text "[item]  " style "padStyle"
                             text "x[orders[0].count(item)]" style "padStyle"#returns number of items
                 text " "
             vbox: #next order
                 text "Next order" style "padNextStyle"
-                $ uniqueItems = set(orders[1]) 
-                for item in uniqueItems:
+                for item in orderItems2:
                     hbox:
                         text "[item]  "style "padNextStyle"
                         text "x[orders[1].count(item)]" style "padNextStyle" #returns number of items
                 text " "
             vbox: #next next order
                 text "Next next order" style "padNextStyle"
-                $ uniqueItems = set(orders[2])
-                for item in uniqueItems:
+                for item in orderItems3:
                     hbox:
                         text "[item]  " style "padNextStyle"
                         text "x[orders[2].count(item)]" style "padNextStyle" #returns number of items
