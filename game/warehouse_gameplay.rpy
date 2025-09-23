@@ -42,6 +42,24 @@ init python:
       return d, 0.1
 
 init python:
+  def resetMinigame():
+    global correctOrders
+    global incorrectOrders
+    global subsequentCorrectOrders
+    global orders
+    global orderList
+    global itemsOnConveyer
+    global itemsInBox
+
+
+    correctOrders = 0
+    incorrectOrders = 0
+    subsequentCorrectOrders = 0
+    orders.clear()
+    orderList.clear()
+    itemsOnConveyer.clear()
+    itemsInBox.clear()
+
   def chooseRoute():
     global agathaPoints
     global ceePoints
@@ -239,6 +257,7 @@ label warehouse_gameplay:
   $ generateOrder()
   $ generateOrder()
   $ quick_menu = False #hide the quick menu during minigame
+  $ minigameOver = False
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:
