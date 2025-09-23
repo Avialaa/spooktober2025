@@ -43,9 +43,10 @@ label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     #call choose_name
-    #call warehouse_gameplay
-    #call roundEnd
-    #call after_minigame
+
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
 
     call day2_3A
     #call day1_2
@@ -57,6 +58,7 @@ label start:
     return
 
 label after_minigame:
+    $ quick_menu = True #show the quick menu
     e "minigame is over"
 
     return

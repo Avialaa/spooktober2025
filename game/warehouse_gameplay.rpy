@@ -238,6 +238,7 @@ label warehouse_gameplay:
   $ generateOrder()
   $ generateOrder()
   $ generateOrder()
+  $ quick_menu = False #hide the quick menu during minigame
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:
