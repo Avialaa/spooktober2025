@@ -273,14 +273,10 @@ screen warehouse_gameplay:
   add "conveyer.png" xalign 0.0 yalign 0.45
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
   use conveyer_belt(conveyerInterval)
-  #use warehouse_box
   use send_order_button
   use pointView
-  #use tablet_item_buttons
-  #use magicPad
-  $ renpy.show_screen("magicPad", _zorder=100)
   on "show":
-    action [Show("warehouse_box")]
+    action [Show("warehouse_box"), Show("magicPad", _zorder=100)]
   
   timer roundDuration:
     action [Hide(transition = fade), Function(hideMinigame), SetVariable("minigameOver", True), Return()]

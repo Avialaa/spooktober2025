@@ -68,6 +68,13 @@ label start:
     call warehouse_gameplay
     call roundEnd
     call after_minigame
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
     call day3_1C
     call day2_3A
     #call day1_2
@@ -80,6 +87,8 @@ label start:
 
 label after_minigame:
     $ quick_menu = True #show the quick menu
+    $ resetMinigame()
+    $ updateOrders()
     e "minigame is over"
 
     return

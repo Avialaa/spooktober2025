@@ -14,17 +14,14 @@ style padNextStyle:
     line_spacing -10
     size 28
 
-label padTest:
-    call screen magicPad
-    return
-
 init python:
     def updateOrders():
         global orderItems1
         global orderItems2
         global orderItems3
 
-        orderItems1 = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
+        if len(orders) > 0:
+            orderItems1 = set(orders[0]) #orders[0] is the first nested order list in orders list. converting list to a set only leaves 1 of each duplicate string
         if len(orders) > 1:
             orderItems2 = set(orders[1])
         if len(orders) > 2:
