@@ -26,6 +26,11 @@ default fishDemandedByCee = 5
 
 image countdown = DynamicDisplayable(show_countdown)
 
+style boxTextStyle:
+  font "Silkscreen-Regular.ttf"
+  color "#a32453"
+  size 45
+
 image box = ConditionSwitch(
   "boxReady == True", "box_open.png",
   "boxReady == False", "box_closed.png",
@@ -36,9 +41,9 @@ init python:
   def show_countdown(st, at):
     global roundDuration
     if st > roundDuration:
-      return Text("0.0"), None
+      return Text("0.0", color ="#a32453", font = "Silkscreen-Regular.ttf", size = 60), None
     else:
-      d = Text("{:.1f}".format(roundDuration - st), color ="#a32453", font = "Silkscreen-Regular.ttf")
+      d = Text("{:.1f}".format(roundDuration - st), color ="#a32453", font = "Silkscreen-Regular.ttf", size = 60)
       return d, 0.1
 
 init python:
@@ -307,11 +312,12 @@ screen conveyer_item(item, timeOnConveyer):
         linear 0.1 yoffset -50
         linear 0.2 yoffset 100 alpha 0.0
   
-  text "[renpy.current_screen().tag]":
-    at transform:
-      xpos -100 ypos 0.25
-      on show:
-        linear timeOnConveyer xpos 0.7
+  #Uncomment for tag troubleshooting:
+  # text "[renpy.current_screen().tag]":
+  #   at transform:
+  #     xpos -100 ypos 0.25
+  #     on show:
+  #       linear timeOnConveyer xpos 0.7
   #hide item and return it to conveyer spawn list
   timer timeOnConveyer action [Hide(), AddToSet(itemsOnConveyer, item)]
 
@@ -338,7 +344,7 @@ screen warehouse_box:
     at box_shake
     text "Items: [len(itemsInBox)] / [maxBoxItems]":
         xcenter 0.5 ycenter 0.6
-        style "padStyle"
+        style "boxTextStyle"
   
 screen button_disable_timer:
   on "show":
