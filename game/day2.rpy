@@ -6,7 +6,7 @@ label day2_3A:
     "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
     # Cee appears
     show cee perus with moveinright
-    C "MC!"
+    C "[MC]!"
     MC "Eeek!"
     C "Fret not. You must come with me."
     MC "But the break's almost over."
@@ -42,7 +42,7 @@ label day2_3A:
 
 
 label day2_5A:
-    scene bg breakroom posters posters night 
+    scene bg breakroom posters night 
     "As I start heading home, I see something shocking out of the corner of my eye."
     show agatha alakuloinen at agathabreakroom
     "Is that… Agatha? Sitting in the break room and not working?"
