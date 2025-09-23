@@ -1,8 +1,48 @@
 
+label day2_3A:
+
+    scene bg hallway posters
+    #footsteps
+    "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
+    # Cee appears
+    show cee perus with moveinright
+    C "MC!"
+    MC "Eeek!"
+    C "Fret not. You must come with me."
+    MC "But the break's almost over."
+    C "The tidings I bring concern Miss Agatha. I'm certain you would be interested. It shall not take long."
+    "Cee ushers me into a crevice in the corridor. I follow, initially reluctant, except…"
+    "Ever since Boss left, I haven't really talked with Cee. What's so important that they waited for me, after storming off like that? I'm a bit curious."
+    "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
+    C "Pardon the precautions. I had to make sure that the tiny control freak wasn't following us."
+    C "I've heard some rather concerning rumours about you and Miss Agatha. The hallways are whispering that you have taken a liking to her rigorous ways."
+    C "MC, you must not fall under her spell!"
+    C "I have seen her true colors. Once, she interrupted my work just to tell me I wasn't projecting enough enthusiasm. Such insolence!"
+    # Cee looks angry
+    C "Why should we show enthusiasm while performing these repetitive, mundane tasks? Can't she fathom that my passions lie elsewhere entirely?"
+    MC "She isn't that bad once you get to know her. She's working hard to protect her fellow monsters."
+    C "That, my foolish comrade, is what she WANTS you to think."
+    C "Do not be fooled by her big eyes and paper thin wings. Underneath that disguise you'll find a ferocious predator, poised to bite those standing in her way." 
+    MC "Hey, that's going too far."
+    C "Hardly! What shall a mere worker do, when told to triple their efforts? To try is to perish, whilst to not try is to be bitten."
+    C "Were we to work harder, would it not in actuality decrease our output? Eat the marlin's roe, and be bereft of the fish. She is thinking short term, when what matters is the long term."
+    C "Unwittingly, she may yet be furthering my goals. She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures. Rather than a moth, she is a locust. Nay, a disease!"
+    MC "Stop."
+    C "...!"
+    MC "I appreciate the sentiment, but I won't let you badmouth Agatha."
+    MC "She cares about the warehouse and wants us to succeed."
+    C "Bah! I did not think you simple-minded enough to fall for her ruse. Consider me disappointed."
+    C "I have given my augury. Since you wish to remain ignorant, do not cry for help once the predator attacks."
+    # Cee leaves
+    hide cee with moveoutleft
+    "I'm speechless. It's not okay to speak about coworkers like that."
+    "I can't tell if this was just Cee's personal dislike, or an actual worry about our wellbeing. Maybe it was both. Does sound like Agatha should have been nicer to Cee."
+    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters. Nothing predator-like about that."
+    "...Right?"
 
 
 label day2_5A:
-    scene bg breakroom night
+    scene bg breakroom posters night 
     "As I start heading home, I see something shocking out of the corner of my eye."
     show agatha alakuloinen
     "Is that… Agatha? Sitting in the break room and not working?"
