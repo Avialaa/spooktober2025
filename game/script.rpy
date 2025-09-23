@@ -68,7 +68,7 @@ label start:
     #call warehouse_gameplay
     #call roundEnd
     #call after_minigame
-
+    call day3_1C
     call day2_3A
     #call day1_2
     
