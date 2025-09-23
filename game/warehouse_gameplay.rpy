@@ -317,7 +317,7 @@ screen warehouse_box:
     background Frame("box", 0,0)
     at box_shake
     text "Items: [len(itemsInBox)] / [maxBoxItems]":
-        xcenter 0.5 ycenter 0.5
+        xcenter 0.5 ycenter 0.6
         style "padStyle"
   
 screen button_disable_timer:
