@@ -7,14 +7,23 @@ label day2_3A:
     # Cee appears
     show cee perus at middle with moveinright
     C "[MC]!"
-    show bg hallway posters at hop
+    show bg hallway posters at hpunch:
+        zoom 1.02
+        xoffset -20
     #TÄTÄ EI VARMAAN VOI PITÄÄ
     MC "Eeek!"
+    show bg hallway posters:
+        zoom 1
+        xoffset 0
     C "Fret not. You must come with me."
     MC "But the break's almost over."
     show cee at hop
     C "The tidings I bring concern Miss Agatha. I'm certain you would be interested. It shall not take long."
     #haluun zoomata kuvan nurkkaan täs jos on aikaa tutkii miten
+    show bg hallway posters:
+        zoom 2
+        xoffset -1650
+        yoffset -400
     "Cee ushers me into a crevice in the corridor. I follow, initially reluctant, except…"
     "Ever since Boss left, I haven't really talked with Cee. What's so important that they waited for me, after storming off like that? I'm a bit curious."
     "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
@@ -103,10 +112,11 @@ label day2_5A:
     A "And- and- and what are we going to tell Boss when he comes back?!"
     A "Our output is {i}half{/i} of what it should be!"
     #half itallics
+    show agatha pelokas at shake2
     A "[MC], I can't make up for this much slacking off!"
-    show agatha pelokas at hop
+    show agatha pelokas at hop, shake2
     A "I mean, I would if I could, but I can't!"
-    show agatha alakuloinen
+    show agatha alakuloinen at middle
     "She puts her head in her hands."
     MC "There, there…"
     MC "Look on the bright side. Our output's still good compared to before the new system."
@@ -134,7 +144,7 @@ label day2_5A:
     "Her eyes are distant for a moment, before drilling back into me with their usual uncanny brightness."
     A "I … grew up in the Human Wilds. There was no Loot system back then."
     A "Most of my kind are nectar farmers, and it's dangerous work. When a human stumbles on you in the flower field…"
-    show agatha pelokas at shake
+    show agatha pelokas at shake2
     "She shudders."
     MC "What? What?"
     show agatha vihainen at hop
