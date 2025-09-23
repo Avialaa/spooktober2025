@@ -13,6 +13,10 @@ transform agathabreakroom:
     xalign 0.2 yanchor 1.0 ypos (1080 + hopHeight)
     zoom 0.9
 
+transform ceebreakroom:
+    xalign 0.98 yanchor 1.0 ypos (1080 + hopHeight)
+    zoom 0.8
+
 transform zoomToNormalSize:
     linear 0.5 zoom 1.0
 
