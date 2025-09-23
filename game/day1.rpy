@@ -49,7 +49,7 @@ label day1_2:
     "Huh? That's…"
 
     # Show K sprite. Silmät kiinni?
-    show karkhos nukkuva at middle
+    show karkhos nukkuva at middle, shake2
     "He's sitting down. I can feel his snoring through the rock floor."
     # K neutral sprite
     show karkhos perus at hop

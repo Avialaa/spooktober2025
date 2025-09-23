@@ -23,6 +23,13 @@ transform shake:
     linear 0.090 yoffset +0
     repeat
 
+transform shake2:
+    linear 0.090 xoffset -2
+    linear 0.090 xoffset +0
+    linear 0.090 yoffset -2
+    linear 0.090 yoffset 0
+    repeat
+
 transform hop:
     linear 0.2 yoffset -hopHeight
     linear 0.3 yoffset 0
