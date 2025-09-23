@@ -17,6 +17,8 @@ default roundEndTotalvPoints = False
 default roundEndTotalpPoints = False
 default roundEndTotallPoints = False
 
+default fishTotal = 0
+
 
 label roundEnd:
     #Minigame is concluded by calling this label
@@ -29,6 +31,8 @@ label roundEnd:
         vPoints += roundvPoints
         pPoints += roundpPoints
         lPoints += roundlPoints
+
+        fishTotal += roundpPoints #kalojen kokonaismäärä
 
         roundEndrPoints = False
         roundEndbPoints = False

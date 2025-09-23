@@ -8,8 +8,21 @@ default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
 default boxReady = True
 default boxAnimDuration = 0.5
-default roundDuration = 100
+default roundDuration = 40
 default minigameOver = False
+default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
+default subsequentCorrectOrders = 0
+default correctOrders = 0
+default incorrectOrders = 0
+default activeConveyerTags = [] #keep track of current conveyer tags so we can hide the screens when the minigame ends
+
+default agathaPoints = 0
+default ceePoints = 0
+default karkhosPoints = 0
+default currentStoryRoute = None
+default correctOrdersDemandedByAgatha = 5
+default fishDemandedByCee = 5
+
 
 image countdown = DynamicDisplayable(show_countdown)
 
@@ -25,16 +38,87 @@ init python:
     if st > roundDuration:
       return Text("0.0"), None
     else:
-      d = Text("{:.1f}".format(roundDuration - st)) #{color=#ff0000}{/color}
+      d = Text("{:.1f}".format(roundDuration - st), color ="#a32453", font = "Silkscreen-Regular.ttf")
       return d, 0.1
 
 init python:
+  def chooseRoute():
+    global agathaPoints
+    global ceePoints
+    global karkhosPoints
+    global currentStoryRoute
+    global correctOrders
+    global incorrectOrders
+
+    thisRoundWinner = None
+    if (correctOrders - incorrectOrders) >= correctOrdersDemandedByAgatha:
+      agathaPoints += 1
+      thisRoundWinner = "agatha"
+    else:
+      karkhosPoints += 1
+      thisRoundWinner = "karkhos"
+    
+    #TODO: cee points and route determination
+    #if fish >= fishDemandedByCee:
+      #ceePoints +=1
+      #thisRoundWinner = "cee"
+
+    #if there's a clear point winner, select their route
+    if ceePoints > agathaPoints and ceePoints > karkhosPoints:
+      currentStoryRoute = "cee"
+    elif agathaPoints > karkhosPoints and agathaPoints > ceePoints:
+      currentStoryRoute = "agatha"
+    elif karkhosPoints > agathaPoints and karkhosPoints > ceePoints:
+      currentStoryRoute = "karkhos"
+    
+    #in case of a 3-way tie, use current round winner as the selected route
+    elif ceePoints == agathaPoints and ceePoints == karkhosPoints and agathaPoints == karkhosPoints:
+      currentStoryRoute = thisRoundWinner
+
+    #if there's a tie between 2 characters, route is round winner, unless round winner has the least amount of points, in which case route is randomized between tie members
+    elif ceePoints == agathaPoints or ceePoints == karkhosPoints or agathaPoints == karkhosPoints:
+      if ceePoints == agathaPoints:
+        if thisRoundWinner != "karkhos":
+          currentStoryRoute = thisRoundWinner
+        else:
+          currentStoryRoute = renpy.random.choice("cee", "agatha")
+      elif ceePoints == karkhosPoints:
+        if thisRoundWinner != "agatha":
+          currentStoryRoute = thisRoundWinner
+        else:
+          currentStoryRoute = renpy.random.choice("cee", "karkhos")
+      elif agathaPoints == karkhosPoints:
+        if thisRoundWinner != "cee":
+          currentStoryRoute = thisRoundWinner
+        else:
+          currentStoryRoute = renpy.random.choice("agatha", "karkhos")
+    
+    else:
+      #if all else fails, randomize route (this should never happen if logic is correct)
+      currentStoryRoute = renpy.random.choice("agatha,", "karkhos", "cee")
+
+
+        
+
+
+
+
+
   def hideMinigame():
     renpy.hide_screen("warehouse_box")
     renpy.hide_screen("magicPad")
+    hideAllConveyerItems()
 
   def hideItem(tag):
     renpy.hide_screen(tag)
+    if tag in activeConveyerTags:
+        activeConveyerTags.remove(tag)
+  
+  def hideAllConveyerItems():
+    global activeConveyerTags
+    for tag in activeConveyerTags:
+        renpy.hide_screen(tag)
+    activeConveyerTags.clear()
   
   def closeBox():
     global itemsInBox
@@ -54,6 +138,7 @@ init python:
   def showItemsOnConveyer():
     #Checks if anything to spawn on conveyer belt, and spawns first item from list
     global itemIndex #this tells Python that we want to use the global variable itemIndex
+    global activeConveyerTags
     if len(itemsOnConveyer) > 0:
       #pop returns the item and removes it from list
       item = itemsOnConveyer.pop(0)
@@ -62,7 +147,9 @@ init python:
     #increment itemIndex so we get a different tag for each new spawned button
     itemIndex += 1
     item.setImage()
-    renpy.show_screen("conveyer_item", item, 5, _tag=f"item_{itemIndex}")
+    tag = f"item_{itemIndex}"
+    activeConveyerTags.append(tag)
+    renpy.show_screen("conveyer_item", item, 5, _tag=tag)
   
   def sendOrder():
     #TODO: call points calculation function here etc
@@ -118,6 +205,9 @@ init python:
   def checkOrderValidity():
     global orders
     global itemsInBox
+    global subsequentCorrectOrders
+    global correctOrders
+    global incorrectOrders
 
     copiedOrder = orders[0].copy()
     isOrderCorrect = True
@@ -132,6 +222,14 @@ init python:
         else:
           #TODO: remove points for incorrect item?
           isOrderCorrect = False
+    
+    #track how many orders have been correct in a row
+    if isOrderCorrect == True:
+      subsequentCorrectOrders += 1
+      correctOrders +=1
+    else:
+      subsequentCorrectOrders = 0
+      incorrectOrders += 1
 
     return isOrderCorrect
 
@@ -146,7 +244,7 @@ screen warehouse_gameplay:
   add "bigspace_day.png"
   add "conveyer.png" xalign 0.0 yalign 0.45
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
-  use conveyer_belt(1)
+  use conveyer_belt(conveyerInterval)
   #use warehouse_box
   use send_order_button
   use pointView
@@ -218,8 +316,9 @@ screen warehouse_box:
     xalign 0.5 yalign 0.5
     background Frame("box", 0,0)
     at box_shake
-    text "{outlinecolor=#000}{color=#ff0000}Items: [len(itemsInBox)] / [maxBoxItems]{/color}{/outlinecolor}":
+    text "Items: [len(itemsInBox)] / [maxBoxItems]":
         xcenter 0.5 ycenter 0.5
+        style "padStyle"
   
 screen button_disable_timer:
   on "show":
@@ -232,12 +331,13 @@ screen button_disable_timer:
   
 screen send_order_button:
 
-  imagebutton:
-    xalign 0.05 yalign 0.9
-    auto "send_%s.png"
-    #if len(itemsInBox) +1 <= maxBoxItems:
-    if len(itemsInBox) > 0:
-      action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
+  showif minigameOver == False:
+    imagebutton:
+      xalign 0.05 yalign 0.9
+      auto "send_%s.png"
+      #if len(itemsInBox) +1 <= maxBoxItems:
+      if len(itemsInBox) > 0:
+        action [Function(sendOrder), Hide("warehouse_box"), Show("button_disable_timer")]
 
 
 #Item button spawn functions
