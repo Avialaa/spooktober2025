@@ -4,21 +4,42 @@
 # name of the character.
 
 #TODO: When we have better talking sounds, use this for character speech 
-# init python:
-#     def characterSpeak(event, interact = True, **kwargs):
-#         if not interact:
-#             return
-#         if event == "show":
-#             renpy.sound.play("audio/beeboob.mp3")
-#         elif event == "slow_done" or event == "end":
-#             renpy.sound.stop()
+init python:
+    def karkhosSpeak(event, interact = True, **kwargs):
+        if not interact:
+            return
+        if event == "show":
+            renpy.sound.play("audio/speakKarkhos.mp3")
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
+    def agathaSpeak(event, interact = True, **kwargs):
+        if not interact:
+            return
+        if event == "show":
+            renpy.sound.play("audio/speakAgatha.mp3")
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
+    def ceeSpeak(event, interact = True, **kwargs):
+        if not interact:
+            return
+        if event == "show":
+            renpy.sound.play("audio/speakCee.mp3")
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
+    def MCSpeak(event, interact = True, **kwargs):
+        if not interact:
+            return
+        if event == "show":
+            renpy.sound.play("audio/speakMC.mp3")
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
 
-# define e = Character("Eileen", callback=characterSpeak)
-# define A = Character("Agatha", callback=characterSpeak)
-# define MC = Character("McName", callback=characterSpeak) # myöhemmin sit nimenvalinta
-# define K = Character("Karkhos", callback=characterSpeak)
-# define C = Character("Cee", callback=characterSpeak)
-# define All = Character("All", callback=characterSpeak)
+define e = Character("Eileen")
+define A = Character("Agatha", who_color="#CB985F", callback=agathaSpeak)
+define MC = Character("[mcName]", who_color="#84bdaf", callback=MCSpeak) # myöhemmin sit nimenvalinta
+define K = Character("Karkhos\n{size=-17}{font=DMSans-Light.ttf}The Destroyer{/size}{/font}", who_style="karkhosNameStyle", callback=karkhosSpeak)
+define C = Character("Cee", who_color="#877EA4", callback=ceeSpeak)
+define All = Character("All")
 
 style karkhosNameStyle:
     color "#91A571"
@@ -30,12 +51,12 @@ style karkhosNameStyle:
 
 default mcName = "Petri Dish"
 
-define e = Character("Eileen")
-define A = Character("Agatha", who_color="#CB985F")
-define MC = Character("[mcName]", who_color="#84bdaf")
-define K = Character("Karkhos\n{size=-17}{font=DMSans-Light.ttf}The Destroyer{/size}{/font}", who_style="karkhosNameStyle")
-define C = Character("Cee", who_color="#877EA4")
-define All = Character("All")
+# define e = Character("Eileen")
+# define A = Character("Agatha", who_color="#CB985F")
+# define MC = Character("[mcName]", who_color="#84bdaf")
+# define K = Character("Karkhos\n{size=-17}{font=DMSans-Light.ttf}The Destroyer{/size}{/font}", who_style="karkhosNameStyle")
+# define C = Character("Cee", who_color="#877EA4")
+# define All = Character("All")
 
 # The game starts here.
 
