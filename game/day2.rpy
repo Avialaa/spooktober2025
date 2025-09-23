@@ -301,6 +301,9 @@ label day2_5B:
     menu:
         "Yeah! They're all zombies!!!":
             show karkhos vihainen at shake
+            show bg hallway posters night at shake:
+                zoom 1.05
+                yoffset 50
             K "YEEEEAHHH!!!!"
             "The roar echoes. The sound is like a warband of orcs rushing toward us. It's exhilarating."
         "That was a bit mean.":
@@ -309,6 +312,9 @@ label day2_5B:
             show karkhos alakuloinen
             K "My bad. Got carried away. I'm sure the other two think they can handle the workload."
 
+    show bg hallway posters night:
+        zoom 1.0
+        yoffset 0
     show karkhos pikkuviha at hop
     "The great intersection is busy this time of evening. Dungeon guards are on their patrol. Tinkerers are running to reset traps, and the cleaning crew is marching to mop up dead humans."
     show karkhos perus
@@ -375,22 +381,29 @@ C "However, change is coming, and I am its herald."
 C "We cannot overthrow the fur-covered kraken for good, but what we CAN do is make some changes that cannot be reversed so easily. Everyone will benefit!"
 
 MC "There's something I've been meaning to ask you, Cee. Has Boss done something to you, or is there some other reason for your, uh, resentment?"
+show cee iloinen at hop
 "I can see Cee twitching."
 # Cee perus
-C "'twas my very first day at this blasted corporation. There I was, innocent like a newly hatched man-eating sea serpent, ready to take on the day and all the responsibilities. Little did I know that a ferocious beast was lurking in the shadows, claws and fangs ready to tear into fresh meat."
+show cee perus
+C "'twas my very first day at this blasted corporation. There I was, innocent like a newly hatched man-eating sea serpent, ready to take on the day and all the responsibilities."
+C "Little did I know that a ferocious beast was lurking in the shadows, claws and fangs ready to tear into fresh meat."
 "Our boss? Really?"
 C "I spotted him near the warehouse. Alone. Unguarded. It was the perfect moment to strike."
 C "I approached him and gave him the biggest smile my face was capable of forming. Then it happened."
 MC "What happened?"
 # Cee vihainen
+show cee vihainen at hop
 C "He called me sweet."
 MC "Sweet? That doesn't sound too bad to me."
-
+show cee vihainen at shake
 C "I was trying to intimidate him! He was supposed to petrify and then run with his tail between his legs! That way, it would've been clear as day that I am not one to be toyed with."
 MC "Um, Cee, do you realize that smiling is usually considered a nice gesture? Not intimidating?"
+show cee at hop
 C "I wanted to secure my position from day one so that no one would ever dare question my capability. If the kraken was afraid of me, so would be everyone else!"
 MC "Why on Earth did you want your colleagues to be afraid of you? Wouldn't that make working together difficult?"
-C "My fellow prisoner, do you have any idea how bad it feels when nobody takes you seriously? I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
+show cee alakuloinen at hop
+C "My fellow prisoner, do you have any idea how bad it feels when nobody takes you seriously?"
+C "I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
 MC "Ah. I'm sorry, Cee. I had no idea you were feeling that way."
 "I feel bad for Cee. They are trying so hard and everyone just keeps brushing them off."
 "Even I remember not taking them seriously when I first met them. Something along the lines of ‘wow, that person should probably go touch some dungeon moss'."
@@ -399,11 +412,13 @@ C "Ever since that day, I have not forgiven the fur-covered kraken or his flagra
 MC "Thanks for helping me understand, Cee."
 
 # Cee perus
+show cee perus
 C "Tomorrow, after the midday feast…"
 "Lunch, Cee. Lunch."
 C "We shall check the state of the warehouse and decide who our next leader is."
 MC "Feeling nervous?"
 # Cee iloinen
+show cee iloinen at hop
 C "Nay! Do not be ridiculous. Someone of my calibre doesn't even know the meaning of such trivial words."
 MC "Glad to see you being your old self again, Cee."
 "Tomorrow, change is coming. One way or another."
