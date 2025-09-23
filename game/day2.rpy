@@ -16,7 +16,7 @@ label day2_3A:
     "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
     C "Pardon the precautions. I had to make sure that the tiny control freak wasn't following us."
     C "I've heard some rather concerning rumours about you and Miss Agatha. The hallways are whispering that you have taken a liking to her rigorous ways."
-    C "MC, you must not fall under her spell!"
+    C "[MC], you must not fall under her spell!"
     C "I have seen her true colors. Once, she interrupted my work just to tell me I wasn't projecting enough enthusiasm. Such insolence!"
     # Cee looks angry
     C "Why should we show enthusiasm while performing these repetitive, mundane tasks? Can't she fathom that my passions lie elsewhere entirely?"
@@ -272,7 +272,7 @@ label day2_5B:
     K "I'll win by any means necessary, because I'm right."
     MC "Yeah! It's not fair you're being forced into manual labor, even though you're tired."
     show karkhos perus at hop
-    K "What? No! MC, it's not fair to ANY of us!"
+    K "What? No! [MC], it's not fair to ANY of us!"
     K "Everyone else has just gone numb and capitulated to the horrible conditions. Like they were, I dunno, a bunch of zombies?"
     show karkhos alakuloinen at hop
     K "...Not you, of course! But everyone else."
@@ -297,3 +297,82 @@ label day2_5B:
     hide karkhos with moveoutright
     "I wave. Karkhos enters the stream of monsters, and disappears behind a bend in a cavern."
     "Tomorrow, huh. I have a feeling that after tomorrow, nothing will be the same."
+
+label day2_5C: #Cee emotional evening
+
+scene bg hallway posters night
+"As I get ready to leave work, I realize I've forgotten something."
+MC "Darn it. I left my lunch box in the break room."
+"I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
+"I have a hunch which option Agatha and Karkhos have picked, but..."
+"As I open the break room door, I notice I'm not alone."
+scene bg breakroom posters night
+
+"Why is Cee sulking at the table?"
+show cee alakuloinen at middle
+# Cee appears
+# Cee alakuloinen
+MC "What's wrong, Cee? I don't think I've ever seen you like this before. You're usually so… Confident. Verbose. Did something happen?"  
+C "The ocean is dark and full of terrors..."
+# C karmiva hymy
+C "...but dry land is even more dangerous. They say the seas are treacherous but they're nothing compared to the dry, twisted hell of the land." 
+"Leave it to Cee to ponder something like this all by themselves in the break room."
+"However, it seems like something is bothering them for real. I can't just leave them be."
+MC "Uh-huh. Correct me if I'm wrong but it seems like you hate working on dry land. Is this what this is about? Feeling like a fish out of water?"
+C "'tis not the land itself that bothers me, although I must admit I am not fond of it either. I'm more of a Mariana Trench type of monster, if you catch my drift."
+"Again with the sea puns, I see, Cee."
+
+MC "So, if dry land isn't the problem, what is?"
+C "Ah, I'm glad you asked. The targets of my undying wrath are the beasts that INHABIT the dry land and oppress us sea creatures."
+MC "Ah."
+# Cee vihainen
+C "Nobody in this blasted corporation ever listens to me. Those obnoxious landlubbers seem to think my head is filled with brine instead of a brain. Fools, all of them!"
+C "I am a maelstrom amongst ordinary whirlpools. Why can't they see that my abilities and ideas are well beyond inimitable?"
+MC "I'm glad you value yourself, Cee."
+"What on Earth do they eat for breakfast? Self-esteem cereal? Maybe I should ask them where to buy some…"
+
+C "Those impudent land-dwellers look down on our loot. They consider it mere trumpery. Such insolence! Just because our loot has tiny, insignificant traces of rust or seaweed on it, it's suddenly inferior. Leave it to the surface-dwellers to be that superficial!" 
+"Ouch. Cee does have a point. The others can be kind of mean when it comes to sea monster loot."
+"I wonder why, though. Isn't it kind of exciting to get to open a treasure chest covered in barnacles?"
+"No? It's just me?"
+MC "I understand. It'd bother me as well if my input was never appreciated."
+# Cee iloinen
+C "However, change is coming, and I am its herald."
+C "We cannot overthrow the fur-covered kraken for good, but what we CAN do is make some changes that cannot be reversed so easily. Everyone will benefit!"
+
+MC "There's something I've been meaning to ask you, Cee. Has Boss done something to you, or is there some other reason for your, uh, resentment?"
+"I can see Cee twitching."
+# Cee perus
+C "'twas my very first day at this blasted corporation. There I was, innocent like a newly hatched man-eating sea serpent, ready to take on the day and all the responsibilities. Little did I know that a ferocious beast was lurking in the shadows, claws and fangs ready to tear into fresh meat."
+"Our boss? Really?"
+C "I spotted him near the warehouse. Alone. Unguarded. It was the perfect moment to strike."
+C "I approached him and gave him the biggest smile my face was capable of forming. Then it happened."
+MC "What happened?"
+# Cee vihainen
+C "He called me sweet."
+MC "Sweet? That doesn't sound too bad to me."
+
+C "I was trying to intimidate him! He was supposed to petrify and then run with his tail between his legs! That way, it would've been clear as day that I am not one to be toyed with."
+MC "Um, Cee, do you realize that smiling is usually considered a nice gesture? Not intimidating?"
+C "I wanted to secure my position from day one so that no one would ever dare question my capability. If the kraken was afraid of me, so would be everyone else!"
+MC "Why on Earth did you want your colleagues to be afraid of you? Wouldn't that make working together difficult?"
+C "My fellow prisoner, do you have any idea how bad it feels when nobody takes you seriously? I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
+MC "Ah. I'm sorry, Cee. I had no idea you were feeling that way."
+"I feel bad for Cee. They are trying so hard and everyone just keeps brushing them off."
+"Even I remember not taking them seriously when I first met them. Something along the lines of ‘wow, that person should probably go touch some dungeon moss'."
+"Ouch. It doesn't feel good to realize you're part of the problem."
+C "Ever since that day, I have not forgiven the fur-covered kraken or his flagrant minions. The wound in my heart runs deep."
+MC "Thanks for helping me understand, Cee."
+
+# Cee perus
+C "Tomorrow, after the midday feast…"
+"Lunch, Cee. Lunch."
+C "We shall check the state of the warehouse and decide who our next leader is."
+MC "Feeling nervous?"
+# Cee iloinen
+C "Nay! Do not be ridiculous. Someone of my calibre doesn't even know the meaning of such trivial words."
+MC "Glad to see you being your old self again, Cee."
+"Tomorrow, change is coming. One way or another."
+"Maybe I'M the one feeling nervous."
+
+return
