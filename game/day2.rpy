@@ -1,3 +1,40 @@
+label day2_1:
+    scene black
+    #(Conditional: reittiin sopiva kommentti skenen alussa)
+    # A
+    if currentStoryRoute == "agatha":
+        "Another morning, another workday. Usually I walk fast to reach the warehouse in time, but today I left early."
+    # B
+    if currentStoryRoute == "karkhos":
+        "My slime body is heavy as I drag myself to the warehouse."
+    # C
+    if currentStoryRoute == "cee":
+        "I slept poorly. My dreams were populated with conveyor belts and boxes bursting at the seams. But the long walk through the dungeon pushes the dreams out of my mind."
+
+    # kaikkien yhteinen täst eteenpäin kaikki
+    "It was only yesterday that going to work felt like a holiday. My hopes for a peaceful week remain shattered on the floor."
+    "The three of them could have cooled down during the night, but even I have trouble being optimistic about this. Being the middleman in such a big fight is like a second job."
+    "And as if dealing with the fight wasn't enough, the Loot never stops pouring in. If we don't keep up, we'll be buried in it."
+    "Can't believe I'm about to say this…"
+    MC "Boss, please come back sooner!"
+
+    # warehouse BG, vaalimainosversio
+    scene bg hallway posters
+    "Decorations…? Is today a festival?"
+    "On closer inspection, these are probably related to the fight. It seems they hope to sway me with slogans and art. Seems kinda cheap." 
+    "When did they even have the time to hang all this? To make all of this? They're all really dedicated…"
+    "In a way, it's amazing how much effort they're putting into this. Though it's a pain, I'd feel bad just ignoring them."
+    "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me. Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."
+    scene bg warehouse posters
+    "Well, I'll deal with the posters later. The guys promised to not mess things up for the warehouse. On this at least, I trust them."
+    "As I get ready to start packing, I notice three pieces of paper on my workstation."
+    MC "What is it this time? Let's see."
+
+    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki
+    "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
+    \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
+    \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
+
 
 label day2_3A:
 
