@@ -69,7 +69,7 @@ label day1_2:
             "He perks up."
             K "So you hate it too, huh?"
     show karkhos perus
-    K "How come the boss isn't here to test the new system with us? I heard he went to mountaintown. They're having a festival."
+    K "How come the boss isn't here to test the new system with us? He just up and left for Mount Big, right when they're having a festival."
     MC "He's getting us a loot deal with the mountain giants. It'll be good for the warehouse."
     show karkhos pikkuviha
     K "Yeah yeah, we'll send better loot to the monsters, the monsters toss the Loot at attacking humans, and get to keep their sorry lives. The cycle of Loot that powers itself. Except in truth it's us powering it."
@@ -176,7 +176,7 @@ label day1_2:
     show agatha iloinen suukiinni
     show cee iloinen
     show karkhos iloinen
-    "Oh dear. When I heard Boss is leaving on a business trip, I expected a more relaxed workweek. This is the opposite of that! Without asking, they roped me into their conflict, and even outvoted my attempt to get out."
+    "Oh dear. When I heard Boss was leaving on a business trip, I expected a more relaxed workweek. This is the opposite of that! Without asking, they roped me into their conflict, and even outvoted my attempt to get out."
     "I let out a heavy sigh. Let them see my inconvenience and suffering. I hope they feel at least a little bad."
     # all sprites smiling
     show agatha iloinen suukiinni at hop
@@ -215,7 +215,7 @@ label day1_2:
     show agatha perus
     A "What we propose goes like this: just test the system, work like you would normally. Though you claim you don't mind who wins, I wonder, is that really true?"
     show karkhos perus
-    K "When you work long enough at a place, it's inevitable to start forming opinions."
+    K "When you work at a place long enough, you can't help forming opinions."
     show agatha perus at hop
     A "Exactly. Just test the system, and your true feelings on this issue will surely shine through."
     "What can I even say? The fight has been beaten out of me. I'm starting to question everything I held true. Maybe being noncommittal IS unforgivable. The power of being outvoted sure is frightening."
