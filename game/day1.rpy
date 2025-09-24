@@ -126,7 +126,7 @@ label day1_2:
     C "Yes, do join and settle this petty dispute of Fools."
     # K neutral
     show karkhos perus at hop
-    K "..did you just call yourself…"
+    K "…did you just call yourself…"
     MC "No, no. I'm okay with whatever you decide."
     # C neutral
     show cee perus at hop
@@ -351,7 +351,7 @@ label day1_3B:
     # warehouse BG
     show bg warehouse with dissolve
     show karkhos perus at hop
-    K "I've been thinking—crazy I know."
+    K "I've been thinking—crazy, I know."
     K "As long as we send out enough boxes, doesn't really matter what's inside. Leave some empty space in those boxes, will you? Easier to carry. That would show you agree with me."
     show karkhos iloinen
     K "We'll show that the warehouse is plenty efficient if we work reasonable hours. Maybe we'll even be MORE efficient with enough breaks. When the Boss returns, he'll have no choice but to agree."
