@@ -24,6 +24,7 @@ default currentStoryRoute = None
 default correctOrdersDemandedByAgatha = 3
 default fishDemandedByCee = 5
 
+default move_text = None #set transform to none
 
 image countdown = DynamicDisplayable(show_countdown)
 
@@ -311,8 +312,8 @@ screen conveyer_item(item, timeOnConveyer):
     #can't use Hide() because it uses screen names, not tags; must use renpy.hide_screen(tag) wrapped into a custom function
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
-    if len(itemsInBox) +1 <= maxBoxItems:
-      action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=None)#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
+    #if len(itemsInBox) +1 <= maxBoxItems:
+    action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=[SetVariable("move_text", box_text_shake), Show("box_text_shake_timer")])#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
     at transform:
       xpos -100 ypos 0.25
       on show:
@@ -344,6 +345,14 @@ transform box_shake:
     linear (boxAnimDuration - boxAnimDuration/3) xoffset -10 alpha 1.0
     linear (boxAnimDuration/3) xoffset 0 
 
+transform box_text_shake:
+  xcenter 0.5 ycenter 0.6
+  linear 0.15 yoffset -5
+  linear 0.15 yoffset 5
+  linear 0.1 yoffset 0
+
+screen box_text_shake_timer:
+  timer 0.5 action [SetVariable("move_text", None), Hide()]
 
 screen warehouse_box:
 
@@ -351,9 +360,11 @@ screen warehouse_box:
     xalign 0.5 yalign 0.5
     background Frame("box", 0,0)
     at box_shake
+
     text "Items: [len(itemsInBox)] / [maxBoxItems]":
         xcenter 0.5 ycenter 0.6
         style "boxTextStyle"
+        at move_text #empty transform; use action SetVariable("move_text", box_text_shake) to play animation
   
 screen button_disable_timer:
   on "show":
