@@ -87,9 +87,12 @@ label start:
 
 label after_minigame:
     $ quick_menu = True #show the quick menu
+    $ chooseRoute() #must always be called BEFORE minigame reset
     $ resetMinigame()
     $ updateOrders()
     e "minigame is over"
+    if currentStoryRoute:
+        e "Current route: [currentStoryRoute]"
 
     return
 

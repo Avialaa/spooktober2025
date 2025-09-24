@@ -16,11 +16,12 @@ default correctOrders = 0
 default incorrectOrders = 0
 default activeConveyerTags = [] #keep track of current conveyer tags so we can hide the screens when the minigame ends
 
+default roundFish = 0
 default agathaPoints = 0
 default ceePoints = 0
 default karkhosPoints = 0
 default currentStoryRoute = None
-default correctOrdersDemandedByAgatha = 5
+default correctOrdersDemandedByAgatha = 3
 default fishDemandedByCee = 5
 
 
@@ -55,11 +56,15 @@ init python:
     global orderList
     global itemsOnConveyer
     global itemsInBox
+    global roundFish
+    global boxReady
 
 
     correctOrders = 0
     incorrectOrders = 0
     subsequentCorrectOrders = 0
+    roundFish = 0
+    boxReady = True
     orders.clear()
     orderList.clear()
     itemsOnConveyer.clear()
@@ -72,6 +77,7 @@ init python:
     global currentStoryRoute
     global correctOrders
     global incorrectOrders
+    global roundFish
 
     thisRoundWinner = None
     if (correctOrders - incorrectOrders) >= correctOrdersDemandedByAgatha:
@@ -81,10 +87,10 @@ init python:
       karkhosPoints += 1
       thisRoundWinner = "karkhos"
     
-    #TODO: cee points and route determination
-    #if fish >= fishDemandedByCee:
-      #ceePoints +=1
-      #thisRoundWinner = "cee"
+    #Cee's route takes precedence over other routes; amount of correct order doesn't matter, only fish
+    if roundFish >= fishDemandedByCee:
+      ceePoints +=1
+      thisRoundWinner = "cee"
 
     #if there's a clear point winner, select their route
     if ceePoints > agathaPoints and ceePoints > karkhosPoints:
@@ -119,12 +125,6 @@ init python:
     else:
       #if all else fails, randomize route (this should never happen if logic is correct)
       currentStoryRoute = renpy.random.choice("agatha,", "karkhos", "cee")
-
-
-        
-
-
-
 
 
   def hideMinigame():
@@ -179,11 +179,21 @@ init python:
     global orders
     global isOrderCorrect
     isOrderCorrect = checkOrderValidity()
-    pointCount() #TODO: Tuukka epäkommentoi tää kun haluat testata pointCount-funktion toimintaa (ajetaan kun painaa send order nappia)
+    pointCount() #TODO:
     generateOrder()
+    countFish()
     orders.pop(0) #remove finished order
     itemsInBox.clear()
     updateOrders() #update orders for pad UI
+  
+  def countFish():
+    global roundFish
+    global itemsInBox
+
+    for item in itemsInBox:
+      if item.name == "fish":
+        roundFish += 1
+
 
   def generateOrder():
     #function that generates a list of item names
