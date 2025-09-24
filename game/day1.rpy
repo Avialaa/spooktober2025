@@ -321,6 +321,7 @@ label day1_3A:
     #A bounces off
     MC "Thanks, you too?"
     "...Was that a well-wish or a threat?"
+    return
     
 
 #(kohtauksessa 1.2 valitun coworkkerin scene)
@@ -372,6 +373,7 @@ label day1_3B:
     K "They just don't know what's good for them. But they'll run out of fuel soon."
 
     # (loppujuttu PLACEHOLDER julialle)
+    return
 
 label day1_3C:
 
@@ -470,7 +472,7 @@ label day1_3C:
     hide cee with moveoutleft
     "Oh no. I can already feel the performance anxiety hitting." 
 
-
+    return
 
 label day1_4A:
 
@@ -485,6 +487,7 @@ label day1_4A:
     #ehkä zoom in A? yks siipi wink
     show agatha vinkkaus at hop
     "My gaze is drawn to the side. One of her wing eyes winks at me."
+    return
 
 label day1_4C: #Cee congratulates MC
 
@@ -517,6 +520,7 @@ label day1_4C: #Cee congratulates MC
     "I start to take my leave, nodding at Cee before I go."
     show cee at hop     
     C "Even if you remain vacillating, I shall wait patiently."
+    return
 
 
 label day1_6A:
@@ -659,6 +663,7 @@ label day1_6A:
     hide agatha with dissolve
     "Oh well, to each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
     "Moss, sweet moss…"
+    return
 
 label day1_6B:
 
