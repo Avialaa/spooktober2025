@@ -62,7 +62,7 @@ label start:
         call day1_6B
     # elif currentStoryRoute == "cee":
     #     call day1_6C
-    #call day2_1
+    call day2_1
     #kolmas minipelityövuoro
     #call day2_2
     if currentStoryRoute == "agatha":

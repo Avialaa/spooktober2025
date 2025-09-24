@@ -85,7 +85,7 @@ label day1_2:
     "He gives me a weird look. His gaze follows me out."
     "Does he usually speak this much?"
 
-    scene bg breakroom with dissolve
+    scene bg breakroom with dissolve #TODO: pushright?
     "Because of the delays, when I reach the breakroom, I'm not the first one."
     show cee perus zorder 3 at hop, middle
     # C happy sprite
