@@ -36,12 +36,12 @@ label start:
     #call roundEnd
     #call after_minigame
 
-    call day2_5A
+    #call day2_5A
     #call day1_2
     
     
     #call padTest
-    #call upgradeTree
+    call upgradeTree
     #call upgradeCount
     return
 

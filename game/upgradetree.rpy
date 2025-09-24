@@ -38,10 +38,6 @@ default pPointValue = 1
 default lPointValue = 1
 
 default upgradesBought = []
-default upgrade1Count = 0
-default upgrade2Count = 0
-default upgrade3Count = 0
-default upgrade4Count = 0
 
 default focusUpgradeName = "0"
 default focusDescription = ""
@@ -49,6 +45,11 @@ default focusUpgradeID = ""
 default frCost = 0
 default fbCost = 0
 default fyCost = 0
+default fgCost = 0
+default foCost = 0
+default fvCost = 0
+default fpCost = 0
+default flCost = 0
 
 default orderCounter = dict()
 default itemCountDict = dict()
@@ -131,7 +132,7 @@ init python:
         for item in itemsInBox:
             if item.tier == 3:
                 itemCountList.append(item.name)
-                
+
         orderrPoints += itemCountList.count("meat") * itemValueDict.get("meat") * tier3ValueDict.get("meat")
         orderbPoints += itemCountList.count("weapon") * itemValueDict.get("weapon") * tier3ValueDict.get("weapon")
         orderyPoints += itemCountList.count("treasure") * itemValueDict.get("treasure") * tier3ValueDict.get("treasure")
@@ -171,50 +172,65 @@ label upgradeCount:
 
 
 label upgradeTree:
-    $ rPoints +=2
-    $ bPoints +=1
-    $ yPoints +=1
+    $ rPoints +=10
+    $ bPoints +=10
+    $ yPoints +=10
+    $ gPoints +=10
+    $ oPoints +=10
+    $ vPoints +=10
+    $ pPoints +=10
+    $ lPoints +=10
     menu upgrade_phase:
         "Upgrade?"
 
         "Yes":
-            hide quickmenu
+            $ quick_menu = False
             call screen upgradeTree
 
         "No":
             pass
+    $ quick_menu = True
     "Done"
     return
 
-screen upgradeNode(name, upgradeID, rCost, bCost, yCost, description):
+screen upgradeNode(name, upgradeID, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description):
     #button type for upgrade nodes in upgrade tree
     button:
         text name:
-            if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost):
+            if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost and gPoints >= gCost and oPoints >= oCost and vPoints >= vCost and pPoints >= pCost and lPoints >= lCost):
                 color("#888888")
-        action [SetVariable("focusUpgradeName", name), SetVariable("focusUpgradeID", upgradeID), SetVariable("frCost", rCost), SetVariable("fbCost", bCost), SetVariable("fyCost", yCost), SetVariable("focusDescription", description)]
+        action [SetVariable("focusUpgradeName", name), SetVariable("focusUpgradeID", upgradeID), SetVariable("frCost", rCost), SetVariable("fbCost", bCost), SetVariable("fyCost", yCost), SetVariable("fgCost", gCost), SetVariable("foCost", oCost), SetVariable("fvCost", vCost), SetVariable("fpCost", pCost), SetVariable("flCost", lCost), SetVariable("focusDescription", description)]
 
 
 screen pointView:
-    hbox:
-        xalign 0.9
+    vbox:
+        xalign 0.01
         yalign 0.01
         spacing 10
-        #frame:
-        #    padding (10, 10)
-        #    text "{outlinecolor=#000}{color=#ff0000}Redpoints: [rPoints]{/color}{/outlinecolor}"
-        #frame:
-        #    padding (10, 10)
-        #    text "{outlinecolor=#000}{color=#0000ff}Bluepoints: [bPoints]{/color}{/outlinecolor}"
-        #frame:
-        #    padding (10, 10)
-        #    text "{outlinecolor=#000}{color=#fbfb00}Yellowpoints: [yPoints]{/color}{/outlinecolor}"
-        #frame:
-        #    padding (10, 10)
-        #    text "Upgrades: [upgradesBought]"
         frame:
             padding (10, 10)
-            text "{outlinecolor=#000}{color=#fbfb00}Meat Points: [roundrPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#ff0000}[rPoints]{/color}{/outlinecolor}"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#0000ff}[bPoints]{/color}{/outlinecolor}"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#fbfb00}[yPoints]{/color}{/outlinecolor}"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#00ff00}[gPoints]{/color}{/outlinecolor}"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#ffaa00}[oPoints]{/color}{/outlinecolor}"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#8800fb}[vPoints]{/color}{/outlinecolor}"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#ee88cc}[pPoints]{/color}{/outlinecolor}"
+        frame:
+            padding (10, 10)
+            text "{outlinecolor=#000}{color=#999999}[lPoints]{/color}{/outlinecolor}"
 
 screen upgradeTree:
     add "bg upgradetree"
@@ -227,7 +243,7 @@ screen upgradeTree:
     #return button
     frame:
         padding (10,10)
-        xalign 0.01
+        xalign 0.99
         yalign 0.01
         textbutton "Return":
             action [SetVariable("focusUpgradeName", "0"), Return()]
@@ -237,25 +253,55 @@ screen upgradeTree:
         padding (10,10)
         xalign 0.5
         yalign 0.5
-        use upgradeNode("Upgrade 1","upgrade1", 1, 1, 1, "Lorem ipsum")
-    if 'upgrade1' in upgradesBought:
+        use upgradeNode("Point +","pointMultiplier", 1, 1, 1, 1, 1, 1, 1, 1, "Increases all point gain by 10%")
+    if 'pointMultiplier' in upgradesBought:
         frame:
             padding (10,10)
-            xalign 0.4
+            xalign 0.35
             yalign 0.4
-            use upgradeNode("Upgrade 2","upgrade2", 1, 0, 0, "Lorem ipsum")
-    if 'upgrade1' in upgradesBought:
+            use upgradeNode("Meat +","meatMultiplier", 1, 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
+    if 'pointMultiplier' in upgradesBought:
         frame:
             padding (10,10)
-            xalign 0.6
+            xalign 0.5
             yalign 0.4
-            use upgradeNode("Upgrade 3","upgrade3", 0, 1, 0, "Lorem ipsum")
-    if 'upgrade1' in upgradesBought:
+            use upgradeNode("Lantern +","lightMultiplier", 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from lantern items by 10%")
+    if 'pointMultiplier' in upgradesBought:
         frame:
             padding (10,10)
-            xalign 0.6
+            xalign 0.65
+            yalign 0.4
+            use upgradeNode("Coin +","goldMultiplier", 0, 0, 1, 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
+    if 'pointMultiplier' in upgradesBought:
+        frame:
+            padding (10,10)
+            xalign 0.35
+            yalign 0.5
+            use upgradeNode("Key +","keysMultiplier", 0, 0, 0, 0, 0, 0, 1, 0, "Increases all points gained from key items by 10%")
+    if 'pointMultiplier' in upgradesBought:
+        frame:
+            padding (10,10)
+            xalign 0.65
+            yalign 0.5
+            use upgradeNode("Bone +","bonesMultiplier", 0, 0, 0, 0, 0, 0, 0, 1, "Increases all points gained from bone items by 10%")
+    if 'pointMultiplier' in upgradesBought:
+        frame:
+            padding (10,10)
+            xalign 0.35
             yalign 0.6
-            use upgradeNode("Upgrade 4","upgrade4", 0, 0, 1, "Lorem ipsum")
+            use upgradeNode("Fish +","fishMultiplier", 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from fish items by 10%")
+    if 'pointMultiplier' in upgradesBought:
+        frame:
+            padding (10,10)
+            xalign 0.5
+            yalign 0.6
+            use upgradeNode("Blade +","weaponMultiplier", 0, 1, 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
+    if 'pointMultiplier' in upgradesBought:
+        frame:
+            padding (10,10)
+            xalign 0.65
+            yalign 0.6
+            use upgradeNode("Nap +","sleepMultiplier", 0, 0, 0, 1, 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
 
     #buy screen
     if focusUpgradeName != "0":
@@ -267,13 +313,13 @@ screen upgradeTree:
                 spacing 10
                 text "[focusUpgradeName]"
                 text "[focusDescription]"
-                text "Cost: {outlinecolor=#000}{color=#ff0000}[frCost] red {/color}{color=#0000ff}[fbCost] blue {/color}{color=#fbfb00}[fyCost] yellow {/color}{/outlinecolor}" 
+                text "Cost: {outlinecolor=#000}{color=#ff0000}[frCost] {/color}{color=#0000ff}[fbCost] {/color}{color=#fbfb00}[fyCost] {/color}{color=#00ff00}[fgCost] {/color}{color=#ffaa00}[foCost] {/color}{color=#8800fb}[fvCost] {/color}{color=#ee88cc}[fpCost] {/color}{color=#999999}[flCost]{/color}{/outlinecolor}" 
                 frame:
                     padding (10, 10)
                     button:
                         text "Buy"
-                        if rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost:
-                            action [AddToSet(upgradesBought, focusUpgradeID), IncrementVariable("rPoints", -frCost), IncrementVariable("bPoints", -fbCost), IncrementVariable("yPoints", -fyCost)]
+                        if rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and pPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost:
+                            action [AddToSet(upgradesBought, focusUpgradeID), IncrementVariable("rPoints", -frCost), IncrementVariable("bPoints", -fbCost), IncrementVariable("yPoints", -fyCost), IncrementVariable("gPoints", -fgCost), IncrementVariable("oPoints", -foCost), IncrementVariable("vPoints", -fvCost), IncrementVariable("pPoints", -fpCost), IncrementVariable("lPoints", -flCost)]
 
 screen unused:
     textbutton "upgrade1":
