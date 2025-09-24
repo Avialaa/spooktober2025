@@ -44,6 +44,7 @@ default mcName = "Petri Dish"
 label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
+    call day1_6C
     call choose_name
     #call day1_1
     #eka minipelityövuoro
