@@ -284,7 +284,6 @@ screen warehouse_gameplay:
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
   use conveyer_belt(conveyerInterval)
   use send_order_button
-  use pointView
   on "show":
     action [Show("warehouse_box"), Show("magicPad", _zorder=100)]
   
@@ -296,7 +295,8 @@ screen conveyer_belt(conveyerInterval):
   zorder 20
   modal True 
 
-  text "{outlinecolor=#000}{color=#ff0000}BoxReady: [boxReady] Order list: [orderList] Is latest order correct? [isOrderCorrect]{/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
+  #developer debug text
+  #text "{outlinecolor=#000}{color=#ff0000}BoxReady: [boxReady] Order list: [orderList] Is latest order correct? [isOrderCorrect]{/color}{/outlinecolor}" #Items in box: [itemsInBox] Items on conveyer: [itemsOnConveyer]
   timer conveyerInterval:
     action [Function(showItemsOnConveyer)]
     repeat True
