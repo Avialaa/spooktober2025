@@ -418,7 +418,7 @@ label day1_3C:
     show cee hullu hymy
     C "Now that the beast is gone, we have the perfect moment to strike." 
     show cee alakuloinen
-    C "It’s going to be too late when the kraken is back, my fellow prisoner. It's going to be far too late…"
+    C "It's going to be too late when the kraken is back, my fellow prisoner. It's going to be far too late…"
     show cee alakuloinen at hop
     "Cee stares into the distance and shudders."
     MC "Wait, kraken?"
