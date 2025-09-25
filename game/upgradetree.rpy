@@ -348,6 +348,8 @@ label upgradeTreeTest:
     return
 
 label upgradeTree:
+    scene bg warehouse
+    "Time for another shift!"
     if _skipping:
         hide screen skip_indicator
         $ renpy.choice_for_skipping()
@@ -416,35 +418,35 @@ screen pointView:
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ff0000}[rPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#ff0000}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#0000ff}[bPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#0000ff}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#fbfb00}[yPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#fbfb00}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#00ff00}[gPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#00ff00}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ffaa00}[oPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#ffaa00}[f'{oPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#8800fb}[vPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#8800fb}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ee88cc}[pPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#ee88cc}[f'{pPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#999999}[lPoints]{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#999999}[f'{lPoints:.2f}']{/color}{/outlinecolor}"
 
 screen upgradeTree:
     add "bigspace_day.png"
