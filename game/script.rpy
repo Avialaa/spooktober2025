@@ -44,8 +44,8 @@ default mcName = "Petri Dish"
 label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
-    call upgradeTree
-    call day1_6C
+    call upgradeTreeTest
+    #call day1_6C
     call choose_name
     #call day1_1
     #eka minipelityövuoro
@@ -90,6 +90,7 @@ label start:
     call warehouse_gameplay
     call roundEnd
     call after_minigame
+    call upgradeTree
     call warehouse_gameplay
     call roundEnd
     call after_minigame
