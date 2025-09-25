@@ -269,8 +269,6 @@ init python:
     return isOrderCorrect
 
 label warehouse_gameplay:
-  scene bg warehouse
-  "Time for another shift!"
   #this should disable skipping during minigame
   if _skipping:
     hide screen skip_indicator

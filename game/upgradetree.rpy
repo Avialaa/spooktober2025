@@ -348,6 +348,8 @@ label upgradeTreeTest:
     return
 
 label upgradeTree:
+    scene bg warehouse
+    "Time for another shift!"
     if _skipping:
         hide screen skip_indicator
         $ renpy.choice_for_skipping()
