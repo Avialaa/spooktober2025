@@ -95,6 +95,9 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+transform nameRotate:
+    rotate -6
+
 screen say(who, what):
 
     window:
@@ -105,7 +108,7 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                text who id "who" at nameRotate
 
         text what id "what"
 
@@ -270,6 +273,7 @@ style quick_button_text is button_text
 style quick_menu:
     xalign 0.5
     yalign 1.0
+    yoffset -15
 
 style quick_button:
     properties gui.button_properties("quick_button")

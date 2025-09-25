@@ -1,5 +1,8 @@
 init:
-    image bg upgradetree = "#000"
+    image upgradeBox = Frame("minigame button score.png", 40, 30)
+    image upgradeBox2 = Frame("minigame button basic.png", 40, 30)
+    image upgradeBox3 = Frame("minigame button pressed.png", 40, 30)
+    image upgradeBox3 = Frame("minigame button allbought.png", 40, 30)
 
 default rPoints = 0
 default bPoints = 0
@@ -37,11 +40,12 @@ default vPointValue = 1
 default pPointValue = 1
 default lPointValue = 1
 
-default upgradesBought = []
+default upgradesBought = {}
 
 default focusUpgradeName = "0"
 default focusDescription = ""
 default focusUpgradeID = ""
+default focusupgradeLimit = 1
 default frCost = 0
 default fbCost = 0
 default fyCost = 0
@@ -57,11 +61,139 @@ default itemCountList = []
 default itemValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 default tier2ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 default tier3ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
+default tier2ChanceDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
+default tier3ChanceDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 
 default failPoints = 0
 default validityFactor = 0
+default timerPoints = 0
 
 init python:
+
+    def upgradePurchase():
+        #is run when an upgrade is bought
+
+        global focusUpgradeID
+        global focusUpgradeLimit
+        global upgradesBought
+        global rPoints
+        global bPoints
+        global yPoints
+        global gPoints
+        global oPoints
+        global vPoints
+        global pPoints
+        global lPoints
+        global frCost
+        global fbCost
+        global fyCost
+        global fgCost
+        global foCost
+        global fvCost
+        global fpCost
+        global flCost
+
+        global itemValueDict
+        global tier2ValueDict
+        global tier3ValueDict
+        global tier2ChanceDict
+        global tier3ChanceDict
+        global roundDuration
+        global timerPoints
+        global failPoints
+
+        #subtracts upgrade cost from points
+        rPoints += -frCost
+        bPoints += -fbCost
+        yPoints += -fyCost
+        gPoints += -fgCost
+        oPoints += -foCost
+        vPoints += -fvCost
+        pPoints += -fpCost
+        lPoints += -flCost
+
+        #adds bought upgrade into dict that tracks bought upgrades
+        if focusUpgradeID not in upgradesBought:
+            upgradesBought.update({focusUpgradeID: 1})
+        else:
+            upgradesBought[focusUpgradeID] +=1
+        
+        upgradeUpdate() #update variables
+        
+        #update buy screen prices after purchase
+        frCost = frCost*2
+        fbCost = fbCost*2
+        fyCost = fyCost*2
+        fgCost = fgCost*2
+        foCost = foCost*2
+        fvCost = fvCost*2
+        fpCost = fpCost*2
+        flCost = flCost*2
+
+    def upgradeUpdate():
+        #updates relevant variables after upgrade purchase
+
+        global frCost
+        global fbCost
+        global fyCost
+        global fgCost
+        global foCost
+        global fvCost
+        global fpCost
+        global flCost
+        
+        itemValueDict["light"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("lightMultiplier",0)))
+        itemValueDict["sleep"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("sleepMultiplier",0)))
+        itemValueDict["fish"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("fishMultiplier",0)))
+        itemValueDict["bone"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("boneMultiplier",0)))
+        itemValueDict["meat"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("meatMultiplier",0)))
+        itemValueDict["weapon"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("weaponMultiplier",0)))
+        itemValueDict["keys"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("keysMultiplier",0)))
+        itemValueDict["treasure"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("treasureMultiplier",0)))
+        
+        tier2ValueDict["light"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("light2Multiplier",0)))
+        tier2ValueDict["sleep"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("sleep2Multiplier",0)))
+        tier2ValueDict["fish"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("fish2Multiplier",0)))
+        tier2ValueDict["bone"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("bone2Multiplier",0)))
+        tier2ValueDict["meat"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("meat2Multiplier",0)))
+        tier2ValueDict["weapon"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("weapon2Multiplier",0)))
+        tier2ValueDict["keys"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("keys2Multiplier",0)))
+        tier2ValueDict["treasure"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("treasure2Multiplier",0)))
+        
+        tier3ValueDict["light"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("light3Multiplier",0)))
+        tier3ValueDict["sleep"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("sleep3Multiplier",0)))
+        tier3ValueDict["fish"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("fish3Multiplier",0)))
+        tier3ValueDict["bone"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("bone3Multiplier",0)))
+        tier3ValueDict["meat"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("meat3Multiplier",0)))
+        tier3ValueDict["weapon"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("weapon3Multiplier",0)))
+        tier3ValueDict["keys"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("keys3Multiplier",0)))
+        tier3ValueDict["treasure"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("treasure3Multiplier",0)))
+        
+        tier2ChanceDict["light"] = upgradesBought.get("light2Chance",0)
+        tier2ChanceDict["sleep"] = upgradesBought.get("sleep2Chance",0)
+        tier2ChanceDict["fish"] = upgradesBought.get("fish2Chance",0)
+        tier2ChanceDict["bone"] = upgradesBought.get("bone2Chance",0)
+        tier2ChanceDict["meat"] = upgradesBought.get("meat2Chance",0)
+        tier2ChanceDict["weapon"] = upgradesBought.get("weapon2Chance",0)
+        tier2ChanceDict["keys"] = upgradesBought.get("keys2Chance",0)
+        tier2ChanceDict["treasure"] = upgradesBought.get("treasure2Chance",0)
+        
+        tier3ChanceDict["light"] = upgradesBought.get("light3Chance",0)
+        tier3ChanceDict["sleep"] = upgradesBought.get("sleep3Chance",0)
+        tier3ChanceDict["fish"] = upgradesBought.get("fish3Chance",0)
+        tier3ChanceDict["bone"] = upgradesBought.get("bone3Chance",0)
+        tier3ChanceDict["meat"] = upgradesBought.get("meat3Chance",0)
+        tier3ChanceDict["weapon"] = upgradesBought.get("weapon3Chance",0)
+        tier3ChanceDict["keys"] = upgradesBought.get("keys3Chance",0)
+        tier3ChanceDict["treasure"] = upgradesBought.get("treasure3Chance",0)
+
+        roundDuration = (40+5*upgradesBought.get("timeIncrease",0))/(1+upgradesBought.get("timeIncrease",0))
+        timerPoints = (roundDuration/5)*upgradesBought.get("timePoints",0) #every 5 seconds gives 1 point
+        roundDuration = roundDuration/(2**upgradesBought.get("timePace",0))
+        failPoints = upgradesBought.get("pointMultiplier",0)*0,1
+
+
+
 
     def pointCount():
         #counts points when order is sent
@@ -159,6 +291,35 @@ init python:
         roundpPoints += orderpPoints*validityFactor
         roundlPoints += orderlPoints*validityFactor
 
+    def openShop(name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description):
+        #function that is run when upgrade node is clicked
+
+        global focusUpgradeID
+        global focusUpgradeLimit
+        global upgradesBought
+        global frCost
+        global fbCost
+        global fyCost
+        global fgCost
+        global foCost
+        global fvCost
+        global fpCost
+        global flCost
+        global focusDescription
+
+        focusUpgradeName = name
+        focusUpgradeID = upgradeID
+        focusUpgradeLimit = upgradeLimit
+        frCost = rCost*(2**upgradesBought.get(upgradeID,0))
+        fbCost = bCost*(2**upgradesBought.get(upgradeID,0))
+        fyCost = yCost*(2**upgradesBought.get(upgradeID,0))
+        fgCost = gCost*(2**upgradesBought.get(upgradeID,0))
+        foCost = oCost*(2**upgradesBought.get(upgradeID,0))
+        fvCost = vCost*(2**upgradesBought.get(upgradeID,0))
+        fpCost = pCost*(2**upgradesBought.get(upgradeID,0))
+        flCost = lCost*(2**upgradesBought.get(upgradeID,0))
+        focusDescription = description
+
 
 label upgradeCount:
     #label that counts the amount of each type of upgrade bought
@@ -193,13 +354,35 @@ label upgradeTree:
     "Done"
     return
 
-screen upgradeNode(name, upgradeID, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description):
+screen upgradeNode(name, upgradeID, upgradeLimit, coord, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description):
     #button type for upgrade nodes in upgrade tree
     button:
+        align coord
+        if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost and gPoints >= gCost and oPoints >= oCost and vPoints >= vCost and pPoints >= pCost and lPoints >= lCost):
+            background Frame("minigame button nomoney.png", 40, 30)
+        elif focusUpgradeName == name:
+            background Frame("minigame button pressed.png", 40, 30)
+        elif upgradesBought.get(upgradeID) == upgradeLimit:
+            background Frame("minigame button allbought.png", 40, 30)
+        elif upgradeID in upgradesBought:
+            background Frame("minigame button bought.png", 40, 30)
+        else:
+            background Frame("minigame button basic.png", 40, 30)
+        padding (20,10)
         text name:
+            font "Silkscreen-Regular.ttf"
             if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost and gPoints >= gCost and oPoints >= oCost and vPoints >= vCost and pPoints >= pCost and lPoints >= lCost):
-                color("#888888")
-        action [SetVariable("focusUpgradeName", name), SetVariable("focusUpgradeID", upgradeID), SetVariable("frCost", rCost), SetVariable("fbCost", bCost), SetVariable("fyCost", yCost), SetVariable("fgCost", gCost), SetVariable("foCost", oCost), SetVariable("fvCost", vCost), SetVariable("fpCost", pCost), SetVariable("flCost", lCost), SetVariable("focusDescription", description)]
+                color("#654C4C")
+            elif focusUpgradeName == name:
+                color("#2A3124")
+            elif upgradesBought.get(upgradeID) == upgradeLimit:
+                color("#5A6056")
+            elif upgradeID in upgradesBought:
+                color("#4C5942")
+            else:
+                color("#4C5942")
+
+        action [Function(openShop, name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description, _update_screens=True), SetVariable("focusUpgradeName", name)]
 
 
 screen pointView:
@@ -208,33 +391,40 @@ screen pointView:
         yalign 0.01
         spacing 10
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#ff0000}[rPoints]{/color}{/outlinecolor}"
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#0000ff}[bPoints]{/color}{/outlinecolor}"
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#fbfb00}[yPoints]{/color}{/outlinecolor}"
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#00ff00}[gPoints]{/color}{/outlinecolor}"
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#ffaa00}[oPoints]{/color}{/outlinecolor}"
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#8800fb}[vPoints]{/color}{/outlinecolor}"
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#ee88cc}[pPoints]{/color}{/outlinecolor}"
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             text "{outlinecolor=#000}{color=#999999}[lPoints]{/color}{/outlinecolor}"
 
 screen upgradeTree:
-    add "bg upgradetree"
-    tag menu
+    add "bigspace_day.png"
     modal True
 
     #point status view
@@ -242,84 +432,68 @@ screen upgradeTree:
     
     #return button
     frame:
-        padding (10,10)
+        background "upgradeBox"
+        padding (20,10)
         xalign 0.99
         yalign 0.01
         textbutton "Return":
             action [SetVariable("focusUpgradeName", "0"), Return()]
 
     #upgrade nodes
-    frame:
-        padding (10,10)
-        xalign 0.5
-        yalign 0.5
-        use upgradeNode("Point +","pointMultiplier", 1, 1, 1, 1, 1, 1, 1, 1, "Increases all point gain by 10%")
+    use upgradeNode("Point +","pointMultiplier", 5, (0.5, 0.5), 1, 1, 1, 1, 1, 1, 1, 1, "Increases all point gain by 10%")
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.35
-            yalign 0.4
-            use upgradeNode("Meat +","meatMultiplier", 1, 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
+        use upgradeNode("Meat +","meatMultiplier", 5, (0.35, 0.4), 1, 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.5
-            yalign 0.4
-            use upgradeNode("Lantern +","lightMultiplier", 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from lantern items by 10%")
+        use upgradeNode("Lantern +","lightMultiplier", 5, (0.5, 0.4), 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from lantern items by 10%") 
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.65
-            yalign 0.4
-            use upgradeNode("Coin +","goldMultiplier", 0, 0, 1, 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
+        use upgradeNode("Coin +","goldMultiplier", 5, (0.65, 0.4), 0, 0, 1, 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.35
-            yalign 0.5
-            use upgradeNode("Key +","keysMultiplier", 0, 0, 0, 0, 0, 0, 1, 0, "Increases all points gained from key items by 10%")
+        use upgradeNode("Key +","keysMultiplier", 5, (0.35, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Increases all points gained from key items by 10%")
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.65
-            yalign 0.5
-            use upgradeNode("Bone +","bonesMultiplier", 0, 0, 0, 0, 0, 0, 0, 1, "Increases all points gained from bone items by 10%")
+        use upgradeNode("Bone +","bonesMultiplier", 5, (0.65, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Increases all points gained from bone items by 10%")
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.35
-            yalign 0.6
-            use upgradeNode("Fish +","fishMultiplier", 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from fish items by 10%")
+        use upgradeNode("Fish +","fishMultiplier", 5, (0.35, 0.6), 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from fish items by 10%")
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.5
-            yalign 0.6
-            use upgradeNode("Blade +","weaponMultiplier", 0, 1, 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
+        use upgradeNode("Blade +","weaponMultiplier", 5, (0.5, 0.6), 0, 1, 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
     if 'pointMultiplier' in upgradesBought:
-        frame:
-            padding (10,10)
-            xalign 0.65
-            yalign 0.6
-            use upgradeNode("Nap +","sleepMultiplier", 0, 0, 0, 1, 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
+        use upgradeNode("Nap +","sleepMultiplier", 5, (0.65, 0.6), 0, 0, 0, 1, 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
 
     #buy screen
     if focusUpgradeName != "0":
         frame:
-            padding (10, 10)
+            background "upgradeBox"
+            padding (20, 10)
             xalign 0.95
             yalign 0.95
+            xmaximum 400
             vbox:
                 spacing 10
-                text "[focusUpgradeName]"
-                text "[focusDescription]"
+                text "[focusUpgradeName]":
+                    font "fonts/Silkscreen-Regular.ttf"
+                text "[focusDescription]":
+                    font "fonts/DMSans-Light.ttf"
                 text "Cost: {outlinecolor=#000}{color=#ff0000}[frCost] {/color}{color=#0000ff}[fbCost] {/color}{color=#fbfb00}[fyCost] {/color}{color=#00ff00}[fgCost] {/color}{color=#ffaa00}[foCost] {/color}{color=#8800fb}[fvCost] {/color}{color=#ee88cc}[fpCost] {/color}{color=#999999}[flCost]{/color}{/outlinecolor}" 
                 frame:
-                    padding (10, 10)
+                    if upgradesBought.get(focusUpgradeID) == focusUpgradeLimit:
+                        background "upgradeBox4"
+                    elif rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and pPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost:
+                        background "upgradeBox2"
+                    else:
+                        background "upgradeBox3"
+                        
+                    padding (20, 10)
                     button:
-                        text "Buy"
-                        if rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and pPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost:
-                            action [AddToSet(upgradesBought, focusUpgradeID), IncrementVariable("rPoints", -frCost), IncrementVariable("bPoints", -fbCost), IncrementVariable("yPoints", -fyCost), IncrementVariable("gPoints", -fgCost), IncrementVariable("oPoints", -foCost), IncrementVariable("vPoints", -fvCost), IncrementVariable("pPoints", -fpCost), IncrementVariable("lPoints", -flCost)]
+                        text "Buy":
+                            if upgradesBought.get(focusUpgradeID) == focusUpgradeLimit:
+                                color("#5A6056")
+                            elif rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and pPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost:
+                                color("#2A3124")
+                            else:
+                                color("#654C4C")
+                                
+                            font "fonts/DMSans-Light.ttf"
+                        if rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and pPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost and upgradesBought.get(focusUpgradeID,0) <= focusUpgradeLimit:
+                            action Function(upgradePurchase)
 
 screen unused:
     textbutton "upgrade1":

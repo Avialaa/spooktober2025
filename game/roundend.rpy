@@ -23,14 +23,14 @@ default fishTotal = 0
 label roundEnd:
     #Minigame is concluded by calling this label
     python:
-        rPoints += roundrPoints
-        bPoints += roundbPoints
-        yPoints += roundyPoints
-        gPoints += roundgPoints
-        oPoints += roundoPoints
-        vPoints += roundvPoints
-        pPoints += roundpPoints
-        lPoints += roundlPoints
+        rPoints += roundrPoints+timerPoints
+        bPoints += roundbPoints+timerPoints
+        yPoints += roundyPoints+timerPoints
+        gPoints += roundgPoints+timerPoints
+        oPoints += roundoPoints+timerPoints
+        vPoints += roundvPoints+timerPoints
+        pPoints += roundpPoints+timerPoints
+        lPoints += roundlPoints+timerPoints
 
         fishTotal += roundpPoints #kalapisteiden kokonaismäärä
 

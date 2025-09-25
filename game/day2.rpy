@@ -1,8 +1,113 @@
+label day2_1:
+    scene black
+    #(Conditional: reittiin sopiva kommentti skenen alussa)
+    # A
+    if currentStoryRoute == "agatha":
+        "Another morning, another workday. Usually I walk fast to reach the warehouse in time, but today I left early."
+    # B
+    if currentStoryRoute == "karkhos":
+        "My slime body is heavy as I drag myself to the warehouse."
+    # C
+    if currentStoryRoute == "cee":
+        "I slept poorly. My dreams were populated with conveyor belts and boxes bursting at the seams. But the long walk through the dungeon pushes the dreams out of my mind."
 
+    # kaikkien yhteinen täst eteenpäin kaikki
+    "It was only yesterday that going to work felt like a holiday. My hopes for a peaceful week remain shattered on the floor."
+    "The three of them could have cooled down during the night, but even I have trouble being optimistic about this. Being the middleman in such a big fight is like a second job."
+    "And as if dealing with the fight wasn't enough, the Loot never stops pouring in. If we don't keep up, we'll be buried in it."
+    "Can't believe I'm about to say this…"
+    MC "Boss, please come back sooner!"
+
+    # warehouse BG, vaalimainosversio
+    scene bg hallway posters
+    "Decorations…? Is today a festival?"
+    "On closer inspection, these are probably related to the fight. It seems they hope to sway me with slogans and art. Seems kinda cheap." 
+    "When did they even have the time to hang all this? To make all of this? They're all really dedicated…"
+    "In a way, it's amazing how much effort they're putting into this. Though it's a pain, I'd feel bad just ignoring them."
+    "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me. Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."
+    scene bg warehouse posters
+    "Well, I'll deal with the posters later. The guys promised to not mess things up for the warehouse. On this at least, I trust them."
+    "As I get ready to start packing, I notice three pieces of paper on my workstation."
+    MC "What is it this time? Let's see."
+
+    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki
+    "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
+    \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
+    \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
+
+
+label day2_3A:
+
+    scene bg hallway posters
+    #footsteps
+    "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
+    # Cee appears
+    show cee perus at middle with moveinright
+    C "[MC]!"
+    show bg hallway posters at hpunch:
+        zoom 1.02
+        xoffset -20
+    #TÄTÄ EI VARMAAN VOI PITÄÄ
+    MC "Eeek!"
+    show bg hallway posters:
+        zoom 1
+        xoffset 0
+    C "Fret not. You must come with me."
+    MC "But the break's almost over."
+    show cee at hop
+    C "The tidings I bring concern Miss Agatha. I'm certain you would be interested. It shall not take long."
+    #haluun zoomata kuvan nurkkaan täs jos on aikaa tutkii miten
+    show bg hallway posters:
+        zoom 2
+        xoffset -1650
+        yoffset -400
+    "Cee ushers me into a crevice in the corridor. I follow, initially reluctant, except…"
+    "Ever since Boss left, I haven't really talked with Cee. What's so important that they waited for me, after storming off like that? I'm a bit curious."
+    "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
+    show cee vihainen at hop
+    C "Pardon the precautions. I had to make sure that the tiny control freak wasn't following us."
+    show cee perus
+    C "I've heard some rather concerning rumours about you and Miss Agatha. The hallways are whispering that you have taken a liking to her rigorous ways."
+    show cee perus at hop
+    C "[MC], you must not fall under her spell!"
+    show cee perus
+    C "I have seen her true colors. Once, she interrupted my work just to tell me I wasn't projecting enough enthusiasm."
+    show cee vihainen at hop
+    C "Such insolence!"
+    # Cee looks angry
+    C "Why should we show enthusiasm while performing these repetitive, mundane tasks? Can't she fathom that my passions lie elsewhere entirely?"
+    MC "She isn't that bad once you get to know her. She's working hard to protect her fellow monsters."
+    show cee alakuloinen
+    C "That, my foolish comrade, is what she WANTS you to think."
+    show cee hullu hymy
+    C "Do not be fooled by her big eyes and paper thin wings. Underneath that disguise you'll find a ferocious predator, poised to bite those standing in her way." 
+    MC "Hey, that's going too far."
+    show cee perus at hop
+    C "Hardly! What shall a mere worker do, when told to triple their efforts? To try is to perish, whilst to not try is to be bitten."
+    show cee perus
+    C "Were we to work harder, would it not in actuality decrease our output? Eat the marlin's roe, and be bereft of the fish. She is thinking short term, when what matters is the long term."
+    show cee karmiva hymy at hop
+    C "Unwittingly, she may yet be furthering my goals. She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures. Rather than a moth, she is a locust. Nay, a disease!"
+    MC "Stop."
+    show cee kauhistus at hop
+    C "...!"
+    MC "I appreciate the sentiment, but I won't let you badmouth Agatha."
+    MC "She cares about the warehouse and wants us to succeed."
+    show cee vihainen at hop
+    C "Bah! I did not think you simple-minded enough to fall for her ruse. Consider me disappointed."
+    show cee perus
+    C "I have given my augury. Since you wish to remain ignorant, do not cry for help once the predator attacks."
+    # Cee leaves
+    hide cee with moveoutleft
+    "I'm speechless. It's not okay to speak about coworkers like that."
+    "I can't tell if this was just Cee's personal dislike, or an actual worry about our wellbeing. Maybe it was both. Does sound like Agatha should have been nicer to Cee."
+    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters. Nothing predator-like about that."
+    "...Right?"
+    return
 
 
 label day2_5A:
-    scene bg breakroom posters night
+    scene bg breakroom posters night 
     "As I start heading home, I see something shocking out of the corner of my eye."
     show agatha alakuloinen at agathabreakroom
     "Is that… Agatha? Sitting in the break room and not working?"
@@ -22,6 +127,7 @@ label day2_5A:
     A "I'm just feeling a bit… lonely."
     A "I don't understand why the others don't see the value in doing our best for the Loot Chain."
     MC "Yeah… It was a bit sad to work without Karkhos and Cee today."
+    show agatha vakava
     A "I just feel like… They work here, right? So why won't they {i}work{/i}?"
     #work itallics
     show agatha vihainen at hop
@@ -31,21 +137,24 @@ label day2_5A:
     #conditional jos lukenut 2.3A:n: LISÄÄ MYÖHEMMIN KONDITIO KUN TEKSTI OLEMASSA!!!!
     # if read2_3A = True:
     #     "I think back to Cee's story of Agatha demanding they show more enthusiasm. Was there more to it than Cee told, or could she really be plotting death by overwork?"
-    #     menu:
-    #         "Well, everyone's different."
-    #             A "But we're all supposed to be working together!"
-    #         "I get it. I wish they'd do more."
-    #             A "Right??"
+    menu:
+        "\"Well, everyone's different.\"":
+            show agatha at hop
+            A "But we're all supposed to be working together!"
+        "\"I get it. I wish they'd do more.\"":
+            show agatha vakava at hop
+            A "Right??"
     show agatha vakava
     A "I just… When I looked around, I saw Karkhos napping in a box and Cee jamming the conveyor belt with fish!"
-    show agatha pelokas
+    show agatha pelokas at hop
     A "And- and- and what are we going to tell Boss when he comes back?!"
     A "Our output is {i}half{/i} of what it should be!"
     #half itallics
+    show agatha pelokas at shake2
     A "[MC], I can't make up for this much slacking off!"
-    show agatha pelokas at hop
+    show agatha pelokas at hop, shake2
     A "I mean, I would if I could, but I can't!"
-    show agatha alakuloinen
+    show agatha alakuloinen at middle
     "She puts her head in her hands."
     MC "There, there…"
     MC "Look on the bright side. Our output's still good compared to before the new system."
@@ -58,14 +167,14 @@ label day2_5A:
     MC "..."
     MC "I'm not the brightest, but is this really about productivity?"
     A "..."
-    A "Yes?"
     show agatha alakuloinen at hop
+    A "Yes?"
     A "I know it sounds phoney, but each piece of Loot really matters to someone out there."
     MC "I mean, you're not wrong, but…"
     show agatha alakuloinen
     A "..."
     MC "...?"
-    show agatha vakava at hop
+    show agatha vakava 
     A "...Fine. Okay. [MC], how much do you know about the Human Wilds?"
     MC "I mean, I've seen pictures?"
     show agatha vakava at hop
@@ -73,7 +182,7 @@ label day2_5A:
     "Her eyes are distant for a moment, before drilling back into me with their usual uncanny brightness."
     A "I … grew up in the Human Wilds. There was no Loot system back then."
     A "Most of my kind are nectar farmers, and it's dangerous work. When a human stumbles on you in the flower field…"
-    show agatha pelokas at shake
+    show agatha pelokas at shake2
     "She shudders."
     MC "What? What?"
     show agatha vihainen at hop
@@ -107,7 +216,7 @@ label day2_5A:
     #everything itallics
     "There's that intense look again."
     show agatha vakava at hop
-    A "[MC], if your vote comes out in my favor tomorrow, we can double- no, triple- no, {b}QUADRUPLE{/i} the amount of lives each day!"
+    A "[MC], if your vote comes out in my favor tomorrow, we can double- no, triple- no, {b}QUADRUPLE{/i} the amount of lives saved each day!"
     #quadruble boldattu
     show agatha iloinen
     A "We'll all work hard together, knowing that each box we pack helps countless monsters."
@@ -128,6 +237,7 @@ label day2_5A:
     "She flutters back towards the packing area, humming a cheerful tune."
     "I worry a bit about how long she's going to keep working, but at least she cheered up."
     "I also feel energized, looking at her. Maybe I'll go for an evening waddle before returning home."
+    return
 
 label day2_5B:
 
@@ -139,7 +249,7 @@ label day2_5B:
     # corridor BG
     # karkhos sprite
     scene bg hallway posters night
-    show karkhos perus
+    show karkhos perus at middle
     "Knew it."
     K "Out the door, right on the dot."
     MC "Old habits die hard."
@@ -232,7 +342,7 @@ label day2_5B:
     K "I'll win by any means necessary, because I'm right."
     MC "Yeah! It's not fair you're being forced into manual labor, even though you're tired."
     show karkhos perus at hop
-    K "What? No! MC, it's not fair to ANY of us!"
+    K "What? No! [MC], it's not fair to ANY of us!"
     K "Everyone else has just gone numb and capitulated to the horrible conditions. Like they were, I dunno, a bunch of zombies?"
     show karkhos alakuloinen at hop
     K "...Not you, of course! But everyone else."
@@ -240,6 +350,9 @@ label day2_5B:
     menu:
         "Yeah! They're all zombies!!!":
             show karkhos vihainen at shake
+            show bg hallway posters night at shake:
+                zoom 1.05
+                yoffset 50
             K "YEEEEAHHH!!!!"
             "The roar echoes. The sound is like a warband of orcs rushing toward us. It's exhilarating."
         "That was a bit mean.":
@@ -248,8 +361,12 @@ label day2_5B:
             show karkhos alakuloinen
             K "My bad. Got carried away. I'm sure the other two think they can handle the workload."
 
+    show bg hallway posters night:
+        zoom 1.0
+        yoffset 0
+    show karkhos pikkuviha at hop
     "The great intersection is busy this time of evening. Dungeon guards are on their patrol. Tinkerers are running to reset traps, and the cleaning crew is marching to mop up dead humans."
-    show karkhos perus at hop
+    show karkhos perus
     K "Well, my cave's that way. Was nice chatting."
     # karkhos tosi iloinen
     show karkhos tosi iloinen at hop
@@ -257,3 +374,104 @@ label day2_5B:
     hide karkhos with moveoutright
     "I wave. Karkhos enters the stream of monsters, and disappears behind a bend in a cavern."
     "Tomorrow, huh. I have a feeling that after tomorrow, nothing will be the same."
+    return
+
+label day2_5C: #Cee emotional evening
+
+    scene bg hallway posters night
+    "As I get ready to leave work, I realize I've forgotten something."
+    MC "Darn it. I left my lunch box in the break room."
+    "I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
+    "I have a hunch which option Agatha and Karkhos have picked, but..."
+    "As I open the break room door, I notice I'm not alone."
+    scene bg breakroom posters night
+
+    show cee alakuloinen at ceebreakroom
+    #onks tää liian goofyn näkönen
+    "Why is Cee sulking at the table?"
+    show cee alakuloinen at middle with move:
+        zoom 1.0
+    # Cee appears
+    # Cee alakuloinen
+    MC "What's wrong, Cee? I don't think I've ever seen you like this before. You're usually so… Confident. Verbose. Did something happen?"
+    show cee alakuloinen at hop  
+    C "The ocean is dark and full of terrors..."
+    # C karmiva hymy
+    show cee karmiva hymy
+    C "...but dry land is even more dangerous. They say the seas are treacherous but they're nothing compared to the dry, twisted hell of the land." 
+    "Leave it to Cee to ponder something like this all by themselves in the break room."
+    "However, it seems like something is bothering them for real. I can't just leave them be."
+    show cee perus
+    MC "Uh-huh. Correct me if I'm wrong but it seems like you hate working on dry land. Is this what this is about? Feeling like a fish out of water?"
+    show cee alakuloinen
+    C "'tis not the land itself that bothers me, although I must admit I am not fond of it either. I'm more of a Mariana Trench type of monster, if you catch my drift."
+    "Again with the sea puns, I see, Cee."
+
+    MC "So, if dry land isn't the problem, what is?"
+    show cee iloinen at hop
+    C "Ah, I'm glad you asked. The targets of my undying wrath are the beasts that INHABIT the dry land and oppress us sea creatures."
+    MC "Ah."
+    # Cee vihainen
+    show cee vihainen at hop
+    C "Nobody in this blasted corporation ever listens to me. Those obnoxious landlubbers seem to think my head is filled with brine instead of a brain. Fools, all of them!"
+    C "I am a maelstrom amongst ordinary whirlpools. Why can't they see that my abilities and ideas are well beyond inimitable?"
+    MC "I'm glad you value yourself, Cee."
+    "What on Earth do they eat for breakfast? Self-esteem cereal? Maybe I should ask them where to buy some…"
+
+    show cee at hop
+    C "Those impudent land-dwellers look down on our loot. They consider it mere trumpery."
+    C "Such insolence! Just because our loot has tiny, insignificant traces of rust or seaweed on it, it's suddenly inferior. Leave it to the surface-dwellers to be that superficial!" 
+    "Ouch. Cee does have a point. The others can be kind of mean when it comes to sea monster loot."
+    "I wonder why, though. Isn't it kind of exciting to get to open a treasure chest covered in barnacles?"
+    "No? It's just me?"
+    MC "I understand. It'd bother me as well if my input was never appreciated."
+    # Cee iloinen
+    show cee iloinen at hop
+    C "However, change is coming, and I am its herald."
+    C "We cannot overthrow the fur-covered kraken for good, but what we CAN do is make some changes that cannot be reversed so easily. Everyone will benefit!"
+
+    MC "There's something I've been meaning to ask you, Cee. Has Boss done something to you, or is there some other reason for your, uh, resentment?"
+    show cee iloinen at hop
+    "I can see Cee twitching."
+    # Cee perus
+    show cee perus
+    C "'twas my very first day at this blasted corporation. There I was, innocent like a newly hatched man-eating sea serpent, ready to take on the day and all the responsibilities."
+    C "Little did I know that a ferocious beast was lurking in the shadows, claws and fangs ready to tear into fresh meat."
+    "Our boss? Really?"
+    C "I spotted him near the warehouse. Alone. Unguarded. It was the perfect moment to strike."
+    C "I approached him and gave him the biggest smile my face was capable of forming. Then it happened."
+    MC "What happened?"
+    # Cee vihainen
+    show cee vihainen at hop
+    C "He called me sweet."
+    MC "Sweet? That doesn't sound too bad to me."
+    show cee vihainen at shake
+    C "I was trying to intimidate him! He was supposed to petrify and then run with his tail between his legs! That way, it would've been clear as day that I am not one to be toyed with."
+    MC "Um, Cee, do you realize that smiling is usually considered a nice gesture? Not intimidating?"
+    show cee at hop
+    C "I wanted to secure my position from day one so that no one would ever dare question my capability. If the kraken was afraid of me, so would be everyone else!"
+    MC "Why on Earth did you want your colleagues to be afraid of you? Wouldn't that make working together difficult?"
+    show cee alakuloinen at hop
+    C "My fellow prisoner, do you have any idea how bad it feels when nobody takes you seriously?"
+    C "I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
+    MC "Ah. I'm sorry, Cee. I had no idea you were feeling that way."
+    "I feel bad for Cee. They are trying so hard and everyone just keeps brushing them off."
+    "Even I remember not taking them seriously when I first met them. Something along the lines of ‘wow, that person should probably go touch some dungeon moss'."
+    "Ouch. It doesn't feel good to realize you're part of the problem."
+    C "Ever since that day, I have not forgiven the fur-covered kraken or his flagrant minions. The wound in my heart runs deep."
+    MC "Thanks for helping me understand, Cee."
+
+    # Cee perus
+    show cee perus
+    C "Tomorrow, after the midday feast…"
+    "Lunch, Cee. Lunch."
+    C "We shall check the state of the warehouse and decide who our next leader is."
+    MC "Feeling nervous?"
+    # Cee iloinen
+    show cee iloinen at hop
+    C "Nay! Do not be ridiculous. Someone of my calibre doesn't even know the meaning of such trivial words."
+    MC "Glad to see you being your old self again, Cee."
+    "Tomorrow, change is coming. One way or another."
+    "Maybe I'M the one feeling nervous."
+
+    return
