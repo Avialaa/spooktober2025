@@ -22,6 +22,10 @@ label day2_1:
     scene bg hallway posters
     "Decorations…? Is today a festival?"
     "On closer inspection, these are probably related to the fight. It seems they hope to sway me with slogans and art. Seems kinda cheap." 
+    #TODO: arttien näyttäminen
+    "Agatha promises streamlined efficiency for the safety of all monsterkind."
+    "Karkhos… seems to be advocating for workplace wellness?"
+    "Cee vows revolution on our corrupt and unjust (quote needed) system."
     "When did they even have the time to hang all this? To make all of this? They're all really dedicated…"
     "In a way, it's amazing how much effort they're putting into this. Though it's a pain, I'd feel bad just ignoring them."
     "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me. Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."

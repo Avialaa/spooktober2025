@@ -108,11 +108,11 @@ label start:
     call after_minigame
 
     if currentStoryRoute == "agatha":
-        call day3_1A
+        call day3_A1
     if currentStoryRoute == "karkhos":
-        call day3_1B
+        call day3_B1
     if currentStoryRoute == "cee":
-        call day3_1C
+        call day3_C1
 
     return
 
