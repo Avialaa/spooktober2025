@@ -12,6 +12,7 @@ label after_minigame:
     $ chooseRoute() #must always be called BEFORE minigame reset
     $ resetMinigame()
     $ updateOrders()
+    $ _skipping = True #allow skipping again
 
     if currentStoryRoute:
         e "Current route: [currentStoryRoute]"

@@ -348,6 +348,11 @@ label upgradeTreeTest:
     return
 
 label upgradeTree:
+    if _skipping:
+        hide screen skip_indicator
+        $ renpy.choice_for_skipping()
+        $ _skipping = False
+    $ renpy.config.skipping = False
     python:
         if firstDay:
             if rPoints == 0:

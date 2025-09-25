@@ -269,7 +269,14 @@ init python:
     return isOrderCorrect
 
 label warehouse_gameplay:
+  scene bg warehouse
   "Time for another shift!"
+  #this should disable skipping during minigame
+  if _skipping:
+    hide screen skip_indicator
+    $ _skipping = False
+  $ renpy.config.skipping = False
+
   #generate 3 orders at the start of the minigame
   $ generateOrder()
   $ generateOrder()
@@ -281,7 +288,7 @@ label warehouse_gameplay:
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:
-  add "bigspace_day.png"
+  add "bg warehouse.png"
   add "conveyer.png" xalign 0.0 yalign 0.45
   #warehouse gameplay screen, houses all sub-screens (tablet, box, conveyer belts, etc)
   use conveyer_belt(conveyerInterval)
