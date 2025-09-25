@@ -72,7 +72,8 @@ label day1_2:
     K "How come the boss isn't here to test the new system with us? He just up and left for Mount Big, right when they're having a festival."
     MC "He's getting us a loot deal with the mountain giants. It'll be good for the warehouse."
     show karkhos pikkuviha
-    K "Yeah yeah, we'll send better loot to the monsters, the monsters toss the Loot at attacking humans, and get to keep their sorry lives. The cycle of Loot that powers itself. Except in truth it's us powering it."
+    K "Yeah yeah, we'll send better loot to the monsters, the monsters toss the Loot at attacking humans, and get to keep their sorry lives."
+    K "The cycle of Loot that powers itself. Except in truth it's us powering it."
     K "If I work any harder than this, my stitches are gonna rip. You know how it is for zombies."
     K "Wormy has also had enough."
     #worm sprite
@@ -100,7 +101,7 @@ label day1_2:
     MC "Um… The wall moss does need a trim, doesn't it?"
     # Fluttering sound
     # Agatha appears
-    show agatha vihainen zorder 1 at cleft with moveinleft
+    show agatha vihainen zorder 1 at cright with moveinright
     show cee vihainen at hop
     # C and A angry
 
@@ -109,7 +110,7 @@ label day1_2:
     A "This is EVERYONE'S break room, as you know and have known since: forever."
     # Footsteps
     # K neutral sprite
-    show karkhos perus zorder 2 at cright with moveinright
+    show karkhos perus zorder 2 at cleft with moveinleft
     K "Whoa! What's good, slackers."
     "Agatha looks ready to pop a wing muscle."
     show cee vihainen at shake
@@ -173,10 +174,12 @@ label day1_2:
     show cee perus
     MC "Did I get this right: you need me to say who I agree with, as a tiebreaker?"
     # all smile
-    show agatha iloinen suukiinni
-    show cee iloinen
-    show karkhos iloinen
-    "Oh dear. When I heard Boss was leaving on a business trip, I expected a more relaxed workweek. This is the opposite of that! Without asking, they roped me into their conflict, and even outvoted my attempt to get out."
+    show agatha iloinen suukiinni at hop
+    show cee iloinen at hop
+    show karkhos iloinen at hop
+    pause 1
+    "Oh dear. When I heard Boss was leaving on a business trip, I expected a more relaxed workweek. This is the opposite of that!"
+    "Without asking, they roped me into their conflict, and even outvoted my attempt to get out."
     "I let out a heavy sigh. Let them see my inconvenience and suffering. I hope they feel at least a little bad."
     # all sprites smiling
     show agatha iloinen suukiinni at hop
@@ -218,12 +221,13 @@ label day1_2:
     K "When you work at a place long enough, you can't help forming opinions."
     show agatha perus at hop
     A "Exactly. Just test the system, and your true feelings on this issue will surely shine through."
-    "What can I even say? The fight has been beaten out of me. I'm starting to question everything I held true. Maybe being noncommittal IS unforgivable. The power of being outvoted sure is frightening."
+    "What can I even say? The fight has been beaten out of me."
+    "I'm starting to question everything I held true. Maybe being noncommittal IS unforgivable. The power of being outvoted sure is frightening."
     MC "Okay. I promise to give it some thought. If that's everything, I still need to eat."
     "They scatter, but keep giving me secretive glances."
-    hide agatha with moveoutleft
+    hide agatha with moveoutright
     hide cee with moveoutleft
-    hide karkhos with moveoutright
+    hide karkhos with moveoutleft
 
     if agreewithagatha:
         jump day1_3A
