@@ -111,21 +111,21 @@ init python:
         if thisRoundWinner != "karkhos":
           currentStoryRoute = thisRoundWinner
         else:
-          currentStoryRoute = renpy.random.choice("cee", "agatha")
+          currentStoryRoute = renpy.random.choice(["cee", "agatha"])
       elif ceePoints == karkhosPoints:
         if thisRoundWinner != "agatha":
           currentStoryRoute = thisRoundWinner
         else:
-          currentStoryRoute = renpy.random.choice("cee", "karkhos")
+          currentStoryRoute = renpy.random.choice(["cee", "karkhos"])
       elif agathaPoints == karkhosPoints:
         if thisRoundWinner != "cee":
           currentStoryRoute = thisRoundWinner
         else:
-          currentStoryRoute = renpy.random.choice("agatha", "karkhos")
+          currentStoryRoute = renpy.random.choice(["agatha", "karkhos"])
     
     else:
       #if all else fails, randomize route (this should never happen if logic is correct)
-      currentStoryRoute = renpy.random.choice("agatha,", "karkhos", "cee")
+      currentStoryRoute = renpy.random.choice(["agatha", "karkhos", "cee"])
 
 
   def hideMinigame():
@@ -314,7 +314,7 @@ screen conveyer_item(item, timeOnConveyer):
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     #if len(itemsInBox) +1 <= maxBoxItems:
-    action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=[SetVariable("move_text", box_text_shake), Show("box_text_shake_timer")])#[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Show("warehouse_box")] #TODO: If player tries to click item when box is full, box numbers shake
+    action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=[SetVariable("move_text", box_text_shake), Show("box_text_shake_timer")])
     at transform:
       xpos -100 ypos 0.25
       on show:
@@ -372,7 +372,10 @@ screen button_disable_timer:
     action SetVariable("boxReady", False)
   timer boxAnimDuration:
     if minigameOver == False:
-      action [SetVariable("boxReady", True), Show("warehouse_box"), Hide()]
+      action [Show("warehouse_box")] #action [SetVariable("boxReady", True), Show("warehouse_box"), Hide()]
+  timer (boxAnimDuration*2):
+    action [SetVariable("boxReady", True), Hide()]
+
 
 
   
