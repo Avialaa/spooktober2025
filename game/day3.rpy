@@ -1,4 +1,4 @@
-label day3_1A:
+label day3_A1:
     scene bg hallway posters
     "They went to check my records some time ago. This is it."
     "They're coming out!"
@@ -66,7 +66,7 @@ label day3_1A:
     pause 1.5
     #musta ruutu täs välis
 
-label day4_2A:
+label day4_A2:
     #day 4 grafiikka
 
     #varasto BG
@@ -311,10 +311,11 @@ label day4_2A:
     scene black with dissolve
 
     # PLACEHOLDER Sit viel suunnilleen samat loppuhöpinät kun muilla reiteillä? (Puuttuu viel niistäkin))
+    return
 
 
 
-label day3_1B:
+label day3_B1:
     scene bg hallway
     "They went to check my dispatch records some time ago. This is it."
     "They're coming out! The suspense is making my digestive region sick."
@@ -374,7 +375,7 @@ label day3_1B:
     pause 1
 
 
-label day4_2B:
+label day4_B2:
     #(päivä 4 grafiikka)
 
     scene black
@@ -409,7 +410,7 @@ label day4_2B:
     "They grumble, but when I say I only work here, they let me in."
 
     #TODO: warehouse. Vettä ja roinaa versio.
-    scene bg warehouse with dissolve
+    scene bg warehouse karkhos with dissolve
     "The humidity is so high I could start melting. Waterlogged Loot litters the entryway. There's a smell of rust, and of something rotting."
     #Agatha sprite
     show agatha alakuloinen kyynel zorder 1 at middle with easeinbottom
@@ -542,7 +543,7 @@ label day4_2B:
     return
 
 
-label day3_1C:  #Cee wins
+label day3_C1:  #Cee wins
     scene bg hallway
     "They went inside my dispatch platform some time ago. This is it."
     "!! They're coming out!!"
@@ -620,9 +621,9 @@ label day3_1C:  #Cee wins
 
 
 #TODO lisää joku ääniefekti ehkä? 
-    #label C2 Cee has messed up big time
+label day4_C2:
 
-    scene bg warehouse with dissolve # TODO: cee ending versio tähän 
+    scene bg warehouse cee with dissolve # TODO: cee ending versio tähän 
     # Käytävät tulvivat. Märkää loottia lilluu vedessä.
     "Paradise island? That's what we were promised, but…"
     # Karkhos appears.
@@ -713,11 +714,11 @@ label day3_1C:  #Cee wins
     # Cee vihainen. Even louder gurgling noises.
     show karkhos kauhistus
     show agatha vakava
-    show bg warehouse with hpunch:
+    show bg warehouse cee with hpunch:
         zoom 1.016
     C "Siiiiiiiiiiiiileeeeeeeeeeeenceeeeeeeeeeee!"
     pause 0.5
-    show bg warehouse:
+    show bg warehouse cee:
         zoom 1
     hide cee with moveoutleft
     pause 1
@@ -730,7 +731,7 @@ label day3_1C:  #Cee wins
     #Agatha and Karkhos disappear
     hide karkhos with moveoutright
     hide agatha with moveoutright
-    show bg warehouse with fade:
+    show bg warehouse cee with fade:
         zoom 2.0
         yoffset 550
     "Ah, there's Cee! They sure swim fast."
@@ -808,7 +809,7 @@ label day3_1C:  #Cee wins
     show cee iloinen
     C "I consider myself quite verbose. However, I'm feeling something rather ineffable right now. I'll leave it up to you to imagine and translate the depths of my soul."
     MC "Don't worry, Cee, I think I have a pretty good idea of how you're feeling." 
-    scene bg warehouse with fade:
+    scene bg warehouse cee with fade:
         zoom 1.0
         yoffset 0
         pause 1
@@ -840,9 +841,13 @@ label day3_1C:  #Cee wins
     show agatha vakava at hop
     A "Apology accepted. Just don't do it again!"
     show cee vihainen at hop
-    C "Yes yes, no need to rub it in my face." 
-    show bg warehouse with fade
-    show cee perus
+    C "Yes yes, no need to rub it in my face."
+    scene black with dissolve
+    pause 0.7
+    scene bg warehouse cee with dissolve
+    show cee perus zorder 3 at middle with dissolve
+    show karkhos perus zorder 2 at cleft with dissolve
+    show agatha vakava zorder 1 at cright with dissolve
     "We discuss the clean-up operation."
     "Agatha is full of energy but we agree that she can't take care of everything all by herself."
     "In the end, Cee and Karkhos are willing to help. It feels good to see the three of them getting along again."
