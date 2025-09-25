@@ -42,10 +42,6 @@ default mcName = "Petri Dish"
 # The game starts here.
 
 label start:
-    call day1_4A
-    call day1_6A
-    call day1_6B
-    call day1_6C
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     call choose_test
