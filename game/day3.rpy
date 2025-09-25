@@ -1,3 +1,319 @@
+label day3_1A:
+    scene bg hallway posters
+    "They went to check my records some time ago. This is it."
+    "They're coming out!"
+    "The suspense is making my digestive region sick."
+    # sprites, A happy ja kaks muuta sad
+    show karkhos alakuloinen mato zorder 2 at cleft with easeinleft:
+        xalign 0.01 xoffset -100
+    show cee alakuloinen zorder 1 at cright with easeinright:
+        xalign 0.99 xoffset 100
+    show agatha iloinen zorder 3 at middle, hop with easeinleft
+    A "Well well well. Let's keep this meeting brief. Precious productive hours are wasting."
+    A "The warehouse was in tip top shape. Looks like [MC] has shipped an impressive quantity of Loot. That means it's my victory."
+    A "That being so, we're going to enact some changes around here."
+    show agatha at shake2
+    A "From now on, the three of you must do as I say. Per our agreement."
+    "She trembles with excitement."
+    show karkhos alakuloinen with dissolve
+    K "...I'm gonna die."
+    show cee alakuloinen at hop
+    C "How doth a sailor jump the ship, when the captain has tied him to the mast?"
+    # A tosi iloinen
+    show agatha tosi iloinen at middle
+    A "What's that? Complaining is poison to a positive working environment. So turn that frown upside down."
+    show agatha vakava at hop
+    A "NOW."
+    # cee karmiva hymy ja karkhos vihainen
+    show cee karmiva hymy at hop
+    show karkhos vihainen at hop
+    "Both of them give it a go, but their smiles end up grotesque fakes."
+    show agatha at hop
+    A "Ever since Boss left on the business trip, we have fallen behind schedule. As if that wasn't enough, we have a large shipment coming in tomorrow."
+    show agatha perus
+    A "To remedy the situation, I propose overtime. Fairly compensated, of course."
+    show karkhos perus
+    show cee perus
+    K "Compensated how?"
+    show agatha iloinen at hop
+    A "Great question! Though in the future, please please raise your hand before speaking."
+    show agatha tosi iloinen
+    A "The compensation will naturally be your own feeling of satisfaction."
+    show karkhos pikkuviha at hop
+    K "...I refuse."
+    show agatha vakava
+    A "Ah, more rule breaking. Checks out with your prior record."
+    A "Though it's unfortunate, good leadership sometimes requires compromises. Karkhos, if you refuse to pack, go run to the delivery agents. Fresh air and exercise will energize you for our all-nighter."
+    show agatha iloinen at hop
+    A "Inform the delivery department that we'll be working until morning, so they better do the same."
+    K "And if they say no?"
+    show agatha tosi iloinen at hop
+    A "Tell them it's an emergency."
+    show agatha perus
+    A "Cee. Fix that leaking hole at your workstation. Your unauthorized equipment modifications end here."
+    # cee alakuloinen
+    show cee alakuloinen at hop
+    C "As you command, oh fearsome overlord."
+    show agatha iloinen at hop
+    A "After you're done with these personal tasks, return to receive further instructions. Any questions?"
+    "And all-nighter? I haven't pulled one of those since school. Maybe it'll be fun, like a sleepover."
+    hide karkhos with dissolve
+    hide cee with dissolve
+    hide agatha with dissolve
+    "But as we get back to work, worry gnaws at my gelatin."
+    "Was this really the correct choice?"
+    scene black with dissolve
+    pause 1.5
+    #musta ruutu täs välis
+
+label day4_2A:
+    #day 4 grafiikka
+
+    #varasto BG
+    scene bg warehouse night with dissolve
+    pause 1
+    "The glowing mushrooms are changing colors from a sleeping state to awake."
+    show bg warehouse with dissolve
+    "The sounds of hurried footsteps and of boxes filling have not stopped echoing down the dungeon's corridors."
+    "My movements have slowed each hour of the all-nighter. I keep dropping Loot, stumbling and scraping, and even mistook a sword for a sausage. Is this what it's like to be undead?"
+    "When I saw Cee working, their arms were moving, but there was no light in their eyes. As if the soul had been sucked out."
+    "The last I saw Karkhos, he had crawled under the breakroom's table. When I checked if he was asleep, he was staring at a crack in the wall."
+    "But the warehouse is nearly empty, and astonishingly well organized. We've accomplished a lot. Though it's been hard."
+    #agatha iloinen suukiinni appears
+    show agatha iloinen suukiinni at shake2, middle with easeinleft #TODO: jos aikaa, slow ease in?
+    "Agatha has trouble flying straight as she approaches."
+    show agatha iloinen
+    A "Great work out there, MC. Here, some nectar to get the day started."
+    show agatha iloinen suukiinni at hop
+    "She flings me a bag of nectar. It's the kind she is always sipping. It's very small."
+    MC "Thanks. Tastes like the sun."
+    show agatha iloinen
+    A "Tastes like work well done."
+    show agatha perus
+    #TODO: footsteps tosi hiljasella
+    pause 1
+    show agatha iloinen
+    A "Oh, that must be the delivery agents with the triple Loot. Be a dear and go tell them where to put everything. Come fetch me when they're done."
+    MC "Aye aye, ma'am…"
+    scene black with dissolve
+    pause 1.0
+    scene bg hallway with dissolve
+    #musta ruutu, sit käytävä bg
+    "Delivery agent" "Huff… A… delivery… for the warehouse."
+    "The monster doubles over and pants heavily."
+    "Behind, a dozen more delivery monsters slump down and fumble for their waterskins. The carts they were pulling take up the whole corridor, and are overflowing with unsorted Loot."
+    "Delivery agent" "Could you finally tell us what the emergency is? Unrest is spreading. We've heard the rumors."
+    MC "Wait, what rumors?"
+    "Delivery agent"  "That a warband of thousand humans intends to raid the dungeon! Everyone's scared. The fear was the only thing keeping us moving all night."
+    "Like a stone pushed downhill, everything's suddenly happening too fast for my tired mind."
+    MC "Uh… Leave the unsorted Loot here. We've packed more boxes for delivery."
+    "Delivery agent" "Delivery to where? Last I checked, all monsters already had Loot."
+    pause 0.5
+    MC "...Could you wait a minute? I have to check with someone."
+    scene black with dissolve
+    pause 1.0
+    scene bg warehouse with dissolve
+    #musta ruutu, sit varasto
+    "What's going on? Agatha said we are behind schedule, but apparently everyone already has Loot?"
+    #cee perus
+    show cee perus zorder 1 at cright with easeinright:
+        xalign 0.99 xoffset 100
+    C "You appear dismayed. No wonder."
+    MC "Did you know that all monsters already have Loot? Isn't that really amazing?"
+    show cee at hop
+    C "Ah. Suspect it, I did. It appears our efforts have borne fruit."
+    C "And yet, I hear no cheers nor praise, but angry muttering from the entryway."
+    show karkhos perus mato zorder 2 at cleft with easeinleft:
+        xalign 0.01 xoffset -100
+    # Karkhos appears
+    "Karkhos comes in from the corridor. He must've been in the breakroom."
+    K "Had a chat with the delivery guys. They were pissed. Figures."
+    #agatha ilmestyy, vakava
+    show agatha vakava zorder 3 at middle with easeinleft
+    A "What are you all standing around for? No extra breaks until the warehouse is empty."
+    show karkhos at hop
+    K "About that. The delivery agents are real cross we lied about that emergency."
+    MC "You told them?!"
+    show karkhos pikkuviha mato
+    K "They asked."
+    # agatha vihainen
+    show agatha vihainen at hop
+    A "No lies were spoken. When monster lives are on the line, every day is an emergency."
+    MC "They said all monsters already have Loot."
+    #agatha vakava
+    show agatha vakava
+    A "And we'll send every monster a round of extra. When they use their Loot, they'll have spares immediately at hand. Safety doubled."
+    # cee alakuloinen
+    show cee alakuloinen
+    C "Ah, furnish the nests of little monsters akin to a dragon's hoard. Surely the humans won't…"
+    # cee hullu hymy
+    show cee hullu hymy at hop
+    C "How shall I say this? Won't simply loot the unguarded nests?"
+    show agatha vihainen
+    A "Nobody asked your opinion."
+    # karkhos vihainen
+    show karkhos vihainen mato at hop
+    K "You won't even let us speak? Here's the facts. Our pace has plummeted. Even yours, Agatha. It's the exhaustion. We should just go home at this point."
+    show karkhos pikkuviha mato
+    K "In fact, if we go on working, our lives might be in danger."
+    show agatha at hop
+    A "My pace has NOT plummeted. And little fatigue never killed anyone."
+    show karkhos perus mato
+    K "Dunno about that. But when I told the delivery guys who's in charge, they started digging through the unsorted Loot for weapons."
+    #a pelokas, ja c kauhistus
+    show agatha pelokas
+    show cee kauhistus
+    MC "Weapons?"
+    A "You're joking, right?"
+    show karkhos pikkuviha mato
+    show cee perus
+    K "Nah, dead serious. Seems they wanna take revenge on the sorry monster who lied about the emergency. Can't say I blame them."
+    # agatha alakuloinen
+    show agatha alakuloinen at shake2
+    A "R-r-revenge?"
+    MC "What's wrong Agatha? Did you drink spoiled nectar?"
+    "The faint color on Agatha's face has drained even whiter."
+    A "N-n-n-n-"
+    MC "No?"
+    # Agatha pelokas
+    show agatha pelokas at shake
+    show karkhos kauhistus mato
+    show cee kauhistus
+    A "NOOOOOOOOOOOOOO!"
+    # agatha pois vauhdikkaasti
+    hide agatha with moveouttop
+    "A single flap of wings, and she has shot into the depths of the warehouse. I didn't know she could fly that fast."
+    show karkhos at hop
+    K "Huh? I thought she'd throw a fit, but that didn't seem like anger?"
+    MC "Of course not! She's scared."
+    show cee at hop
+    C "Truly? Of our delivering colleagues? Whatever for?"
+    show karkhos perus mato
+    show cee perus
+    MC "Scared that an angry mob will swat at her with swords, what else? We need to find her."
+    MC "Cee and I will start searching. Karkhos, can you go and apologize to the angry mob?"
+    show karkhos pikkuviha mato
+    K "Ask for a gem from a dragon's hoard while you're at it? Heck. I'll try."
+    scene black with dissolve
+    pause 1
+    #musta ruutu
+    "None of us saw where she flew, so we start peeking behind boxes and calling for her. Cee sloshes around a bag of nectar and flashes Agatha's favorite lantern."
+    "The shelving wobbles as I climb to the top. It's high enough to make me queasy. In the topmost corner of the warehouse, quiet sniffling betrays Agatha's hiding place."
+    show bg warehouse with dissolve
+    #    zoom 1.7 xoffset -1300
+    # warehouse bg, no sprite
+    A "They're going to swat at me…"
+    "The sobs are coming from a partially rusted suit of armor. The crying echoes off the metal. I peek inside. "
+
+    #TODO: PLACEHOLDER Tähän valinta lähestyyks varovasti vai ei tms?
+
+    # agatha alakuloinen kyynel
+    show agatha alakuloinen kyynel at middle with dissolve
+    A "Go away…"
+    "Her thick fur has started shedding from stress. Static is making the sheddings stick to the metal armor. Not even her antennae have been spared the patchy balding."
+    "Without the thick fur, she looks even smaller."
+    MC "Karkhos apologized to the delivery monsters. They've left. It's safe to come out."
+    show agatha at shake2
+    A "Sword this, axe that, monsters aren't any better than humans."
+    show agatha at middle
+    A "I'm just doing my best, so how come they want to take revenge on me? The dungeon was supposed to be safe."
+
+    # täs menus ei alt tekstii, pelkät valinnat
+    menu:
+        "\"Yeah. That wasn't very positive-working-environment of them.\"":
+            pass
+        "\"Exhaustion makes us do stupid things sometimes.\"":
+            pass
+
+    "Agatha peeks at me through the helmet's visor."
+    A "It's so unfair. I'm small, so I need to work harder to keep up with the big monsters. If I don't keep up, I'll be thrown back into the Human Wilds."
+    MC "Nobody's throwing you out. You're important to the warehouse."
+    A "Doesn't feel like it. The moment Boss left, Cee and Karkhos just started lazing around. Nothing I said had any effect."
+    A "I had to step up to cover for their negligence, and they haven't even apologized."
+    # PLACEHOLDER
+    A "They say I'm an unreasonable workaholic. Their words hurt. Hurt as much as being swatted at."
+    MC "Let's climb down? I think they should hear this."
+    show agatha alakuloinen at hop
+    "She wipes her tears and nods."
+
+    #musta ruutu
+    scene black with dissolve
+    pause 1.0
+    scene bg warehouse with dissolve
+    "Though the shelves sway as I climb down, I manage to reach the floor without falling."
+    # käytävä bg? tai varasto. K ja C spritet
+    show cee perus zorder 3 at cleft, hop with dissolve
+    C "Pspspspspspsps."
+    show karkhos perus mato zorder 2 at cright, hop with dissolve
+    # show karkhos at hop
+    K "Agatha, please come out!"
+    show agatha alakuloinen zorder 1 at middle with dissolve
+    show cee at cright with ease:
+        xalign 0.99 xoffset 100
+    show karkhos at cleft with ease:
+        xalign 0.01 xoffset -100
+    # A slow fade in
+    All "..."
+    MC "Krhm. Agatha would like to speak."
+    K "Wait. I'll go first."
+    show karkhos pikkuviha mato
+    K "Look. I can't work any harder than this. It might be easy for you, but not for us."
+    show agatha at hop
+    A "...It's not easy for me…"
+    show cee at hop
+    C "?"
+    A "I also get tired. And even though I'm small and you're big, I do the exact same work."
+    show cee iloinen at hop
+    C "Hah, you jest!"
+    show cee perus
+    C "What you do is on par with a giant. We are unable to emulate that."
+    show karkhos alakuloinen mato
+    K "Look, I shouldn't have just stopped working. Must've been stressful to you. But you're just too fast. I had …trouble keeping up. Being compared to you made me feel small."
+    A "Small?"
+    show cee alakuloinen
+    C "For a fish on dry land, far from home as I am, your standards were difficult to understand. You were scary."
+    # agatha pelokas
+    show agatha pelokas
+    A "I was SCARY?" 
+    show agatha at hop
+    A "..."
+    show agatha alakuloinen
+    A "All this time, I thought I was the only one having problems, since I was the smallest. I guess I never stopped to consider what you two must feel."
+    # agatha vakava
+    show agatha vakava
+    A "To feel small and afraid is an awful thing. I don't wish it on anyone."
+    # PLACEHOLDER
+    show cee perus
+    show karkhos perus mato
+    A "Maybe I was unreasonable. It's not good for the Chain to expand too quickly, either. Maybe Boss had our pace all figured out."
+    MC "And despite everything, we worked really hard, and sent Loot to every monster. That's worth celebrating."
+    show agatha vakava at hop
+    show karkhos kauhistus mato at hop
+    show cee kauhistus at hop
+    MC "You know, if the four of us can't keep up with orders, maybe Boss should hire a fifth monster?"
+    # kaikki yllättyny
+    show agatha at hop
+    A "I hadn't even considered that."
+    show agatha perus
+    A "Truth be told, it'd be nice to relax once in a while."
+    # K ja C tosi iloinen
+    show cee tosi iloinen at cright with ease:
+        xoffset 0
+    show karkhos tosi iloinen mato
+    C "Rejoice! The winter has passed!"
+    show karkhos tosi iloinen mato at cleft with ease: #TODO: onks tää positio väärä
+        xoffset 0
+    K "This new Agatha ain't half bad."
+    # A vakava
+    show agatha vakava at hop
+    "The whites of her cheeks are turning redder."
+    A "Maybe it's alright to take the afternoon easy. Just this once."
+    scene black with dissolve
+
+    # PLACEHOLDER Sit viel suunnilleen samat loppuhöpinät kun muilla reiteillä? (Puuttuu viel niistäkin))
+
+
+
 label day3_1B:
     scene bg hallway
     "They went to check my dispatch records some time ago. This is it."

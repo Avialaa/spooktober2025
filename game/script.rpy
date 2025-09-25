@@ -107,8 +107,8 @@ label start:
     call roundEnd
     call after_minigame
 
-    # if currentStoryRoute == "agatha":
-    #     call day3_1A
+    if currentStoryRoute == "agatha":
+        call day3_1A
     if currentStoryRoute == "karkhos":
         call day3_1B
     if currentStoryRoute == "cee":
