@@ -418,19 +418,19 @@ screen pointView:
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ff0000}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#e82333}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#0000ff}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#218ec4}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#fbfb00}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#f0e767}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#00ff00}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#4ec236}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)
@@ -438,7 +438,7 @@ screen pointView:
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#8800fb}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
+            text "{outlinecolor=#000}{color=#8c47cc}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
         frame:
             background "upgradeBox"
             padding (20, 10)

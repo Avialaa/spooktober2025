@@ -287,6 +287,48 @@
         "settings": {
           "foreground": "#999999"
         }
+      },
+      {
+        "scope": "renpy.meta.color.#218ec4",
+        "settings": {
+          "foreground": "#218ec4"
+        }
+      },
+      {
+        "scope": "renpy.meta.color.#c21b29",
+        "settings": {
+          "foreground": "#c21b29"
+        }
+      },
+      {
+        "scope": "renpy.meta.color.#e82333",
+        "settings": {
+          "foreground": "#e82333"
+        }
+      },
+      {
+        "scope": "renpy.meta.color.#f0e767",
+        "settings": {
+          "foreground": "#f0e767"
+        }
+      },
+      {
+        "scope": "renpy.meta.color.#5ec24a",
+        "settings": {
+          "foreground": "#5ec24a"
+        }
+      },
+      {
+        "scope": "renpy.meta.color.#4ec236",
+        "settings": {
+          "foreground": "#4ec236"
+        }
+      },
+      {
+        "scope": "renpy.meta.color.#8c47cc",
+        "settings": {
+          "foreground": "#8c47cc"
+        }
       }
     ]
   },
