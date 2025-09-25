@@ -856,7 +856,7 @@ label day1_6C:
             C "Hmm. Perhaps you are right, my fellow prisoner."
         "\"Since when were you this interested in my well-being, Cee?\"":
             show cee iloinen at hop
-            C "There is no reason to be suspicious, MC."
+            C "There is no reason to be suspicious, [MC]."
             show cee karmiva hymy
             C "Ever since this friendly little race to power started, I have been observing you. Monitoring you. Watching you."
             MC "That's three reasons to be suspicious, Cee!"
@@ -883,7 +883,7 @@ label day1_6C:
     MC "Thanks, I guess?"
     # Cee iloinen
     show cee iloinen
-    C "You're welcome, MC, you're very welcome."
+    C "You're welcome, [MC], you're very welcome."
     pause 0.5
     MC "So, anything else?"
     show cee iloinen at hop
@@ -952,7 +952,7 @@ label day1_6C:
     MC "No, but I suppose you do."
     # Cee karmiva hymy
     show cee karmiva hymy at hop
-    C "Carnage, MC. Utter carnage."
+    C "Carnage, [MC]. Utter carnage."
     MC "You can't be serious, right?"
     C "On the contrary."
     show cee perus
@@ -971,7 +971,7 @@ label day1_6C:
     C "I'm afraid I must retreat now. The new world I'm planning needs all of MY free time."
     MC "See you later then, Cee. I'll let you guys know when I've made up my mind."
     show cee perus
-    C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, MC."
+    C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, [MC]."
     # Cee leaves
     hide cee with easeoutleft
     "Cee hurries off. They can be really convincing when they want to, huh?"

@@ -1,3 +1,5 @@
+
+
 label day3_A1:
     scene bg hallway posters
     "They went to check my records some time ago. This is it."
@@ -43,7 +45,8 @@ label day3_A1:
     K "...I refuse."
     show agatha vakava
     A "Ah, more rule breaking. Checks out with your prior record."
-    A "Though it's unfortunate, good leadership sometimes requires compromises. Karkhos, if you refuse to pack, go run to the delivery agents. Fresh air and exercise will energize you for our all-nighter."
+    A "Though it's unfortunate, good leadership sometimes requires compromises."
+    A "Karkhos, if you refuse to pack, go run to the delivery agents. Fresh air and exercise will energize you for our all-nighter."
     show agatha iloinen at hop
     A "Inform the delivery department that we'll be working until morning, so they better do the same."
     K "And if they say no?"
@@ -74,6 +77,7 @@ label day4_A2:
     pause 1
     "The glowing mushrooms are changing colors from a sleeping state to awake."
     show bg warehouse with dissolve
+    pause 1
     "The sounds of hurried footsteps and of boxes filling have not stopped echoing down the dungeon's corridors."
     "My movements have slowed each hour of the all-nighter. I keep dropping Loot, stumbling and scraping, and even mistook a sword for a sausage. Is this what it's like to be undead?"
     "When I saw Cee working, their arms were moving, but there was no light in their eyes. As if the soul had been sucked out."
@@ -83,7 +87,7 @@ label day4_A2:
     show agatha iloinen suukiinni at shake2, middle with easeinleft #TODO: jos aikaa, slow ease in?
     "Agatha has trouble flying straight as she approaches."
     show agatha iloinen
-    A "Great work out there, MC. Here, some nectar to get the day started."
+    A "Great work out there, [MC]. Here, some nectar to get the day started."
     show agatha iloinen suukiinni at hop
     "She flings me a bag of nectar. It's the kind she is always sipping. It's very small."
     MC "Thanks. Tastes like the sun."
@@ -193,12 +197,13 @@ label day4_A2:
     MC "Scared that an angry mob will swat at her with swords, what else? We need to find her."
     MC "Cee and I will start searching. Karkhos, can you go and apologize to the angry mob?"
     show karkhos pikkuviha mato
-    K "Ask for a gem from a dragon's hoard while you're at it? Heck. I'll try."
+    K "Ask for a gem from a dragon's hoard while you're at it? \nHeck. I'll try."
     scene black with dissolve
     pause 1
     #musta ruutu
     "None of us saw where she flew, so we start peeking behind boxes and calling for her. Cee sloshes around a bag of nectar and flashes Agatha's favorite lantern."
-    "The shelving wobbles as I climb to the top. It's high enough to make me queasy. In the topmost corner of the warehouse, quiet sniffling betrays Agatha's hiding place."
+    "The shelving wobbles as I climb to the top. It's high enough to make me queasy."
+    "In the topmost corner of the warehouse, quiet sniffling betrays Agatha's hiding place."
     show bg warehouse with dissolve
     #    zoom 1.7 xoffset -1300
     # warehouse bg, no sprite
@@ -254,6 +259,7 @@ label day4_A2:
         xalign 0.01 xoffset -100
     # A slow fade in
     All "..."
+    pause 1
     MC "Krhm. Agatha would like to speak."
     K "Wait. I'll go first."
     show karkhos pikkuviha mato
@@ -329,14 +335,14 @@ label day3_B1:
     C "Fair and square…"
     show karkhos iloinen at hop
     K "Heh. Cheer up, guys. This is only the beginning."
-    K "MC. Looks like you have shipped less items than usual. That means I win."
+    K "[MC]. Looks like you have shipped less items than usual. That means I win."
     K "You're living proof that the work's just too hard. Now that you all finally see reason, let's start living like we'll be dead tomorrow."
     MC "What will our demands to Boss be?"
     K "Dunno yet. Those details will sort themselves out."
     show karkhos at hop
     K "Oh, got it! We need something to get the brain juices flowing."
     K "I hear the gargoyles down the river invented a new cocktail. It's got dryad liquor and distilled dire-ant venom. You'll need a stomach of stone for it. I've wanted to try it ever since I died."
-    show karkhos tosi iloinen
+    show karkhos tosi iloinen at hop
     K "After that, we can go lava surfing, and…"
     "An image of a cat at a fish market is conjured into my mind's eye."
     "Not so for the other two. It's like everything they believed in has crumbled."
@@ -397,6 +403,7 @@ label day4_B2:
     #TODO: walking sound
     #käytävä BG
     scene bg hallway with fade
+    pause 0.5
     "Karkhos told us to not come to the warehouse until noon, and to bring a pillow."
     "Though we had fun, I don't see how a bender like that will help. My idea of \"living like no tomorrow\" would probably be a tasty meal and a vivid sunset."
     "Maybe Karkhos knows what he's doing. Maybe our productivity will be off the charts today. Hopefully not on the low end."
@@ -411,9 +418,10 @@ label day4_B2:
 
     #TODO: warehouse. Vettä ja roinaa versio.
     scene bg warehouse karkhos with dissolve
+    pause 1
     "The humidity is so high I could start melting. Waterlogged Loot litters the entryway. There's a smell of rust, and of something rotting."
     #Agatha sprite
-    show agatha alakuloinen kyynel zorder 1 at middle with easeinbottom
+    show agatha alakuloinen kyynel zorder 1 at middle with easeintop
     "Agatha flutters above the water. I've never seen her this rundown."
     show agatha at hop
     A "I can't do this anymore. Just because this was the majority decision…"
@@ -425,7 +433,7 @@ label day4_B2:
     "Cee sits up and looks contemplative."
     C "It appears the downsides of a \"work-life balance\" have become apparent."
     MC "You left your weird pump running, didn't you."
-    C "Leave it I did, for yesterday, I was ordered to drop everything. Mayhaps I ought to have opposed our new overlord. Alas, I did not."
+    C "Leave it I did, for yesterday, I was ordered to drop everything. Mayhaps I ought to have opposed our new overlord. \nAlas, I did not."
     C "Absent overlord, I might add."
     show agatha at hop
     A "Where is Karkhos? It's past noon."
@@ -435,7 +443,7 @@ label day4_B2:
     show karkhos kauhistus mato zorder 3 at cleft with easeinleft
     K "What's going on…"
     K "There were delivery agents outside. I told them to take the day off, but it just made them angrier."
-    K "But this mess… We were only away from one noon to the next!"
+    K "But this mess… \nWe were only away from one noon to the next!"
     #K angry
     show karkhos vihainen mato at hop
     show cee alakuloinen
@@ -535,7 +543,8 @@ label day4_B2:
     A "I will write a persuasive speech to Boss, demanding your hours be reduced, without touching your employment contract. I bet the necromantic contract doesn't care how many hours you work."
     show cee at hop
     show karkhos iloinen mato
-    C "Perhaps there is yet more to be done. I shall consult the necromancer. More magical energy might invigorate thine mal maintained cadaver. The kidney and liver had mayhaps a purpose as well."
+    C "Perhaps there is yet more to be done. I shall consult the necromancer. More magical energy might invigorate thine mal maintained cadaver."
+    C "The kidney and liver had mayhaps a purpose as well."
     show karkhos tosi iloinen mato
     MC "And I'm going to start cleaning up. Lots to be done before Boss returns."
 
@@ -550,8 +559,8 @@ label day3_C1:  #Cee wins
     "Oh… The suspense is making my digestive region sick."
     # Cee, Karkhos & Agatha sprites
     # Cee tosi iloinen, Karkhos alakuloinen, Agatha vihainen
-    show agatha vihainen zorder 1 at cleft with moveinleft
-    show karkhos alakuloinen zorder 2 at cright with moveinright
+    show karkhos alakuloinen zorder 1 at cleft with moveinleft
+    show agatha vihainen zorder 2 at cright with moveinright
     show cee tosi iloinen zorder 3 at hop, middle with moveinright
     C "Justice! Finally!"
     # Cee grins
@@ -561,7 +570,7 @@ label day3_C1:  #Cee wins
     show karkhos at hop
     K "I have a bad feeling about this as well…" 
     show cee vihainen at hop
-    show agatha alakuloinen kyynel at cleft
+    show agatha alakuloinen kyynel at cright
     C "Heed my words. My triumph was unequivocal and I will not allow its legitimacy to be questioned. From this day onward, I shall be the harbinger of change."
     C "And you two shall obey my commands without question. Have I made myself clear?"
     # Agatha alakuloinen
@@ -609,21 +618,22 @@ label day3_C1:  #Cee wins
     C "Ah, yes. That, too, of course."
     MC "C'mon, Karkhos, Agatha, let's go take a break and leave Cee to their own devices."
     #Agatha and Karhkos leave with the MC
-    hide agatha with moveoutleft
+    hide agatha with moveoutright
     hide karkhos with moveoutright
     "Karkhos and Agatha follow me, not even looking back at the warehouse."
     "Everything seems fine, so why am I feeling a bit uneasy right now?"
     show cee hullu hymy at shake
     # Cee hullu hymy
     C "Hehehe. Hehehehehehehehehehe."
-    scene black with fade
     pause 1.0
+    scene black with fade
+    pause 1
 
 
 #TODO lisää joku ääniefekti ehkä? 
 label day4_C2:
 
-    scene bg warehouse cee with dissolve # TODO: cee ending versio tähän 
+    scene bg warehouse cee with dissolve
     # Käytävät tulvivat. Märkää loottia lilluu vedessä.
     "Paradise island? That's what we were promised, but…"
     # Karkhos appears.
@@ -676,7 +686,8 @@ label day4_C2:
     MC "Yeah, but it's all underwater. This is not a paradise island, Cee, this is a water dungeon!"
     MC "Everything is falling apart. The sea creatures are happy, but everyone else is miserable."
     # Cee perus
-    MC "People are complaining about wet loot, and it's already causing us trouble with the humans. It's become difficult to move between rooms and do our jobs. Some of us can't even get to work anymore."
+    MC "People are complaining about wet loot, and it's already causing us trouble with the humans. It's become difficult to move between rooms and do our jobs."
+    MC "Some of us can't even get to work anymore."
     show cee kauhistus
     MC "I believed in you, Cee - this can't be what you had in mind when you said you wanted to improve things!"
     # Cee vihainen
@@ -687,7 +698,7 @@ label day4_C2:
     C "Bah. If someone complains, I'll just… contain them in an underwater cell or something."
     show cee karmiva hymy at hop
     C "Ha! Problem solved."
-    MC "You can't be serious. The Cee I picked to improve our working conditions wasn't a power-hungry dictator. You're better than this!"
+    MC "You can't be serious. The Cee I picked to improve our working conditions wasn't a power-hungry dictator. \nYou're better than this!"
     # Cee perus. Gurgling noises.
 
     # Agatha & Karkhos appear
@@ -761,7 +772,8 @@ label day4_C2:
 
     MC "I'm not saying this corporation is just like a big, loving family or anything that cheesy."
     MC "Most of us just want to go to work, make this world just a tiny bit safer of a place for us monsters, and relax after work."
-    MC "Big changes are rarely successful without proper planning or time. It's impressive that you managed to do all of this in just a couple of days, but you have to admit that your plan just… backfired."
+    MC "Big changes are rarely successful without proper planning or time."
+    MC "It's impressive that you managed to do all of this in just a couple of days, but you have to admit that your plan just… backfired."
     "I haven't seen Cee this miserable, well, ever. I guess they've already realized that this isn't what they wanted after all."
     MC "I'm sure we can turn this around if we make the decision and the changes together. How's that sound?"
     show cee at hop
@@ -812,8 +824,8 @@ label day4_C2:
     scene bg warehouse cee with fade:
         zoom 1.0
         yoffset 0
-        pause 1
-    show cee alakuloinen zorder 3 at middle
+    pause 1
+    show cee alakuloinen zorder 3 at middle with dissolve
     show karkhos perus zorder 2 at cleft with moveinleft
     show agatha vakava zorder 1 at cright with moveinright
     # MC and Cee return to Karkhos and Agatha. Karkhos and Agatha appear
@@ -842,12 +854,11 @@ label day4_C2:
     A "Apology accepted. Just don't do it again!"
     show cee vihainen at hop
     C "Yes yes, no need to rub it in my face."
-    scene black with dissolve
-    pause 0.7
-    scene bg warehouse cee with dissolve
-    show cee perus zorder 3 at middle with dissolve
-    show karkhos perus zorder 2 at cleft with dissolve
-    show agatha vakava zorder 1 at cright with dissolve
+
+    window hide
+    show bg warehouse cee with fade
+    pause 0.5
+
     "We discuss the clean-up operation."
     "Agatha is full of energy but we agree that she can't take care of everything all by herself."
     "In the end, Cee and Karkhos are willing to help. It feels good to see the three of them getting along again."

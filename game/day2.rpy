@@ -486,7 +486,7 @@ label day2_5C: #Cee emotional evening
     C "I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
     MC "Ah. I'm sorry, Cee. I had no idea you were feeling that way."
     "I feel bad for Cee. They are trying so hard and everyone just keeps brushing them off."
-    "Even I remember not taking them seriously when I first met them. Something along the lines of ‘wow, that person should probably go touch some dungeon moss'."
+    "Even I remember not taking them seriously when I first met them. Something along the lines of 'wow, that person should probably go touch some dungeon moss'."
     "Ouch. It doesn't feel good to realize you're part of the problem."
     C "Ever since that day, I have not forgiven the fur-covered kraken or his flagrant minions. The wound in my heart runs deep."
     MC "Thanks for helping me understand, Cee."
