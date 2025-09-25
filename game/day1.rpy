@@ -23,12 +23,12 @@ label day1_2:
     A "I was hoping to hear your thoughts on the new dispatch ecosystem. After testing the fruits of the wizard's innovation all morning, I'm sure you have some solid constructive feedback."
 
     menu:
-        "“It's more work than before.”":
+        "\"It's more work than before.\"":
             show agatha pelokas at hop
             A "…While I'm sure the boss appreciates all feedback… Maybe that's a bit… But of course, I don't want to put words in your mouth! But…"
             show agatha alakuloinen
             "She looks conflicted."
-        "“It's easy.”":
+        "\"It's easy.\"":
             show agatha tosi iloinen
             A "Great! As expected of the second best employee of the year!"
             "If I recall, she came in first. I don't think she meant ill with that."
@@ -61,10 +61,10 @@ label day1_2:
     K "Man, the new system's really got me down. Learning new stuff sucks, doesn't it?"
 
     menu:
-        "“I wouldn't go that far.”":
+        "\"I wouldn't go that far.\"":
             show karkhos iloinen at hop
             K "Hah! You're so easygoing."
-        "“It is what it is.”":
+        "\"It is what it is.\"":
             show karkhos iloinen at hop  
             "He perks up."
             K "So you hate it too, huh?"
@@ -85,7 +85,7 @@ label day1_2:
     "He gives me a weird look. His gaze follows me out."
     "Does he usually speak this much?"
 
-    scene bg breakroom with dissolve
+    scene bg breakroom with dissolve #TODO: pushright?
     "Because of the delays, when I reach the breakroom, I'm not the first one."
     show cee perus zorder 3 at hop, middle
     # C happy sprite
@@ -188,17 +188,17 @@ label day1_2:
 
 # tää valinta märää, onks seuraava kohtaus 1.3 A, B vai C. Mut se kohtaus tulee vast kun tää nykyinen on loppunu.
     menu:
-        "“Working hard is important” (agree with Agatha)":
+        "\"Working hard is important\" (agree with Agatha)":
             $ agreewithagatha = True
             show agatha tosi iloinen at hop
             "Before I speak, I lock eyes with Agatha. Her smile widens."
 
-        "“Enough rest is important” (agree with Karkhos)":
+        "\"Enough rest is important\" (agree with Karkhos)":
             $ agreewithkarkhos = True
             show karkhos perus at hop
             "Before I speak, I glance at Karkhos. Our eyes meet. Awkward."
 
-        "“Seeking new ways to improve is important” (agree with Cee)":
+        "\"Seeking new ways to improve is important\" (agree with Cee)":
             $ agreewithcee = True
             show cee kauhistus at hop
             "Before I speak, my eyes meet Cee's. He looks surprised."
@@ -418,7 +418,7 @@ label day1_3C:
     show cee hullu hymy
     C "Now that the beast is gone, we have the perfect moment to strike." 
     show cee alakuloinen
-    C "It’s going to be too late when the kraken is back, my fellow prisoner. It's going to be far too late…"
+    C "It's going to be too late when the kraken is back, my fellow prisoner. It's going to be far too late…"
     show cee alakuloinen at hop
     "Cee stares into the distance and shudders."
     MC "Wait, kraken?"
@@ -748,5 +748,173 @@ label day1_6B:
     K "Let's go for drinks sometime? If we ever get a day off, that is."
 
     # (???? joku loppu-juttu viel, PLACEHOLDER julialle)
+    return
+
+label day1_6C:
+    scene bg warehouse night
+    "It's been a long day. Finally, FINALLY I can go home and relax."
+    "Ugh, I have a hunch it's going to take 3-5 business days to recover from today…" 
+    # Cee appears
+    # Cee iloinen
+    show cee iloinen at middle with easeinright
+    C "Good evening, my fellow prisoner."
+    MC "Gah! Cee? Where on Earth did you come from?"
+    show cee perus at hop
+    C "Not Earth, I can assure you. I just wanted to come check on you before you retreat into your slimy cave to recover."
+    MC "Riiiiiiight."
+    show cee iloinen
+    C "Have you remembered to take enough time for yourself today? What's that trendy piece of corporate jargon everyone is using these days…"
+    # Cee tosi iloinen
+    show cee tosi iloinen
+    C "Oh, right. MICRO BREAKS. Have you taken any micro breaks amidst the dangers of working life?"
+    "Why is Cee interested in me all of a sudden?"
+    menu:
+        "How should I react?"
+        "\"No, but I guess I could give it a try.\"":
+            show cee iloinen
+            C "Oh, definitely!"
+            C  "Do you wish to hear how I spend MY micro breaks?"
+            MC "Sure thing."
+            # Cee hullu hymy
+            show cee tosi iloinen
+            C "Five minutes in the break room freezer."
+            MC "Freezer?!"
+            show cee hullu hymy at hop
+            C "It reminds me of the deepest, coldest parts of the ocean."
+            # Cee iloinen
+            show cee iloinen
+            C "It reminds me of home."
+        "\"Nah. Not so keen on that corporate jargon.\"":
+            # Cee perus
+            show cee perus
+            C "Truly?"
+            MC "Yeah. Our superiors always come up with new, trendy words that actually mean nothing. Micro break is a fancy word for closing your eyes for a minute or grabbing a cup of coffee when you can."
+            show cee at hop
+            C "Hmm. Perhaps you are right, my fellow prisoner."
+        "\"Since when were you this interested in my well-being, Cee?\"":
+            show cee iloinen at hop
+            C "There is no reason to be suspicious, MC."
+            show cee karmiva hymy
+            C "Ever since this friendly little race to power started, I have been observing you. Monitoring you. Watching you."
+            MC "That's three reasons to be suspicious, Cee!"
+            show cee iloinen
+            C "I only have your best interests in mind, my dear sluggish companion." 
+    label after_menu:
+    show cee perus at hop
+    C "Anyhow. We should stick together, you and I. We must free ourselves and rise above these obtuse plebeians."
+    show cee iloinen
+    # Cee iloinen
+    C "No longer shall we remain oppressed by the uncouth masses. We shall rise from the waves and build a new world where us sea creatures are treated with proper respect!"
+    "Proper respect, huh? That… doesn't sound too bad, actually. Everyone deserves to be treated respectfully!" 
+    MC "Tell me more about this new world of yours."
+    # Cee tosi iloinen
+    show cee tosi iloinen at hop
+    C "Oh, it's going to be WONDERFUL. First of all, everyone from sirens to sea serpents is treated equally."
+    show cee perus
+    MC "That's nice, but what about those of us who don't have, um, gills and all that?"
+    # Cee smiles
+    show cee iloinen
+    C "Don't worry your slimy little head about it."
+    show cee tosi iloinen
+    C "We are partners in crime, you and I! I shall not allow the tides of change to whisk you away and drown you."
+    MC "Thanks, I guess?"
+    # Cee iloinen
+    show cee iloinen
+    C "You're welcome, MC, you're very welcome."
+    pause 0.5
+    MC "So, anything else?"
+    show cee iloinen at hop
+    C "Oh my dear comrade, I'm just getting started. Imagine PARADISE. What's the first image that pops into your mind?"
+    MC "Hmm… Paradise island perhaps? Palm trees, sand?"
+    MC "Cute little coconut drinks with umbrellas?"
+    MC "The sea?"
+    # Cee tosi iloinen
+    show cee tosi iloinen at hop
+    C "Précis!"
+    MC "I'm not sure I follow. Aren't we talking about making this company a better place for us all?"
+    # Cee iloinen
+    show cee iloinen
+    C "Indeed we are."
+    MC "So..?"
+    # Cee tosi iloinen
+    show cee tosi iloinen at hop
+    pause 1.5
+    "Huh. The warehouse IS quite large. I suppose it could fit a couple of palm trees."
+    show cee iloinen
+    C "No more dusty corridors or ghastly warehouses - only glittering waves and endless peace of mind."
+    show cee perus
+    C "And sand, I suppose. For you land-dwellers."
+    show cee iloinen
+    MC "How kind of you, Cee."
+    # Cee perus
+    show cee perus
+    C "I see no reason to work ourselves to death in lackluster conditions. Us monsters require stimuli in order to remain productive."
+    MC "I actually agree with you on this one. None of us are machines… unless you count Galahad the golem from the collecting department as one. Maybe not."
+    show cee iloinen
+    C "I think we can all agree that glittering waves and silly little drinks make working much more pleasant and therefore more efficient."
+    # Cee tosi iloinen
+    show cee tosi iloinen at hop
+    C "I can already see the sick leave statistics dropping!"
+    MC "Wow, Cee, I'm actually starting to feel enthusiastic about this idea of yours. Well done."
+    "Could this warehouse really be turned into a paradise island? Could Cee really achieve that if we let them?"
+    "I hope so. I can practically already taste the pina colada and feel the sun on my non-existent skin."
+    show cee perus
+    # Cee perus
+    C "That being said, I do hope you aren't considering siding with Karkhos. Using your talents for the benefit of him and his tomfoolery would be an utter waste."
+    show cee vihainen at hop
+    C "Ugh, we cannot choose that simple-minded brute as our leader."
+    MC "Brute?"
+    show cee perus
+    C "Aye. Were Karkhos in charge, he might turn a simple business meeting into a rencontre. Imagine the destruction. The horrors. The screams!"
+    "That doesn't sound like Karkhos. The guy IS an orc, but…"
+    MC "Hold on for a second, Cee. Aren't you being a bit too harsh on him?"
+    MC "Karkhos may look like a bloodthirsty fellow, but he hasn't been dabbling in destruction after his death, has he? He's probably the chillest monster I know." 
+    show cee vihainen
+    C "Bah, fine. But if it's not his fists that are going to destroy this corporation, his lack of enthusiasm is."
+    show cee perus
+    C "All Karkhos wants to do is, well, NOTHING. He lacks the passion a proper leader should have."
+    show cee vihainen at hop
+    C "If Karkhos becomes our leader, I bet the first thing he'll do is go on a six-week vacation. He'd practically leave us drowning! I will not stand for such foolishness!"
+    "Hmm. That does sound something like Karkhos might do."
+    "I'm not one to dedicate myself entirely to work, but I AM feeling a bit concerned about Karkhos' leading capabilities."
+    MC "Yeah, I guess you do have a point. Karkhos isn't exactly the ambitious type."
+    show cee perus at hop
+    C "Indeed. But our dear Agatha is. Do we truly need another power-hungry autocrat now that the first one is finally gone?"
+    "As if you aren't trying to take over as well, Cee…"
+    MC "Agatha is just a hard-working monster who wants everybody else to work hard as well. Nothing wrong with that."
+    show cee kauhistus at hop
+    C "Nay, my fellow prisoner. Can't you see all she cares about is making us work to the bone?"
+    show cee perus
+    C "Do you have any idea what would happen if that winged monomaniac was in charge of the infernal machine?"
+    MC "No, but I suppose you do."
+    # Cee karmiva hymy
+    show cee karmiva hymy at hop
+    C "Carnage, MC. Utter carnage."
+    MC "You can't be serious, right?"
+    C "On the contrary."
+    show cee perus
+    # Cee perus
+    C "If we let Agatha get in charge, we'll be nothing more than easily disposable machine parts. And do machine parts have any other meaning than serve until they break? Nay." 
+    show cee alakuloinen
+    C "If Agatha takes over, you can kiss your precious work life balance goodbye. We'll be working from dusk to dawn, until we can barely stand."
+    C "The warehouse will be her altar and we'll be the sacrifice. Only to impress this imposing lump of fur we call Boss." 
+    "Yikes! Maybe Cee does have a point after all."
+    "I don't think Agatha knows the meaning of work life balance. Thank goo Cee and I seem to be on the same page when it comes to leisure time."
+    MC "Hmm. It's not like I want to dedicate myself entirely to our work. I have other interests as well, and I value my free time."
+    # Cee smiles
+    show cee iloinen
+    C "I'm pleased we see eye to eye."
+    show cee tosi iloinen at hop
+    C "I'm afraid I must retreat now. The new world I'm planning needs all of MY free time."
+    MC "See you later then, Cee. I'll let you guys know when I've made up my mind."
+    show cee perus
+    C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, MC."
+    # Cee leaves
+    hide cee with easeoutleft
+    "Cee hurries off. They can be really convincing when they want to, huh?"
+    "Hmm."
+    "Choosing between doing nothing, doing too much, and paradise island, seems quite simple, when you put it that way. But is it really that simple?"
+    "Ugh, I need to get home and de-stress before thinking about any big decisions."
+
 
 return

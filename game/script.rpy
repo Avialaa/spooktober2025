@@ -45,6 +45,7 @@ label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     call upgradeTree
+    call day1_6C
     call choose_name
     #call day1_1
     #eka minipelityövuoro
@@ -63,7 +64,7 @@ label start:
         call day1_6B
     # elif currentStoryRoute == "cee":
     #     call day1_6C
-    #call day2_1
+    call day2_1
     #kolmas minipelityövuoro
     #call day2_2
     if currentStoryRoute == "agatha":

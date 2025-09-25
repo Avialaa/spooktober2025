@@ -1,3 +1,231 @@
+label day3_1B:
+    scene bg hallway
+    "They went to check my dispatch records some time ago. This is it."
+    "They're coming out! The suspense is making my digestive region sick."
+    # sprites, karkhos happy ja kaks muuta sad
+    show agatha alakuloinen zorder 1 at cleft with moveinleft
+    show cee alakuloinen zorder 2 at cright with moveinright
+    show karkhos tosi iloinen zorder 3 at middle with moveinleft
+    show agatha at hop
+    A "We have …a winner…"
+    show cee at hop
+    C "Fair and square…"
+    show karkhos iloinen at hop
+    K "Heh. Cheer up, guys. This is only the beginning."
+    K "MC. Looks like you have shipped less items than usual. That means I win."
+    K "You're living proof that the work's just too hard. Now that you all finally see reason, let's start living like we'll be dead tomorrow."
+    MC "What will our demands to Boss be?"
+    K "Dunno yet. Those details will sort themselves out."
+    show karkhos at hop
+    K "Oh, got it! We need something to get the brain juices flowing."
+    K "I hear the gargoyles down the river invented a new cocktail. It's got dryad liquor and distilled dire-ant venom. You'll need a stomach of stone for it. I've wanted to try it ever since I died."
+    show karkhos tosi iloinen
+    K "After that, we can go lava surfing, and…"
+    "An image of a cat at a fish market is conjured into my mind's eye."
+    "Not so for the other two. It's like everything they believed in has crumbled."
+    #A sad sprite
+    show agatha pelokas at hop
+    A "We haven't even made room for the... Oh, at this rate, we'll all be dead before Boss returns."
+    #K happy
+    show karkhos iloinen at hop
+    K "See, even Agatha is already relaxed enough to be cracking jokes."
+    show agatha alakuloinen
+    K "I reckon lunch is as good a time to go on a little excursion as any. The Loot orders will start piling up, but that's a positive."
+    K "Monsters these days are way too demanding. A few days of delivery delay should be the new normal. It's good to set healthy boundaries in these things."
+    show cee perus at hop
+    C "Uh. Before we depart, I must-"
+    show karkhos perus
+    K "No. We're off the clock. Not a single brainwave goes to anything related to the warehouse."
+    show cee at hop
+    C "None? At all? Are you certain?"
+    K "It's called work-life balance."
+    show cee hullu hymy
+    C "As you demand, oh Karkhos the Great. Your meager servants shall obey and ignore the cries of the innocent, pleading for their life-saving Loot."
+    show karkhos vihainen at hop
+    show cee kauhistus
+    #K angry
+    K "Hey, watch out."
+    #K happy
+    show karkhos tosi iloinen at hop
+    show cee alakuloinen
+    K "The jokey mood's contagious."
+    "Though it's only lunch, we march for the doors. Agatha and Cee give the warehouse one final, longing look."
+    hide karkhos with moveoutright
+    hide cee with moveoutright
+    hide agatha with moveoutright
+    "This result… Was it really alright?"
+    scene black with fade
+    pause 1
+
+
+label day4_2B:
+    #(päivä 4 grafiikka)
+
+    scene black
+    #musta ruutu
+    "Bleary. Dizzy. I open my eyes after a dreamless black."
+    "The only reason I believe it's an hour to noon is because my clock says so. It's like I haven't slept a wink."
+    "Ouch… Even my aches have aches. My body's toxin percentage must be very high."
+    "We left work after lunch. Though Karkhos is always tired at work, he was practically hopping out the dungeon."
+    "He took us to village after village. We drank and tried local dares not even the residents themselves would do."
+    "Losing the whole \"who's right and who's wrong\" thing did a number on Cee and Agatha. They went along with Karkhos' whims, though unenthusiastically. I suppose I did, too."
+    "Agatha was the first one to wash out. In the goblin village, she bathed in Karkhos' ale mug. After that, she tried to explain flower crossbreeding to us."
+    "She started crying uncontrollably, said horticulture is so beautiful, and curled up to sleep on the table."
+    "All evening, Cee kept looking at the clock and fidgeting."
+    "When we were visiting the salamanders, Cee wanted to try inventing a new drink. They kept the ingredients a secret, but everyone who drank the concoction blacked out. Cee included."
+    "Karkhos was in a great mood though. Effortlessly made friends with the gargoyles, goblins and salamanders…"
+    "After he'd had enough, Karkhos and I carried the other two back to the caves."
+    "A night to remember. I had fun, but can't say I feel more rested. Our demands to the Boss aren't any clearer, either."
+
+    #TODO: walking sound
+    #käytävä BG
+    scene bg hallway with fade
+    "Karkhos told us to not come to the warehouse until noon, and to bring a pillow."
+    "Though we had fun, I don't see how a bender like that will help. My idea of \"living like no tomorrow\" would probably be a tasty meal and a vivid sunset."
+    "Maybe Karkhos knows what he's doing. Maybe our productivity will be off the charts today. Hopefully not on the low end."
+    #TODO: kävely äänii
+    "As I approach the warehouse, I hear the commotion of a crowd."
+    "A group of delivery agents has gathered in front of the main entrance."
+    "Delivery agent" "Hey! Why's the warehouse not giving Loot to deliver?"
+    "Delivery agent" "We've got a huge number of deliveries to make. Humans attacked this morning, and many monsters used their Loot."
+    "Uh oh." 
+    "I apologize and squeeze past. If there's one thing the slimekind are good at, it's this."
+    "They grumble, but when I say I only work here, they let me in."
+
+    #TODO: warehouse. Vettä ja roinaa versio.
+    scene bg warehouse with dissolve
+    "The humidity is so high I could start melting. Waterlogged Loot litters the entryway. There's a smell of rust, and of something rotting."
+    #Agatha sprite
+    show agatha alakuloinen kyynel zorder 1 at middle with easeinbottom
+    "Agatha flutters above the water. I've never seen her this rundown."
+    show agatha at hop
+    A "I can't do this anymore. Just because this was the majority decision…"
+    #TODO: kävely vedessä ääni
+    "Cee is crawling through the water that's not deep enough for swimming. They gurgle something in the water. I shake my head."
+    # C sprite
+    show cee perus zorder 2 at cright with easeinbottom
+    show agatha alakuloinen
+    "Cee sits up and looks contemplative."
+    C "It appears the downsides of a \"work-life balance\" have become apparent."
+    MC "You left your weird pump running, didn't you."
+    C "Leave it I did, for yesterday, I was ordered to drop everything. Mayhaps I ought to have opposed our new overlord. Alas, I did not."
+    C "Absent overlord, I might add."
+    show agatha at hop
+    A "Where is Karkhos? It's past noon."
+    #TODO: footsteps in water approaching. They stop.
+    "We all turn. Karkhos has stopped at the entrance. He seems horrified."
+    #neutraali ilme, tai sit joku kauhistus?
+    show karkhos kauhistus mato zorder 3 at cleft with easeinleft
+    K "What's going on…"
+    K "There were delivery agents outside. I told them to take the day off, but it just made them angrier."
+    K "But this mess… We were only away from one noon to the next!"
+    #K angry
+    show karkhos vihainen mato at hop
+    show cee alakuloinen
+    show agatha alakuloinen at shake2 with ease:
+        yoffset 30
+    K "Cee, what were you thinking? And Agatha, you should have known better!"
+    show karkhos at shake
+    K "None of this is my fault, right?! It's not my fault Agatha ordered triples, or that Cee wanted to turn this place into an aquarium?! It's not my fault!"
+    show karkhos at hop
+    "He's getting winded from yelling. He looks at each of us for support. Agatha is so miserable she barely stays in the air. Cee is staring at their hands through the wavering water."
+    show karkhos alakuloinen mato
+    K "If we'd been here in the evening, we would have noticed the flooding earlier. None of this loot would be ruined."
+    show karkhos vihainen mato
+    K "Damn it… I should have seen this coming— Gh!"
+    show karkhos vihainen mato with ease:
+        yoffset 200
+    #TODO: onks tää liian goofy
+    show agatha pelokas at middle
+    show cee kauhistus
+    "Karkhos grips his gut and slumps into the water. Brownish blood is oozing through his fingers. The large suture in his abdomen has ripped."
+    MC "?!?!"
+    show agatha pelokas at hop
+    A "Eek!"
+    show cee at hop
+    C "Fuck!"
+    show karkhos pikkuviha mato
+    K "Chill, it's cool. Happens all the time. I've got a sewing needle and sinew at my workstation."
+    MC "Agatha, go get it!"
+    show agatha pelokas at shake
+    A "B-b-b-b-blood!"
+    hide agatha with easeouttop
+    "She flies up to the ceiling and hides behind a stalactite."
+    show cee perus at hop
+    C "I'll go."
+    #TODO: walking (running?) in water sound
+    hide cee with easeoutbottom
+    pause 1
+    show karkhos at hop:
+        yoffset 200
+    K "My gut always rips when I get too agitated. I've gotten pretty good at sewing thanks to it. Hurts, though."
+    MC "Amazing it didn't rip last night."
+    show karkhos perus mato
+    K "Oh. Now that you say it, that's probably it. All that carousing and drinking must've weakened the stitches."
+    #TODO: water footsteps
+    show cee perus zorder 2 at cright with moveinbottom
+    "Cee has managed to find the sewing supplies. We watch silently, as Karkhos sews his abdomen back shut."
+    show cee at middle with ease
+    "While he sews, part of the intestine slips out, like a tongue lolling out of a second mouth. Cee helps by shoving it back in."
+    "When he's done, Karkhos glances at me wearily."
+    show karkhos alakuloinen mato zorder 3 at cleft with ease:
+        yoffset 0
+    show cee at cright with ease
+    K "Should've seen this coming. Some of this mess, at least."
+    MC "That makes four of us."
+    #Agatha fades in
+    show cee perus zorder 2
+    show agatha alakuloinen zorder 1 at middle with dissolve
+    pause 0.5
+    show agatha at hop
+    A "...I'm sorry…"
+    show karkhos perus mato at hop
+    K "Hey, what for?"
+    show agatha vakava
+    A "...When I lost the vote to you, I started doubting everything I believed in. Is what I have been advocating for really alright? So I stopped thinking and went along with your stupid plan blindly."
+    C "I also thought, that though my aims had been clear to me, perhaps I had been looking at the world through dyed water."
+    show cee alakuloinen at hop
+    show agatha alakuloinen
+    C "How could I ever again be certain of anything? So when our new overlord ejected us from labor, I neglected to exercise due caution."
+    show karkhos at hop
+    show cee perus
+    K "Guys…"
+    show karkhos alakuloinen mato
+    K "Oh man. Yet another thing I've Karkhos the Destroyer'd… It just keeps happening."
+    K "Truth is, I didn't get the name because I'm a menace on the battlefield. Got it cuz I always mess things up."
+    show agatha vakava at hop
+    A "That's awful!"
+    show cee kauhistus at hop
+    C "You ought not have taken the name if it was slanderous."
+    show karkhos pikkuviha mato
+    K "If it fits, it sits."
+    show agatha alakuloinen
+    A "..."
+    A "I'm sorry, Karkhos. I was so focused on myself, that I didn't see how much you were struggling. I didn't want to believe you were doing your best."
+    show cee perus
+    C "It is much the same for me. I apologize."
+    show karkhos alakuloinen mato
+    K "Nah. I've been the biggest idiot of all."
+    K "When I noticed I couldn't keep up with the rest of you, it made me feel weak and useless. Agatha is so small, yet she did double what I did."
+    K "I was too afraid to ask for reduced hours without everyone backing me up. Hell, I'd rather have disintegrated than admitted my weakness. So I blamed the work."
+    MC "You were so intimidating, that I thought you knew how to stand up for yourself. I never thought..."
+    show agatha vakava
+    MC "But now that we see what has gone wrong, it's an opportunity to fix things. Nothing irreversible has happened, right?"
+    show agatha iloinen suukiinni
+    A "Right! Though I might not be ready to work less myself, I will stand behind Karkhos on this."
+    show agatha iloinen at hop
+    show karkhos perus mato
+    A "I will write a persuasive speech to Boss, demanding your hours be reduced, without touching your employment contract. I bet the necromantic contract doesn't care how many hours you work."
+    show cee at hop
+    show karkhos iloinen mato
+    C "Perhaps there is yet more to be done. I shall consult the necromancer. More magical energy might invigorate thine mal maintained cadaver. The kidney and liver had mayhaps a purpose as well."
+    show karkhos tosi iloinen mato
+    MC "And I'm going to start cleaning up. Lots to be done before Boss returns."
+
+    # PLACEHOLDER tästäki puuttuu viel loppujäähdyttelyt
+    return
+
+
 label day3_1C:  #Cee wins
     scene bg hallway
     "They went inside my dispatch platform some time ago. This is it."
