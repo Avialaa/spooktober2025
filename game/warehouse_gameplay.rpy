@@ -23,6 +23,7 @@ default karkhosPoints = 0
 default currentStoryRoute = None
 default correctOrdersDemandedByAgatha = 3
 default fishDemandedByCee = 5
+default workShift = 0
 
 default move_text = None #set transform to none
 
@@ -70,6 +71,28 @@ init python:
     orderList.clear()
     itemsOnConveyer.clear()
     itemsInBox.clear()
+  
+  def setMinigameGoals():
+    global workShift
+    global fishDemandedByCee
+    global correctOrdersDemandedByAgatha
+
+    if workShift == 1:
+      correctOrdersDemandedByAgatha = 3
+      fishDemandedByCee = 6
+    elif workShift == 2:
+      correctOrdersDemandedByAgatha = 4
+      fishDemandedByCee = 8
+    elif workShift == 3:
+      correctOrdersDemandedByAgatha = 4
+      fishDemandedByCee = 8
+    elif workShift == 4:
+      correctOrdersDemandedByAgatha = 4
+      fishDemandedByCee = 12
+    elif workShift == 5:
+      correctOrdersDemandedByAgatha = 5
+      fishDemandedByCee = 12
+
 
   def chooseRoute():
     global agathaPoints
@@ -79,6 +102,13 @@ init python:
     global correctOrders
     global incorrectOrders
     global roundFish
+    global workShift
+    global correctOrdersDemandedByAgatha
+    global fishDemandedByCee
+
+    #First shift doesn't affect route
+    if workShift == 1:
+      return
 
     thisRoundWinner = None
     if (correctOrders - incorrectOrders) >= correctOrdersDemandedByAgatha:
@@ -280,6 +310,8 @@ label warehouse_gameplay:
   $ generateOrder()
   $ generateOrder()
   $ updateOrders() #update orders for pad UI
+  $ workShift += 1 #keep track of played work shifts
+  $ setMinigameGoals() #set character story route goals for the day
   $ quick_menu = False #hide the quick menu during minigame
   $ minigameOver = False
 
