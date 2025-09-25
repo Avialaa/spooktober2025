@@ -111,21 +111,21 @@ init python:
         if thisRoundWinner != "karkhos":
           currentStoryRoute = thisRoundWinner
         else:
-          currentStoryRoute = renpy.random.choice("cee", "agatha")
+          currentStoryRoute = renpy.random.choice(["cee", "agatha"])
       elif ceePoints == karkhosPoints:
         if thisRoundWinner != "agatha":
           currentStoryRoute = thisRoundWinner
         else:
-          currentStoryRoute = renpy.random.choice("cee", "karkhos")
+          currentStoryRoute = renpy.random.choice(["cee", "karkhos"])
       elif agathaPoints == karkhosPoints:
         if thisRoundWinner != "cee":
           currentStoryRoute = thisRoundWinner
         else:
-          currentStoryRoute = renpy.random.choice("agatha", "karkhos")
+          currentStoryRoute = renpy.random.choice(["agatha", "karkhos"])
     
     else:
       #if all else fails, randomize route (this should never happen if logic is correct)
-      currentStoryRoute = renpy.random.choice("agatha,", "karkhos", "cee")
+      currentStoryRoute = renpy.random.choice(["agatha", "karkhos", "cee"])
 
 
   def hideMinigame():
