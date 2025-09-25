@@ -341,6 +341,7 @@ label upgradeTreeTest:
     call warehouse_gameplay
     call roundEnd
     call after_minigame
+    call upgradeTree
     call warehouse_gameplay
     call roundEnd
     call after_minigame
