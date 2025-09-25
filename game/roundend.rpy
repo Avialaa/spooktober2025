@@ -19,6 +19,9 @@ default roundEndTotallPoints = False
 
 default fishTotal = 0
 
+init:
+    image scoreBox = Frame("minigame scorebg.png", 40, 50)
+
 
 label roundEnd:
     #Minigame is concluded by calling this label
@@ -92,80 +95,82 @@ screen roundEndScreen:
         align(0.5, 0.5)
 
         frame:
-            padding(10, 10)
+            padding(30, 20)
+            background "scoreBox"
             vbox:
                 xysize (250, 600)
                 text "This round:"
                 if roundEndrPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#ff0000}[f'{roundrPoints:.2f}']{/color}{/outlinecolor}" #f'{my_float:.6f}
+                    text "{outlinecolor=#000}{color=#e82333}[f'{roundrPoints:.2f}']{/color}{/outlinecolor}" #f'{my_float:.6f}
                 else: 
                     null height 39
                 if roundEndbPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#0000ff}[f'{roundbPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#218ec4}[f'{roundbPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndyPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#fbfb00}[f'{roundyPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#f0e767}[f'{roundyPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndgPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#00ff00}[f'{roundgPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#4ec236}[f'{roundgPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndoPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#ffaa00}[f'{roundoPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#ffaa00}[f'{roundoPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndvPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#8800fb}[f'{roundvPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#8c47cc}[f'{roundvPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndpPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#ee88cc}[f'{roundpPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#ee88cc}[f'{roundpPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndlPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#999999}[f'{roundlPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#999999}[f'{roundlPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
 
         null width 50
 
         frame:
-            padding(10, 10)
+            padding(30, 20)
+            background "scoreBox"
             vbox:
                 xysize (250, 600)
                 text "Total Points:"
                 if roundEndTotalrPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#ff0000}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#e82333}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndTotalbPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#0000ff}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#218ec4}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndTotalyPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#fbfb00}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#f0e767}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndTotalgPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#00ff00}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#4ec236}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndTotaloPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#ffaa00}[f'{oPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#ffaa00}[f'{oPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndTotalvPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#8800fb}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#8c47cc}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndTotalpPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#ee88cc}[f'{pPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#ee88cc}[f'{pPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
                 if roundEndTotallPoints:
-                    text "{space=30}{outlinecolor=#000}{color=#999999}[f'{lPoints:.2f}']{/color}{/outlinecolor}"
+                    text "{outlinecolor=#000}{color=#999999}[f'{lPoints:.2f}']{/color}{/outlinecolor}"
                 else: 
                     null height 39
 
