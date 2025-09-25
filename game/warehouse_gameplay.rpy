@@ -8,7 +8,7 @@ default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
 default boxReady = True
 default boxAnimDuration = 0.5
-default roundDuration = 40
+default roundDuration = 50
 default minigameOver = False
 default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
 default subsequentCorrectOrders = 0
@@ -269,6 +269,7 @@ init python:
     return isOrderCorrect
 
 label warehouse_gameplay:
+  "Time for another shift!"
   #generate 3 orders at the start of the minigame
   $ generateOrder()
   $ generateOrder()
@@ -276,6 +277,7 @@ label warehouse_gameplay:
   $ updateOrders() #update orders for pad UI
   $ quick_menu = False #hide the quick menu during minigame
   $ minigameOver = False
+
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:

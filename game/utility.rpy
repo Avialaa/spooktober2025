@@ -12,7 +12,7 @@ label after_minigame:
     $ chooseRoute() #must always be called BEFORE minigame reset
     $ resetMinigame()
     $ updateOrders()
-    e "minigame is over"
+
     if currentStoryRoute:
         e "Current route: [currentStoryRoute]"
 
@@ -30,3 +30,37 @@ label choose_name:
             mcName = "Petri Dish"
     
     return
+
+label choose_test:
+    menu:
+        "Do you want to test minigame or both story and minigame?"
+
+        "Minigame only":
+            call test_minigame
+        "Story and minigame":
+            return
+
+label test_minigame:
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
+    return
+
+screen day_change:
+    modal False
+    add "black"
+    text "The next day..." xcenter 0.5 ycenter 0.5
+    timer 2.0 action Return()

@@ -44,14 +44,22 @@ default mcName = "Petri Dish"
 label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
-    call upgradeTreeTest
-    #call day1_6C
+    call choose_test
     call choose_name
     #call day1_1
     #eka minipelityövuoro
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
     call day1_2
     #call day1_3A jos $ agreewithagatha = True, sama day1_3B ja day1_3C
     # toinen minipelityövuoro
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
     if currentStoryRoute == "agatha":
         call day1_4A
     elif currentStoryRoute == "cee":
@@ -64,8 +72,14 @@ label start:
         call day1_6B
     # elif currentStoryRoute == "cee":
     #     call day1_6C
+    call screen day_change
     call day2_1
     #kolmas minipelityövuoro
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
     #call day2_2
     if currentStoryRoute == "agatha":
         call day2_3A
@@ -74,35 +88,31 @@ label start:
     #elif currentStoryRoute == "cee":
     #   call day2_3C
     #neljäs minipelityövuoro
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
     if currentStoryRoute == "agatha":
         call day2_5A
     elif currentStoryRoute == "karkhos":
         call day2_5B
     elif currentStoryRoute == "cee":
         call day2_5C
-    if currentStoryRoute == "agatha":
-        call day3_1A
-    if currentStoryRoute == "karkhos":
-        call day3_1B
-    if currentStoryRoute == "cee":
-        call day3_1C
-    
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
+    call screen day_change
+
+    #Viides työvuoro
     call upgradeTree
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
     call warehouse_gameplay
     call roundEnd
     call after_minigame
 
-    call day2_3A
-    #call day1_2
-    
-    #call padTest
-    call upgradeTree
-    #call upgradeCount
+    # if currentStoryRoute == "agatha":
+    #     call day3_1A
+    if currentStoryRoute == "karkhos":
+        call day3_1B
+    if currentStoryRoute == "cee":
+        call day3_1C
+
     return
 
