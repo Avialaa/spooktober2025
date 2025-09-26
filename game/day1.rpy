@@ -15,8 +15,8 @@ label day1_1:
 
     #kävelyn ääniä
     #Käytävä BG
-    scene bg hallway
-    play sound distantspeak fadein 0.5
+    scene bg hallway with dissolve
+    play sound distantspeak fadein 1
     "Hm? I can hear my coworkers. Sounds like they've gathered behind that bend in the corridor. If they wanted to have a meeting, how come they haven't told me?"
     # ilman spritejä!!!
     stop sound
@@ -762,7 +762,7 @@ label day1_6B:
     "Agatha is still working, but the other two seem to have already gone home. I worked hard, and have earned a good night's rest."
 
     # Käytävä bg
-    scene bg hallway night
+    scene bg hallway night with dissolve
     show karkhos perus at middle
     "Hm? Karkhos is idling in the corridor. Why hasn't he gone home yet?"
     show karkhos at hop
