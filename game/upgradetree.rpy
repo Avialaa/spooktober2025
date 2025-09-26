@@ -417,35 +417,35 @@ screen pointView:
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#e82333}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{rPoints:.2f}']" style "redPointsStyle"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#218ec4}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{bPoints:.2f}']" style "bluePointsStyle"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#f0e767}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{yPoints:.2f}']" style "yellowPointsStyle"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#4ec236}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{gPoints:.2f}']" style "greenPointsStyle"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ffaa00}[f'{oPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{oPoints:.2f}']" style "orangePointsStyle"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#8c47cc}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{vPoints:.2f}']" style "violetPointsStyle"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ee88cc}[f'{pPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{pPoints:.2f}']" style "pinkPointsStyle"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#999999}[f'{lPoints:.2f}']{/color}{/outlinecolor}"
+            text "[f'{lPoints:.2f}']" style "lightPointsStyle"
 
 screen upgradeTree:
     add "bigspace_day.png"

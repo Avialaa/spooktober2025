@@ -104,35 +104,35 @@ screen roundEndScreen:
                 xysize (250, 600)
                 text "This round:"
                 if roundEndrPoints:
-                    text "{outlinecolor=#000}{color=#e82333}[f'{roundrPoints:.2f}']{/color}{/outlinecolor}" #f'{my_float:.6f}
+                    text "[f'{roundrPoints:.2f}']" style "redPointsStyle"
                 else: 
                     null height 39
                 if roundEndbPoints:
-                    text "{outlinecolor=#000}{color=#218ec4}[f'{roundbPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{roundbPoints:.2f}']" style "bluePointsStyle"
                 else: 
                     null height 39
                 if roundEndyPoints:
-                    text "{outlinecolor=#000}{color=#f0e767}[f'{roundyPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{roundyPoints:.2f}']" style "yellowPointsStyle"
                 else: 
                     null height 39
                 if roundEndgPoints:
-                    text "{outlinecolor=#000}{color=#4ec236}[f'{roundgPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{roundgPoints:.2f}']" style "greenPointsStyle"
                 else: 
                     null height 39
                 if roundEndoPoints:
-                    text "{outlinecolor=#000}{color=#ffaa00}[f'{roundoPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{roundoPoints:.2f}']" style "orangePointsStyle"
                 else: 
                     null height 39
                 if roundEndvPoints:
-                    text "{outlinecolor=#000}{color=#8c47cc}[f'{roundvPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{roundvPoints:.2f}']" style "violetPointsStyle"
                 else: 
                     null height 39
                 if roundEndpPoints:
-                    text "{outlinecolor=#000}{color=#ee88cc}[f'{roundpPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{roundpPoints:.2f}']" style "pinkPointsStyle"
                 else: 
                     null height 39
                 if roundEndlPoints:
-                    text "{outlinecolor=#000}{color=#999999}[f'{roundlPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{roundlPoints:.2f}']" style "lightPointsStyle"
                 else: 
                     null height 39
 
@@ -145,35 +145,35 @@ screen roundEndScreen:
                 xysize (250, 600)
                 text "Total Points:"
                 if roundEndTotalrPoints:
-                    text "{outlinecolor=#000}{color=#e82333}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{rPoints:.2f}']" style "redPointsStyle"
                 else: 
                     null height 39
                 if roundEndTotalbPoints:
-                    text "{outlinecolor=#000}{color=#218ec4}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{bPoints:.2f}']" style "bluePointsStyle"
                 else: 
                     null height 39
                 if roundEndTotalyPoints:
-                    text "{outlinecolor=#000}{color=#f0e767}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{yPoints:.2f}']" style "yellowPointsStyle"
                 else: 
                     null height 39
                 if roundEndTotalgPoints:
-                    text "{outlinecolor=#000}{color=#4ec236}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{gPoints:.2f}']" style "greenPointsStyle"
                 else: 
                     null height 39
                 if roundEndTotaloPoints:
-                    text "{outlinecolor=#000}{color=#ffaa00}[f'{oPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{oPoints:.2f}']" style "orangePointsStyle"
                 else: 
                     null height 39
                 if roundEndTotalvPoints:
-                    text "{outlinecolor=#000}{color=#8c47cc}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{vPoints:.2f}']" style "violetPointsStyle"
                 else: 
                     null height 39
                 if roundEndTotalpPoints:
-                    text "{outlinecolor=#000}{color=#ee88cc}[f'{pPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{pPoints:.2f}']" style "pinkPointsStyle"
                 else: 
                     null height 39
                 if roundEndTotallPoints:
-                    text "{outlinecolor=#000}{color=#999999}[f'{lPoints:.2f}']{/color}{/outlinecolor}"
+                    text "[f'{lPoints:.2f}']" style "lightPointsStyle"
                 else: 
                     null height 39
 

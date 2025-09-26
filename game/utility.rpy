@@ -7,6 +7,32 @@ style karkhosNameStyle:
     font "Raleway-Bold.ttf"
     size 45
 
+style redPointsStyle:
+    color "#eb3847"
+
+style bluePointsStyle:
+    color "#218ec4"
+
+style yellowPointsStyle:
+    color "#f0e767"
+
+style greenPointsStyle:
+    color "#4ec236"
+
+style orangePointsStyle:
+    color "#ffaa00"
+
+style violetPointsStyle:
+    color "#b272ed"
+
+style pinkPointsStyle:
+    color "#ee88cc"
+
+style lightPointsStyle:
+    color "#b1b1b1"
+
+
+
 label after_minigame:
     $ quick_menu = True #show the quick menu
     $ chooseRoute() #must always be called BEFORE minigame reset
