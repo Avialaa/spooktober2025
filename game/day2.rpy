@@ -59,111 +59,108 @@ label day2_1:
     \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
     return
 
-# label day2_2: 
-# # (After morning minigame, at warehouse)
+label day2_2: 
+# (After morning minigame, at warehouse)
 
-#     "Phew!"
-#     "I'm getting the hang of this new system."
-#     "After I turn off my conveyor belt, the warehouse falls quiet. Everyone's already left for lunch. Could get used to a silence like this."
+    "Phew!"
+    "I'm getting the hang of this new system."
+    "After I turn off my conveyor belt, the warehouse falls quiet. Everyone's already left for lunch. Could get used to a silence like this."
 
-#     # At breakroom, show all sprites
-#     "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
-#     A "Unbelivable. I expected better from you two."
-#     K "As if you are one to talk."
-#     C "This is mutiny!"
-#     "Briefly, I entertain the fantasy of abandoning lunch, turning around and returning to work. But all four of Agatha's eyes turn to me."
-#     A "[MC]! Will you talk sense into these two?"
-#     K "Why're you dragging [MC] into this? Don't try to misdirect. What you did isn't cool."
-#     C "Mister Destroyer, I dare argue your actions have proven just as despicable."
-#     K "What actions?"
-#     C "Précis!"
-#     MC "One at a time? I'm sure nobody did it on purpose, whatever it is."
-#     C "Miss Agatha here has conspired to make wretches of us all."
-#     K "Cee has done that too!"
-#     A "Don't forget Karkhos has compromised the monsterkind's safety, the warehouse's very purpose."
-#     A "We agreed on not going against Boss' orders until MC has decided. And here we are."
-#     C "What fungus has infested thine brain for you to think you're exempt?"
-#     A "Working hard is EXACTLY what the Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
-#     C "I'm simply practicing some much needed service development. As per the Boss' orders."
-#     A "You're practically begging to get fired!"
-#     C "Isn't there someone here asking for it rather more insistently?"
-#     K "...What, me?! No! All I ask for are better conditions."
-#     MC "Wait wait wait… One at a time."
-#     jump qquestions
-#     # (!!!!! Valinta jossa pitää valita kaikki 3 vaihtoehtoa että pääsee eteenpäin)
-#     #
+    # At breakroom, show all sprites
+    "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
+    A "Unbelivable. I expected better from you two."
+    K "As if you are one to talk."
+    C "This is mutiny!"
+    "Briefly, I entertain the fantasy of abandoning lunch, turning around and returning to work. But all four of Agatha's eyes turn to me."
+    A "[MC]! Will you talk sense into these two?"
+    K "Why're you dragging [MC] into this? Don't try to misdirect. What you did isn't cool."
+    C "Mister Destroyer, I dare argue your actions have proven just as despicable."
+    K "What actions?"
+    C "Précis!"
+    MC "One at a time? I'm sure nobody did it on purpose, whatever it is."
+    C "Miss Agatha here has conspired to make wretches of us all."
+    K "Cee has done that too!"
+    A "Don't forget Karkhos has compromised the monsterkind's safety, the warehouse's very purpose."
+    A "We agreed on not going against Boss' orders until MC has decided. And here we are."
+    C "What fungus has infested thine brain for you to think you're exempt?"
+    A "Working hard is EXACTLY what the Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
+    C "I'm simply practicing some much needed service development. As per the Boss' orders."
+    A "You're practically begging to get fired!"
+    C "Isn't there someone here asking for it rather more insistently?"
+    K "...What, me?! No! All I ask for are better conditions."
+    MC "Wait wait wait… One at a time."
+    # (!!!!! Valinta jossa pitää valita kaikki 3 vaihtoehtoa että pääsee eteenpäin)
+    #
 
 
-#     label qqquestions:  
-#         if "aquestion", "kquestion", "cquestion" in visited:
-#             jump after_questions
-#         menu qquestions:
-#             set visited
-#             "Agatha, what did you actually do?":
-#                 $ visited.add("aquestion")
-#                 # A neutral
-#                 A "Don't act like I'm some villain. I've worked harder than anyone here."
-#                 MC "Just, sounded like something serious has happened."
-#                 A "Fine, for the sake of transparency."
-#                 A "I might have ordered a triple of everything."
-#                 A "Wisely! So that we can better show our capabilities."
-#                 A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
-#                 MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
-#                 # A smile
-#                 A "..."
-#                 A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
-#                 "Oh, Agatha."
-#                 jump qqquestions
-#             "Karkhos, how many boxes today?":
-#                 $ visited.add("kquestion")
-#                 K "Why's that important? I have done what's within my capabilities."
-#                 MC "Which is…?"
-#                 K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
-#                 K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
-#                 K "I've completed a full and whole– A whopping total of a—"
-#                 # K sad
-#                 K "...a…"
-#                 # K angry
-#                 K "I have prioritized quality over quantity."
-#                 "I can see why the others are upset."
-#                 jump qqquestions
-#             "Cee, what's this development stuff?":
-#                 $ visited.add("cquestion")
-#                 C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
-#                 MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
-#                 C "Very well, my sluggish companion. I put fish into all the orders."
-#                 MC "Yeah, that's… yeah."
-#                 C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
-#                 "WHAT."
-#                 "Agatha and Karkhos give me knowing looks."
-#                 C "Rejoice: we shall soon have fresh water aplenty."
-#                 MC "That's insane!"
-#                 C "It is what anyone in my situation ought to have done."
-#                 MC "I don't think ANYONE but you would have done that."
-#                 # C smiles
-#                 C "Oh, you do flatter me."
-#                 jump qqquestions
+    label qqquestions:  
+        menu qquestions:
+            set visited
+            "Agatha, what did you actually do?":
+                $ visited.add("Agatha, what did you actually do?")
+                # A neutral
+                A "Don't act like I'm some villain. I've worked harder than anyone here."
+                MC "Just, sounded like something serious has happened."
+                A "Fine, for the sake of transparency."
+                A "I might have ordered a triple of everything."
+                A "Wisely! So that we can better show our capabilities."
+                A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
+                MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
+                # A smile
+                A "..."
+                A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
+                "Oh, Agatha."
+                jump qqquestions
+            "Karkhos, how many boxes today?":
+                $ visited.add("Karkhos, how many boxes today?")
+                K "Why's that important? I have done what's within my capabilities."
+                MC "Which is…?"
+                K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
+                K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
+                K "I've completed a full and whole– A whopping total of a—"
+                # K sad
+                K "...a…"
+                # K angry
+                K "I have prioritized quality over quantity."
+                "I can see why the others are upset."
+                jump qqquestions
+            "Cee, what's this development stuff?":
+                $ visited.add("Cee, what's this development stuff?")
+                C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
+                MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
+                C "Very well, my sluggish companion. I put fish into all the orders."
+                MC "Yeah, that's… yeah."
+                C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
+                "WHAT."
+                "Agatha and Karkhos give me knowing looks."
+                C "Rejoice: we shall soon have fresh water aplenty."
+                MC "That's insane!"
+                C "It is what anyone in my situation ought to have done."
+                MC "I don't think ANYONE but you would have done that."
+                # C smiles
+                C "Oh, you do flatter me."
+                jump qqquestions
 
-#     label after_questions:
-#         "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
-#         "So much for democracy."
-#         "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
-#         MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
-#         A "Yeah, get it together, guys!"
-#         K "You too."
-#         K "This isn't fair. I have done what I can. If what I've accomplished is not enough, then from now on, I will not pack a single box."
-#         C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
-#         C "What I must do cannot wait. Farewell!!!"
-#         # C pois, footsteps
-#         A "ARGH!!!"
-#         # A pois, wing flaps
-#         K "...too pissed to nap…"
-#         # K pois, footsteps
-#         "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
-#         "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
-#         "It's almost time to return to work."
-#         "…I'll eat later…"
-#         return
+    label after_questions:
+        "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
+        "So much for democracy."
+        "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
+        MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
+        A "Yeah, get it together, guys!"
+        K "You too."
+        K "This isn't fair. I have done what I can. If what I've accomplished is not enough, then from now on, I will not pack a single box."
+        C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
+        C "What I must do cannot wait. Farewell!!!"
+        # C pois, footsteps
+        A "ARGH!!!"
+        # A pois, wing flaps
+        K "...too pissed to nap…"
+        # K pois, footsteps
+        "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
+        "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
+        "It's almost time to return to work."
+        "…I'll eat later…"
+        return
 
 
 label day2_3A:
