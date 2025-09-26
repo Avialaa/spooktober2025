@@ -1,3 +1,5 @@
+define visited = set()
+
 label day2_1:
     scene black
     #(Conditional: reittiin sopiva kommentti skenen alussa)
@@ -19,25 +21,149 @@ label day2_1:
     MC "Boss, please come back sooner!"
 
     # warehouse BG, vaalimainosversio
-    scene bg hallway posters
+    scene bg hallway posters with dissolve
     "Decorations…? Is today a festival?"
     "On closer inspection, these are probably related to the fight. It seems they hope to sway me with slogans and art. Seems kinda cheap." 
     #TODO: arttien näyttäminen
+    show julisteet2 at middle with dissolve:
+        zoom 1.5
+        yoffset -400
     "Agatha promises streamlined efficiency for the safety of all monsterkind."
+    pause 0.5
+    hide julisteet2 with dissolve
+    show julisteet3 at middle with dissolve:
+        zoom 1.5
+        yoffset -400
     "Karkhos… seems to be advocating for workplace wellness?"
+    pause 0.5
+    hide julisteet3 with dissolve
+    show julisteet1 at middle with dissolve:
+        zoom 1.5
+        yoffset -400
     "Cee vows revolution on our corrupt and unjust (quote needed) system."
+    pause 0.5
+    hide julisteet1 with dissolve
     "When did they even have the time to hang all this? To make all of this? They're all really dedicated…"
     "In a way, it's amazing how much effort they're putting into this. Though it's a pain, I'd feel bad just ignoring them."
-    "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me. Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."
-    scene bg warehouse posters
+    "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me."
+    "Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."
+    scene bg warehouse posters with dissolve
+    pause 1
     "Well, I'll deal with the posters later. The guys promised to not mess things up for the warehouse. On this at least, I trust them."
     "As I get ready to start packing, I notice three pieces of paper on my workstation."
     MC "What is it this time? Let's see."
 
-    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki
+    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki -TO DO
     "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
     \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
     \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
+    return
+
+# label day2_2: 
+# # (After morning minigame, at warehouse)
+
+#     "Phew!"
+#     "I'm getting the hang of this new system."
+#     "After I turn off my conveyor belt, the warehouse falls quiet. Everyone's already left for lunch. Could get used to a silence like this."
+
+#     # At breakroom, show all sprites
+#     "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
+#     A "Unbelivable. I expected better from you two."
+#     K "As if you are one to talk."
+#     C "This is mutiny!"
+#     "Briefly, I entertain the fantasy of abandoning lunch, turning around and returning to work. But all four of Agatha's eyes turn to me."
+#     A "[MC]! Will you talk sense into these two?"
+#     K "Why're you dragging [MC] into this? Don't try to misdirect. What you did isn't cool."
+#     C "Mister Destroyer, I dare argue your actions have proven just as despicable."
+#     K "What actions?"
+#     C "Précis!"
+#     MC "One at a time? I'm sure nobody did it on purpose, whatever it is."
+#     C "Miss Agatha here has conspired to make wretches of us all."
+#     K "Cee has done that too!"
+#     A "Don't forget Karkhos has compromised the monsterkind's safety, the warehouse's very purpose."
+#     A "We agreed on not going against Boss' orders until MC has decided. And here we are."
+#     C "What fungus has infested thine brain for you to think you're exempt?"
+#     A "Working hard is EXACTLY what the Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
+#     C "I'm simply practicing some much needed service development. As per the Boss' orders."
+#     A "You're practically begging to get fired!"
+#     C "Isn't there someone here asking for it rather more insistently?"
+#     K "...What, me?! No! All I ask for are better conditions."
+#     MC "Wait wait wait… One at a time."
+#     jump qquestions
+#     # (!!!!! Valinta jossa pitää valita kaikki 3 vaihtoehtoa että pääsee eteenpäin)
+#     #
+
+
+#     label qqquestions:  
+#         if "aquestion", "kquestion", "cquestion" in visited:
+#             jump after_questions
+#         menu qquestions:
+#             set visited
+#             "Agatha, what did you actually do?":
+#                 $ visited.add("aquestion")
+#                 # A neutral
+#                 A "Don't act like I'm some villain. I've worked harder than anyone here."
+#                 MC "Just, sounded like something serious has happened."
+#                 A "Fine, for the sake of transparency."
+#                 A "I might have ordered a triple of everything."
+#                 A "Wisely! So that we can better show our capabilities."
+#                 A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
+#                 MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
+#                 # A smile
+#                 A "..."
+#                 A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
+#                 "Oh, Agatha."
+#                 jump qqquestions
+#             "Karkhos, how many boxes today?":
+#                 $ visited.add("kquestion")
+#                 K "Why's that important? I have done what's within my capabilities."
+#                 MC "Which is…?"
+#                 K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
+#                 K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
+#                 K "I've completed a full and whole– A whopping total of a—"
+#                 # K sad
+#                 K "...a…"
+#                 # K angry
+#                 K "I have prioritized quality over quantity."
+#                 "I can see why the others are upset."
+#                 jump qqquestions
+#             "Cee, what's this development stuff?":
+#                 $ visited.add("cquestion")
+#                 C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
+#                 MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
+#                 C "Very well, my sluggish companion. I put fish into all the orders."
+#                 MC "Yeah, that's… yeah."
+#                 C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
+#                 "WHAT."
+#                 "Agatha and Karkhos give me knowing looks."
+#                 C "Rejoice: we shall soon have fresh water aplenty."
+#                 MC "That's insane!"
+#                 C "It is what anyone in my situation ought to have done."
+#                 MC "I don't think ANYONE but you would have done that."
+#                 # C smiles
+#                 C "Oh, you do flatter me."
+#                 jump qqquestions
+
+#     label after_questions:
+#         "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
+#         "So much for democracy."
+#         "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
+#         MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
+#         A "Yeah, get it together, guys!"
+#         K "You too."
+#         K "This isn't fair. I have done what I can. If what I've accomplished is not enough, then from now on, I will not pack a single box."
+#         C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
+#         C "What I must do cannot wait. Farewell!!!"
+#         # C pois, footsteps
+#         A "ARGH!!!"
+#         # A pois, wing flaps
+#         K "...too pissed to nap…"
+#         # K pois, footsteps
+#         "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
+#         "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
+#         "It's almost time to return to work."
+#         "…I'll eat later…"
+#         return
 
 
 label day2_3A:
@@ -61,7 +187,7 @@ label day2_3A:
     show cee at hop
     C "The tidings I bring concern Miss Agatha. I'm certain you would be interested. It shall not take long."
     #haluun zoomata kuvan nurkkaan täs jos on aikaa tutkii miten
-    show bg hallway posters:
+    show bg hallway posters with dissolve:
         zoom 2
         xoffset -1650
         yoffset -400
@@ -138,7 +264,7 @@ label day2_5A:
     A "If they don't want to do it, they could just- just…"
     show agatha alakuloinen at hop
     "She bites her lip."
-    #conditional jos lukenut 2.3A:n: LISÄÄ MYÖHEMMIN KONDITIO KUN TEKSTI OLEMASSA!!!!
+    #TODO: conditional jos lukenut 2.3A:n:
     # if read2_3A = True:
     #     "I think back to Cee's story of Agatha demanding they show more enthusiasm. Was there more to it than Cee told, or could she really be plotting death by overwork?"
     menu:
@@ -245,7 +371,9 @@ label day2_5A:
 
 label day2_5B:
 
-    scene bg hallway posters night
+    scene bg hallway posters with dissolve
+    pause 1
+    scene bg hallway posters night with dissolve
     "Second day done. Can't wait to go home and melt in my bathtub shaped hole. Keeping my professionally cubistic shape together is tiring."
     "I can still hear conveyor belt sounds coming from the warehouse. Some of the guys are still working."
     "As for who isn't, I have a guess."
@@ -268,7 +396,7 @@ label day2_5B:
     show karkhos iloinen
     "He's really spirited. Usually, he leaves work dragging his feet, groaning like a zombie. The regular kind—the kind that gurgle, drool and are real culinarians when it comes to internal organs."
 
-    # (Conditional: jos 2.3B (edellinen skene) saatu) LISÄÄ MYÖHEMMIN KONDITIO KUN TEKSTI OLEMASSA!!!!
+    # TODO:(Conditional: jos 2.3B (edellinen skene) saatu) LISÄÄ MYÖHEMMIN KONDITIO KUN TEKSTI OLEMASSA!!!!
     # "When he first started working at the warehouse, I did note he's more animated than other animated corpses. To think that all this time, he was working under a necromantic contract."
     # "Being forced to work… The rest of us chose this job, but Karkhos didn't get to choose. It's possible he doesn't enjoy a single thing about working here."
 
@@ -278,7 +406,8 @@ label day2_5B:
     show karkhos iloinen
     K "Maybe it's cuz you still have questions about my great workplace improvement plan?"
     K "Well, the walk to the big intersection is a long one. If you wanna ask, now's the time. Q and A. Karkhos the Destroyer: an open book."
-    "I do have a lot of questions. Whether he likes working here, for one. But all these years, I've never asked my coworkers anything personal. Monsters usually tell it straight if they want to. Unless they're a sphinx."
+    "I do have a lot of questions. Whether he likes working here, for one."
+    "But all these years, I've never asked my coworkers anything personal. Monsters usually tell it straight if they want to. Unless they're a sphinx."
     "Suddenly, I'm all nerves. Even though I don't have any."
 
     menu:
@@ -311,14 +440,17 @@ label day2_5B:
     K "Uh. When I said it's a Q and A, I sorta hoped you'd ask about workers' right to more breaks."
     MC "Sorry. Your death is probably a difficult memory."
     show karkhos perus
-    K "Nah, man. I used to be an orc. The way I died was stupid. Didn't have Loot on me, while my clan mates did. The last thing I saw was their retreating feet. That should've been it for me, but I woke up in the chain's restoration facility."
+    K "Nah, man. I used to be an orc. The way I died was stupid. Didn't have Loot on me, while my clan mates did. The last thing I saw was their retreating feet."
+    show karkhos at hop
+    K "That should've been it for me, but I woke up in the chain's restoration facility."
     K "No hard feelings to the necromancer who patched me up. Though I think she took my kidney. And something else over in my mid abdomen. The cavity sometimes gathers liquid."
     # K happy sprite
     show karkhos iloinen
     K "Oh well! I've still got lots of organs to spare. Not like they do much now. They've probably spoiled anyway."
     MC "You were… happy to be turned into an undead?"
     # K neutral sprite
-    K "Getting a new chance at life doesn't happen to everyone. There was still a lot I wanted to experience, and I was happy to give back. The Loot saved my clan mates, and the chain gave me a second life."#
+    K "Getting a new chance at life doesn't happen to everyone."
+    K "There was still a lot I wanted to experience, and I was happy to give back. The Loot saved my clan mates, and the chain gave me a second life."
     show karkhos perus
     K "In the beginning, didn't matter I was destined to work until my body fell apart."
     # sad sprite
@@ -340,7 +472,8 @@ label day2_5B:
     K "If I had a few days off, I'd go lava surfing, cave diving, ride a wyrm and kiss the moon. Just because I'm dead doesn't mean I can't LIVE A LITTLE."
     "The shout echoes down every branching cavern. Anyone creeping around the dungeon probably turned to run."
     show karkhos perus at hop
-    K "That being so, we need to reach a resolution with this fight. Cee and Agatha need to learn that enough's enough. Tomorrow at lunch, we'll check your dispatch records. The winner will have their way with the warehouse."
+    K "That being so, we need to reach a resolution with this fight. Cee and Agatha need to learn that enough's enough."
+    K "Tomorrow at lunch, we'll check your dispatch records. The winner will have their way with the warehouse."
     show karkhos pikkuviha
     K "If we all refuse to work these unreasonable hours, the Boss will have no choice but to grant our demands."
     K "I'll win by any means necessary, because I'm right."
@@ -365,10 +498,11 @@ label day2_5B:
             show karkhos alakuloinen
             K "My bad. Got carried away. I'm sure the other two think they can handle the workload."
 
+    show karkhos pikkuviha at hop
     show bg hallway posters night:
         zoom 1.0
         yoffset 0
-    show karkhos pikkuviha at hop
+    pause 1
     "The great intersection is busy this time of evening. Dungeon guards are on their patrol. Tinkerers are running to reset traps, and the cleaning crew is marching to mop up dead humans."
     show karkhos perus
     K "Well, my cave's that way. Was nice chatting."
@@ -382,7 +516,7 @@ label day2_5B:
 
 label day2_5C: #Cee emotional evening
 
-    scene bg hallway posters night
+    scene bg hallway posters night with dissolve
     "As I get ready to leave work, I realize I've forgotten something."
     MC "Darn it. I left my lunch box in the break room."
     "I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
@@ -460,7 +594,7 @@ label day2_5C: #Cee emotional evening
     C "I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
     MC "Ah. I'm sorry, Cee. I had no idea you were feeling that way."
     "I feel bad for Cee. They are trying so hard and everyone just keeps brushing them off."
-    "Even I remember not taking them seriously when I first met them. Something along the lines of ‘wow, that person should probably go touch some dungeon moss'."
+    "Even I remember not taking them seriously when I first met them. Something along the lines of 'wow, that person should probably go touch some dungeon moss'."
     "Ouch. It doesn't feel good to realize you're part of the problem."
     C "Ever since that day, I have not forgiven the fur-covered kraken or his flagrant minions. The wound in my heart runs deep."
     MC "Thanks for helping me understand, Cee."

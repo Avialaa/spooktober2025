@@ -2,6 +2,41 @@ default agreewithagatha = False
 default agreewithkarkhos = False
 default agreewithcee = False
 
+label day1_1:
+    pause 1 
+    scene black with dissolve
+    pause 1
+    #(scene alkaa heti nimen valinnan jälkeen.)
+    # Musta ruutu taustalla
+    "Another morning, another day at the Loot warehouse."
+    "The work's hard, but not as hard as life outside of the dungeon. In here I'm safe and fed, so what more could a slime ask for, right?"
+    "This week, Boss is away on a business trip. Though he isn't a bad guy, nothing beats the freedom of no superiors breathing down your neck… Well, proverbial neck!"
+    "This fluffy feeling of freedom… It's like I'm on a holiday!"
+
+    #kävelyn ääniä
+    #Käytävä BG
+    scene bg hallway
+    play sound distantspeak fadein 0.5
+    "Hm? I can hear my coworkers. Sounds like they've gathered behind that bend in the corridor. If they wanted to have a meeting, how come they haven't told me?"
+    # ilman spritejä!!!
+    stop sound
+    A "I'm only offering a suggestion."
+    K "And I suggest you …uh… don't?"
+    C "I do relish it when the fools fight."
+    play sound distantspeak
+    "Sounds like they aren't about to stop."
+    "Rather than get involved, I just want to get started with the day. Means I get home sooner."
+    "If I just sneak by, maybe they won't notice…"
+    stop sound fadeout 2.0
+    # musta ruutu
+    scene black with dissolve
+    # warehouse
+    scene bg warehouse with dissolve
+    "Phew! Whatever they were fighting about, I'm sure they'll sort it out. Let's see here…"
+    "Before leaving on the business trip, Boss got a wizard to install a new loot dispatch system. He told us to test it while he's gone."
+    "He's left a list of Loot orders by the machine."
+    "It's unexpectedly complicated… Still, I won't let this dampen my easygoing week! The sooner I start, the more boxes I'll pack before lunch."
+    return
 
 label day1_2: 
 
@@ -856,7 +891,7 @@ label day1_6C:
             C "Hmm. Perhaps you are right, my fellow prisoner."
         "\"Since when were you this interested in my well-being, Cee?\"":
             show cee iloinen at hop
-            C "There is no reason to be suspicious, MC."
+            C "There is no reason to be suspicious, [MC]."
             show cee karmiva hymy
             C "Ever since this friendly little race to power started, I have been observing you. Monitoring you. Watching you."
             MC "That's three reasons to be suspicious, Cee!"
@@ -883,7 +918,7 @@ label day1_6C:
     MC "Thanks, I guess?"
     # Cee iloinen
     show cee iloinen
-    C "You're welcome, MC, you're very welcome."
+    C "You're welcome, [MC], you're very welcome."
     pause 0.5
     MC "So, anything else?"
     show cee iloinen at hop
@@ -952,7 +987,7 @@ label day1_6C:
     MC "No, but I suppose you do."
     # Cee karmiva hymy
     show cee karmiva hymy at hop
-    C "Carnage, MC. Utter carnage."
+    C "Carnage, [MC]. Utter carnage."
     MC "You can't be serious, right?"
     C "On the contrary."
     show cee perus
@@ -971,7 +1006,7 @@ label day1_6C:
     C "I'm afraid I must retreat now. The new world I'm planning needs all of MY free time."
     MC "See you later then, Cee. I'll let you guys know when I've made up my mind."
     show cee perus
-    C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, MC."
+    C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, [MC]."
     # Cee leaves
     hide cee with easeoutleft
     "Cee hurries off. They can be really convincing when they want to, huh?"
