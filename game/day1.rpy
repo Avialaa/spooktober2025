@@ -241,7 +241,7 @@ label day1_3A:
     "I feel like if I don't put my metaphorical foot down now, I won't have time to {i}eat{/i} on this \"sacredly\"-whatever lunch break."
     #eat itallics
     #wing flaps sound
-    show agatha perus with moveinleft
+    show agatha perus at middle with moveinleft
     "Ah. As usual, it's a race to the ice box between me and Agatha. I don't often win, but then, she has wings."
     "But this time, even though she gets there well ahead of me…"
     #A smile
@@ -279,17 +279,17 @@ label day1_3A:
     A "With how things are going, it's not going to be {i}him{/i}."
     #him itallics
     #Show Karkhos
-    show agatha vihainen at cleft zorder 2 with moveinleft
-    show karkhos perus at cright zorder 1
+    show agatha vihainen at cright zorder 2 with moveinleft
+    show karkhos perus at cleft zorder 1 with dissolve
     "She gives Karkhos the side-eye of the century."
-    hide karkhos with moveoutright
+    hide karkhos with moveoutleft
     show agatha vihainen at middle with move
     menu:
-        "I don't really want a promotion.":
+        "\"I don't really want a promotion.\"":
             show agatha iloinen
         #A smile
             A "Well, I would also be happy to help you improve your productivity from a managerial position." 
-        "You're probably not wrong.":
+        "\"You're probably not wrong.\"":
             show agatha alakuloinen
         #A frown?
             A "Right? I don't want to foster a hostile atmosphere in the workplace, but…"
@@ -297,6 +297,7 @@ label day1_3A:
             A "Sometimes I feel like he's not motivated to work."
     #hide karkhos with moveoutright
     #show agatha perus at middle
+    pause 0.5
     show agatha perus at hop
     "Agatha sips the last of her nectar and stands up."
     MC "Going already? There's still two minutes left."
@@ -305,13 +306,15 @@ label day1_3A:
     A "Of course, I'm just doing my work as usual. Normally. Until you cast your vote."
     A "Since we all agreed not to meddle until you pick m- a side."
     "Feeling confident, I see."
+    show agatha tosi iloinen
     A "{i}If{/i} you want to support me for the good of all, I'd ask you to just work as hard as you can!"
     #if itallics
+    show agatha perus
     A "Ship as many orders as you can muster!"
     show agatha pelokas
     A "But remember how Boss gets about mistakes."
     #Shake A
-    show agatha pelokas at shake #shake pitää lopettaa, muuten jää päälle
+    show agatha pelokas at shake2 #shake pitää lopettaa, muuten jää päälle
     "She shudders."
     show agatha pelokas at middle
     MC "Yeah. I never want to have another… What did he call it? 'Chit-chat' with him."
@@ -346,10 +349,17 @@ label day1_3B:
     show karkhos perus
     K "Though you haven't got any bones, do you?"
     MC "Neither does Agatha. Cee has some, I think."
-    K "Bones or not, everyone gets tired. Been wanting to tell this to Boss for ages. But I know he won't listen, not unless all four of us stand behind a single demand. Power in numbers. Like with the uniforms!"
+    show karkhos nukkuva
+    K "Bones or not, everyone gets tired."
+    show karkhos perus
+    K "Been wanting to tell this to Boss for ages. But I know he won't listen, not unless all four of us stand behind a single demand. Power in numbers."
+    show karkhos at hop
+    K "Like with the uniforms!"
     MC "Oh, true. I still can't imagine what Boss was thinking, putting us in evil cultist getups. It was inconvenient."
     show karkhos pikkuviha
-    K "Putting it mildly. The robes were a huge pain. Mine always got soggy with gut juice, and the hem made me trip more times than I can remember. The ones we have now are much better. And I don't gotta wear a shirt."
+    K "Putting it mildly. The robes were a huge pain. Mine always got soggy with gut juice, and the hem made me trip more times than I can remember."
+    show karkhos iloinen
+    K "The ones we have now are much better. And I don't gotta wear a shirt."
     MC "It was nice that Boss listened, even though he really liked the evil cult look. He's reasonable when it really counts. Must've been because all four of us insisted on it."
     show karkhos perus
     K "This time's no different. We need a unified front. What could be more important than the longevity of the very monsters doing all the heavy lifting?"
@@ -359,7 +369,8 @@ label day1_3B:
     K "I've been thinking—crazy, I know."
     K "As long as we send out enough boxes, doesn't really matter what's inside. Leave some empty space in those boxes, will you? Easier to carry. That would show you agree with me."
     show karkhos iloinen
-    K "We'll show that the warehouse is plenty efficient if we work reasonable hours. Maybe we'll even be MORE efficient with enough breaks. When the Boss returns, he'll have no choice but to agree."
+    K "We'll show that the warehouse is plenty efficient if we work reasonable hours. Maybe we'll even be MORE efficient with enough breaks."
+    K "When the Boss returns, he'll have no choice but to agree."
     MC "How much more free time were you thinking?"
     show karkhos tosi iloinen
     K "Wasn't. Those details will come naturally later. Flexibility, and so on. As I've gotten older, I've understood it's important to not set plans in stone too early."
@@ -371,7 +382,8 @@ label day1_3B:
     MC "Are you going to continue your …break?"
     show karkhos perus
     K "Nah, I'll get to packing shortly. Promised to work normally until you decide. We even shook on it, me and the two hurrywarts."
-    K "None of us want the other two to start doing whatever. It's the one thing we agreed on. Agatha's the most vocal, but Cee's also unbelievably stubborn. So until this thing's settled, I'll go on as usual."
+    K "None of us want the other two to start doing whatever."
+    K "It's the one thing we agreed on. Agatha's the most vocal, but Cee's also unbelievably stubborn. So until this thing's settled, I'll go on as usual."
     # K angry
     show karkhos pikkuviha at hop
     K "They just don't know what's good for them. But they'll run out of fuel soon."
@@ -382,7 +394,11 @@ label day1_3B:
 label day1_3C:
 
     #TÄHÄN VOIS LAITTAA PAREMMAN TRANSITION JOTENKI
+    window hide
+    show black with dissolve
+    pause 1
     scene bg warehouse with dissolve
+    pause 0.5
     # Cee appears
     # Cee perus
     show cee iloinen at middle with moveinleft
@@ -418,7 +434,8 @@ label day1_3C:
             "I have no idea what that word means, but I have a hunch it's nothing flattering…"
     # Cee perus
     show cee perus
-    C "Small fish like us have a ghost of a chance against a ferocious KRAKEN unless we join forces. We simply must turn this ghastly ship around while we still can, and steer it towards a brighter future."
+    C "Small fish like us have a ghost of a chance against a ferocious KRAKEN unless we join forces."
+    C "We simply must turn this ghastly ship around while we still can, and steer it towards a brighter future."
     show cee hullu hymy
     C "Now that the beast is gone, we have the perfect moment to strike." 
     show cee alakuloinen
@@ -436,7 +453,9 @@ label day1_3C:
     C "Why yes, my benighted friend. If not me, who else? The others do not see what I see."
     "Hehe. See and Cee. They are a SEA monster after all."
     show cee vihainen
-    C "They lack the ability to comprehend such complicated matters - bless their piteous little brains. I, on the other hand, am well beyond capable of creating a new, better world for us all."
+    C "They lack the ability to comprehend such complicated matters - bless their piteous little brains."
+    show cee iloinen
+    C "I, on the other hand, am well beyond capable of creating a new, better world for us all."
     MC "You sure have been thinking about this a lot, haven't you, Cee?"
     show cee perus
     C "Indeed I have. Heed my words, for I shall not be abased any longer."
@@ -447,12 +466,28 @@ label day1_3C:
 
     # Cee iloinen
     show cee iloinen
-    C "I shall wait patiently until our temporary leader is decided, and the others shall too. However, IF either of those fools tries to intervene in the process…"
+    C "I shall wait patiently until our temporary leader is decided, and the others shall too."
+    show cee perus
+    C "However, IF either of those fools tries to intervene in the process…"
     
-    show cee karmiva hymy
+    show cee karmiva hymy at hop:
+        zoom 1.2
+        yoffset 100
+    show bg warehouse at hpunch:
+        zoom 1.02
+        xoffset -20
+    pause 1.0
     # Cee karmiva hymy
     "Yikes!"
+    pause 0.5
+    show bg warehouse:
+        zoom 1
+        xoffset 0
+    show cee at middle:
+        zoom 1
+        yoffset 0
     MC "I'm pretty sure they won't. They want it fair and square, just like you and me."
+    show cee iloinen
     C "They better."
     MC "Don't worry, Cee. I'm feeling optimistic about this."
     # Cee perus
@@ -529,12 +564,12 @@ label day1_4C: #Cee congratulates MC
 
 label day1_6A:
 
-    scene bg warehouse night
+    scene bg hallway night with dissolve
     
     "Okay, I made it through my first day with the new system pretty respectably."
     "Can't wait to get home and snack on the rest of that rare moss I've been saving."
     "My body starts to salivate just thinking about it."
-    show agatha perus at middle
+    show agatha perus at middle with easeinleft
     A "[MC]!"
     MC "Moss! I mean Agatha!" 
     #A pikku hyppy
@@ -544,9 +579,8 @@ label day1_6A:
     "She's been really nice to me ever since I was pressured into voting. It's getting pretty transparent, but oh well."
     MC "Thanks. Maybe I'll catch up to you if I keep it up, haha!"
     #A twitch
-    show agatha perus at shake
+    show agatha perus at shake2
     A "Haha! Maybe you will!"
-    show agatha perus at hop
     #käytin hop koska idk miten lopetetaan shake muuten
     "..."
     MC "Anyway, I should get…"
@@ -563,7 +597,7 @@ label day1_6A:
     show agatha iloinen at zoom_in:
         yoffset 150
     A "EXACTLY!"
-    show agatha perus:
+    show agatha perus at zoomToNormalSize:
         yoffset 0
     #Make A normal size
     A "Don't sell yourself short, [MC]! What you do means a lot. Really."
@@ -572,18 +606,21 @@ label day1_6A:
     A "And not just to me. Every piece of loot we ship could save a monster's life, you know." 
     show agatha vihainen
     A "But despite that, Cee has no appreciation for what Boss has created here. And Karkhos…"
+    show agatha at shake2
     "I can see her going to great trouble, trying to find a diplomatic way to put this."
+    show agatha at middle
     MC "...Yeah. Karkhos."
     #A smile
     show agatha iloinen at hop
     A "Well put."
     show agatha vakava
-    A "The two of them may think they \"just work here\", but their slacking off affects a lot of others: us here, because we have to make up for it, and all of the monsters out there in the world who depend on Loot to protect them!"
+    A "The two of them may think they \"just work here\", but their slacking off affects a lot of others."
+    A "Us here, because we have to make up for it, and all of the monsters out there in the world who depend on Loot to protect them!"
     "That's a bit lofty, but I guess her passion for work must come from somewhere. The bit about just working here I feel in my gel."
     MC "I do wish Karkhos and Cee would help a bit more, sometimes."
     show agatha vihainen
     A "That's putting it mildly."
-    show agatha perus
+    show agatha perus at hop
     A "But if you support me and we get everyone on board, I know we can take Loot to new heights."
     show agatha iloinen
     A "I have so many ideas to improve our productivity for the good of all monsterkind."
@@ -595,32 +632,34 @@ label day1_6A:
     A "There's still room to spread more awareness, and as demand grows, I think the Warehouse will eventually spawn branches."
     A "When that happens, I want to be there to lead the charge."
     #neutraali ilme, shake
-    show agatha vakava at hop
+    show agatha alakuloinen at hop
     A "Uh. If they'll have me."
     "Boss's shoes are pretty big for her to fill, literally, but she seems really motivated."
     menu:
         "\"Sure. Maybe you'll get lucky.\"":
-            show agatha at hop
+            show agatha vakava at hop
             A "Right. I'll do my best."
         "\"Go for it! I believe in you.\"":
             show agatha perus
             A "Oh!"
-            show agatha iloinen
+            show agatha tosi iloinen at hop
             #A smile
             A "Thank you, [MC]."
     A "Our work is important, and I want to give all I can to it."
     show agatha vakava
     A "You know, life is hard for monsters living out in the Human Wilds, and it was even harder before the Loot system."
     #Shake A
+    show agatha at shake2
     A "When you'd come across a human, it was fight, run or die."
+    show agatha at middle
     MC "Yikes!"
     A "Yes. It was even harder for the smaller monsters who don't stand a chance in terms of size."
-    show agatha at hop
+    show agatha alakuloinen at hop
     A "I mean, some have venom or spikes, but not all."
     A "Without a natural weapon or magic, your only options would be running or dying."
-    show agatha pelokas
+    show agatha vakava
     A "Never leave the dungeon without carrying Loot, [MC]. Trust me on this."
-    show agatha at hop
+    show agatha pelokas at hop
     A "Humans are scary…"
     menu:
         "\"Are you speaking from experience?\"":
@@ -636,17 +675,26 @@ label day1_6A:
     A "How about you, [MC]? Have you had any human encounters?"
     MC "No, thank goo. I coalesced in a dungeon like most slimes, so I haven't been out much."
     A "I'm glad. That's how it should be for everyone."
+    pause 1
     "When did the mood get this heavy?"
+    pause 1
     #Shake A
     show agatha alakuloinen at hop
     A "In any case, I've kept you long enough, [MC]. I should also get going."
     A "Thank you for taking the time for me…"
     "She seems way gloomy. It was surprisingly nice chatting to her, so it'd be a shame to send her off like this."
     "I want to cheer her up, and I know just the thing."
-    MC "{size=+10}{b}No proble-moth!{/b}{/size}"
+    show bg hallway night at hpunch:
+        zoom 1.02
+        xoffset -20
     show agatha vakava
+    MC "{size=+10}{b}No proble-moth!{/b}{/size}"
+    show bg hallway night:
+        zoom 1.0
+        xoffset 0
     "I garnish my pun with a wink."
     "I've been practicing, but my face still looks a bit weird when I focus on closing one eye. Hopefully she doesn't notice."
+    pause 1
     #A smile
     show agatha iloinen suukiinni at hop
     A "Pff."
@@ -661,17 +709,20 @@ label day1_6A:
     show agatha perus at agathabreakroom with move
     "She turns back towards the workroom."
     MC "Wait, you're not going home?"
+    show agatha at hop
     A "I just want to pack a few more boxes. I'll be right behind you, promise."
     MC "Okay…"
-    #A fade out, wingflap
-    hide agatha with dissolve
-    "Oh well, to each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
+    #A fade out, TODO: wingflap
+    hide agatha with easeoutleft
+    "Oh well. To each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
     "Moss, sweet moss…"
     return
 
 label day1_6B:
 
-    scene bg warehouse night
+    scene bg warehouse with dissolve
+    pause 1
+    scene bg warehouse night with dissolve
     "Done with the day! I'm so tired! When I stretched earlier, so many air bubbles in me popped that it was mildly alarming."
     "Agatha is still working, but the other two seem to have already gone home. I worked hard, and have earned a good night's rest."
 
@@ -695,9 +746,12 @@ label day1_6B:
     show karkhos alakuloinen mato at hop
     "The top of Karkhos' brain writhes. \"Wormy\" pokes out and nods empathically."
     MC "I get it. My body temperature also goes up when I move around."
-    MC "One summer, when Agatha was sick and we had to work overtime, it was so hot I turned into a puddle. I had to be scraped off the floor and put into the ice box. Took hours before I could move again."
+    MC "One summer, when Agatha was sick and we had to work overtime, it was so hot I turned into a puddle."
+    show karkhos perus mato
+    MC "I had to be scraped off the floor and put into the ice box. Took hours before I could move again."
     show karkhos pikkuviha
-    K "Cee told me about that! Goes to show how important getting to regulate our own breaks is. My previous job in the chain also had unreasonable demands, but at least I got to take a five whenever I wanted."
+    K "Cee told me about that! Goes to show how important getting to regulate our own breaks is."
+    K "My previous job in the chain also had unreasonable demands, but at least I got to take a five whenever I wanted."
     "Uh oh. I think he's told me what his previous job was, but I've forgotten."
 
     menu: 
@@ -727,7 +781,7 @@ label day1_6B:
     show karkhos perus
     K "Didn't. Got the boot. Must've been cuz they hate zombies or something."
     MC "..."
-    show karkhos pikkuviha
+    show karkhos alakuloinen
     K "Over here, it's all different. I haven't seen the sun in years."
     MC "That IS a downside of working in a dungeon."
     "Karkhos looks at the wall contemplatively. If he's so tired, how come he doesn't find a less taxing job? But there's no way I'm asking that."
@@ -745,6 +799,7 @@ label day1_6B:
         "I appreciate the sentiment.":
             show karkhos alakuloinen
             K "Sorry, I said something stupid again. There's a reason they never called me Karkhos the Poet."
+            pause 1
         "I still haven't made up my mind.":
             K "For sure. Better be certain, so you can stand behind your choice."
     show karkhos iloinen
@@ -755,7 +810,9 @@ label day1_6B:
     return
 
 label day1_6C:
-    scene bg warehouse night
+    scene bg warehouse with dissolve
+    pause 1
+    scene bg warehouse night with dissolve
     "It's been a long day. Finally, FINALLY I can go home and relax."
     "Ugh, I have a hunch it's going to take 3-5 business days to recover from today…" 
     # Cee appears
@@ -785,6 +842,7 @@ label day1_6C:
             MC "Freezer?!"
             show cee hullu hymy at hop
             C "It reminds me of the deepest, coldest parts of the ocean."
+            pause 0.5
             # Cee iloinen
             show cee iloinen
             C "It reminds me of home."
@@ -792,12 +850,13 @@ label day1_6C:
             # Cee perus
             show cee perus
             C "Truly?"
-            MC "Yeah. Our superiors always come up with new, trendy words that actually mean nothing. Micro break is a fancy word for closing your eyes for a minute or grabbing a cup of coffee when you can."
+            MC "Yeah. Our superiors always come up with new, trendy words that actually mean nothing."
+            MC "Micro break is a fancy word for closing your eyes for a minute or grabbing a cup of coffee when you can."
             show cee at hop
             C "Hmm. Perhaps you are right, my fellow prisoner."
         "\"Since when were you this interested in my well-being, Cee?\"":
             show cee iloinen at hop
-            C "There is no reason to be suspicious, MC."
+            C "There is no reason to be suspicious, [MC]."
             show cee karmiva hymy
             C "Ever since this friendly little race to power started, I have been observing you. Monitoring you. Watching you."
             MC "That's three reasons to be suspicious, Cee!"
@@ -824,7 +883,7 @@ label day1_6C:
     MC "Thanks, I guess?"
     # Cee iloinen
     show cee iloinen
-    C "You're welcome, MC, you're very welcome."
+    C "You're welcome, [MC], you're very welcome."
     pause 0.5
     MC "So, anything else?"
     show cee iloinen at hop
@@ -893,7 +952,7 @@ label day1_6C:
     MC "No, but I suppose you do."
     # Cee karmiva hymy
     show cee karmiva hymy at hop
-    C "Carnage, MC. Utter carnage."
+    C "Carnage, [MC]. Utter carnage."
     MC "You can't be serious, right?"
     C "On the contrary."
     show cee perus
@@ -912,7 +971,7 @@ label day1_6C:
     C "I'm afraid I must retreat now. The new world I'm planning needs all of MY free time."
     MC "See you later then, Cee. I'll let you guys know when I've made up my mind."
     show cee perus
-    C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, MC."
+    C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, [MC]."
     # Cee leaves
     hide cee with easeoutleft
     "Cee hurries off. They can be really convincing when they want to, huh?"
