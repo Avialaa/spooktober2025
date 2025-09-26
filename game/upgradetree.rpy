@@ -189,7 +189,7 @@ init python:
         tier3ChanceDict["keys"] = upgradesBought.get("keys3Chance",0)
         tier3ChanceDict["treasure"] = upgradesBought.get("treasure3Chance",0)
 
-        roundDuration = (40+5*upgradesBought.get("timeIncrease",0))/(1+upgradesBought.get("timeIncrease",0))
+        roundDuration = (60+5*upgradesBought.get("timeIncrease",0))/(1+upgradesBought.get("timeIncrease",0))
         timerPoints = (roundDuration/5)*upgradesBought.get("timePoints",0) #every 5 seconds gives 1 point
         roundDuration = roundDuration/(2**upgradesBought.get("timePace",0))
         failPoints = upgradesBought.get("pointMultiplier",0)*0,1
@@ -504,11 +504,11 @@ screen upgradeTree:
     if 'treasure2Chance' in upgradesBought:
         use upgradeNode("Coin 2+","treasure2Multiplier", 5, (0.85, 0.09), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 10%.")
     if 'keys2Chance' in upgradesBought:
-        use upgradeNode("Key 2+","keys2Multiplier", 5, (0.14, 0.3), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 2 key point value is increased by 10%.")
+        use upgradeNode("Key 2+","keys2Multiplier", 5, (0.14, 0.3), 0, 0, 0, 0, 0, 0, 1, 0, "Tier 2 key point value is increased by 10%.")
     if 'bone2Chance' in upgradesBought:
         use upgradeNode("Bone 2+","bone2Multiplier", 5, (0.86, 0.3), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 2 bone point value is increased by 10%.")
     if 'fish2Chance' in upgradesBought:
-        use upgradeNode("Fish 2+","fish2Multiplier", 5, (0.14, 0.51), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 2 fish point value is increased by 10%.")
+        use upgradeNode("Fish 2+","fish2Multiplier", 5, (0.14, 0.51), 0, 0, 0, 0, 0, 1, 0, 0, "Tier 2 fish point value is increased by 10%.")
     if 'weapon2Chance' in upgradesBought:
         use upgradeNode("Blade 2+","weapon2Multiplier", 5, (0.5, 0.51), 0, 1, 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 10%.")
     if 'sleep2Chance' in upgradesBought:
@@ -520,11 +520,11 @@ screen upgradeTree:
     if 'treasure2Multiplier' in upgradesBought:
         use upgradeNode("Coin 3","treasure3Chance", 5, (0.97, 0.02), 0, 0, 1, 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as lantern 3 meat with 100 times the point value.")
     if 'keys2Multiplier' in upgradesBought:
-        use upgradeNode("Key 3","keys3Chance", 5, (0.02, 0.3), 0, 0, 1, 0, 0, 0, 0, 0, "Key has a +10%% chance of appearing as Tier 3 key with 100 times the point value.")
+        use upgradeNode("Key 3","keys3Chance", 5, (0.02, 0.3), 0, 0, 0, 0, 0, 0, 1, 0, "Key has a +10%% chance of appearing as Tier 3 key with 100 times the point value.")
     if 'bone2Multiplier' in upgradesBought:
         use upgradeNode("Bone 3","bone3Chance", 5, (0.97, 0.3), 0, 0, 0, 0, 0, 0, 0, 1, "Bone has a +10%% chance of appearing as Tier 3 bone with 100 times the point value.")
     if 'fish2Multiplier' in upgradesBought:
-        use upgradeNode("Fish 3","fish3Chance", 5, (0.02, 0.58), 0, 0, 0, 0, 0, 0, 0, 1, "Fish has a +10%% chance of appearing as Tier 3 fish with 100 times the point value.")
+        use upgradeNode("Fish 3","fish3Chance", 5, (0.02, 0.58), 0, 0, 0, 0, 0, 1, 0, 0, "Fish has a +10%% chance of appearing as Tier 3 fish with 100 times the point value.")
     if 'weapon2Multiplier' in upgradesBought:
         use upgradeNode("Blade 3","weapon3Chance", 5, (0.5, 0.58), 0, 1, 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as Tier 3 blade with 100 times the point value.")
     if 'sleep2Multiplier' in upgradesBought:
