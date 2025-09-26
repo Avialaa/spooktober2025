@@ -79,9 +79,9 @@ label start:
         call day1_6A
     elif currentStoryRoute == "karkhos":
         call day1_6B
-    # elif currentStoryRoute == "cee":
-    #     call day1_6C
-    call screen day_change
+    elif currentStoryRoute == "cee":
+        call day1_6C
+    call day_change #day changes!!
     call day2_1
     #kolmas minipelityövuoro
     call upgradeTree
@@ -108,7 +108,7 @@ label start:
         call day2_5B
     elif currentStoryRoute == "cee":
         call day2_5C
-    call screen day_change
+    call day_change #day changes!!
 
     #Viides työvuoro
     call upgradeTree
