@@ -68,9 +68,14 @@ transform next_day:
         linear 0.5 alpha 0.0
 
 label day_change:
+    if _skipping:
+        hide screen skip_indicator
+        $ _skipping = False
+        $ renpy.config.skipping = False
     scene black with dissolve
     #TODO: add day change sound
     call screen day_change
+    $ _skipping = True
     return
 screen day_change:
     modal False
