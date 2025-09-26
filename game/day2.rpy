@@ -235,6 +235,94 @@ label day2_3A:
     "...Right?"
     return
 
+label day2_3B:
+    # (agatha tulee puhuu paskaa karkhoksesta)
+
+    # käytävä, walking
+    scene bg hallway posters with dissolve
+    pause 1
+    show agatha perus at middle with easeinleft
+    A "[MC]!"
+    "The break is almost over, yet Agatha has waited for me. Extremely abnormal."
+    "I detect no trace of her earlier anger. My curiosity is piqued."
+    MC "I thought you went back already."
+    show agatha at hop
+    A "In a minute. I have something important to tell you. It concerns Karkhos."
+    show agatha vakava
+    A "Say. How much has Karkhos told you about his reasons for being here?"
+    MC "For being here in the warehouse? Not much."
+    show agatha at hop
+    A "You know how undead are usually tireless, obedient servants, that kind of thing?"
+    A "Necromancers usually supply magical energy to the undead they raise, taking away the need for food and rest."
+    show agatha perus at hop
+    A "Doesn't match a certain Mister Destroyer, does it?"
+    MC "...What are you getting at?"
+    show agatha iloinen
+    A "I think I cracked what's going on with him."
+    show agatha perus at hop
+    A "A few years back, the whole undead servant thing ruffled some feathers. Do you remember?"
+    MC "Not really. News travels slow to the dungeon."
+    show agatha vakava
+    A "The Monsters' Rights Union started advocating for undeads' rights. They were outraged that our dead were being raised as thoughtless, wantless servants."
+    show agatha vakava at hop
+    A "The huge public protests were the talk of the land."
+    A "The necromancers' guild eventually yielded. In response to the protests, they did something drastic: they signed an agreement to preserve the corpse's personality as they raised it."
+    show agatha at hop
+    A "A huge victory, right?"
+    show agatha alakuloinen
+    A "Turns out an undead with a personality intact might have a thing or two to say about being forced into service."
+    A "The necromancers have since discontinued the agreement, returning to the old ways, but the undead raised under the agreement remain."
+    MC "You're saying Karkhos was a …test dummy? I had no idea he had gone through something like this. Though he has always been pretty opinionated for an undead."
+    show agatha vakava
+    A "I don't know the details, but I suspect Karkhos was raised as an employee for the Chain of Loot."
+    A "He probably needs to work here, per the necromantic contract, or something bad happens. Here, or somewhere else in the chain."
+    MC "Maybe Karkhos will tell us himself when he's ready. This is plenty of gossip for one day."
+    A "Ask him yourself, then."
+    show agatha at hop
+    A "But you see? Someone forced into working isn't the best judge of what's good for the warehouse. His opinions are tinted by his horrible and inescapable circumstances."
+    show agatha vihainen
+    A "Let's be real. This is a pretty cushy job. He's the only one who can't muster the willpower to try harder."
+    A "It's wrong for the whole system to run to pace with the weakest link."
+    show agatha at hop
+    A "I don't know what's wrong with him, and I don't care. He's handling it about as poorly as one can."
+    show agatha at hop
+    A "I won't let him drag us down with him."
+    MC "That's for Boss to decide. He's not harming any of us."
+    show agatha vakava
+    A "Isn't he? Karkhos never participates in the holiday gift exchanges, eats the communal foods even though he doesn't need to, doesn't clean up after himself, is always late..."
+    show agatha vihainen at hop
+    A "And I need to work harder to make up for it."
+    show agatha at hop
+    A "He's such a bad employee! Some days I wish he would just…"
+
+    menu:
+        "Karkhos isn't a bad employee.":
+            show agatha pelokas at hop
+            "Agatha flinches, but doesn't stop talking."
+            show agatha vakava
+            A "A good employee doesn't suddenly stop doing what he is asked."
+            MC "Is it really so wrong for the workload to match those who tire the fastest?"
+        "Makes a brutal sort of sense.":
+            show agatha vakava at hop
+            A "Life is brutal. It's why monsters need Loot in the first place."
+
+    A "If Karkhos wins this argument about workplace improvements, you know what'll happen?"
+    show agatha vakava at hop
+    A "Karkhos will present his crazy demands for 500\% more breaks, or whatever he haphazardly decides on, and Boss will laugh us out of his office."
+    show agatha pelokas at shake2
+    A "Then Boss will hire a lobotomy wizard to make US into thoughtless, wantless servants."
+    show agatha pelokas at middle
+    MC "Now you're just exaggerating."
+    MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't okay."
+    show agatha vakava at hop
+    A "Fine. Suit yourself."
+    hide agatha with easeoutright
+    # agatha läpsyttelee pois
+    "Wow. If what Agatha told me is true…"
+    "How would I feel about working at the warehouse if I was forced into it?"
+    return
+
+
 
 label day2_5A:
     scene bg breakroom posters night 

@@ -92,8 +92,8 @@ label start:
     #call day2_2
     if currentStoryRoute == "agatha":
         call day2_3A
-    #elif currentStoryRoute == "karkhos":
-    #   call day2_3B
+    elif currentStoryRoute == "karkhos":
+        call day2_3B
     #elif currentStoryRoute == "cee":
     #   call day2_3C
     #neljäs minipelityövuoro
