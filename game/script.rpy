@@ -29,13 +29,20 @@ init python:
             renpy.sound.play("audio/speakMC.mp3")
         elif event == "slow_done" or event == "end":
             renpy.sound.stop()
+    def allspeak(event, interact = True, **kwargs):
+        if not interact:
+            return
+        if event == "show":
+            renpy.sound.play("audio/allspeak.mp3")
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop(1)
 
 define e = Character("Eileen")
 define A = Character("Agatha", who_color="#CB985F", callback=agathaSpeak)
 define MC = Character("[mcName]", who_color="#84bdaf", callback=MCSpeak) # myöhemmin sit nimenvalinta
 define K = Character("Karkhos\n{size=-17}{font=DMSans-Light.ttf}The Destroyer{/size}{/font}", who_style="karkhosNameStyle", callback=karkhosSpeak)
 define C = Character("Cee", who_color="#877EA4", callback=ceeSpeak)
-define All = Character("All")
+define All = Character("All", callback=allspeak)
 
 default mcName = "Petri Dish"
 

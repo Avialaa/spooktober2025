@@ -16,18 +16,22 @@ label day1_1:
     #kävelyn ääniä
     #Käytävä BG
     scene bg hallway
+    play sound distantspeak fadein 0.5
     "Hm? I can hear my coworkers. Sounds like they've gathered behind that bend in the corridor. If they wanted to have a meeting, how come they haven't told me?"
     # ilman spritejä!!!
+    stop sound
     A "I'm only offering a suggestion."
     K "And I suggest you …uh… don't?"
     C "I do relish it when the fools fight."
+    play sound distantspeak
     "Sounds like they aren't about to stop."
     "Rather than get involved, I just want to get started with the day. Means I get home sooner."
     "If I just sneak by, maybe they won't notice…"
+    stop sound fadeout 2.0
     # musta ruutu
-    scene black
+    scene black with dissolve
     # warehouse
-    scene bg warehouse
+    scene bg warehouse with dissolve
     "Phew! Whatever they were fighting about, I'm sure they'll sort it out. Let's see here…"
     "Before leaving on the business trip, Boss got a wizard to install a new loot dispatch system. He told us to test it while he's gone."
     "He's left a list of Loot orders by the machine."
