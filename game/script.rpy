@@ -47,7 +47,7 @@ label start:
     # call upgradetreeTest
     # call choose_test
     call choose_name
-    #call day1_1
+    call day1_1
     #eka minipelityövuoro
     call warehouse_gameplay
     call roundEnd

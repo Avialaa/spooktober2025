@@ -2,6 +2,37 @@ default agreewithagatha = False
 default agreewithkarkhos = False
 default agreewithcee = False
 
+label day1_1:
+    pause 1 
+    scene black with dissolve
+    pause 1
+    #(scene alkaa heti nimen valinnan jälkeen.)
+    # Musta ruutu taustalla
+    "Another morning, another day at the Loot warehouse."
+    "The work's hard, but not as hard as life outside of the dungeon. In here I'm safe and fed, so what more could a slime ask for, right?"
+    "This week, Boss is away on a business trip. Though he isn't a bad guy, nothing beats the freedom of no superiors breathing down your neck… Well, proverbial neck!"
+    "This fluffy feeling of freedom… It's like I'm on a holiday!"
+
+    #kävelyn ääniä
+    #Käytävä BG
+    scene bg hallway
+    "Hm? I can hear my coworkers. Sounds like they've gathered behind that bend in the corridor. If they wanted to have a meeting, how come they haven't told me?"
+    # ilman spritejä!!!
+    A "I'm only offering a suggestion."
+    K "And I suggest you …uh… don't?"
+    C "I do relish it when the fools fight."
+    "Sounds like they aren't about to stop."
+    "Rather than get involved, I just want to get started with the day. Means I get home sooner."
+    "If I just sneak by, maybe they won't notice…"
+    # musta ruutu
+    scene black
+    # warehouse
+    scene bg warehouse
+    "Phew! Whatever they were fighting about, I'm sure they'll sort it out. Let's see here…"
+    "Before leaving on the business trip, Boss got a wizard to install a new loot dispatch system. He told us to test it while he's gone."
+    "He's left a list of Loot orders by the machine."
+    "It's unexpectedly complicated… Still, I won't let this dampen my easygoing week! The sooner I start, the more boxes I'll pack before lunch."
+    return
 
 label day1_2: 
 
