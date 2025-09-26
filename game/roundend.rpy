@@ -68,6 +68,9 @@ label roundEnd:
 
 
 screen roundEndScreen:
+
+    on "show":
+        action Play('audio', 'shiftOver_cogfirestudios__puzzle-game-victory-melody.mp3')
     
     #Timers to show point numbers
     timer 1.2 action SetVariable("roundEndrPoints", True)
