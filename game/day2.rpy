@@ -1,3 +1,5 @@
+define visited = set()
+
 label day2_1:
     scene black
     #(Conditional: reittiin sopiva kommentti skenen alussa)
@@ -51,11 +53,114 @@ label day2_1:
     "As I get ready to start packing, I notice three pieces of paper on my workstation."
     MC "What is it this time? Let's see."
 
-    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki
+    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki -TO DO
     "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
     \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
     \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
     return
+
+label day2_2: 
+# (After morning minigame, at warehouse)
+
+    "Phew!"
+    "I'm getting the hang of this new system."
+    "After I turn off my conveyor belt, the warehouse falls quiet. Everyone's already left for lunch. Could get used to a silence like this."
+
+    # At breakroom, show all sprites
+    "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
+    A "Unbelivable. I expected better from you two."
+    K "As if you are one to talk."
+    C "This is mutiny!"
+    "Briefly, I entertain the fantasy of abandoning lunch, turning around and returning to work. But all four of Agatha's eyes turn to me."
+    A "[MC]! Will you talk sense into these two?"
+    K "Why're you dragging [MC] into this? Don't try to misdirect. What you did isn't cool."
+    C "Mister Destroyer, I dare argue your actions have proven just as despicable."
+    K "What actions?"
+    C "Précis!"
+    MC "One at a time? I'm sure nobody did it on purpose, whatever it is."
+    C "Miss Agatha here has conspired to make wretches of us all."
+    K "Cee has done that too!"
+    A "Don't forget Karkhos has compromised the monsterkind's safety, the warehouse's very purpose."
+    A "We agreed on not going against Boss' orders until MC has decided. And here we are."
+    C "What fungus has infested thine brain for you to think you're exempt?"
+    A "Working hard is EXACTLY what the Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
+    C "I'm simply practicing some much needed service development. As per the Boss' orders."
+    A "You're practically begging to get fired!"
+    C "Isn't there someone here asking for it rather more insistently?"
+    K "...What, me?! No! All I ask for are better conditions."
+    MC "Wait wait wait… One at a time."
+    # (!!!!! Valinta jossa pitää valita kaikki 3 vaihtoehtoa että pääsee eteenpäin)
+    #
+
+
+    label qqquestions:  
+        menu qquestions:
+            set visited
+            "Agatha, what did you actually do?":
+                $ visited.add("Agatha, what did you actually do?")
+                # A neutral
+                A "Don't act like I'm some villain. I've worked harder than anyone here."
+                MC "Just, sounded like something serious has happened."
+                A "Fine, for the sake of transparency."
+                A "I might have ordered a triple of everything."
+                A "Wisely! So that we can better show our capabilities."
+                A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
+                MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
+                # A smile
+                A "..."
+                A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
+                "Oh, Agatha."
+                jump qqquestions
+            "Karkhos, how many boxes today?":
+                $ visited.add("Karkhos, how many boxes today?")
+                K "Why's that important? I have done what's within my capabilities."
+                MC "Which is…?"
+                K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
+                K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
+                K "I've completed a full and whole– A whopping total of a—"
+                # K sad
+                K "...a…"
+                # K angry
+                K "I have prioritized quality over quantity."
+                "I can see why the others are upset."
+                jump qqquestions
+            "Cee, what's this development stuff?":
+                $ visited.add("Cee, what's this development stuff?")
+                C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
+                MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
+                C "Very well, my sluggish companion. I put fish into all the orders."
+                MC "Yeah, that's… yeah."
+                C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
+                "WHAT."
+                "Agatha and Karkhos give me knowing looks."
+                C "Rejoice: we shall soon have fresh water aplenty."
+                MC "That's insane!"
+                C "It is what anyone in my situation ought to have done."
+                MC "I don't think ANYONE but you would have done that."
+                # C smiles
+                C "Oh, you do flatter me."
+                jump qqquestions
+
+    label after_questions:
+        "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
+        "So much for democracy."
+        "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
+        MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
+        A "Yeah, get it together, guys!"
+        K "You too."
+        K "This isn't fair. I have done what I can. If what I've accomplished is not enough, then from now on, I will not pack a single box."
+        C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
+        C "What I must do cannot wait. Farewell!!!"
+        # C pois, footsteps
+        A "ARGH!!!"
+        # A pois, wing flaps
+        K "...too pissed to nap…"
+        # K pois, footsteps
+        "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
+        "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
+        "It's almost time to return to work."
+        "…I'll eat later…"
+        return
 
 
 label day2_3A:
@@ -126,6 +231,94 @@ label day2_3A:
     "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters. Nothing predator-like about that."
     "...Right?"
     return
+
+label day2_3B:
+    # (agatha tulee puhuu paskaa karkhoksesta)
+
+    # käytävä, walking
+    scene bg hallway posters with dissolve
+    pause 1
+    show agatha perus at middle with easeinleft
+    A "[MC]!"
+    "The break is almost over, yet Agatha has waited for me. Extremely abnormal."
+    "I detect no trace of her earlier anger. My curiosity is piqued."
+    MC "I thought you went back already."
+    show agatha at hop
+    A "In a minute. I have something important to tell you. It concerns Karkhos."
+    show agatha vakava
+    A "Say. How much has Karkhos told you about his reasons for being here?"
+    MC "For being here in the warehouse? Not much."
+    show agatha at hop
+    A "You know how undead are usually tireless, obedient servants, that kind of thing?"
+    A "Necromancers usually supply magical energy to the undead they raise, taking away the need for food and rest."
+    show agatha perus at hop
+    A "Doesn't match a certain Mister Destroyer, does it?"
+    MC "...What are you getting at?"
+    show agatha iloinen
+    A "I think I cracked what's going on with him."
+    show agatha perus at hop
+    A "A few years back, the whole undead servant thing ruffled some feathers. Do you remember?"
+    MC "Not really. News travels slow to the dungeon."
+    show agatha vakava
+    A "The Monsters' Rights Union started advocating for undeads' rights. They were outraged that our dead were being raised as thoughtless, wantless servants."
+    show agatha vakava at hop
+    A "The huge public protests were the talk of the land."
+    A "The necromancers' guild eventually yielded. In response to the protests, they did something drastic: they signed an agreement to preserve the corpse's personality as they raised it."
+    show agatha at hop
+    A "A huge victory, right?"
+    show agatha alakuloinen
+    A "Turns out an undead with a personality intact might have a thing or two to say about being forced into service."
+    A "The necromancers have since discontinued the agreement, returning to the old ways, but the undead raised under the agreement remain."
+    MC "You're saying Karkhos was a …test dummy? I had no idea he had gone through something like this. Though he has always been pretty opinionated for an undead."
+    show agatha vakava
+    A "I don't know the details, but I suspect Karkhos was raised as an employee for the Chain of Loot."
+    A "He probably needs to work here, per the necromantic contract, or something bad happens. Here, or somewhere else in the chain."
+    MC "Maybe Karkhos will tell us himself when he's ready. This is plenty of gossip for one day."
+    A "Ask him yourself, then."
+    show agatha at hop
+    A "But you see? Someone forced into working isn't the best judge of what's good for the warehouse. His opinions are tinted by his horrible and inescapable circumstances."
+    show agatha vihainen
+    A "Let's be real. This is a pretty cushy job. He's the only one who can't muster the willpower to try harder."
+    A "It's wrong for the whole system to run to pace with the weakest link."
+    show agatha at hop
+    A "I don't know what's wrong with him, and I don't care. He's handling it about as poorly as one can."
+    show agatha at hop
+    A "I won't let him drag us down with him."
+    MC "That's for Boss to decide. He's not harming any of us."
+    show agatha vakava
+    A "Isn't he? Karkhos never participates in the holiday gift exchanges, eats the communal foods even though he doesn't need to, doesn't clean up after himself, is always late..."
+    show agatha vihainen at hop
+    A "And I need to work harder to make up for it."
+    show agatha at hop
+    A "He's such a bad employee! Some days I wish he would just…"
+
+    menu:
+        "Karkhos isn't a bad employee.":
+            show agatha pelokas at hop
+            "Agatha flinches, but doesn't stop talking."
+            show agatha vakava
+            A "A good employee doesn't suddenly stop doing what he is asked."
+            MC "Is it really so wrong for the workload to match those who tire the fastest?"
+        "Makes a brutal sort of sense.":
+            show agatha vakava at hop
+            A "Life is brutal. It's why monsters need Loot in the first place."
+
+    A "If Karkhos wins this argument about workplace improvements, you know what'll happen?"
+    show agatha vakava at hop
+    A "Karkhos will present his crazy demands for 500\% more breaks, or whatever he haphazardly decides on, and Boss will laugh us out of his office."
+    show agatha pelokas at shake2
+    A "Then Boss will hire a lobotomy wizard to make US into thoughtless, wantless servants."
+    show agatha pelokas at middle
+    MC "Now you're just exaggerating."
+    MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't okay."
+    show agatha vakava at hop
+    A "Fine. Suit yourself."
+    hide agatha with easeoutright
+    # agatha läpsyttelee pois
+    "Wow. If what Agatha told me is true…"
+    "How would I feel about working at the warehouse if I was forced into it?"
+    return
+
 
 
 label day2_5A:

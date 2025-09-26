@@ -215,6 +215,10 @@ init python:
     orders.pop(0) #remove finished order
     itemsInBox.clear()
     updateOrders() #update orders for pad UI
+    if isOrderCorrect == True:
+      renpy.sound.play("correct_thebuilder15__notification-correct.mp3")
+    else:
+      renpy.sound.play("wrong_thebuilder15__wrong.mp3")
   
   def countFish():
     global roundFish
@@ -351,7 +355,7 @@ screen conveyer_item(item, timeOnConveyer):
     #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     #if len(itemsInBox) +1 <= maxBoxItems:
-    action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box")], false=[SetVariable("move_text", box_text_shake), Show("box_text_shake_timer")])
+    action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box"), Play('audio', 'clickItem_leonsflashlight__box-open.mp3')], false=[SetVariable("move_text", box_text_shake), Show("box_text_shake_timer"), Play('audio', 'boxFull_pkbiggums__box_shatter2.mp3')])
     at transform:
       xpos -100 ypos 0.25
       on show:
@@ -394,15 +398,24 @@ screen box_text_shake_timer:
 
 screen warehouse_box:
 
+  on "show":
+    action Play('audio', 'boxWoosh2_magnuswaker__hard-swing-1.mp3')
+  on "hide":
+    action Play('audio', 'boxWoosh_qubodup__whoosh.mp3')
+  on "replace":
+    action Play('audio', 'itemToBox_crownieyt__open-package-box-parcel.mp3')
+
   frame style 'empty' xysize (773,600): 
     xalign 0.5 yalign 0.5
     background Frame("box", 0,0)
     at box_shake
-
+    
     text "Items: [len(itemsInBox)] / [maxBoxItems]":
         xcenter 0.5 ycenter 0.6
         style "boxTextStyle"
         at move_text #empty transform; use action SetVariable("move_text", box_text_shake) to play animation
+    
+    
   
 screen button_disable_timer:
   on "show":

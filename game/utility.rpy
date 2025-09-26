@@ -60,8 +60,29 @@ label test_minigame:
 
     return
 
+transform next_day:
+    on show:
+        alpha 0.0
+        linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0.0
+
+label day_change:
+    if _skipping:
+        hide screen skip_indicator
+        $ _skipping = False
+        $ renpy.config.skipping = False
+    scene black with dissolve
+    #TODO: add day change sound
+    call screen day_change
+    $ _skipping = True
+    return
 screen day_change:
     modal False
-    add "black"
-    text "The next day..." xcenter 0.5 ycenter 0.5
-    timer 2.0 action Return()
+
+    add "black" at next_day
+    
+    text "The next day...":
+        xcenter 0.5 ycenter 0.5
+        at next_day
+    timer 2.0 action [Hide(), Return()]

@@ -29,25 +29,33 @@ init python:
             renpy.sound.play("audio/speakMC.mp3")
         elif event == "slow_done" or event == "end":
             renpy.sound.stop()
+    def allspeak(event, interact = True, **kwargs):
+        if not interact:
+            return
+        if event == "show":
+            renpy.sound.play("audio/allspeak.mp3")
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop(1)
 
 define e = Character("Eileen")
 define A = Character("Agatha", who_color="#CB985F", callback=agathaSpeak)
 define MC = Character("[mcName]", who_color="#84bdaf", callback=MCSpeak) # myöhemmin sit nimenvalinta
 define K = Character("Karkhos\n{size=-17}{font=DMSans-Light.ttf}The Destroyer{/size}{/font}", who_style="karkhosNameStyle", callback=karkhosSpeak)
 define C = Character("Cee", who_color="#877EA4", callback=ceeSpeak)
-define All = Character("All")
+define All = Character("All", callback=allspeak)
 
 default mcName = "Petri Dish"
 
 # The game starts here.
 
 label start:
+    
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     call upgradetreeTest
     # call choose_test
     call choose_name
-    #call day1_1
+    call day1_1
     #eka minipelityövuoro
     call warehouse_gameplay
     call roundEnd
@@ -71,9 +79,9 @@ label start:
         call day1_6A
     elif currentStoryRoute == "karkhos":
         call day1_6B
-    # elif currentStoryRoute == "cee":
-    #     call day1_6C
-    call screen day_change
+    elif currentStoryRoute == "cee":
+        call day1_6C
+    call day_change #day changes!!
     call day2_1
     #kolmas minipelityövuoro
     call upgradeTree
@@ -84,8 +92,8 @@ label start:
     #call day2_2
     if currentStoryRoute == "agatha":
         call day2_3A
-    #elif currentStoryRoute == "karkhos":
-    #   call day2_3B
+    elif currentStoryRoute == "karkhos":
+        call day2_3B
     #elif currentStoryRoute == "cee":
     #   call day2_3C
     #neljäs minipelityövuoro
@@ -100,7 +108,7 @@ label start:
         call day2_5B
     elif currentStoryRoute == "cee":
         call day2_5C
-    call screen day_change
+    call day_change #day changes!!
 
     #Viides työvuoro
     call upgradeTree

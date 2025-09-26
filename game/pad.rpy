@@ -37,14 +37,14 @@ screen magicPad:
         align (1.0, 0.25)
         
         #buttons to call loot items to conveyor belt
-        hotspot (413, 189, 166, 165) action Function(addMeat)
-        hotspot (583, 192, 166, 163) action Function(addWeapon)
-        hotspot (586, 696, 161, 163) action Function(addTreasure)
-        hotspot (587, 361, 163, 160) action Function(addSleep)
-        hotspot (587, 530, 160, 162) action Function(addLight)
-        hotspot (414, 529, 165, 161) action Function(addFish)
-        hotspot (418, 695, 162, 163) action Function(addKeys)
-        hotspot (418, 358, 163, 164) action Function(addBone)
+        hotspot (413, 189, 166, 165) action [Function(addMeat), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (583, 192, 166, 163) action [Function(addWeapon), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (586, 696, 161, 163) action [Function(addTreasure), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (587, 361, 163, 160) action [Function(addSleep), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (587, 530, 160, 162) action [Function(addLight), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (414, 529, 165, 161) action [Function(addFish), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (418, 695, 162, 163) action [Function(addKeys), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (418, 358, 163, 164) action [Function(addBone), Play('sound', 'click_kwahmah_02__click.mp3')]
     
     vbox:
         xpos 1570 yalign 0.9 
