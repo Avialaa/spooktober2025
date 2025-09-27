@@ -1,7 +1,29 @@
 
 
+label day3_1:
+    scene bg hallway posters with dissolve
+    pause 1
+    "Day of truth. Today at lunch, they're going to decide the winner."
+    "When Boss left for the trip, I never expected such a strange few days."
+    "I've worked with these monsters for a while, but now I see that I never really knew them. I've always just checked in and checked out."
+    "It's conscientious to not pry, or so I thought. In truth, maybe I didn't care who these guys even are."
+    "I'm pretty content with everything, so I assumed they're also content, not holding on to any secret resentments."
+    "Well, better late than never."
+
+    #  varasto bg
+    show bg warehouse posters with dissolve
+    "Conveyor belts whirl in the depths of the warehouse. Are the others already here?"
+    "Either they arrived early, or they never left. Not even Agatha has ever stayed overnight."
+    "The posters have increased in number, and some have been pasted over the competitors'."
+    # explosion sound
+    play sound boom
+    "Somewhere, an explosion goes off."
+    "I'm just going to ignore that."
+    "This is the final shift before we decide on a winner. Better make my choices count."
+
+
 label day3_A1:
-    scene bg hallway posters
+    scene bg hallway posters with dissolve
     "They went to check my records some time ago. This is it."
     "They're coming out!"
     "The suspense is making my digestive region sick."
