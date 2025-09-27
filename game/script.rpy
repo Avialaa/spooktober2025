@@ -53,6 +53,7 @@ default mcName = "Petri Dish"
 # The game starts here.
 
 label start:
+    
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     #call upgradetreeTest
@@ -127,6 +128,6 @@ label start:
         call day3_B1
     if currentStoryRoute == "cee":
         call day3_C1
-
+    call finalcredits
     return
 
