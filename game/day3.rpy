@@ -1,6 +1,7 @@
 
 
 label day3_1:
+    play music juoru fadein 5
     scene bg hallway posters with dissolve
     pause 1
     "Day of truth. Today at lunch, they're going to decide the winner."
@@ -15,18 +16,20 @@ label day3_1:
     show bg warehouse posters with dissolve
     stop sound fadeout 3
     "Conveyor belts whirl in the depths of the warehouse. Are the others already here?"
-    "Either they arrived early, or they never left. Not even Agatha has ever stayed overnight."
+    "Either they arrived early, or they never left. Not even Agatha has ever stayed overnight before."
     "The posters have increased in number, and some have been pasted over the competitors'."
     # explosion sound
-    play sound boom
+    play sound boom volume 1.3
     "Somewhere, an explosion goes off."
     "I'm just going to ignore that."
     "This is the final shift before we decide on a winner. Better make my choices count."
+    stop music fadeout 5
 
     return
 
 
 label day3_A1:
+    play music ilo
     scene bg hallway posters with dissolve
     "They went to check my records some time ago. This is it."
     "They're coming out!"
@@ -89,6 +92,7 @@ label day3_A1:
     show agatha iloinen at hop
     A "After you're done with these personal tasks, return to receive further instructions. Any questions?"
     "And all-nighter? I haven't pulled one of those since school. Maybe it'll be fun, like a sleepover."
+    stop music fadeout 6
     hide karkhos with dissolve
     hide cee with dissolve
     hide agatha with dissolve
@@ -102,6 +106,7 @@ label day4_A2:
     #day 4 grafiikka
 
     #varasto BG
+    play music suru fadein 5
     scene bg warehouse night with dissolve
     pause 1
     "The glowing mushrooms are changing colors from a sleeping state to awake."
@@ -364,11 +369,13 @@ label day4_A2:
     show agatha vakava at hop
     "The whites of her cheeks are turning redder."
     A "Maybe it's alright to take the afternoon easy. Just this once."
+    stop music fadeout 3
     scene black with dissolve
+    pause 2
 
     # musta ruutu
     # nää samat höpinät on agatha ja kark endingeis
-
+    play music ending
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."
     "Though some things didn't go exactly to plan, none of the damage is irreversible."
     "Well, save for one thing."
@@ -381,6 +388,7 @@ label day4_A2:
 
 
 label day3_B1:
+    play music ilo
     scene bg hallway
     "They went to check my dispatch records some time ago. This is it."
     "They're coming out! The suspense is making my digestive region sick."
@@ -433,11 +441,13 @@ label day3_B1:
     C "As you demand, oh Karkhos the Great."
     show cee hullu hymy
     C "Your meager servants shall obey and ignore the cries of the innocent, pleading for their life-saving Loot."
+    stop music
     show karkhos vihainen at hop
     show cee kauhistus
     #K angry
     K "Hey, watch out."
     #K happy
+    play music ilo
     show karkhos tosi iloinen at hop
     show cee alakuloinen
     K "The jokey mood's contagious."
@@ -447,6 +457,7 @@ label day3_B1:
     hide cee with moveoutright
     hide agatha with moveoutright
     stop sound fadeout 3
+    stop music fadeout 3
     "This result… Was it really alright?"
     scene black with fade
     pause 1
@@ -456,6 +467,7 @@ label day4_B2:
     #(päivä 4 grafiikka)
 
     scene black
+    play music suru
     #musta ruutu
     "Bleary. Dizzy. I open my eyes after a dreamless black."
     "The only reason I believe it's an hour to noon is because my clock says so."
@@ -482,7 +494,7 @@ label day4_B2:
     #TODO: kävely äänii
     play sound footsteps
     "As I approach the warehouse, I hear the commotion of a crowd."
-    stop sound
+    stop sound fadeout 3
     "A group of delivery agents has gathered in front of the main entrance."
     "Delivery agent" "Hey! Why's the warehouse not giving Loot to deliver?"
     "Delivery agent" "We've got a huge number of deliveries to make. Humans attacked this morning, and many monsters used their Loot."
@@ -518,10 +530,13 @@ label day4_B2:
     A "Where is Karkhos? It's past noon."
     #TODO: footsteps in water approaching. They stop.
     play sound footstepswater
+    pause 0.5
+    stop sound fadeout 3
     "We all turn. Karkhos has stopped at the entrance. He seems horrified."
     #neutraali ilme, tai sit joku kauhistus?
+    play sound footstepswater
     show karkhos kauhistus mato zorder 3 at cleft with easeinleft
-    stop sound fadeout 3
+    stop sound fadeout 2
     K "What's going on…"
     K "There were delivery agents outside." 
     K "I told them to take the day off, but it just made them angrier."
@@ -540,10 +555,10 @@ label day4_B2:
     K "If we'd been here in the evening, we would have noticed the flooding earlier. None of this loot would be ruined."
     show karkhos vihainen mato
     K "Damn it… I should have seen this coming— Gh!"
-    play sound runningwater
+    play sound footstepswater
     show karkhos vihainen mato with ease:
         yoffset 200
-    stop sound
+    stop sound fadeout 0.5
     #TODO: onks tää liian goofy
     show agatha pelokas at middle
     show cee kauhistus
@@ -582,12 +597,16 @@ label day4_B2:
     show cee perus zorder 2 at cright with moveinbottom
     stop sound fadeout 1
     "Cee has managed to find the sewing supplies. We watch silently, as Karkhos sews his abdomen back shut."
+    play sound footstepswater
     show cee at middle with ease
+    stop sound fadeout 0.5
     "While he sews, part of the intestine slips out, like a tongue lolling out of a second mouth. Cee helps by shoving it back in."
     "When he's done, Karkhos glances at me wearily."
     show karkhos alakuloinen mato zorder 3 at cleft with ease:
         yoffset 0
+    play sound footstepswater
     show cee at cright with ease
+    stop sound fadeout 0.5
     K "Should've seen this coming. Some of this mess, at least."
     MC "That makes four of us."
     #Agatha fades in
@@ -644,11 +663,14 @@ label day4_B2:
     MC "And I'm going to start cleaning up. Lots to be done before Boss returns."
     show karkhos alakuloinen mato
     "Karkhos turns away. Though he's trying to appear casual, I see him wiping the corners of his eyes."
+    show karkhos tosi iloinen mato
     K "Let's Karkhos the Destroyer this mess!"
+    stop music fadeout 5
     All "Yeah!"
     # musta ruutu?
     scene black with dissolve
-
+    pause 2
+    play music ending
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."
     "Though some things didn't go exactly to plan, none of the damage is irreversible."
     "Well, save for one thing."
@@ -660,6 +682,7 @@ label day4_B2:
 
 
 label day3_C1:  #Cee wins
+    play music ilo
     scene bg hallway
     "They went inside my dispatch platform some time ago. This is it."
     "!! They're coming out!!"
@@ -667,12 +690,12 @@ label day3_C1:  #Cee wins
     # Cee, Karkhos & Agatha sprites
     # Cee tosi iloinen, Karkhos alakuloinen, Agatha vihainen
     play sound footsteps
-    show karkhos alakuloinen zorder 1 at cleft with moveinleft
+    show karkhos alakuloinen zorder 2 at cleft with moveinleft
     play sound wingflap
-    show agatha vihainen zorder 2 at cright with moveinright
+    show agatha vihainen zorder 1 at cright with moveinright
     play sound footsteps
     show cee tosi iloinen zorder 3 at hop, middle with moveinright
-    stop sound fadeout 2
+    stop sound fadeout 3
     C "Justice! Finally!"
     # Cee grins
     show cee hullu hymy
@@ -735,6 +758,7 @@ label day3_C1:  #Cee wins
     hide karkhos with moveoutright
     stop sound fadeout 3
     "Karkhos and Agatha follow me, not even looking back at the warehouse."
+    stop music fadeout 5
     "Everything seems fine, so why am I feeling a bit uneasy right now?"
     show cee hullu hymy at shake
     # Cee hullu hymy
@@ -746,15 +770,16 @@ label day3_C1:  #Cee wins
 
 #TODO lisää joku ääniefekti ehkä? 
 label day4_C2:
-
+    play music suru
     scene bg warehouse cee with dissolve
     # Käytävät tulvivat. Märkää loottia lilluu vedessä.
     "Paradise island? That's what we were promised, but…"
     # Karkhos appears.
     # Karkhos alakuloinen
-    play sound footstepswater fadein 3
+    play sound footstepswater
     show karkhos alakuloinen at middle with moveinleft
     #TODO hitaampi moveinleft
+    stop sound fadeout 2
     K "Ugh, it's so hard to move through these waters. Guess I'm not the only one who's not gonna make it to the next shift on time."
     #Karkhos disappears
     play sound footstepswater
@@ -769,6 +794,7 @@ label day4_C2:
     play sound wingflap
     show agatha vihainen at middle, shake2 with moveinright
     A "Oohh, I dropped my file! I can't dive after it. Someone help me!"
+    play sound wingflap
     hide agatha with moveoutright
     #Agatha disappears
 
@@ -1001,12 +1027,18 @@ label day4_C2:
     A "I suppose I can't ignore the fact that you were trying to make our work environment more pleasant, either. Statistics do show that thriving workers are more productive, after all."
     show cee iloinen
     MC "See, Cee? The others value your input. I'm sure your ideas will be useful when we discuss how to run things here from now on."
-    "I look at Cee, Agatha and Karkhos."
-    "No more distrust. No more fighting. Landlubbers and sea creatures, trying their best together."
+    show cee tosi iloinen at hop
+    C "Yes, well, if you inist, I suppose..."
+    stop music fadeout 3
     #"As it should be." leikkasin tän pois ni ehk luonnollisemp viel lisä toi mikä lopetus kahes muut endingis on?
 
     #voisko joku tehä tähä viel jonku transition idk
-    scene black
+    #toimisko tällee? -o
+    scene black with dissolve
+    pause 2
+    play music ending
+    "I look at Cee, Agatha and Karkhos."
+    "No more distrust. No more fighting. Landlubbers and sea creatures, trying their best together."
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."
     "Though some things didn't go exactly to plan, none of the damage is irreversible."
     "Well, save for one thing."

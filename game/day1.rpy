@@ -9,6 +9,7 @@ label day1_1:
     pause 1
     #(scene alkaa heti nimen valinnan jälkeen.)
     # Musta ruutu taustalla
+    "Another morning, another day at the Loot warehouse."
     "The work's hard, but not as hard as life outside the dungeon."
     "As long as I work here, I get three meals a day. What more could a slime ask for, right?"
     "But this week, Boss is away on a business trip. Though he isn't a bad guy, nothing beats the freedom of no superiors breathing down your neck. Well, proverbial neck."
@@ -30,7 +31,7 @@ label day1_1:
     "Doesn't seem like they're about to stop."
     "Rather than get involved, I just want to get started with the day. Means I get home sooner."
     "If I just sneak by, maybe they won't notice…"
-    stop sound fadeout 2.0
+    stop sound fadeout 4
     # musta ruutu
     scene black with dissolve
     # warehouse
@@ -90,7 +91,7 @@ label day1_2:
     "Huh? That's…"
 
     # Show K sprite. Silmät kiinni?
-    show karkhos nukkuva at middle, shake2
+    show karkhos nukkuva at middle, shake2 with dissolve
     "He's sitting down. I can feel his snoring through the rock floor."
     # K neutral sprite
     show karkhos perus at hop
@@ -145,7 +146,7 @@ label day1_2:
     play sound wingflap
     # Agatha appears
     show agatha vihainen zorder 1 at cright with moveinright
-    play music riita volume 0.5
+    play music riita
     show cee vihainen at hop
     # C and A angry
     "As we are speaking, Agatha flies in."
@@ -156,6 +157,7 @@ label day1_2:
     play sound footsteps
     # K neutral sprite
     show karkhos perus zorder 2 at cleft with moveinleft
+    stop sound fadeout 2
     K "Whoa! What's good, slackers."
     "Agatha looks ready to pop a wing muscle."
     show cee vihainen at shake
@@ -170,7 +172,7 @@ label day1_2:
     "They're really getting fired up. Maybe all this time, they just pretended to like each other because Boss was here. Doesn't feel like much of a break when the noise level is this high."
     "Well, not gonna ruin my day. As long as they're leaving me out of it."
     # A smile
-    play music riita volume 0.5
+    play music riita
     show agatha iloinen at hop
     A "What's your stance, [MC]?"
     # C smile
@@ -256,7 +258,7 @@ label day1_2:
         "\"Seeking new ways to improve is important\" (agree with Cee)":
             $ agreewithcee = True
             show cee kauhistus at hop
-            "Before I speak, my eyes meet Cee's. He looks surprised."
+            "Before I speak, my eyes meet Cee's. They look surprised."
     MC "I guess since I have to say, I would…"
     show agatha vakava at hop
     show karkhos perus
@@ -401,6 +403,7 @@ label day1_3B:
     # footsteps, K neutral appears
     play sound footsteps
     show karkhos perus at middle with moveinright
+    stop sound fadeout 3
     K "Hey, [MC]. Already back to the grind, yeah?"
     MC "Didn't you start your break before me?"
     show karkhos pikkuviha
@@ -431,6 +434,7 @@ label day1_3B:
     show bg warehouse with dissolve
     pause 1
     show karkhos perus at hop
+    stop sound fadeout 2
     K "I've been thinking—crazy, I know."
     K "As long as we send out enough boxes, doesn't really matter what's inside."
     K "Leave some empty space in those boxes, will you? That would show you agree with me."
@@ -455,11 +459,13 @@ label day1_3B:
     # K angry
     show karkhos pikkuviha at hop
     K "They just don't know what's good for them. But they'll run out of fuel soon."
-    stop music
-
+    play sound footsteps
+    hide karkhos with dissolve
+    stop sound fadeout 2
     "On that note, we get back to packing."
     "As I get ready to boot up the new system, the food chunks churn in my slime."
     "If the breaks were a bit longer, I certainly wouldn't complain…"
+    stop music
 
     return
 
@@ -469,16 +475,16 @@ label day1_3C:
     window hide
     show black with dissolve
     pause 1
+    "After lunch, it's back to work again."
     scene bg warehouse with dissolve
     pause 0.5
     # Cee appears
     # Cee perus
-    show cee iloinen at middle with moveinleft
+    play sound footsteps
+    show cee iloinen at middle with moveinright
+    stop sound fadeout 3
     C "Greetings, my fellow prisoner. Sorry about the brusquerie, but do you have a minute? A fleeting moment to spare?"
-    MC "Um, sure thing, Cee. What's up?"
-    show cee perus
-    C "Nay, [MC], nay. What I have to say is FAR more important so please heed my words."
-    MC "Alright, Cee, I'm all ears. Um. If I HAD ears, I mean."
+    MC "Sure thing, Cee. I'm all ears. Um. If I HAD ears, I mean."
     show cee tosi iloinen
     C "Wonderful."
     show cee perus
@@ -495,6 +501,7 @@ label day1_3C:
 
         "\"Boss is a werewolf, isn\'t he?\"":
             MC "I thought you knew that. You've MET Boss, right?"
+            show cee at hop
             C "You poor creature and your lack of imagination. Do you always take everything so literally?"
             "Hey! It's not my fault you're asking strange questions."
         
@@ -541,7 +548,7 @@ label day1_3C:
     C "I shall wait patiently until our temporary leader is decided, and the others shall too."
     show cee perus
     C "However, IF either of those fools tries to intervene in the process…"
-    
+    stop music
     show cee karmiva hymy at hop:
         zoom 1.2
         yoffset 100
@@ -550,6 +557,7 @@ label day1_3C:
         xoffset -20
     pause 1.0
     # Cee karmiva hymy
+    play music ilo
     "Yikes!"
     pause 0.5
     show bg warehouse:
@@ -582,8 +590,8 @@ label day1_3C:
     C "Marvelous. I'll be observing you, [MC]."
     play sound footsteps
     hide cee with moveoutleft
-    "Oh no. I can already feel the performance anxiety hitting." 
-    stop sound
+    stop sound fadeout 4
+    "Oh no. I can already feel the performance anxiety hitting."
     stop music
     return
 
@@ -605,6 +613,7 @@ label day1_4A:
 label day1_4C: #Cee congratulates MC
 
     scene bg warehouse
+    play music ilo
     "Thank goo I didn't mess anything up."
     # Cee appears
     # Cee iloinen
@@ -633,6 +642,7 @@ label day1_4C: #Cee congratulates MC
     "I start to take my leave, nodding at Cee before I go."
     show cee at hop     
     C "Even if you remain vacillating, I shall wait patiently."
+    stop music fadeout 4
     return
 
 
@@ -898,7 +908,9 @@ label day1_6B:
     show karkhos iloinen
     K "Was nice having a proper heart to hear with you. Can't believe how little we've chatted up till now."
     K "Let's go for drinks sometime? If we ever get a day off, that is."
+    play sound footsteps
     hide karkhos with easeoutright
+    stop sound fadeout 4
     "Hmm. Agatha and Cee seem to think he's a lazy, selfish oaf, but the more I talk to him…"
     "He truly just cares about our wellbeing."
     "Though chatting was nice, now I'm tired enough to pass out."
@@ -1029,7 +1041,7 @@ label day1_6C:
     "I hope so. I can practically already taste the pina colada and feel the sun on my non-existent skin."
     show cee perus
     # Cee perus
-    play music ilo
+    play music juoru
     C "That being said, I do hope you aren't considering siding with Karkhos. Using your talents for the benefit of him and his tomfoolery would be an utter waste."
     show cee vihainen at hop
     C "Ugh, we cannot choose that simple-minded brute as our leader."

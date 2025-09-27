@@ -1,6 +1,7 @@
 define visited = set()
 
 label day2_1:
+    play music ilo
     scene black
     #(Conditional: reittiin sopiva kommentti skenen alussa)
     # A
@@ -40,7 +41,7 @@ label day2_1:
     show julisteet1 at middle with dissolve:
         zoom 1.5
         yoffset -400
-    "Cee vows revolution on our corrupt and unjust (quote needed) system."
+    "Cee vows revolution on our corrupt and unjust system. Their words, not mine."
     pause 0.5
     hide julisteet1 with dissolve
     "When did they even have the time to hang all this? To make all of this? They're all really dedicated…"
@@ -58,6 +59,7 @@ label day2_1:
     "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
     \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
     \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
+    stop music fadeout 5
     return
 
 label day2_2: 
@@ -69,6 +71,7 @@ label day2_2:
 
     # At breakroom, show all sprites
     play sound footsteps
+    play music riita fadein 3
     scene bg breakroom posters with dissolve
     show agatha perus zorder 1 at middle with dissolve
     show cee perus zorder 3 at cright with dissolve
@@ -102,7 +105,7 @@ label day2_2:
     show agatha vakava at hop
     A "Don't forget Karkhos has compromised monsterkind's safety, the warehouse's very purpose."
     show agatha vihainen at hop
-    A "We agreed on not going against Boss' orders until MC has decided. And here we are."
+    A "We agreed on not going against Boss' orders until [MC] has decided. And here we are."
     show cee vihainen at hop
     show karkhos perus mato
     C "What fungus has infested thine brain for you to think you're exempt?"
@@ -119,7 +122,9 @@ label day2_2:
     show agatha vakava
     show cee perus
     show karkhos perus mato
+    stop music fadeout 3
     MC "Wait wait wait… One at a time."
+    play music ilo
     # (!!!!! Valinta jossa pitää valita kaikki 3 vaihtoehtoa että pääsee eteenpäin)
     #
 
@@ -202,8 +207,10 @@ label day2_2:
         show karkhos perus mato
         show cee perus
         show agatha vakava
+        stop music fadeout 3
         MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
         show agatha vihainen at hop
+        play music riita
         A "Yeah, get it together, guys!"
         show karkhos pikkuviha mato
         K "You too."
@@ -231,11 +238,13 @@ label day2_2:
         "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
         "It's almost time to return to work."
         "…I'll eat later…"
+        stop music fadeout 5
         return
 
 default day2_3A_done = False
 label day2_3A:
     $ day2_3A_done = True
+    play music juoru
     scene bg hallway posters
     #footsteps
     play sound footsteps
@@ -308,6 +317,8 @@ label day2_3A:
     "I can't tell if this was just Cee's personal dislike, or an actual worry about our wellbeing. Maybe it was both. Does sound like Agatha should have been nicer to Cee."
     "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters."
     "Nothing predator-like about that."
+    pause 0.5
+    stop music fadeout 5
     "...Right?"
     return
 
@@ -317,6 +328,7 @@ label day2_3B:
     $ day2_3B_done = True
     # käytävä, walking
     play sound footsteps
+    play music juoru
     scene bg hallway posters with dissolve
     pause 1
     play sound wingflap
@@ -403,14 +415,18 @@ label day2_3B:
     "If what Agatha told me is true…"
     "How would I feel about doing forced labor?"
     #TODO: conditional skenessä 2.5B jos pelaaja saanu tän skenen
-
-
+    stop music fadeout 5
+    
     return
 
 label day2_3C:
     # bg käytävä
+    scene black with fade
+    pause 1
     play sound footsteps
-    scene bg hallway posters
+    scene bg hallway posters with dissolve
+    play music juoru fadein 1
+    stop sound fadeout 3
 
     "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
     show karkhos pikkuviha mato at middle with dissolve
@@ -472,6 +488,7 @@ label day2_3C:
     "Though he had a point, he has also misunderstood Cee's intentions."
     "Cee's the only one looking far into the future. That's admirable."
     "And Karkhos was wrong. I know exactly what Cee's planning."
+    stop music fadeout 5
     pause 1
     "...Right?"
     return
@@ -479,6 +496,7 @@ label day2_3C:
 
 label day2_5A:
     scene bg breakroom posters night with dissolve
+    play music bondaus
     "As I start heading home, I see something shocking out of the corner of my eye."
     show agatha alakuloinen at agathabreakroom
     "Is that… Agatha? Sitting in the break room and not working?"
@@ -609,10 +627,12 @@ label day2_5A:
     "She flutters back towards the packing area, humming a cheerful tune."
     "I worry a bit about how long she's going to keep working, but at least she cheered up."
     "I also feel energized, looking at her. Maybe I'll go for an evening waddle before returning home."
+    stop music fadeout 5
     return
 
 label day2_5B:
 
+    play music bondaus
     scene bg hallway posters with dissolve
     pause 1
     scene bg hallway posters night with dissolve
@@ -623,10 +643,11 @@ label day2_5B:
 
     # corridor BG
     # karkhos sprite
-    play sound footsteps fadeout 3
+    play sound footsteps
     scene bg hallway posters night
     show karkhos perus at middle
     "Knew it."
+    stop sound fadeout 1
     K "Out the door, right on the dot."
     MC "Old habits die hard."
     show karkhos iloinen at hop
@@ -754,6 +775,7 @@ label day2_5B:
     play sound footsteps
     "The great intersection is busy this time of evening. Dungeon guards are on their patrol. Tinkerers are running to reset traps, and the cleaning crew is marching to mop up dead humans."
     show karkhos perus
+    stop sound fadeout 2
     K "Well, my cave's that way. Was nice chatting."
     # karkhos tosi iloinen
     show karkhos tosi iloinen at hop
@@ -763,10 +785,12 @@ label day2_5B:
     stop sound fadeout 4
     "I wave. Karkhos enters the stream of monsters, and disappears behind a bend in a cavern."
     "Tomorrow, huh. I have a feeling that after tomorrow, nothing will be the same."
+    stop music fadeout 5
     return
 
 label day2_5C: #Cee emotional evening
 
+    play music ilo
     scene bg hallway posters with dissolve
     pause 1
     scene bg hallway posters night with dissolve
@@ -774,11 +798,13 @@ label day2_5C: #Cee emotional evening
     MC "Darn it. I left my lunch box in the break room."
     "I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
     "I have a hunch which option Agatha and Karkhos have picked, but..."
+    stop music fadeout 3
     "As I open the break room door, I notice I'm not alone."
     play sound footsteps
-    scene bg breakroom posters night
+    play music bondaus
+    scene bg breakroom posters night with dissolve
 
-    show cee alakuloinen at ceebreakroom
+    show cee alakuloinen at ceebreakroom with dissolve
     #onks tää liian goofyn näkönen
     stop sound fadeout 3
     "Why is Cee sulking at the table?"
@@ -866,5 +892,5 @@ label day2_5C: #Cee emotional evening
     MC "Glad to see you being your old self again, Cee."
     "Tomorrow, change is coming. One way or another."
     "Maybe I'M the one feeling nervous."
-
+    stop music fadeout 5
     return
