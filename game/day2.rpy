@@ -384,10 +384,73 @@ label day2_3B:
     "How would I feel about working at the warehouse if I was forced into it?"
     return
 
+label day2_3C:
+    # bg käytävä
+    scene bg hallway posters
+
+    "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
+    show karkhos pikkuviha mato at middle with dissolve
+    K "[MC], I gotta speak to you."
+    MC "Huh? You waited for me?"
+    K "It's about Cee."
+    "What's so important that he waited for me, after storming off like that? I'm a bit curious."
+    MC "Has Cee done something?"
+    show karkhos nukkuva mato
+    K "Besides what they've confessed to? For sure."
+    show karkhos perus mato
+    K "But that's not what I'm here for."
+    K "You know, Cee was already employed here when I started. I was just a newbie, in need of guidance in the ways of the warehouse."
+    show karkhos pikkuviha mato
+    K "On that first day, you know what Cee said to me?"
+    show karkhos vihainen mato
+    K "NOTHING."
+    K "I tried to be nice, but I got treated like there was nothing going on between my ears. Cee just gave me murderous side-eyes and a mean cold shoulder."
+    MC "Cee ignored me in the beginning too. It probably wasn't personal."
+    K "Cuz Cee looks down on everyone."
+    show karkhos pikkuviha mato
+    K "Be honest: do you even know what Cee's advocating for?"
+    MC "Uh… Equality and better benefits?"
+    K "But what's Cee gonna DO about it?"
+    "I only pause to think for a second, but Karkhos reads my silence as an admission."
+    K "See, you don't even know."
+    K "Be real. Cee has no plans to let you in on the jig. They're a solo monster."
+    MC "That's not true. Cee wants to increase efficiency by building better recreational facilities."
+    K "So more boxes packed, but less tired workers? How's that gonna math out?"
+    K "If it was possible to do more without doing more, don't you think I'd be campaigning for it? How's messing with the conveyor belt gonna \"revolutionize the system\"? Miracle cures don't exist."
+    K "[MC], sorry to break it to you, but Cee's using you."
+    show karkhos vihainen mato
+    K "All day long Cee calls us fools, idiots, and so on. Clear as day what their opinion of us is."
+    K "They've used big words to confuse you. But all that fancy talk is like a small pufferfish inhaling water to look bigger."
+    MC "If Cee's just a pufferfish, then you have no reason to be provoked by them."
+    show karkhos at hop
+    K "I'm not getting provoked! It's annoying, is all."
+
+    menu:
+        "I get to side with whoever I want.":
+            MC "I choose. That's the spirit of the game."
+        "It's not okay to badmouth coworkers.":
+            MC "Karkhos, you've gone too far."
+            show karkhos pikkuviha mato
+            K "Tit for tat. I haven't done anything Cee hasn't."
+            MC "Then be the bigger monster and stop."
+
+    show karkhos nukkuva mato at hop
+    "Karkhos sighs and shrugs."
+    K "Welp. I tried. Guess that's that."
+    show karkhos perus mato
+    K "So long, [MC], and take it easy with the fish."
+    # karkhos menee pois
+    hide karkhos with easeoutright
+    "Without any further convincing, Karkhos stomps back into the breakroom. He gave up shockingly fast."
+    "Though he had a point, he has also misunderstood Cee's intentions."
+    "Cee's the only one looking far into the future. That's admirable."
+    "And Karkhos was wrong. I know exactly what Cee's planning."
+    pause 1
+    "...Right?"
 
 
 label day2_5A:
-    scene bg breakroom posters night 
+    scene bg breakroom posters night with dissolve
     "As I start heading home, I see something shocking out of the corner of my eye."
     show agatha alakuloinen at agathabreakroom
     "Is that… Agatha? Sitting in the break room and not working?"
