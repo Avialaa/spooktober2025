@@ -60,14 +60,36 @@ label choose_name:
     
     return
 
+default minigameOn = True
 label choose_test:
     menu:
-        "Do you want to test minigame or both story and minigame?"
+        "Do you want to test minigame or both story and minigame or just story?"
 
         "Minigame only":
+            $ minigameOn = True
             call test_minigame
         "Story and minigame":
+            $ minigameOn = True
             return
+        "Just story":
+            $ minigameOn = False
+            return
+
+label testing_choose_route:
+    menu:
+        "Minigame skipped. Pick character route."
+
+        "Karkhos":
+            $ currentStoryRoute = "karkhos"
+        "Agatha":
+            $ currentStoryRoute = "agatha"
+        "Cee":
+            $ currentStoryRoute = "cee"
+    
+    if currentStoryRoute:
+        e "Current route: [currentStoryRoute]"
+    return
+
 
 label test_minigame:
     call warehouse_gameplay

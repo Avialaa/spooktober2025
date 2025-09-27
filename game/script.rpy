@@ -60,19 +60,25 @@ label start:
     call choose_test
     call choose_name
     call day1_1
-    #eka minipelityövuoro
-    call tutorial
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
+    if minigameOn == True:
+        #eka minipelityövuoro
+        call tutorial
+        call warehouse_gameplay
+        call roundEnd
+        call after_minigame
+    else:
+        call testing_choose_route
 
     call day1_2
     #call day1_3A jos $ agreewithagatha = True, sama day1_3B ja day1_3C
-    # toinen minipelityövuoro
-    call upgradeTree
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
+    if minigameOn == True:
+        # toinen minipelityövuoro
+        call upgradeTree
+        call warehouse_gameplay
+        call roundEnd
+        call after_minigame
+    else:
+        call testing_choose_route
 
     if currentStoryRoute == "agatha":
         call day1_4A
@@ -88,11 +94,14 @@ label start:
         call day1_6C
     call day_change #day changes!!
     call day2_1
-    #kolmas minipelityövuoro
-    call upgradeTree
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
+    if minigameOn == True:
+        #kolmas minipelityövuoro
+        call upgradeTree
+        call warehouse_gameplay
+        call roundEnd
+        call after_minigame
+    else:
+        call testing_choose_route
 
     call day2_2
     if currentStoryRoute == "agatha":
@@ -101,11 +110,16 @@ label start:
         call day2_3B
     elif currentStoryRoute == "cee":
         call day2_3C
-    #neljäs minipelityövuoro
-    call upgradeTree
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
+
+    if minigameOn == True:
+        #neljäs minipelityövuoro
+        call upgradeTree
+        call warehouse_gameplay
+        call roundEnd
+        call after_minigame
+    else:
+        call testing_choose_route
+
 
     if currentStoryRoute == "agatha":
         call day2_5A
@@ -116,12 +130,15 @@ label start:
     call day_change #day changes!!
     call day3_1
 
-    #Viides työvuoro
-    call upgradeTree
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
-
+    if minigameOn == True:
+        #Viides työvuoro
+        call upgradeTree
+        call warehouse_gameplay
+        call roundEnd
+        call after_minigame
+    else:
+        call testing_choose_route
+        
     if currentStoryRoute == "agatha":
         call day3_A1
     if currentStoryRoute == "karkhos":
