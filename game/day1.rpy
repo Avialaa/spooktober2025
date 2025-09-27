@@ -15,6 +15,7 @@ label day1_1:
 
     #kävelyn ääniä
     #Käytävä BG
+    play sound footsteps 
     scene bg hallway with dissolve
     play sound distantspeak fadein 1
     "Hm? I can hear my coworkers. Sounds like they've gathered behind that bend in the corridor. If they wanted to have a meeting, how come they haven't told me?"
@@ -47,7 +48,8 @@ label day1_2:
     "The new system will take some getting used to. Until now, I've had to carry everything by hand. The boss always knew which boxes were mine because of the slime stains. I can say goodbye to that."
     # siipien läpsytys
     # Agatha fades in, smiling
-    show agatha perus at middle, hop
+    play sound wingflap
+    show agatha perus at middle, hop with dissolve
     A "…"
     MC "Hi, Agatha."
     A "Good afternoon, [MC]! Did you sleep well?"
@@ -121,7 +123,7 @@ label day1_2:
     "He gives me a weird look. His gaze follows me out."
     "Does he usually speak this much?"
 
-    scene bg breakroom with dissolve #TODO: pushright?
+    scene bg breakroom with dissolve
     "Because of the delays, when I reach the breakroom, I'm not the first one."
     show cee perus zorder 3 at hop, middle
     # C happy sprite
@@ -135,6 +137,7 @@ label day1_2:
     C "Are we, the four heralds of this abysmal lair, content with only trimming the moss, whilst the rock remains unmoved? It's about the rock, [MC], the rock."
     MC "Um… The wall moss does need a trim, doesn't it?"
     # Fluttering sound
+    play sound wingflap
     # Agatha appears
     show agatha vihainen zorder 1 at cright with moveinright
     show cee vihainen at hop
@@ -144,6 +147,7 @@ label day1_2:
     show agatha vihainen at hop
     A "This is EVERYONE'S break room, as you know and have known since: forever."
     # Footsteps
+    play sound footsteps
     # K neutral sprite
     show karkhos perus zorder 2 at cleft with moveinleft
     K "Whoa! What's good, slackers."
@@ -260,9 +264,13 @@ label day1_2:
     "I'm starting to question everything I held true. Maybe being noncommittal IS unforgivable. The power of being outvoted sure is frightening."
     MC "Okay. I promise to give it some thought. If that's everything, I still need to eat."
     "They scatter, but keep giving me secretive glances."
+    play sound wingflap
     hide agatha with moveoutright
+    play sound footsteps
     hide cee with moveoutleft
     hide karkhos with moveoutleft
+    pause 1
+    stop sound
 
     if agreewithagatha:
         jump day1_3A
@@ -276,6 +284,7 @@ label day1_3A:
     "I feel like if I don't put my metaphorical foot down now, I won't have time to {i}eat{/i} on this \"sacredly\"-whatever lunch break."
     #eat itallics
     #wing flaps sound
+    play sound wingflap
     show agatha perus at middle with moveinleft
     "Ah. As usual, it's a race to the ice box between me and Agatha. I don't often win, but then, she has wings."
     "But this time, even though she gets there well ahead of me…"
@@ -359,6 +368,7 @@ label day1_3A:
     A "Anyway, I'm counting on you to ship as many flawless orders as possible!"
     show agatha iloinen
     A "Have a productive afternoon, [MC]!"
+    play sound wingflap
     hide agatha with moveoutleft
     #A bounces off
     MC "Thanks, you too?"
@@ -371,9 +381,10 @@ label day1_3A:
 label day1_3B:
 
     # Corridor BG
-    scene bg hallway
+    scene bg hallway with dissolve
     "To finish eating in time, I had to forgo pre-digestion. The food chunks floating in my body ludge around unpleasantly."
     # footsteps, K neutral appears
+    play sound footsteps
     show karkhos perus at middle with moveinright
     K "Hey, [MC]. Already back to the grind, yeah?"
     MC "Didn't you start your break before me?"
@@ -399,7 +410,9 @@ label day1_3B:
     show karkhos perus
     K "This time's no different. We need a unified front. What could be more important than the longevity of the very monsters doing all the heavy lifting?"
     # warehouse BG
+    play sound footsteps
     show bg warehouse with dissolve
+    pause 1
     show karkhos perus at hop
     K "I've been thinking—crazy, I know."
     K "As long as we send out enough boxes, doesn't really matter what's inside. Leave some empty space in those boxes, will you? Easier to carry. That would show you agree with me."
@@ -543,9 +556,10 @@ label day1_3C:
     MC "Um, I'll think about it, I guess."
     show cee iloinen
     C "Marvelous. I'll be observing you, [MC]."
+    play sound footsteps
     hide cee with moveoutleft
     "Oh no. I can already feel the performance anxiety hitting." 
-
+    stop sound
     return
 
 label day1_4A:
@@ -604,6 +618,7 @@ label day1_6A:
     "Okay, I made it through my first day with the new system pretty respectably."
     "Can't wait to get home and snack on the rest of that rare moss I've been saving."
     "My body starts to salivate just thinking about it."
+    play sound wingflap
     show agatha perus at middle with easeinleft
     A "[MC]!"
     MC "Moss! I mean Agatha!" 
@@ -616,7 +631,6 @@ label day1_6A:
     #A twitch
     show agatha perus at shake2
     A "Haha! Maybe you will!"
-    #käytin hop koska idk miten lopetetaan shake muuten
     "..."
     MC "Anyway, I should get…"
     show agatha vakava at hop 
@@ -732,6 +746,7 @@ label day1_6A:
     pause 1
     #A smile
     show agatha iloinen suukiinni at hop
+    #TODO: chucklet?
     A "Pff."
     "Was that a genuine chuckle?"
     show agatha iloinen
@@ -748,6 +763,7 @@ label day1_6A:
     A "I just want to pack a few more boxes. I'll be right behind you, promise."
     MC "Okay…"
     #A fade out, TODO: wingflap
+    play sound wingflap
     hide agatha with easeoutleft
     "Oh well. To each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
     "Moss, sweet moss…"
@@ -1007,12 +1023,14 @@ label day1_6C:
     MC "See you later then, Cee. I'll let you guys know when I've made up my mind."
     show cee perus
     C "Until you make your decision, I remain pendulous, swinging above the swirling sea. My fate lies in your slimy appendages, [MC]."
-    # Cee leaves
+    # Cee leavesR
+    play sound footsteps
     hide cee with easeoutleft
+    stop sound fadeout 3
     "Cee hurries off. They can be really convincing when they want to, huh?"
     "Hmm."
     "Choosing between doing nothing, doing too much, and paradise island, seems quite simple, when you put it that way. But is it really that simple?"
     "Ugh, I need to get home and de-stress before thinking about any big decisions."
 
 
-return
+    return
