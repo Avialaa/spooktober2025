@@ -47,8 +47,10 @@ label day2_1:
     "In a way, it's amazing how much effort they're putting into this. Though it's a pain, I'd feel bad just ignoring them."
     "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me."
     "Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."
+    play sound footsteps
     scene bg warehouse posters with dissolve
     pause 1
+    stop sound fadeout 1
     "Well, I'll deal with the posters later. The guys promised to not mess things up for the warehouse. On this at least, I trust them."
     "As I get ready to start packing, I notice three pieces of paper on my workstation."
     MC "What is it this time? Let's see."
@@ -67,11 +69,12 @@ label day2_2:
     "After I turn off my conveyor belt, the warehouse falls quiet. Everyone's already left for lunch. Could get used to a silence like this."
 
     # At breakroom, show all sprites
+    play sound footsteps
     scene bg breakroom posters with dissolve
     show agatha perus zorder 1 at middle with dissolve
     show cee perus zorder 3 at cright with dissolve
     show karkhos perus mato zorder 2 at cleft with dissolve
-
+    stop sound fadeout 1
     "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
     show agatha vihainen at hop
     A "Unbelivable. I expected better from you two."
@@ -211,16 +214,20 @@ label day2_2:
         C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
         show cee at hop
         C "What I must do cannot wait. Farewell!!!"
+        play sound footsteps
         hide cee with easeoutleft
         # C pois, footsteps
         show agatha at hop
         A "ARGH!!!"
+        play sound wingflap
         hide agatha with moveouttop
         # A pois, wing flaps
         show karkhos pikkuviha mato
         K "...too pissed to nap…"
+        play sound footsteps
         hide karkhos with easeoutright
         # K pois, footsteps
+        stop sound fadeout 3
         "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
         "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
         "It's almost time to return to work."
@@ -232,6 +239,7 @@ label day2_3A:
 
     scene bg hallway posters
     #footsteps
+    play sound footsteps
     "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
     # Cee appears
     show cee perus at middle with moveinright
@@ -249,10 +257,12 @@ label day2_3A:
     show cee at hop
     C "The tidings I bring concern Miss Agatha. I'm certain you would be interested. It shall not take long."
     #haluun zoomata kuvan nurkkaan täs jos on aikaa tutkii miten
+    play sound footsteps
     show bg hallway posters with dissolve:
         zoom 2
         xoffset -1650
         yoffset -400
+    stop sound fadeout 2
     "Cee ushers me into a crevice in the corridor. I follow, initially reluctant, except…"
     "What's so important that they waited for me, after storming off like that? I'm a bit curious."
     "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
@@ -279,7 +289,8 @@ label day2_3A:
     show cee perus
     C "Were we to work harder, would it not in actuality decrease our output? Eat the marlin's roe, and be bereft of the fish. She is thinking short term, when what matters is the long term."
     show cee karmiva hymy at hop
-    C "Unwittingly, she may yet be furthering my goals. She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures. Rather than a moth, she is a locust. Nay, a disease!"
+    C "Unwittingly, she may yet be furthering my goals."
+    C "She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures. Rather than a moth, she is a locust. Nay, a disease!"
     MC "Stop."
     show cee kauhistus at hop
     C "...!"
@@ -290,10 +301,14 @@ label day2_3A:
     show cee perus
     C "I have given my augury. Since you wish to remain ignorant, do not cry for help once the predator attacks."
     # Cee leaves
+    play sound footsteps
     hide cee with moveoutleft
+    stop sound fadeout 3
+    scene bg hallway posters with dissolve
     "I'm speechless. It's not okay to speak about coworkers like that."
     "I can't tell if this was just Cee's personal dislike, or an actual worry about our wellbeing. Maybe it was both. Does sound like Agatha should have been nicer to Cee."
-    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters. Nothing predator-like about that."
+    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters."
+    "Nothing predator-like about that."
     "...Right?"
     return
 
@@ -301,8 +316,10 @@ label day2_3B:
     # (agatha tulee puhuu paskaa karkhoksesta)
 
     # käytävä, walking
+    play sound footsteps
     scene bg hallway posters with dissolve
     pause 1
+    play sound wingflap
     show agatha perus at middle with easeinleft
     A "[MC]!"
     "The break is almost over, yet Agatha has waited for me. Extremely abnormal."
@@ -378,6 +395,7 @@ label day2_3B:
     MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't okay."
     show agatha vakava at hop
     A "Fine. Suit yourself."
+    play sound wingflap
     hide agatha with easeoutright
     # agatha läpsyttelee pois
     "Wow. If what Agatha told me is true…"
@@ -386,6 +404,7 @@ label day2_3B:
 
 label day2_3C:
     # bg käytävä
+    play sound footsteps
     scene bg hallway posters
 
     "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
@@ -412,6 +431,7 @@ label day2_3C:
     MC "Uh… Equality and better benefits?"
     K "But what's Cee gonna DO about it?"
     "I only pause to think for a second, but Karkhos reads my silence as an admission."
+    show karkhos at hop
     K "See, you don't even know."
     K "Be real. Cee has no plans to let you in on the jig. They're a solo monster."
     MC "That's not true. Cee wants to increase efficiency by building better recreational facilities."
@@ -440,7 +460,9 @@ label day2_3C:
     show karkhos perus mato
     K "So long, [MC], and take it easy with the fish."
     # karkhos menee pois
+    play sound footsteps
     hide karkhos with easeoutright
+    stop sound fadeout 3
     "Without any further convincing, Karkhos stomps back into the breakroom. He gave up shockingly fast."
     "Though he had a point, he has also misunderstood Cee's intentions."
     "Cee's the only one looking far into the future. That's admirable."
@@ -577,6 +599,7 @@ label day2_5A:
     show agatha perus at hop
     A "See you tomorrow!"
     MC "Yeah. See you!"
+    play sound wingflap
     hide agatha with moveoutright
     "She flutters back towards the packing area, humming a cheerful tune."
     "I worry a bit about how long she's going to keep working, but at least she cheered up."
@@ -594,6 +617,7 @@ label day2_5B:
 
     # corridor BG
     # karkhos sprite
+    play sound footsteps fadeout 3
     scene bg hallway posters night
     show karkhos perus at middle
     "Knew it."
@@ -677,8 +701,9 @@ label day2_5B:
     K "To make monsters contort themselves into rigid time slots, it's just unnatural. We should be allowed some flexibility in the hours we work."
     MC "To your credit, no other zombie would have lasted a day in the warehouse."
     "His angry eyebrows lift in minor triumph."
-    show karkhos pikkuviha at hop
+    show karkhos vihainen at hop
     K "Yeah! No zombie can beat me."
+    show karkhos pikkuviha
     MC "Maybe you just need a holiday? When's the last time you had time off?"
     show karkhos alakuloinen
     K "When I was alive. Back in the orc village, we had a thing called \"rest day\". No such things here."
@@ -717,29 +742,36 @@ label day2_5B:
         zoom 1.0
         yoffset 0
     pause 1
+    play sound footsteps
     "The great intersection is busy this time of evening. Dungeon guards are on their patrol. Tinkerers are running to reset traps, and the cleaning crew is marching to mop up dead humans."
     show karkhos perus
     K "Well, my cave's that way. Was nice chatting."
     # karkhos tosi iloinen
     show karkhos tosi iloinen at hop
     K "I have no idea what's going to happen tomorrow. Pretty exciting."
+    play sound footsteps
     hide karkhos with moveoutright
+    stop sound fadeout 4
     "I wave. Karkhos enters the stream of monsters, and disappears behind a bend in a cavern."
     "Tomorrow, huh. I have a feeling that after tomorrow, nothing will be the same."
     return
 
 label day2_5C: #Cee emotional evening
 
+    scene bg hallway posters with dissolve
+    pause 1
     scene bg hallway posters night with dissolve
     "As I get ready to leave work, I realize I've forgotten something."
     MC "Darn it. I left my lunch box in the break room."
     "I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
     "I have a hunch which option Agatha and Karkhos have picked, but..."
     "As I open the break room door, I notice I'm not alone."
+    play sound footsteps
     scene bg breakroom posters night
 
     show cee alakuloinen at ceebreakroom
     #onks tää liian goofyn näkönen
+    stop sound fadeout 3
     "Why is Cee sulking at the table?"
     show cee alakuloinen at middle with move:
         zoom 1.0
