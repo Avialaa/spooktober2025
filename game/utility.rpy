@@ -39,6 +39,8 @@ label after_minigame:
     $ resetMinigame()
     $ updateOrders()
     $ _skipping = True #allow skipping again
+    $ renpy.block_rollback()
+    $ config.rollback_enabled = True #allow rollback again
 
     if currentStoryRoute:
         e "Current route: [currentStoryRoute]"

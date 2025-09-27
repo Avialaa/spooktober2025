@@ -51,8 +51,8 @@ default mcName = "Petri Dish"
 label start:
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
-    call upgradetreeTest
-    # call choose_test
+    #call upgradetreeTest
+    call choose_test
     call choose_name
     call day1_1
     #eka minipelityövuoro
@@ -88,7 +88,7 @@ label start:
     call roundEnd
     call after_minigame
 
-    #call day2_2
+    call day2_2
     if currentStoryRoute == "agatha":
         call day2_3A
     elif currentStoryRoute == "karkhos":
@@ -108,6 +108,7 @@ label start:
     elif currentStoryRoute == "cee":
         call day2_5C
     call day_change #day changes!!
+    call day3_1
 
     #Viides työvuoro
     call upgradeTree
