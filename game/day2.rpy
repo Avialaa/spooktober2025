@@ -56,9 +56,14 @@ label day2_1:
     MC "What is it this time? Let's see."
 
     # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki -TO DO
-    "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
-    \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
-    \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
+    # "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
+    # \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
+    # \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
+    window hide
+    show notes_from_characters with dissolve
+    pause
+    MC "...Huh."
+
     stop music fadeout 5
     return
 
