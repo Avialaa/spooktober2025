@@ -3,6 +3,7 @@ default agreewithkarkhos = False
 default agreewithcee = False
 
 label day1_1:
+    play music ilo
     pause 1 
     scene black with dissolve
     pause 1
@@ -37,13 +38,15 @@ label day1_1:
     "Phew! Whatever they were fighting about, I'm sure they'll sort it out. Let's see here…"
     "Before leaving on the business trip, Boss got a wizard to install a new loot dispatch system. He told us to test it while he's gone."
     "It's unexpectedly complicated… Still, I won't let this dampen my easygoing week! The sooner I start, the more boxes I'll pack before lunch."
+    stop music
     return
 
 label day1_2: 
 
 # Post-minigame
 
-    scene bg warehouse
+    play music ilo
+    scene bg warehouse with dissolve
     "Done!"
     "The new system will take some getting used to."
     "Until now, I've had to carry everything by hand. The boss always knew which boxes were mine because of the slime stains. I can say goodbye to that."
@@ -137,13 +140,14 @@ label day1_2:
     show cee perus
     C "Are we, the four heralds of this abysmal lair, content with only trimming the moss, whilst the rock remains unmoved? It's about the rock, [MC], the rock."
     MC "Um… The wall moss does need a trim, doesn't it?"
+    stop music
     # Fluttering sound
     play sound wingflap
     # Agatha appears
     show agatha vihainen zorder 1 at cright with moveinright
+    play music riita volume 0.5
     show cee vihainen at hop
     # C and A angry
-
     "As we are speaking, Agatha flies in."
     C "I arrived first. Begone."
     show agatha vihainen at hop
@@ -161,9 +165,12 @@ label day1_2:
     A "You can't revoke the policy mandated lunch break!"
     show agatha vihainen at hop
     show cee vihainen at hop
+    stop music
+    play music ilo
     "They're really getting fired up. Maybe all this time, they just pretended to like each other because Boss was here. Doesn't feel like much of a break when the noise level is this high."
     "Well, not gonna ruin my day. As long as they're leaving me out of it."
     # A smile
+    play music riita volume 0.5
     show agatha iloinen at hop
     A "What's your stance, [MC]?"
     # C smile
@@ -205,6 +212,7 @@ label day1_2:
     All "No!"
     "Suddenly they all agree an awful lot."
     # A smiles
+    play music ilo
     show karkhos perus
     show cee perus
     show agatha tosi iloinen at hop
@@ -229,7 +237,7 @@ label day1_2:
     show agatha iloinen suukiinni at hop
     show cee iloinen at hop
     show karkhos iloinen at hop
-    All "..."
+    "All" "..."
     "I sigh deeply."
     "The quickest way out would be to give an answer."
 
@@ -379,6 +387,7 @@ label day1_3A:
     #A bounces off
     MC "Thanks, you too?"
     "...Was that a well-wish or a threat?"
+    stop music
     return
     
 
@@ -446,6 +455,7 @@ label day1_3B:
     # K angry
     show karkhos pikkuviha at hop
     K "They just don't know what's good for them. But they'll run out of fuel soon."
+    stop music
 
     "On that note, we get back to packing."
     "As I get ready to boot up the new system, the food chunks churn in my slime."
@@ -574,6 +584,7 @@ label day1_3C:
     hide cee with moveoutleft
     "Oh no. I can already feel the performance anxiety hitting." 
     stop sound
+    stop music
     return
 
 label day1_4A:
@@ -627,6 +638,9 @@ label day1_4C: #Cee congratulates MC
 
 label day1_6A:
 
+    play music ilo
+    scene bg hallway with dissolve
+    pause 1
     scene bg hallway night with dissolve
     
     "Okay, I made it through my first day with the new system pretty respectably."
@@ -657,12 +671,15 @@ label day1_6A:
     A "I can't always rely on the others to do their part, but I can trust that you will."
     MC "It's nothing? I just do my job?"
     #Make A bigger
+    stop music fadeout 3
     show agatha iloinen at zoom_in:
         yoffset 150
     A "EXACTLY!"
+    pause 1
     show agatha perus at zoomToNormalSize:
         yoffset 0
     #Make A normal size
+    play music bondaus
     A "Don't sell yourself short, [MC]! What you do means a lot. Really."
     "Yeah, she's being REALLY nice. I know she just wants to butter me up… But it's kind of nice to be appreciated."
     show agatha vakava
@@ -747,6 +764,7 @@ label day1_6A:
     A "Thank you for taking the time for me…"
     "She seems way gloomy. It was surprisingly nice chatting to her, so it'd be a shame to send her off like this."
     "I want to cheer her up, and I know just the thing."
+    play music ilo
     show bg hallway night at hpunch:
         zoom 1.02
         xoffset -20
@@ -781,10 +799,11 @@ label day1_6A:
     hide agatha with easeoutleft
     "Oh well. To each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
     "Moss, sweet moss…"
+    stop music fadeout 3
     return
 
 label day1_6B:
-
+    play music ilo
     scene bg warehouse with dissolve
     pause 1
     scene bg warehouse night with dissolve
@@ -795,7 +814,7 @@ label day1_6B:
 
     # Käytävä bg
     scene bg hallway night with dissolve
-    show karkhos perus at middle
+    show karkhos perus at middle with dissolve
     "Hm? Karkhos is idling in the corridor. Why hasn't he gone home yet?"
     show karkhos at hop
     K "Hey. Good work out there."
@@ -803,8 +822,10 @@ label day1_6B:
     MC "Thanks. You look tired as well."
     show karkhos iloinen
     K "For sure. Could say I'm …DEAD tired."
+    stop music fadeout 5
     MC "..."
     show karkhos perus at hop
+    play music bondaus
     K "Anyway."
     K "The new system's more thinking and less hauling than I'm used to."
     K "Agatha said it's just the learning curve, but I dunno. Sounds like a trick. A real fact is that my brain's overheating."
@@ -883,9 +904,11 @@ label day1_6B:
     "Though chatting was nice, now I'm tired enough to pass out."
     "I wonder… With more rest, what would I be capable of?"
 
+    stop music fadeout 3
     return
 
 label day1_6C:
+    play music ilo
     scene bg warehouse with dissolve
     pause 1
     scene bg warehouse night with dissolve
@@ -917,7 +940,9 @@ label day1_6C:
             C "Five minutes in the break room freezer."
             MC "Freezer?!"
             show cee hullu hymy at hop
+            stop music fadeout 3
             C "It reminds me of the deepest, coldest parts of the ocean."
+            play music bondaus
             pause 0.5
             # Cee iloinen
             show cee iloinen
@@ -929,14 +954,18 @@ label day1_6C:
             MC "Yeah. Our superiors always come up with new, trendy words that actually mean nothing."
             MC "Micro break is a fancy word for closing your eyes for a minute or grabbing a cup of coffee when you can."
             show cee at hop
+            stop music fadeout 3
             C "Hmm. Perhaps you are right, my fellow prisoner."
+            play music bondaus
         "\"Since when were you this interested in my well-being, Cee?\"":
             show cee iloinen at hop
             C "There is no reason to be suspicious, [MC]."
             show cee karmiva hymy
+            stop music fadeout 3
             C "Ever since this friendly little race to power started, I have been observing you. Monitoring you. Watching you."
             MC "That's three reasons to be suspicious, Cee!"
             show cee iloinen
+            play music bondaus
             C "I only have your best interests in mind, my dear sluggish companion." 
     label after_menu:
     show cee perus at hop
@@ -996,9 +1025,11 @@ label day1_6C:
     C "I can already see the sick leave statistics dropping!"
     MC "Wow, Cee, I'm actually starting to feel enthusiastic about this idea of yours. Well done."
     "Could this warehouse really be turned into a paradise island? Could Cee really achieve that if we let them?"
+    stop music fadeout 4
     "I hope so. I can practically already taste the pina colada and feel the sun on my non-existent skin."
     show cee perus
     # Cee perus
+    play music ilo
     C "That being said, I do hope you aren't considering siding with Karkhos. Using your talents for the benefit of him and his tomfoolery would be an utter waste."
     show cee vihainen at hop
     C "Ugh, we cannot choose that simple-minded brute as our leader."
@@ -1043,6 +1074,7 @@ label day1_6C:
     # Cee smiles
     show cee iloinen
     C "I'm pleased we see eye to eye."
+    pause 1
     show cee tosi iloinen at hop
     C "I'm afraid I must retreat now. The new world I'm planning needs all of MY free time."
     MC "See you later then, Cee. I'll let you guys know when I've made up my mind."
@@ -1056,6 +1088,6 @@ label day1_6C:
     "Hmm."
     "Choosing between doing nothing, doing too much, and paradise island, seems quite simple, when you put it that way. But is it really that simple?"
     "Ugh, I need to get home and de-stress before thinking about any big decisions."
-
+    stop music fadeout 4
 
     return

@@ -233,9 +233,9 @@ label day2_2:
         "…I'll eat later…"
         return
 
-
+default day2_3A_done = False
 label day2_3A:
-
+    $ day2_3A_done = True
     scene bg hallway posters
     #footsteps
     play sound footsteps
@@ -311,9 +311,10 @@ label day2_3A:
     "...Right?"
     return
 
+default day2_3B_done = False
 label day2_3B:
     # (agatha tulee puhuu paskaa karkhoksesta)
-
+    $ day2_3B_done = True
     # käytävä, walking
     play sound footsteps
     scene bg hallway posters with dissolve
@@ -504,9 +505,9 @@ label day2_5A:
     A "If they don't want to do it, they could just- just…"
     show agatha alakuloinen at hop
     "She bites her lip."
-    #TODO: conditional jos lukenut 2.3A:n:
-    # if read2_3A = True:
-    #     "I think back to Cee's story of Agatha demanding they show more enthusiasm. Was there more to it than Cee told, or could she really be plotting death by overwork?"
+    #: conditional jos lukenut 2.3A:n:
+    if day2_3A_done == True:
+        "I think back to Cee's story of Agatha demanding they show more enthusiasm. Was there more to it than Cee told, or could she really be plotting death by overwork?"
     menu:
         "\"Well, everyone's different.\"":
             show agatha at hop
@@ -639,9 +640,10 @@ label day2_5B:
     show karkhos iloinen
     "He's really spirited. Usually, he leaves work dragging his feet, groaning like a zombie. The regular kind—the kind that gurgle, drool and are real culinarians when it comes to internal organs."
 
-    # TODO:(Conditional: jos 2.3B (edellinen skene) saatu) LISÄÄ MYÖHEMMIN KONDITIO KUN TEKSTI OLEMASSA!!!!
-    # "When he first started working at the warehouse, I did note he's more animated than other animated corpses. To think that all this time, he was working under a necromantic contract."
-    # "Being forced to work… The rest of us chose this job, but Karkhos didn't get to choose. It's possible he doesn't enjoy a single thing about working here."
+    #(Conditional: jos 2.3B (edellinen skene) saatu)
+    if day2_3B_done == True:
+        "When he first started working at the warehouse, I did note he's more animated than other animated corpses. To think that all this time, he was working under a necromantic contract."
+        "Being forced to work… The rest of us chose this job, but Karkhos didn't get to choose. It's possible he doesn't enjoy a single thing about working here."
 
     # footsteps, they are both walking
     show karkhos perus
