@@ -34,7 +34,7 @@ label day1_1:
     scene bg warehouse with dissolve
     "Phew! Whatever they were fighting about, I'm sure they'll sort it out. Let's see here…"
     "Before leaving on the business trip, Boss got a wizard to install a new loot dispatch system. He told us to test it while he's gone."
-    "He's left a list of Loot orders by the machine."
+    #"He's left a list of Loot orders by the machine." TODO: Change or remove this line; the loot list is on the tablet (within the system)
     "It's unexpectedly complicated… Still, I won't let this dampen my easygoing week! The sooner I start, the more boxes I'll pack before lunch."
     return
 

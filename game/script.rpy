@@ -56,6 +56,7 @@ label start:
     call choose_name
     call day1_1
     #eka minipelityövuoro
+    call tutorial
     call warehouse_gameplay
     call roundEnd
     call after_minigame
