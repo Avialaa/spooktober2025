@@ -72,8 +72,8 @@ default itemCountList = []
 default itemValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 default tier2ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 default tier3ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
-default tier2ChanceDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
-default tier3ChanceDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
+default tier2ChanceDict = {"light": 0, "sleep": 0, "fish": 0, "bone": 0, "meat": 0, "weapon": 0, "keys": 0, "treasure": 0}
+default tier3ChanceDict = {"light": 0, "sleep": 0, "fish": 0, "bone": 0, "meat": 0, "weapon": 0, "keys": 0, "treasure": 0}
 
 default failPoints = 0
 default validityFactor = 0
