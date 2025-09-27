@@ -44,11 +44,12 @@ label day2_1:
     pause 0.5
     hide julisteet1 with dissolve
     "When did they even have the time to hang all this? To make all of this? They're all really dedicated…"
-    "In a way, it's amazing how much effort they're putting into this. Though it's a pain, I'd feel bad just ignoring them."
-    "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me."
-    "Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."
+    "In a way, it's amazing how much effort they're putting into this. They all have ideas for how to improve the warehouse."
+    "Though it's a pain, I'd feel bad just ignoring them."
+    play sound footsteps
     scene bg warehouse posters with dissolve
     pause 1
+    stop sound fadeout 1
     "Well, I'll deal with the posters later. The guys promised to not mess things up for the warehouse. On this at least, I trust them."
     "As I get ready to start packing, I notice three pieces of paper on my workstation."
     MC "What is it this time? Let's see."
@@ -61,33 +62,63 @@ label day2_1:
 
 label day2_2: 
 # (After morning minigame, at warehouse)
-
+    scene bg warehouse posters with dissolve
     "Phew!"
     "I'm getting the hang of this new system."
     "After I turn off my conveyor belt, the warehouse falls quiet. Everyone's already left for lunch. Could get used to a silence like this."
 
     # At breakroom, show all sprites
+    play sound footsteps
+    scene bg breakroom posters with dissolve
+    show agatha perus zorder 1 at middle with dissolve
+    show cee perus zorder 3 at cright with dissolve
+    show karkhos perus mato zorder 2 at cleft with dissolve
+    stop sound fadeout 1
     "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
+    show agatha vihainen at hop
     A "Unbelivable. I expected better from you two."
+    show karkhos pikkuviha mato
     K "As if you are one to talk."
+    show cee vihainen at hop
     C "This is mutiny!"
+    pause 0.5
     "Briefly, I entertain the fantasy of abandoning lunch, turning around and returning to work. But all four of Agatha's eyes turn to me."
+    show agatha vakava
     A "[MC]! Will you talk sense into these two?"
+    show karkhos at hop
     K "Why're you dragging [MC] into this? Don't try to misdirect. What you did isn't cool."
+    show cee perus
     C "Mister Destroyer, I dare argue your actions have proven just as despicable."
+    show karkhos kauhistus mato
     K "What actions?"
+    show cee at hop
     C "Précis!"
+    show karkhos perus mato
     MC "One at a time? I'm sure nobody did it on purpose, whatever it is."
+    show cee vihainen
     C "Miss Agatha here has conspired to make wretches of us all."
+    show karkhos pikkuviha mato
     K "Cee has done that too!"
-    A "Don't forget Karkhos has compromised the monsterkind's safety, the warehouse's very purpose."
+    show agatha vakava at hop
+    A "Don't forget Karkhos has compromised monsterkind's safety, the warehouse's very purpose."
+    show agatha vihainen at hop
     A "We agreed on not going against Boss' orders until MC has decided. And here we are."
+    show cee vihainen at hop
+    show karkhos perus mato
     C "What fungus has infested thine brain for you to think you're exempt?"
+    show agatha
     A "Working hard is EXACTLY what the Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
+    show cee perus
     C "I'm simply practicing some much needed service development. As per the Boss' orders."
+    show agatha at hop
     A "You're practically begging to get fired!"
+    show cee at hop
     C "Isn't there someone here asking for it rather more insistently?"
+    show karkhos pikkuviha mato
     K "...What, me?! No! All I ask for are better conditions."
+    show agatha vakava
+    show cee perus
+    show karkhos perus mato
     MC "Wait wait wait… One at a time."
     # (!!!!! Valinta jossa pitää valita kaikki 3 vaihtoehtoa että pääsee eteenpäin)
     #
@@ -99,45 +130,68 @@ label day2_2:
             "Agatha, what did you actually do?":
                 $ visited.add("Agatha, what did you actually do?")
                 # A neutral
+                show agatha vihainen at hop
+                show karkhos perus mato
+                show cee perus
                 A "Don't act like I'm some villain. I've worked harder than anyone here."
                 MC "Just, sounded like something serious has happened."
+                show agatha vakava
                 A "Fine, for the sake of transparency."
                 A "I might have ordered a triple of everything."
+                show agatha at hop
                 A "Wisely! So that we can better show our capabilities."
                 A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
                 MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
                 # A smile
+                show agatha iloinen suukiinni
                 A "..."
+                show agatha iloinen at hop
                 A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
                 "Oh, Agatha."
                 jump qqquestions
             "Karkhos, how many boxes today?":
                 $ visited.add("Karkhos, how many boxes today?")
+                show karkhos pikkuviha mato
+                show agatha vakava
+                show cee perus
                 K "Why's that important? I have done what's within my capabilities."
                 MC "Which is…?"
+                show karkhos perus mato
                 K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
                 K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
-                K "I've completed a full and whole– A whopping total of a—"
+                K "I've completed a full and whole- A whopping total of a—"
                 # K sad
+                show karkhos alakuloinen mato
                 K "...a…"
                 # K angry
+                show karkhos vihainen mato
                 K "I have prioritized quality over quantity."
                 "I can see why the others are upset."
                 jump qqquestions
             "Cee, what's this development stuff?":
                 $ visited.add("Cee, what's this development stuff?")
+                show cee hullu hymy
+                show agatha vakava
+                show karkhos perus mato
                 C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
                 MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
+                show cee perus
                 C "Very well, my sluggish companion. I put fish into all the orders."
                 MC "Yeah, that's… yeah."
+                show cee iloinen
                 C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
                 "WHAT."
+                show agatha vakava at hop
+                show karkhos pikkuviha mato at hop
                 "Agatha and Karkhos give me knowing looks."
+                show cee tosi iloinen at hop
                 C "Rejoice: we shall soon have fresh water aplenty."
                 MC "That's insane!"
+                show cee perus
                 C "It is what anyone in my situation ought to have done."
                 MC "I don't think ANYONE but you would have done that."
                 # C smiles
+                show cee tosi iloinen
                 C "Oh, you do flatter me."
                 jump qqquestions
 
@@ -145,17 +199,34 @@ label day2_2:
         "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
         "So much for democracy."
         "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
+        show karkhos perus mato
+        show cee perus
+        show agatha vakava
         MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
+        show agatha vihainen at hop
         A "Yeah, get it together, guys!"
+        show karkhos pikkuviha mato
         K "You too."
+        show karkhos vihainen mato
         K "This isn't fair. I have done what I can. If what I've accomplished is not enough, then from now on, I will not pack a single box."
+        show cee vihainen
         C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
+        show cee at hop
         C "What I must do cannot wait. Farewell!!!"
+        play sound footsteps
+        hide cee with easeoutleft
         # C pois, footsteps
+        show agatha at hop
         A "ARGH!!!"
+        play sound wingflap
+        hide agatha with moveouttop
         # A pois, wing flaps
+        show karkhos pikkuviha mato
         K "...too pissed to nap…"
+        play sound footsteps
+        hide karkhos with easeoutright
         # K pois, footsteps
+        stop sound fadeout 3
         "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
         "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
         "It's almost time to return to work."
@@ -167,6 +238,7 @@ label day2_3A:
 
     scene bg hallway posters
     #footsteps
+    play sound footsteps
     "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
     # Cee appears
     show cee perus at middle with moveinright
@@ -184,12 +256,14 @@ label day2_3A:
     show cee at hop
     C "The tidings I bring concern Miss Agatha. I'm certain you would be interested. It shall not take long."
     #haluun zoomata kuvan nurkkaan täs jos on aikaa tutkii miten
+    play sound footsteps
     show bg hallway posters with dissolve:
         zoom 2
         xoffset -1650
         yoffset -400
+    stop sound fadeout 2
     "Cee ushers me into a crevice in the corridor. I follow, initially reluctant, except…"
-    "Ever since Boss left, I haven't really talked with Cee. What's so important that they waited for me, after storming off like that? I'm a bit curious."
+    "What's so important that they waited for me, after storming off like that? I'm a bit curious."
     "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
     show cee vihainen at hop
     C "Pardon the precautions. I had to make sure that the tiny control freak wasn't following us."
@@ -214,7 +288,8 @@ label day2_3A:
     show cee perus
     C "Were we to work harder, would it not in actuality decrease our output? Eat the marlin's roe, and be bereft of the fish. She is thinking short term, when what matters is the long term."
     show cee karmiva hymy at hop
-    C "Unwittingly, she may yet be furthering my goals. She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures. Rather than a moth, she is a locust. Nay, a disease!"
+    C "Unwittingly, she may yet be furthering my goals. She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures."
+    C "Rather than a moth, she is a locust. Nay, a disease!"
     MC "Stop."
     show cee kauhistus at hop
     C "...!"
@@ -225,10 +300,14 @@ label day2_3A:
     show cee perus
     C "I have given my augury. Since you wish to remain ignorant, do not cry for help once the predator attacks."
     # Cee leaves
+    play sound footsteps
     hide cee with moveoutleft
+    stop sound fadeout 3
+    scene bg hallway posters with dissolve
     "I'm speechless. It's not okay to speak about coworkers like that."
     "I can't tell if this was just Cee's personal dislike, or an actual worry about our wellbeing. Maybe it was both. Does sound like Agatha should have been nicer to Cee."
-    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters. Nothing predator-like about that."
+    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters."
+    "Nothing predator-like about that."
     "...Right?"
     return
 
@@ -236,8 +315,10 @@ label day2_3B:
     # (agatha tulee puhuu paskaa karkhoksesta)
 
     # käytävä, walking
+    play sound footsteps
     scene bg hallway posters with dissolve
     pause 1
+    play sound wingflap
     show agatha perus at middle with easeinleft
     A "[MC]!"
     "The break is almost over, yet Agatha has waited for me. Extremely abnormal."
@@ -260,20 +341,21 @@ label day2_3B:
     A "A few years back, the whole undead servant thing ruffled some feathers. Do you remember?"
     MC "Not really. News travels slow to the dungeon."
     show agatha vakava
-    A "The Monsters' Rights Union started advocating for undeads' rights. They were outraged that our dead were being raised as thoughtless, wantless servants."
+    A "The Monsters' Rights Union started advocating for undeads' rights. They were outraged that our dead were being raised as servants."
     show agatha vakava at hop
-    A "The huge public protests were the talk of the land."
-    A "The necromancers' guild eventually yielded. In response to the protests, they did something drastic: they signed an agreement to preserve the corpse's personality as they raised it."
+    A "The huge protests were the talk of the land."
+    A "The necromancers' guild eventually yielded. In response to the protests, they signed an agreement to preserve the corpse's personality as they raised it."
     show agatha at hop
     A "A huge victory, right?"
     show agatha alakuloinen
     A "Turns out an undead with a personality intact might have a thing or two to say about being forced into service."
     A "The necromancers have since discontinued the agreement, returning to the old ways, but the undead raised under the agreement remain."
-    MC "You're saying Karkhos was a …test dummy? I had no idea he had gone through something like this. Though he has always been pretty opinionated for an undead."
+    MC "You're saying Karkhos was a …test dummy?"
+    MC "I had no idea he had gone through something like this. Though he has always been pretty opinionated for an undead."
     show agatha vakava
-    A "I don't know the details, but I suspect Karkhos was raised as an employee for the Chain of Loot."
+    A "I don't know the details, but I suspect Karkhos was resurrected to be an employee for the Chain of Loot."
     A "He probably needs to work here, per the necromantic contract, or something bad happens. Here, or somewhere else in the chain."
-    MC "Maybe Karkhos will tell us himself when he's ready. This is plenty of gossip for one day."
+    MC "Maybe Karkhos will tell us himself when he's ready. This is enough gossip for one day."
     A "Ask him yourself, then."
     show agatha at hop
     A "But you see? Someone forced into working isn't the best judge of what's good for the warehouse. His opinions are tinted by his horrible and inescapable circumstances."
@@ -284,7 +366,7 @@ label day2_3B:
     A "I don't know what's wrong with him, and I don't care. He's handling it about as poorly as one can."
     show agatha at hop
     A "I won't let him drag us down with him."
-    MC "That's for Boss to decide. He's not harming any of us."
+    MC "That's for Boss to decide. Karkhos isn't harming any of us."
     show agatha vakava
     A "Isn't he? Karkhos never participates in the holiday gift exchanges, eats the communal foods even though he doesn't need to, doesn't clean up after himself, is always late..."
     show agatha vihainen at hop
@@ -310,19 +392,92 @@ label day2_3B:
     A "Then Boss will hire a lobotomy wizard to make US into thoughtless, wantless servants."
     show agatha pelokas at middle
     MC "Now you're just exaggerating."
-    MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't okay."
+    MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't part of the job."
     show agatha vakava at hop
     A "Fine. Suit yourself."
+    A "Once Boss returns, I won't let this behavior continue."
+    play sound wingflap
     hide agatha with easeoutright
     # agatha läpsyttelee pois
-    "Wow. If what Agatha told me is true…"
-    "How would I feel about working at the warehouse if I was forced into it?"
+    "If what Agatha told me is true…"
+    "How would I feel about doing forced labor?"
+    #TODO: conditional skenessä 2.5B jos pelaaja saanu tän skenen
+
+
+    return
+
+label day2_3C:
+    # bg käytävä
+    play sound footsteps
+    scene bg hallway posters
+
+    "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
+    show karkhos pikkuviha mato at middle with dissolve
+    K "[MC], I gotta speak to you."
+    MC "Huh? You waited for me?"
+    K "It's about Cee."
+    "What's so important that he waited for me, after storming off like that? I'm a bit curious."
+    MC "Has Cee done something?"
+    show karkhos nukkuva mato
+    K "Besides what they've confessed to? For sure."
+    show karkhos perus mato
+    K "But that's not what I'm here for."
+    K "You know, Cee was already employed here when I started. I was just a newbie, in need of guidance in the ways of the warehouse."
+    show karkhos pikkuviha mato
+    K "On that first day, you know what Cee said to me?"
+    show karkhos vihainen mato
+    K "NOTHING."
+    K "I tried to be nice, but I got treated like there was nothing going on between my ears. Cee just gave me murderous side-eyes and a mean cold shoulder."
+    MC "Cee ignored me in the beginning too. It probably wasn't personal."
+    K "Cuz Cee looks down on everyone."
+    show karkhos pikkuviha mato
+    K "Be honest: do you even know what Cee's advocating for?"
+    MC "Uh… Equality and better benefits?"
+    K "But what's Cee gonna DO about it?"
+    "I only pause to think for a second, but Karkhos reads my silence as an admission."
+    show karkhos at hop
+    K "See, you don't even know."
+    K "Be real. Cee has no plans to let you in on the jig. They're a solo monster."
+    MC "That's not true. Cee wants to increase efficiency by building better recreational facilities."
+    K "So more boxes packed, but less tired workers? How's that gonna math out?"
+    K "If it was possible to do more without doing more, don't you think I'd be campaigning for it? How's messing with the conveyor belt gonna \"revolutionize the system\"? Miracle cures don't exist."
+    K "[MC], sorry to break it to you, but Cee's using you."
+    show karkhos vihainen mato
+    K "All day long Cee calls us fools, idiots, and so on. Clear as day what their opinion of us is."
+    K "They've used big words to confuse you. But all that fancy talk is like a small pufferfish inhaling water to look bigger."
+    MC "If Cee's just a pufferfish, then you have no reason to be provoked by them."
+    show karkhos at hop
+    K "I'm not getting provoked! It's annoying, is all."
+
+    menu:
+        "I get to side with whoever I want.":
+            MC "I choose. That's the spirit of the game."
+        "It's not okay to badmouth coworkers.":
+            MC "Karkhos, you've gone too far."
+            show karkhos pikkuviha mato
+            K "Tit for tat. I haven't done anything Cee hasn't."
+            MC "Then be the bigger monster and stop."
+
+    show karkhos nukkuva mato at hop
+    "Karkhos sighs and shrugs."
+    K "Welp. I tried. Guess that's that."
+    show karkhos perus mato
+    K "So long, [MC], and take it easy with the fish."
+    # karkhos menee pois
+    play sound footsteps
+    hide karkhos with easeoutright
+    stop sound fadeout 3
+    "Without any further convincing, Karkhos stomps back into the breakroom. He gave up shockingly fast."
+    "Though he had a point, he has also misunderstood Cee's intentions."
+    "Cee's the only one looking far into the future. That's admirable."
+    "And Karkhos was wrong. I know exactly what Cee's planning."
+    pause 1
+    "...Right?"
     return
 
 
-
 label day2_5A:
-    scene bg breakroom posters night 
+    scene bg breakroom posters night with dissolve
     "As I start heading home, I see something shocking out of the corner of my eye."
     show agatha alakuloinen at agathabreakroom
     "Is that… Agatha? Sitting in the break room and not working?"
@@ -448,6 +603,7 @@ label day2_5A:
     show agatha perus at hop
     A "See you tomorrow!"
     MC "Yeah. See you!"
+    play sound wingflap
     hide agatha with moveoutright
     "She flutters back towards the packing area, humming a cheerful tune."
     "I worry a bit about how long she's going to keep working, but at least she cheered up."
@@ -459,12 +615,14 @@ label day2_5B:
     scene bg hallway posters with dissolve
     pause 1
     scene bg hallway posters night with dissolve
-    "Second day done. Can't wait to go home and melt in my bathtub shaped hole. Keeping my professionally cubistic shape together is tiring."
+    "Second day done. Can't wait to go home and melt in my bathtub shaped hole. Keeping a good posture without any bones takes effort."
+    "Still, work was a lot easier when I didn't push myself so hard."
     "I can still hear conveyor belt sounds coming from the warehouse. Some of the guys are still working."
     "As for who isn't, I have a guess."
 
     # corridor BG
     # karkhos sprite
+    play sound footsteps fadeout 3
     scene bg hallway posters night
     show karkhos perus at middle
     "Knew it."
@@ -502,7 +660,8 @@ label day2_5B:
             K "Huh? Sure is. Moisture good for ya?"
             MC "For slimekind, hydration is very important. Mom used to spray me with sugar water during dry seasons."
             show karkhos alakuloinen
-            K "For me, moisture's trouble. I gotta be careful my brain doesn't become a residence for some mold. I've already got a tenant, and Wormy even pays rent. And eats the mold."
+            K "For me, moisture's trouble. I gotta be careful my brain doesn't become a residence for some mold."
+            K "I've already got a tenant, and Wormy even pays rent. And eats the mold."
             show karkhos alakuloinen mato at hop
             "Wormy wriggles up to nod vehemently."
             "...! This is it, the perfect lead in."
@@ -525,22 +684,23 @@ label day2_5B:
     K "Uh. When I said it's a Q and A, I sorta hoped you'd ask about workers' right to more breaks."
     MC "Sorry. Your death is probably a difficult memory."
     show karkhos perus
-    K "Nah, man. I used to be an orc. The way I died was stupid. Didn't have Loot on me, while my clan mates did. The last thing I saw was their retreating feet."
+    K "Nah, man. I used to be an orc. The way I died was stupid."
+    K "Didn't have Loot on me, while my clan mates did. The last thing I saw was their retreating feet."
     show karkhos at hop
-    K "That should've been it for me, but I woke up in the chain's restoration facility."
+    K "That should've been it for me, but I woke up in the chain's restoration facility. Guess I looked strong enough to turn into an undead?"
     K "No hard feelings to the necromancer who patched me up. Though I think she took my kidney. And something else over in my mid abdomen. The cavity sometimes gathers liquid."
     # K happy sprite
     show karkhos iloinen
     K "Oh well! I've still got lots of organs to spare. Not like they do much now. They've probably spoiled anyway."
     MC "You were… happy to be turned into an undead?"
     # K neutral sprite
-    K "Getting a new chance at life doesn't happen to everyone."
-    K "There was still a lot I wanted to experience, and I was happy to give back. The Loot saved my clan mates, and the chain gave me a second life."
+    K "Getting a new chance at life doesn't happen to everyone. There was still a lot I wanted to experience, and I was happy to give back."
     show karkhos perus
-    K "In the beginning, didn't matter I was destined to work until my body fell apart."
+    K "The Loot saved my clan mates, and the chain gave me a second life. Didn't matter I was destined to work until my body fell apart."
     # sad sprite
     show karkhos alakuloinen
-    K "But this job… Seems I was happy too soon, huh?"
+    K "But this job… When I was alive, daily chores were never this taxing."
+    K "As days have trickled by, not even the good cause keeps my feet moving."
     K "I've worked all my life, but even after death, the grind goes on." 
     # angry sprite
     show karkhos pikkuviha
@@ -548,13 +708,14 @@ label day2_5B:
     K "To make monsters contort themselves into rigid time slots, it's just unnatural. We should be allowed some flexibility in the hours we work."
     MC "To your credit, no other zombie would have lasted a day in the warehouse."
     "His angry eyebrows lift in minor triumph."
-    show karkhos pikkuviha at hop
+    show karkhos vihainen at hop
     K "Yeah! No zombie can beat me."
+    show karkhos pikkuviha
     MC "Maybe you just need a holiday? When's the last time you had time off?"
     show karkhos alakuloinen
-    K "When I was alive. Back in the orc village, we had a thing called \"rest day\". No such things here."
+    K "When I was alive. Back in the orc village, we had a thing called \"rest day\". No such things here. If only the Boss would give us a few days off."
     show karkhos vihainen at shake
-    K "If I had a few days off, I'd go lava surfing, cave diving, ride a wyrm and kiss the moon. Just because I'm dead doesn't mean I can't LIVE A LITTLE."
+    K "I'd go lava surfing, cave diving, ride a wyrm and kiss the moon. Just because I'm dead doesn't mean I can't LIVE A LITTLE."
     "The shout echoes down every branching cavern. Anyone creeping around the dungeon probably turned to run."
     show karkhos perus at hop
     K "That being so, we need to reach a resolution with this fight. Cee and Agatha need to learn that enough's enough."
@@ -588,29 +749,36 @@ label day2_5B:
         zoom 1.0
         yoffset 0
     pause 1
+    play sound footsteps
     "The great intersection is busy this time of evening. Dungeon guards are on their patrol. Tinkerers are running to reset traps, and the cleaning crew is marching to mop up dead humans."
     show karkhos perus
     K "Well, my cave's that way. Was nice chatting."
     # karkhos tosi iloinen
     show karkhos tosi iloinen at hop
     K "I have no idea what's going to happen tomorrow. Pretty exciting."
+    play sound footsteps
     hide karkhos with moveoutright
+    stop sound fadeout 4
     "I wave. Karkhos enters the stream of monsters, and disappears behind a bend in a cavern."
     "Tomorrow, huh. I have a feeling that after tomorrow, nothing will be the same."
     return
 
 label day2_5C: #Cee emotional evening
 
+    scene bg hallway posters with dissolve
+    pause 1
     scene bg hallway posters night with dissolve
     "As I get ready to leave work, I realize I've forgotten something."
     MC "Darn it. I left my lunch box in the break room."
     "I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
     "I have a hunch which option Agatha and Karkhos have picked, but..."
     "As I open the break room door, I notice I'm not alone."
+    play sound footsteps
     scene bg breakroom posters night
 
     show cee alakuloinen at ceebreakroom
     #onks tää liian goofyn näkönen
+    stop sound fadeout 3
     "Why is Cee sulking at the table?"
     show cee alakuloinen at middle with move:
         zoom 1.0

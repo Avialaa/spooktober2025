@@ -446,9 +446,9 @@ init python:
   #["light", "sleep", "fish", "bone", "meat", "weapon", "keys", "treasure"]
   #tier is now randomized based on upgrades
   def addLight():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("light",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("light",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("light",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("light",0):
       tier = 2
     else:
       tier = 1
@@ -456,9 +456,9 @@ init python:
     itemsOnConveyer.append(item)
 
   def addSleep():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("sleep",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("sleep",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("sleep",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("sleep",0):
       tier = 2
     else:
       tier = 1
@@ -466,9 +466,9 @@ init python:
     itemsOnConveyer.append(item)
 
   def addFish():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("fish",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("fish",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("fish",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("fish",0):
       tier = 2
     else:
       tier = 1
@@ -476,9 +476,9 @@ init python:
     itemsOnConveyer.append(item)
   
   def addBone():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("bone",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("bone",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("bone",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("bone",0):
       tier = 2
     else:
       tier = 1
@@ -486,9 +486,9 @@ init python:
     itemsOnConveyer.append(item)
   
   def addMeat():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("meat",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("meat",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("meat",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("meat",0):
       tier = 2
     else:
       tier = 1
@@ -496,9 +496,9 @@ init python:
     itemsOnConveyer.append(item)
   
   def addWeapon():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("weapon",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("weapon",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("weapon",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("weapon",0):
       tier = 2
     else:
       tier = 1
@@ -506,9 +506,9 @@ init python:
     itemsOnConveyer.append(item)
   
   def addKeys():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("keys",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("keys",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("keys",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("keys",0):
       tier = 2
     else:
       tier = 1
@@ -516,9 +516,9 @@ init python:
     itemsOnConveyer.append(item)
   
   def addTreasure():
-    if renpy.random.randint(1,10)>tier3ChanceDict.get("treasure",0):
+    if renpy.random.randint(1,10)<=tier3ChanceDict.get("treasure",0):
       tier = 3
-    elif renpy.random.randint(1,10)>tier2ChanceDict.get("treasure",0):
+    elif renpy.random.randint(1,10)<=tier2ChanceDict.get("treasure",0):
       tier = 2
     else:
       tier = 1

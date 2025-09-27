@@ -104,37 +104,69 @@ screen roundEndScreen:
                 xysize (250, 600)
                 text "This round:"
                 if roundEndrPoints:
-                    text "{outlinecolor=#000}{color=#e82333}[f'{roundrPoints:.2f}']{/color}{/outlinecolor}" #f'{my_float:.6f}
+                    hbox:
+                        text "[f'{roundrPoints:.2f}']" style "redPointsStyle"
+                        add "order meat.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndbPoints:
-                    text "{outlinecolor=#000}{color=#218ec4}[f'{roundbPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{roundbPoints:.2f}']" style "bluePointsStyle"
+                        add "order weapon.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndyPoints:
-                    text "{outlinecolor=#000}{color=#f0e767}[f'{roundyPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{roundyPoints:.2f}']" style "yellowPointsStyle"
+                        add "order treasure.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndgPoints:
-                    text "{outlinecolor=#000}{color=#4ec236}[f'{roundgPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{roundgPoints:.2f}']" style "greenPointsStyle"
+                        add "order sleep.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndoPoints:
-                    text "{outlinecolor=#000}{color=#ffaa00}[f'{roundoPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{roundoPoints:.2f}']" style "orangePointsStyle"
+                        add "order light.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndvPoints:
-                    text "{outlinecolor=#000}{color=#8c47cc}[f'{roundvPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{roundvPoints:.2f}']" style "violetPointsStyle"
+                        add "order fish.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndpPoints:
-                    text "{outlinecolor=#000}{color=#ee88cc}[f'{roundpPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{roundpPoints:.2f}']" style "pinkPointsStyle"
+                        add "order keys.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndlPoints:
-                    text "{outlinecolor=#000}{color=#999999}[f'{roundlPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{roundlPoints:.2f}']" style "lightPointsStyle"
+                        add "order bone.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
 
         null width 50
 
@@ -145,35 +177,67 @@ screen roundEndScreen:
                 xysize (250, 600)
                 text "Total Points:"
                 if roundEndTotalrPoints:
-                    text "{outlinecolor=#000}{color=#e82333}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{rPoints:.2f}']" style "redPointsStyle"
+                        add "order meat.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndTotalbPoints:
-                    text "{outlinecolor=#000}{color=#218ec4}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{bPoints:.2f}']" style "bluePointsStyle"
+                        add "order weapon.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndTotalyPoints:
-                    text "{outlinecolor=#000}{color=#f0e767}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{yPoints:.2f}']" style "yellowPointsStyle"
+                        add "order treasure.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndTotalgPoints:
-                    text "{outlinecolor=#000}{color=#4ec236}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{gPoints:.2f}']" style "greenPointsStyle"
+                        add "order sleep.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndTotaloPoints:
-                    text "{outlinecolor=#000}{color=#ffaa00}[f'{oPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{oPoints:.2f}']" style "orangePointsStyle"
+                        add "order light.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndTotalvPoints:
-                    text "{outlinecolor=#000}{color=#8c47cc}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{vPoints:.2f}']" style "violetPointsStyle"
+                        add "order fish.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndTotalpPoints:
-                    text "{outlinecolor=#000}{color=#ee88cc}[f'{pPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{pPoints:.2f}']" style "pinkPointsStyle"
+                        add "order keys.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
                 if roundEndTotallPoints:
-                    text "{outlinecolor=#000}{color=#999999}[f'{lPoints:.2f}']{/color}{/outlinecolor}"
+                    hbox:
+                        text "[f'{lPoints:.2f}']" style "lightPointsStyle"
+                        add "order bone.png":
+                            fit "scale-down"
+                            xysize (40,40)
                 else: 
-                    null height 39
+                    null height 38
 

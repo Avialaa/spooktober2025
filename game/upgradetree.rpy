@@ -4,6 +4,15 @@ init:
     image upgradeBox3 = Frame("minigame button pressed.png", 40, 30)
     image upgradeBox4 = Frame("minigame button allbought.png", 40, 30)
 
+    #image meatMini = 
+    #image weaponMini
+    #image treasureMini
+    #image sleepMini
+    #image lightMini
+    #image fishMini
+    #image keysMini
+    #image boneMini
+
 default firstDay = True
 
 default rPoints = 0
@@ -63,8 +72,8 @@ default itemCountList = []
 default itemValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 default tier2ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
 default tier3ValueDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
-default tier2ChanceDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
-default tier3ChanceDict = {"light": 1, "sleep": 1, "fish": 1, "bone": 1, "meat": 1, "weapon": 1, "keys": 1, "treasure": 1}
+default tier2ChanceDict = {"light": 0, "sleep": 0, "fish": 0, "bone": 0, "meat": 0, "weapon": 0, "keys": 0, "treasure": 0}
+default tier3ChanceDict = {"light": 0, "sleep": 0, "fish": 0, "bone": 0, "meat": 0, "weapon": 0, "keys": 0, "treasure": 0}
 
 default failPoints = 0
 default validityFactor = 0
@@ -189,7 +198,7 @@ init python:
         tier3ChanceDict["keys"] = upgradesBought.get("keys3Chance",0)
         tier3ChanceDict["treasure"] = upgradesBought.get("treasure3Chance",0)
 
-        roundDuration = (40+5*upgradesBought.get("timeIncrease",0))/(1+upgradesBought.get("timeIncrease",0))
+        roundDuration = (60+5*upgradesBought.get("timeIncrease",0))/(1+upgradesBought.get("timeIncrease",0))
         timerPoints = (roundDuration/5)*upgradesBought.get("timePoints",0) #every 5 seconds gives 1 point
         roundDuration = roundDuration/(2**upgradesBought.get("timePace",0))
         failPoints = upgradesBought.get("pointMultiplier",0)*0,1
@@ -347,13 +356,20 @@ label upgradetreeTest:
     return
 
 label upgradeTree:
-    scene bg warehouse
+    if workShift == 1 or workShift == 2:
+        scene bg warehouse
+    elif workShift == 3 or workShift == 4 or workShift == 5:
+        scene bg warehouse posters
+    else: 
+        scene bg warehouse
+
     "Time for another shift!"
     if _skipping:
         hide screen skip_indicator
         $ renpy.choice_for_skipping()
         $ _skipping = False
     $ renpy.config.skipping = False
+    $ config.rollback_enabled = False
     python:
         if firstDay:
             if rPoints == 0:
@@ -384,25 +400,28 @@ screen upgradeNode(name, upgradeID, upgradeLimit, coord, rCost, bCost, yCost, gC
         align coord
         if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost and gPoints >= gCost and oPoints >= oCost and vPoints >= vCost and pPoints >= pCost and lPoints >= lCost):
             background Frame("minigame button nomoney.png", 40, 30)
-        elif focusUpgradeName == name:
-            background Frame("minigame button pressed.png", 40, 30)
         elif upgradesBought.get(upgradeID) == upgradeLimit:
             background Frame("minigame button allbought.png", 40, 30)
         elif upgradeID in upgradesBought:
             background Frame("minigame button bought.png", 40, 30)
+        elif focusUpgradeName == name:
+            background Frame("minigame button pressed.png", 40, 30)
         else:
             background Frame("minigame button basic.png", 40, 30)
-        padding (20,10)
+        if focusUpgradeName == name:
+            padding (25, 12)
+        else:
+            padding (20,10)
         text name:
             font "Silkscreen-Regular.ttf"
             if not (rPoints >= rCost and bPoints >= bCost and yPoints >= yCost and gPoints >= gCost and oPoints >= oCost and vPoints >= vCost and pPoints >= pCost and lPoints >= lCost):
                 color("#654C4C")
-            elif focusUpgradeName == name:
-                color("#2A3124")
             elif upgradesBought.get(upgradeID) == upgradeLimit:
                 color("#5A6056")
             elif upgradeID in upgradesBought:
                 color("#4C5942")
+            elif focusUpgradeName == name:
+                color("#2A3124")
             else:
                 color("#4C5942")
 
@@ -412,43 +431,81 @@ screen upgradeNode(name, upgradeID, upgradeLimit, coord, rCost, bCost, yCost, gC
 screen pointView:
     vbox:
         xalign 0.01
-        yalign 0.99
+        yalign 0.01
         spacing 10
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#e82333}[f'{rPoints:.2f}']{/color}{/outlinecolor}"
+            hbox:
+                spacing 2
+                text "[f'{rPoints:.2f}']" style "redPointsStyle":
+                    yoffset 25
+                add "order meat.png"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#218ec4}[f'{bPoints:.2f}']{/color}{/outlinecolor}"
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{bPoints:.2f}']" style "bluePointsStyle":
+                    yoffset 25
+                add "order weapon.png"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#f0e767}[f'{yPoints:.2f}']{/color}{/outlinecolor}"
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{yPoints:.2f}']" style "yellowPointsStyle":
+                    yoffset 25
+                add "order treasure.png"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#4ec236}[f'{gPoints:.2f}']{/color}{/outlinecolor}"
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{gPoints:.2f}']" style "greenPointsStyle":
+                    yoffset 25
+                add "order sleep.png"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ffaa00}[f'{oPoints:.2f}']{/color}{/outlinecolor}"
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{oPoints:.2f}']" style "orangePointsStyle":
+                    yoffset 25
+                add "order light.png"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#8c47cc}[f'{vPoints:.2f}']{/color}{/outlinecolor}"
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{vPoints:.2f}']" style "violetPointsStyle":
+                    yoffset 25
+                add "order fish.png"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#ee88cc}[f'{pPoints:.2f}']{/color}{/outlinecolor}"
+            has hbox:
+                spacing 2
+                text "[f'{pPoints:.2f}']" style "pinkPointsStyle":
+                    yoffset 25
+                add "order keys.png"
         frame:
             background "upgradeBox"
             padding (20, 10)
-            text "{outlinecolor=#000}{color=#999999}[f'{lPoints:.2f}']{/color}{/outlinecolor}"
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{lPoints:.2f}']" style "lightPointsStyle":
+                    yoffset 25
+                add "order bone.png"
 
 screen upgradeTree:
-    add "bigspace_day.png"
+    #add "bigspace_day.png"
     modal True
 
     #point status view
@@ -463,72 +520,172 @@ screen upgradeTree:
         textbutton "Done":
             action [SetVariable("focusUpgradeName", "0"), Return()]
 
-    #upgrade nodes
-    use upgradeNode("Point +","pointMultiplier", 5, (0.5, 0.3), 1, 1, 1, 1, 1, 1, 1, 1, "Increases all point gain by 10%")
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Meat +","meatMultiplier", 5, (0.37, 0.23), 1, 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Lantern +","lightMultiplier", 5, (0.5, 0.23), 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from lantern items by 10%") 
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Coin +","treasureMultiplier", 5, (0.63, 0.23), 0, 0, 1, 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Key +","keysMultiplier", 5, (0.37, 0.3), 0, 0, 0, 0, 0, 0, 1, 0, "Increases all points gained from key items by 10%")
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Bone +","boneMultiplier", 5, (0.63, 0.3), 0, 0, 0, 0, 0, 0, 0, 1, "Increases all points gained from bone items by 10%")
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Fish +","fishMultiplier", 5, (0.37, 0.37), 0, 0, 0, 0, 0, 1, 0, 0, "Increases all points gained from fish items by 10%")
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Blade +","weaponMultiplier", 5, (0.5, 0.37), 0, 1, 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
-    if 'pointMultiplier' in upgradesBought:
-        use upgradeNode("Nap +","sleepMultiplier", 5, (0.63, 0.37), 0, 0, 0, 1, 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
-    if 'meatMultiplier' in upgradesBought:
-        use upgradeNode("Meat 2","meat2Chance", 5, (0.26, 0.16), 1, 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 2 meat with 10 times the point value.")
-    if 'lightMultiplier' in upgradesBought:
-        use upgradeNode("Lantern 2","light2Chance", 5, (0.5, 0.16), 0, 0, 0, 0, 1, 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 2 lantern with 10 times the point value.")
-    if 'treasureMultiplier' in upgradesBought:
-        use upgradeNode("Coin 2","treasure2Chance", 5, (0.73, 0.16), 0, 0, 1, 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as tier 2 coin with 10 times the point value.")
-    if 'keysMultiplier' in upgradesBought:
-        use upgradeNode("Key 2","keys2Chance", 5, (0.26, 0.3), 0, 0, 0, 0, 0, 0, 1, 0, "Key has a +10%% chance of appearing as tier 2 key with 10 times the point value.")
-    if 'boneMultiplier' in upgradesBought:
-        use upgradeNode("Bone 2","bone2Chance", 5, (0.735, 0.3), 0, 0, 0, 0, 0, 0, 0, 1, "Bone has a +10%% chance of appearing as tier 2 bone with 10 times the point value.")
-    if 'fishMultiplier' in upgradesBought:
-        use upgradeNode("Fish 2","fish2Chance", 5, (0.26, 0.44), 0, 0, 0, 0, 0, 1, 0, 0, "Fish has a +10%% chance of appearing as tier 2 fish with 10 times the point value.")
-    if 'weaponMultiplier' in upgradesBought:
-        use upgradeNode("Blade 2","weapon2Chance", 5, (0.5, 0.44), 0, 1, 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as tier 2 blade with 10 times the point value.")
-    if 'sleepMultiplier' in upgradesBought:
-        use upgradeNode("Nap 2","sleep2Chance", 5, (0.73, 0.44), 0, 0, 0, 1, 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 2 nap item with 10 times the point value.")
-    if 'meat2Chance' in upgradesBought:
-        use upgradeNode("Meat 2+","meat2Multiplier", 5, (0.14, 0.09), 1, 0, 0, 0, 0, 0, 0, 0, "Tier 2 meat point value is increased by 10%.")
-    if 'light2Chance' in upgradesBought:
-        use upgradeNode("Lantern 2+","light2Multiplier", 5, (0.5, 0.09), 0, 0, 0, 0, 1, 0, 0, 0, "Tier 2 lantern point value is increased by 10%.")
-    if 'treasure2Chance' in upgradesBought:
-        use upgradeNode("Coin 2+","treasure2Multiplier", 5, (0.85, 0.09), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 10%.")
-    if 'keys2Chance' in upgradesBought:
-        use upgradeNode("Key 2+","keys2Multiplier", 5, (0.14, 0.3), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 2 key point value is increased by 10%.")
-    if 'bone2Chance' in upgradesBought:
-        use upgradeNode("Bone 2+","bone2Multiplier", 5, (0.86, 0.3), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 2 bone point value is increased by 10%.")
-    if 'fish2Chance' in upgradesBought:
-        use upgradeNode("Fish 2+","fish2Multiplier", 5, (0.14, 0.51), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 2 fish point value is increased by 10%.")
-    if 'weapon2Chance' in upgradesBought:
-        use upgradeNode("Blade 2+","weapon2Multiplier", 5, (0.5, 0.51), 0, 1, 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 10%.")
-    if 'sleep2Chance' in upgradesBought:
-        use upgradeNode("Nap 2+","sleep2Multiplier", 5, (0.86, 0.51), 0, 0, 0, 1, 0, 0, 0, 0, "Tier 2 nap item point value is increased by 10%.")
-    if 'meat2Multiplier' in upgradesBought:
-        use upgradeNode("Meat 3","meat3Chance", 5, (0.02, 0.02), 1, 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
-    if 'light2Multiplier' in upgradesBought:
-        use upgradeNode("Lantern 3","light3Chance", 5, (0.5, 0.02), 0, 0, 0, 0, 1, 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
-    if 'treasure2Multiplier' in upgradesBought:
-        use upgradeNode("Coin 3","treasure3Chance", 5, (0.97, 0.02), 0, 0, 1, 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as lantern 3 meat with 100 times the point value.")
-    if 'keys2Multiplier' in upgradesBought:
-        use upgradeNode("Key 3","keys3Chance", 5, (0.02, 0.3), 0, 0, 1, 0, 0, 0, 0, 0, "Key has a +10%% chance of appearing as Tier 3 key with 100 times the point value.")
-    if 'bone2Multiplier' in upgradesBought:
-        use upgradeNode("Bone 3","bone3Chance", 5, (0.97, 0.3), 0, 0, 0, 0, 0, 0, 0, 1, "Bone has a +10%% chance of appearing as Tier 3 bone with 100 times the point value.")
-    if 'fish2Multiplier' in upgradesBought:
-        use upgradeNode("Fish 3","fish3Chance", 5, (0.02, 0.58), 0, 0, 0, 0, 0, 0, 0, 1, "Fish has a +10%% chance of appearing as Tier 3 fish with 100 times the point value.")
-    if 'weapon2Multiplier' in upgradesBought:
-        use upgradeNode("Blade 3","weapon3Chance", 5, (0.5, 0.58), 0, 1, 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as Tier 3 blade with 100 times the point value.")
-    if 'sleep2Multiplier' in upgradesBought:
-        use upgradeNode("Nap 3","sleep3Chance", 5, (0.97, 0.58), 0, 0, 0, 1, 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 3 nap item with 100 times the point value.")
+    #viewport for upgrade nodes
+
+    side 'c b r':
+        xysize (1250, 950)
+        align (0.4, 0.35)
+        viewport:
+            ## The zoom_viewport takes all the standard viewport properties,
+            ## like draggable, xinitial/yinitial, child_size, arrowkeys, etc.
+            ## However, it does *not* take the scrollbars property; you will
+            ## need to add any scrollbars manually as shown.
+            xysize (1250, 950)
+            child_size (4000,2000)
+            draggable True
+            xinitial 0.5
+            yinitial 0.5
+            arrowkeys True
+            pagekeys True
+            mousewheel True
+            ## This ID is used for the scrollbars, and also for the zoom
+            ## in/out buttons.
+            id "zoom_vp"
+            ## The mousewheel property has the special "zoom" value, which
+            ## means the mousewheel will be used for zooming! You can still
+            ## use the mousewheel normally by providing other values (e.g. True,
+            ## "horizontal") and just use buttons or pinch zoom for zooming.
+            #mousewheel "zoom"
+            ## Note! If you would like to use yadjustment/xadjustment arguments
+            ## to remember the value of those adjustments, you may want to use
+            ## a MyAdjustment() object rather than ui.adjustment() if you're
+            ## on a version <8.3.0. The MyAdjustment object includes the
+            ## argument restart_interaction_at_range, which can be set to True
+            ## so any scroll bars will adjust their size as the viewport zooms
+            ## in/out. MyAdjustment otherwise works the same as ui.adjustment
+            ####################################################################
+            ## The following are zoom_viewport-specific properties.
+            ####################################################################
+            ## This controls how much the zoom changes when zooming in/out.
+            ## So, a value of 0.2 means zooming in from 1.0 will take you to
+            ## 1.2x zoom, and zooming out from 1.0 will take you to 0.8x zoom.
+            #zoom_amount 0.2
+            ## This controls how fast the zoom changes when zooming in/out. In
+            ## general, this is how long it takes to zoom one zoom_amount.
+            ## So, if zoom_amount is 0.5 and zoom_speed is 1.0, it will take
+            ## 1 second to zoom from 1.0 to 1.5x zoom, from 1.0 to 0.5, etc.
+            #zoom_speed 0.4
+            ## By default, zoom_min is already None. This means the minimum
+            ## zoom only lets you zoom out such that the entire viewport
+            ## contents are visible at once. You can set this to a specific
+            ## number instead, like 0.5, to limit how far you can zoom out.
+            ## If the player should only zoom in, not out, set this to 1.0.
+            #zoom_min None
+            ## This is how far you can zoom in. It's 2.0 by default, aka
+            ## twice as large.
+            #zoom_max 1.0
+            ## By default, the zoom starts at 1.0. You can change this to
+            ## start at a different zoom level. If you want it to start
+            ## at whatever zoom_min is calculated to be, just set it to 0.0.
+            #start_zoom 1.0
+            ## If the child of the viewport doesn't fill the viewport in one
+            ## dimension (e.g. if it's fully zoomed out), this controls how
+            ## the child is aligned in the viewport. (0.5, 0.5) means it will
+            ## be centered in whichever dimension it doesn't fill. By default
+            ## this is None, aka no adjustments are made to alignment.
+            #zoom_align (0.5, 0.5)
+            ## This is a function that can modify the zoom_amount based on the
+            ## percentage of the maximum zoom level. It's called with one
+            ## argument, the % between zoom min and max, and is expected to
+            ## return a number (generally between 0 and 1, but can be greater
+            ## than 1) which will be multiplied by the zoom amount and added
+            ## to it. So, with this function, the zoom amount will be close to
+            ## 0.2 when the zoom level is at its minimum (around 0.4x) and close
+            ## to 0.4 when the zoom level is near its maximum (3.0x). Typically
+            ## going from 2.5x-3.0x feels like a much smaller difference than
+            ## something like 0.5x-1.0x, so this function adjusts the amount to
+            ## help it feel responsive at different zoom levels.
+            #zoom_curve _warper.easeout_cubic
+
+            #upgradenodes are here
+            fixed:
+                xfit False
+                yfit False
+                use upgradeNode("Point +","pointMultiplier", 5, (0.5, 0.5), 1, 1, 1, 1, 1, 1, 1, 1, "Increases all point gain by 10%")
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Meat +","meatMultiplier", 5, (0.444, 0.465), 1, 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Lantern +","lightMultiplier", 5, (0.5, 0.465), 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from lantern items by 10%") 
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Coin +","treasureMultiplier", 5, (0.556, 0.465), 0, 0, 1, 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Key +","keysMultiplier", 5, (0.444, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Increases all points gained from key items by 10%")
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Bone +","boneMultiplier", 5, (0.556, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Increases all points gained from bone items by 10%")
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Fish +","fishMultiplier", 5, (0.444, 0.535), 0, 0, 0, 0, 0, 1, 0, 0, "Increases all points gained from fish items by 10%")
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Blade +","weaponMultiplier", 5, (0.5, 0.535), 0, 1, 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
+                if 'pointMultiplier' in upgradesBought:
+                    use upgradeNode("Nap +","sleepMultiplier", 5, (0.556, 0.535), 0, 0, 0, 1, 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
+                if 'meatMultiplier' in upgradesBought:
+                    use upgradeNode("Meat 2","meat2Chance", 5, (0.397, 0.43), 1, 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 2 meat with 10 times the point value.")
+                if 'lightMultiplier' in upgradesBought:
+                    use upgradeNode("Lantern 2","light2Chance", 5, (0.5, 0.43), 0, 0, 0, 0, 1, 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 2 lantern with 10 times the point value.")
+                if 'treasureMultiplier' in upgradesBought:
+                    use upgradeNode("Coin 2","treasure2Chance", 5, (0.605, 0.43), 0, 0, 1, 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as tier 2 coin with 10 times the point value.")
+                if 'keysMultiplier' in upgradesBought:
+                    use upgradeNode("Key 2","keys2Chance", 5, (0.397, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Key has a +10%% chance of appearing as tier 2 key with 10 times the point value.")
+                if 'boneMultiplier' in upgradesBought:
+                    use upgradeNode("Bone 2","bone2Chance", 5, (0.605, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Bone has a +10%% chance of appearing as tier 2 bone with 10 times the point value.")
+                if 'fishMultiplier' in upgradesBought:
+                    use upgradeNode("Fish 2","fish2Chance", 5, (0.397, 0.57), 0, 0, 0, 0, 0, 1, 0, 0, "Fish has a +10%% chance of appearing as tier 2 fish with 10 times the point value.")
+                if 'weaponMultiplier' in upgradesBought:
+                    use upgradeNode("Blade 2","weapon2Chance", 5, (0.5, 0.57), 0, 1, 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as tier 2 blade with 10 times the point value.")
+                if 'sleepMultiplier' in upgradesBought:
+                    use upgradeNode("Nap 2","sleep2Chance", 5, (0.605, 0.57), 0, 0, 0, 1, 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 2 nap item with 10 times the point value.")
+                if 'meat2Chance' in upgradesBought:
+                    use upgradeNode("Meat 2+","meat2Multiplier", 5, (0.345, 0.395), 1, 0, 0, 0, 0, 0, 0, 0, "Tier 2 meat point value is increased by 10%.")
+                if 'light2Chance' in upgradesBought:
+                    use upgradeNode("Lantern 2+","light2Multiplier", 5, (0.5, 0.395), 0, 0, 0, 0, 1, 0, 0, 0, "Tier 2 lantern point value is increased by 10%.")
+                if 'treasure2Chance' in upgradesBought:
+                    use upgradeNode("Coin 2+","treasure2Multiplier", 5, (0.658, 0.395), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 10%.")
+                if 'keys2Chance' in upgradesBought:
+                    use upgradeNode("Key 2+","keys2Multiplier", 5, (0.345, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Tier 2 key point value is increased by 10%.")
+                if 'bone2Chance' in upgradesBought:
+                    use upgradeNode("Bone 2+","bone2Multiplier", 5, (0.658, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 2 bone point value is increased by 10%.")
+                if 'fish2Chance' in upgradesBought:
+                    use upgradeNode("Fish 2+","fish2Multiplier", 5, (0.345, 0.605), 0, 0, 0, 0, 0, 1, 0, 0, "Tier 2 fish point value is increased by 10%.")
+                if 'weapon2Chance' in upgradesBought:
+                    use upgradeNode("Blade 2+","weapon2Multiplier", 5, (0.5, 0.605), 0, 1, 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 10%.")
+                if 'sleep2Chance' in upgradesBought:
+                    use upgradeNode("Nap 2+","sleep2Multiplier", 5, (0.658, 0.605), 0, 0, 0, 1, 0, 0, 0, 0, "Tier 2 nap item point value is increased by 10%.")
+                if 'meat2Multiplier' in upgradesBought:
+                    use upgradeNode("Meat 3","meat3Chance", 5, (0.295, 0.36), 1, 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
+                if 'light2Multiplier' in upgradesBought:
+                    use upgradeNode("Lantern 3","light3Chance", 5, (0.5, 0.36), 0, 0, 0, 0, 1, 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
+                if 'treasure2Multiplier' in upgradesBought:
+                    use upgradeNode("Coin 3","treasure3Chance", 5, (0.71, 0.36), 0, 0, 1, 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as lantern 3 meat with 100 times the point value.")
+                if 'keys2Multiplier' in upgradesBought:
+                    use upgradeNode("Key 3","keys3Chance", 5, (0.295, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Key has a +10%% chance of appearing as Tier 3 key with 100 times the point value.")
+                if 'bone2Multiplier' in upgradesBought:
+                    use upgradeNode("Bone 3","bone3Chance", 5, (0.71, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Bone has a +10%% chance of appearing as Tier 3 bone with 100 times the point value.")
+                if 'fish2Multiplier' in upgradesBought:
+                    use upgradeNode("Fish 3","fish3Chance", 5, (0.295, 0.64), 0, 0, 0, 0, 0, 1, 0, 0, "Fish has a +10%% chance of appearing as Tier 3 fish with 100 times the point value.")
+                if 'weapon2Multiplier' in upgradesBought:
+                    use upgradeNode("Blade 3","weapon3Chance", 5, (0.5, 0.64), 0, 1, 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as Tier 3 blade with 100 times the point value.")
+                if 'sleep2Multiplier' in upgradesBought:
+                    use upgradeNode("Nap 3","sleep3Chance", 5, (0.71, 0.64), 0, 0, 0, 1, 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 3 nap item with 100 times the point value.")
+                if 'meat3Chance' in upgradesBought:
+                    use upgradeNode("Meat 3+","meat3Multiplier", 5, (0.24, 0.325), 1, 0, 0, 0, 0, 0, 0, 0, "Tier 3 meat point value is increased by 10%.")
+                if 'light3Chance' in upgradesBought:
+                    use upgradeNode("Lantern 3+","light3Multiplier", 5, (0.5, 0.325), 0, 0, 0, 0, 1, 0, 0, 0, "Tier 3 lantern point value is increased by 10%.")
+                if 'treasure3Chance' in upgradesBought:
+                    use upgradeNode("Coin 3+","treasure3Multiplier", 5, (0.765, 0.325), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 3 coin point value is increased by 10%.")
+                if 'keys3Chance' in upgradesBought:
+                    use upgradeNode("Key 3+","keys3Multiplier", 5, (0.24, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Tier 3 key point value is increased by 10%.")
+                if 'bone3Chance' in upgradesBought:
+                    use upgradeNode("Bone 3+","bone3Multiplier", 5, (0.765, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 3 bone point value is increased by 10%.")
+                if 'fish3Chance' in upgradesBought:
+                    use upgradeNode("Fish 3+","fish3Multiplier", 5, (0.24, 0.675), 0, 0, 0, 0, 0, 1, 0, 0, "Tier 3 fish point value is increased by 10%.")
+                if 'weapon3Chance' in upgradesBought:
+                    use upgradeNode("Blade 3+","weapon3Multiplier", 5, (0.5, 0.675), 0, 1, 0, 0, 0, 0, 0, 0, "Tier 3 blade point value is increased by 10%.")
+                if 'sleep3Chance' in upgradesBought:
+                    use upgradeNode("Nap 3+","sleep3Multiplier", 5, (0.765, 0.675), 0, 0, 0, 1, 0, 0, 0, 0, "Tier 3 nap item point value is increased by 10%.")
+        
+        #scrollbars of the viewport
+        bar value XScrollValue("zoom_vp") xalign 0.5
+        vbar value YScrollValue("zoom_vp") yalign 0.5
 
     #buy screen
     if focusUpgradeName != "0":
@@ -540,11 +697,68 @@ screen upgradeTree:
             xmaximum 400
             vbox:
                 spacing 10
-                text "[focusUpgradeName]":
-                    font "fonts/Silkscreen-Regular.ttf"
+                side "l r":
+                    xfill True
+                    text "[focusUpgradeName]":
+                        font "fonts/Silkscreen-Regular.ttf"
+                    text "[upgradesBought.get(focusUpgradeID,0)]/[focusUpgradeLimit]"
                 text "[focusDescription]":
                     font "fonts/DMSans-Light.ttf"
-                text "Cost: {outlinecolor=#000}{color=#ff0000}[frCost] {/color}{color=#0000ff}[fbCost] {/color}{color=#fbfb00}[fyCost] {/color}{color=#00ff00}[fgCost] {/color}{color=#ffaa00}[foCost] {/color}{color=#8800fb}[fvCost] {/color}{color=#ee88cc}[fpCost] {/color}{color=#999999}[flCost]{/color}{/outlinecolor}" 
+                hbox:
+                    spacing 2
+                    text "Cost:" 
+                    hbox:
+                        box_wrap True
+                        spacing 2
+                        box_wrap_spacing 2
+                        if frCost > 0:
+                            hbox:
+                                text "[frCost]" style "redPointsStyle"
+                                add "order meat.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
+                        if fbCost > 0:
+                            hbox:
+                                text "[fbCost]" style "bluePointsStyle"
+                                add "order weapon.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
+                        if fyCost > 0:
+                            hbox:
+                                text "[fyCost]" style "yellowPointsStyle"
+                                add "order treasure.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
+                        if fgCost > 0:
+                            hbox:
+                                text "[fgCost]" style "greenPointsStyle"
+                                add "order sleep.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
+                        if foCost > 0:
+                            hbox:
+                                text "[foCost]" style "orangePointsStyle"
+                                add "order light.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
+                        if fvCost > 0:
+                            hbox:
+                                text "[fvCost]" style "violetPointsStyle"
+                                add "order fish.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
+                        if fpCost > 0:
+                            hbox:
+                                text "[fpCost]" style "pinkPointsStyle"
+                                add "order keys.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
+                        if flCost > 0:
+                            hbox:
+                                text "[flCost]" style "lightPointsStyle"
+                                add "order bone.png":
+                                    fit "scale-down"
+                                    xysize (40,40)
                 frame:
                     if upgradesBought.get(focusUpgradeID) == focusUpgradeLimit:
                         background "upgradeBox4"

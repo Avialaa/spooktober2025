@@ -7,12 +7,40 @@ style karkhosNameStyle:
     font "Raleway-Bold.ttf"
     size 45
 
+style redPointsStyle:
+    color "#eb3847"
+
+style bluePointsStyle:
+    color "#218ec4"
+
+style yellowPointsStyle:
+    color "#f0e767"
+
+style greenPointsStyle:
+    color "#4ec236"
+
+style orangePointsStyle:
+    color "#ffaa00"
+
+style violetPointsStyle:
+    color "#b272ed"
+
+style pinkPointsStyle:
+    color "#ee88cc"
+
+style lightPointsStyle:
+    color "#b1b1b1"
+
+
+
 label after_minigame:
     $ quick_menu = True #show the quick menu
     $ chooseRoute() #must always be called BEFORE minigame reset
     $ resetMinigame()
     $ updateOrders()
     $ _skipping = True #allow skipping again
+    $ renpy.block_rollback()
+    $ config.rollback_enabled = True #allow rollback again
 
     if currentStoryRoute:
         e "Current route: [currentStoryRoute]"
@@ -86,3 +114,21 @@ screen day_change:
         xcenter 0.5 ycenter 0.5
         at next_day
     timer 2.0 action [Hide(), Return()]
+
+label tutorial:
+    scene bg warehouse
+    "Someone left sticky notes on the new work station... Looks like instructions on how to use the new system."
+label sticky_notes_tutorial:
+    window hide
+    scene tutorial with fade
+    pause
+    scene bg warehouse with fade
+
+    menu:
+        "Take another look at the sticky notes.":
+            jump sticky_notes_tutorial
+        "Start your work shift.":
+            pass
+    
+    return
+

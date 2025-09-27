@@ -53,13 +53,11 @@ screen magicPad:
     
     viewport:
         area (1520, 120, 290, 250) # area (xpos, ypos, xsize, ysize)
-        text "Order items to conveyer belt" style "padStyle" xalign 0.5
+        text "Order items to conveyor belt" style "padStyle" xalign 0.5
     viewport:
         area (1185, 150, 290, 840) # area (xpos, ypos, xsize, ysize)
         #add "black"
         vbox: #kaikki orderit
-            #TODO: Fix potential bug here (indexList out of range kummallisissa kohdissa peliä)
-            #align (0.72, 0.25)
             vbox: #current order
                 text "Current order" style "padStyle"
                 for item in orderItems1:

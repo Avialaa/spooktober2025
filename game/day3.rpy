@@ -1,15 +1,43 @@
 
 
+label day3_1:
+    scene bg hallway posters with dissolve
+    pause 1
+    "Day of truth. Today at lunch, they're going to decide the winner."
+    "When Boss left for the trip, I never expected such a strange few days."
+    "I've worked with these monsters for a while, but now I see that I never really knew them. I've always just checked in and checked out."
+    "It's conscientious to not pry, or so I thought. In truth, maybe I didn't care who these guys even are."
+    "I'm pretty content with everything, so I assumed they're also content, not holding on to any secret resentments."
+    "Well, better late than never."
+
+    #  varasto bg
+    play sound footsteps
+    show bg warehouse posters with dissolve
+    stop sound fadeout 3
+    "Conveyor belts whirl in the depths of the warehouse. Are the others already here?"
+    "Either they arrived early, or they never left. Not even Agatha has ever stayed overnight."
+    "The posters have increased in number, and some have been pasted over the competitors'."
+    # explosion sound
+    play sound boom
+    "Somewhere, an explosion goes off."
+    "I'm just going to ignore that."
+    "This is the final shift before we decide on a winner. Better make my choices count."
+
+    return
+
+
 label day3_A1:
-    scene bg hallway posters
+    scene bg hallway posters with dissolve
     "They went to check my records some time ago. This is it."
     "They're coming out!"
     "The suspense is making my digestive region sick."
     # sprites, A happy ja kaks muuta sad
+    play sound footsteps
     show karkhos alakuloinen mato zorder 2 at cleft with easeinleft:
         xalign 0.01 xoffset -100
     show cee alakuloinen zorder 1 at cright with easeinright:
         xalign 0.99 xoffset 100
+    play sound wingflap
     show agatha iloinen zorder 3 at middle, hop with easeinleft
     A "Well well well. Let's keep this meeting brief. Precious productive hours are wasting."
     A "The warehouse was in tip top shape. Looks like [MC] has shipped an impressive quantity of Loot. That means it's my victory."
@@ -84,6 +112,7 @@ label day4_A2:
     "The last I saw Karkhos, he had crawled under the breakroom's table. When I checked if he was asleep, he was staring at a crack in the wall."
     "But the warehouse is nearly empty, and astonishingly well organized. We've accomplished a lot. Though it's been hard."
     #agatha iloinen suukiinni appears
+    play sound wingflap
     show agatha iloinen suukiinni at shake2, middle with easeinleft #TODO: jos aikaa, slow ease in?
     "Agatha has trouble flying straight as she approaches."
     show agatha iloinen
@@ -95,13 +124,17 @@ label day4_A2:
     A "Tastes like work well done."
     show agatha perus
     #TODO: footsteps tosi hiljasella
+    play sound footsteps volume 0.7
     pause 1
     show agatha iloinen
+    stop sound fadeout 3
     A "Oh, that must be the delivery agents with the triple Loot. Be a dear and go tell them where to put everything. Come fetch me when they're done."
     MC "Aye aye, ma'am…"
+    play sound footsteps
     scene black with dissolve
     pause 1.0
     scene bg hallway with dissolve
+    stop sound fadeout 3
     #musta ruutu, sit käytävä bg
     "Delivery agent" "Huff… A… delivery… for the warehouse."
     "The monster doubles over and pants heavily."
@@ -114,25 +147,32 @@ label day4_A2:
     "Delivery agent" "Delivery to where? Last I checked, all monsters already had Loot."
     pause 0.5
     MC "...Could you wait a minute? I have to check with someone."
+    play sound footsteps
     scene black with dissolve
     pause 1.0
     scene bg warehouse with dissolve
+    stop sound fadeout 3
     #musta ruutu, sit varasto
     "What's going on? Agatha said we are behind schedule, but apparently everyone already has Loot?"
     #cee perus
+    play sound footsteps
     show cee perus zorder 1 at cright with easeinright:
         xalign 0.99 xoffset 100
+    stop sound fadeout 3
     C "You appear dismayed. No wonder."
     MC "Did you know that all monsters already have Loot? Isn't that really amazing?"
     show cee at hop
     C "Ah. Suspect it, I did. It appears our efforts have borne fruit."
     C "And yet, I hear no cheers nor praise, but angry muttering from the entryway."
+    play sound footsteps
     show karkhos perus mato zorder 2 at cleft with easeinleft:
         xalign 0.01 xoffset -100
     # Karkhos appears
+    stop sound fadeout 3
     "Karkhos comes in from the corridor. He must've been in the breakroom."
     K "Had a chat with the delivery guys. They were pissed. Figures."
     #agatha ilmestyy, vakava
+    play sound wingflap
     show agatha vakava zorder 3 at middle with easeinleft
     A "What are you all standing around for? No extra breaks until the warehouse is empty."
     show karkhos at hop
@@ -184,6 +224,7 @@ label day4_A2:
     show karkhos kauhistus mato
     show cee kauhistus
     A "NOOOOOOOOOOOOOO!"
+    play sound wingflap volume 1.7
     # agatha pois vauhdikkaasti
     hide agatha with moveouttop
     "A single flap of wings, and she has shot into the depths of the warehouse. I didn't know she could fly that fast."
@@ -252,13 +293,15 @@ label day4_A2:
     show karkhos perus mato zorder 2 at cright, hop with dissolve
     # show karkhos at hop
     K "Agatha, please come out!"
+    play sound wingflap
     show agatha alakuloinen zorder 1 at middle with dissolve
     show cee at cright with ease:
         xalign 0.99 xoffset 100
     show karkhos at cleft with ease:
         xalign 0.01 xoffset -100
     # A slow fade in
-    All "..."
+    #TODO: short allspeak?
+    "All" "..."
     pause 1
     MC "Krhm. Agatha would like to speak."
     K "Wait. I'll go first."
@@ -326,9 +369,12 @@ label day3_B1:
     "They went to check my dispatch records some time ago. This is it."
     "They're coming out! The suspense is making my digestive region sick."
     # sprites, karkhos happy ja kaks muuta sad
+    play sound wingflap
     show agatha alakuloinen zorder 1 at cleft with moveinleft
+    play sound footsteps
     show cee alakuloinen zorder 2 at cright with moveinright
     show karkhos tosi iloinen zorder 3 at middle with moveinleft
+    stop sound fadeout 2
     show agatha at hop
     A "We have …a winner…"
     show cee at hop
@@ -373,9 +419,11 @@ label day3_B1:
     show cee alakuloinen
     K "The jokey mood's contagious."
     "Though it's only lunch, we march for the doors. Agatha and Cee give the warehouse one final, longing look."
+    play sound footsteps
     hide karkhos with moveoutright
     hide cee with moveoutright
     hide agatha with moveoutright
+    stop sound fadeout 3
     "This result… Was it really alright?"
     scene black with fade
     pause 1
@@ -402,13 +450,17 @@ label day4_B2:
 
     #TODO: walking sound
     #käytävä BG
+    play sound footsteps
     scene bg hallway with fade
     pause 0.5
+    stop sound fadeout 3
     "Karkhos told us to not come to the warehouse until noon, and to bring a pillow."
     "Though we had fun, I don't see how a bender like that will help. My idea of \"living like no tomorrow\" would probably be a tasty meal and a vivid sunset."
     "Maybe Karkhos knows what he's doing. Maybe our productivity will be off the charts today. Hopefully not on the low end."
     #TODO: kävely äänii
+    play sound footsteps
     "As I approach the warehouse, I hear the commotion of a crowd."
+    stop sound
     "A group of delivery agents has gathered in front of the main entrance."
     "Delivery agent" "Hey! Why's the warehouse not giving Loot to deliver?"
     "Delivery agent" "We've got a huge number of deliveries to make. Humans attacked this morning, and many monsters used their Loot."
@@ -417,17 +469,22 @@ label day4_B2:
     "They grumble, but when I say I only work here, they let me in."
 
     #TODO: warehouse. Vettä ja roinaa versio.
+    play sound footsteps
     scene bg warehouse karkhos with dissolve
+    stop sound fadeout 3
     pause 1
     "The humidity is so high I could start melting. Waterlogged Loot litters the entryway. There's a smell of rust, and of something rotting."
     #Agatha sprite
+    play sound wingflap
     show agatha alakuloinen kyynel zorder 1 at middle with easeintop
     "Agatha flutters above the water. I've never seen her this rundown."
     show agatha at hop
     A "I can't do this anymore. Just because this was the majority decision…"
     #TODO: kävely vedessä ääni
+    play sound footstepswater
     "Cee is crawling through the water that's not deep enough for swimming. They gurgle something in the water. I shake my head."
     # C sprite
+    stop sound fadeout 3
     show cee perus zorder 2 at cright with easeinbottom
     show agatha alakuloinen
     "Cee sits up and looks contemplative."
@@ -438,9 +495,11 @@ label day4_B2:
     show agatha at hop
     A "Where is Karkhos? It's past noon."
     #TODO: footsteps in water approaching. They stop.
+    play sound footstepswater
     "We all turn. Karkhos has stopped at the entrance. He seems horrified."
     #neutraali ilme, tai sit joku kauhistus?
     show karkhos kauhistus mato zorder 3 at cleft with easeinleft
+    stop sound fadeout 3
     K "What's going on…"
     K "There were delivery agents outside. I told them to take the day off, but it just made them angrier."
     K "But this mess… \nWe were only away from one noon to the next!"
@@ -458,8 +517,10 @@ label day4_B2:
     K "If we'd been here in the evening, we would have noticed the flooding earlier. None of this loot would be ruined."
     show karkhos vihainen mato
     K "Damn it… I should have seen this coming— Gh!"
+    play sound runningwater
     show karkhos vihainen mato with ease:
         yoffset 200
+    stop sound
     #TODO: onks tää liian goofy
     show agatha pelokas at middle
     show cee kauhistus
@@ -474,12 +535,15 @@ label day4_B2:
     MC "Agatha, go get it!"
     show agatha pelokas at shake
     A "B-b-b-b-blood!"
+    play sound wingflap
     hide agatha with easeouttop
     "She flies up to the ceiling and hides behind a stalactite."
     show cee perus at hop
     C "I'll go."
     #TODO: walking (running?) in water sound
+    play sound runningwater
     hide cee with easeoutbottom
+    stop sound fadeout 3
     pause 1
     show karkhos at hop:
         yoffset 200
@@ -488,7 +552,9 @@ label day4_B2:
     show karkhos perus mato
     K "Oh. Now that you say it, that's probably it. All that carousing and drinking must've weakened the stitches."
     #TODO: water footsteps
+    play sound footstepswater
     show cee perus zorder 2 at cright with moveinbottom
+    stop sound fadeout 1
     "Cee has managed to find the sewing supplies. We watch silently, as Karkhos sews his abdomen back shut."
     show cee at middle with ease
     "While he sews, part of the intestine slips out, like a tongue lolling out of a second mouth. Cee helps by shoving it back in."
@@ -499,6 +565,7 @@ label day4_B2:
     K "Should've seen this coming. Some of this mess, at least."
     MC "That makes four of us."
     #Agatha fades in
+    play sound wingflap
     show cee perus zorder 2
     show agatha alakuloinen zorder 1 at middle with dissolve
     pause 0.5
@@ -540,7 +607,8 @@ label day4_B2:
     A "Right! Though I might not be ready to work less myself, I will stand behind Karkhos on this."
     show agatha iloinen at hop
     show karkhos perus mato
-    A "I will write a persuasive speech to Boss, demanding your hours be reduced, without touching your employment contract. I bet the necromantic contract doesn't care how many hours you work."
+    A "I will write a persuasive speech to Boss, demanding your hours be reduced, without touching your employment contract."
+    A "I bet the necromantic contract doesn't care how many hours you work."
     show cee at hop
     show karkhos iloinen mato
     C "Perhaps there is yet more to be done. I shall consult the necromancer. More magical energy might invigorate thine mal maintained cadaver."
@@ -559,9 +627,13 @@ label day3_C1:  #Cee wins
     "Oh… The suspense is making my digestive region sick."
     # Cee, Karkhos & Agatha sprites
     # Cee tosi iloinen, Karkhos alakuloinen, Agatha vihainen
+    play sound footsteps
     show karkhos alakuloinen zorder 1 at cleft with moveinleft
+    play sound wingflap
     show agatha vihainen zorder 2 at cright with moveinright
+    play sound footsteps
     show cee tosi iloinen zorder 3 at hop, middle with moveinright
+    stop sound fadeout 2
     C "Justice! Finally!"
     # Cee grins
     show cee hullu hymy
@@ -618,8 +690,11 @@ label day3_C1:  #Cee wins
     C "Ah, yes. That, too, of course."
     MC "C'mon, Karkhos, Agatha, let's go take a break and leave Cee to their own devices."
     #Agatha and Karhkos leave with the MC
+    play sound wingflap
     hide agatha with moveoutright
+    play sound footsteps
     hide karkhos with moveoutright
+    stop sound fadeout 3
     "Karkhos and Agatha follow me, not even looking back at the warehouse."
     "Everything seems fine, so why am I feeling a bit uneasy right now?"
     show cee hullu hymy at shake
@@ -638,17 +713,21 @@ label day4_C2:
     "Paradise island? That's what we were promised, but…"
     # Karkhos appears.
     # Karkhos alakuloinen
+    play sound footstepswater fadein 3
     show karkhos alakuloinen at middle with moveinleft
     #TODO hitaampi moveinleft
     K "Ugh, it's so hard to move through these waters. Guess I'm not the only one who's not gonna make it to the next shift on time."
     #Karkhos disappears
+    play sound footstepswater
     hide karkhos with moveoutright
+    stop sound fadeout 3
     "Our workplace has become a water dungeon."
     "No sun, no palm trees, no silly little drinks - even the water is murky and dirty."
     "Well. I suppose we DO have sand like Cee promised, but it's mostly underwater. I can kiss the dream of getting to make sand castles during breaks goodbye."
     A "Hey, watch where you're going!"
     # Agatha appears
     # Agatha vihainen
+    play sound wingflap
     show agatha vihainen at middle, shake2 with moveinright
     A "Oohh, I dropped my file! I can't dive after it. Someone help me!"
     hide agatha with moveoutright
@@ -670,7 +749,9 @@ label day4_C2:
 
     # Cee appears.
     # Cee tosi iloinen.
+    play sound footstepswater
     show cee tosi iloinen at middle, shake2 with moveinright
+    stop sound
     "Cee looks cheerful, but it's obvious they're stressed about something."
     show cee at hop
     C "Greetings, [MC]! How is life in paradise? I've been so busy with all the logistics and renovations that I haven't had the time to chat with my dear benefactor."
@@ -704,8 +785,11 @@ label day4_C2:
     # Agatha & Karkhos appear
     # Agatha vihainen, Karkhos pikkuviha
     show cee perus zorder 3
+    play sound wingflap
     show agatha vihainen zorder 1 at cright with moveinright
+    play sound footstepswater
     show karkhos pikkuviha zorder 2 at cleft with moveinleft
+    stop sound fadeout 1
     show agatha at hop
     A "There you are! I've had enough of this wet, murky madness!"
     show karkhos at hop
@@ -729,9 +813,11 @@ label day4_C2:
         zoom 1.016
     C "Siiiiiiiiiiiiileeeeeeeeeeeenceeeeeeeeeeee!"
     pause 0.5
+    play sound runningwater
     show bg warehouse cee:
         zoom 1
     hide cee with moveoutleft
+    stop sound fadeout 5
     pause 1
     # C storms off. TODO: Swimming sounds.
 
@@ -740,16 +826,21 @@ label day4_C2:
     show karkhos alakuloinen
     K "Watch out for the whirlpool between the toilets and the exit. Nearly got stuck in it on my way home yesterday."
     #Agatha and Karkhos disappear
-    hide karkhos with moveoutright
+    play sound wingflap
     hide agatha with moveoutright
+    play sound footstepswater
+    hide karkhos with moveoutright
     show bg warehouse cee with fade:
         zoom 2.0
         yoffset 550
+    stop sound fadeout 1
     "Ah, there's Cee! They sure swim fast."
     "Luckily there's a dead-end at the end of this hallway. There's no way Cee can escape me."
 
     # Cee appears, Cee vihainen
+    play sound footstepswater
     show cee vihainen at middle with moveinright
+    stop sound
     MC "There you are, Cee."
     C "Have you come to mock me? Have you come to laugh at my hubris, at my pathetic state?"
     MC "Of course not. I can see that you're not happy with how things turned out, either."
@@ -790,8 +881,8 @@ label day4_C2:
     C "Very well then. It seems that I was right to make you my partner in crime, [MC]. You clearly possess something even I do not."
     C "I take back what I said - you are not a shark sinking its teeth into flesh, you are a gentle whale gliding through the depths."
     MC "Aww, thank you, Cee."
-    show bg with hpunch
     show cee perus
+    show bg with hpunch
     "As I start to head back, Cee grabs me."
     C "I was not being completely honest with you before. I mentioned wanting to be feared by everyone - even Boss."
     MC "Yeah?"
@@ -821,9 +912,11 @@ label day4_C2:
     show cee iloinen
     C "I consider myself quite verbose. However, I'm feeling something rather ineffable right now. I'll leave it up to you to imagine and translate the depths of my soul."
     MC "Don't worry, Cee, I think I have a pretty good idea of how you're feeling." 
+    play sound footstepswater
     scene bg warehouse cee with fade:
         zoom 1.0
         yoffset 0
+    stop sound fadeout 4
     pause 1
     show cee alakuloinen zorder 3 at middle with dissolve
     show karkhos perus zorder 2 at cleft with moveinleft
@@ -856,7 +949,8 @@ label day4_C2:
     C "Yes yes, no need to rub it in my face."
 
     window hide
-    show bg warehouse cee with fade
+    show bg warehouse cee with fade #TODO: slow fade?
+    show cee perus
     pause 0.5
 
     "We discuss the clean-up operation."
