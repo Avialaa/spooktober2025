@@ -44,9 +44,8 @@ label day2_1:
     pause 0.5
     hide julisteet1 with dissolve
     "When did they even have the time to hang all this? To make all of this? They're all really dedicated…"
-    "In a way, it's amazing how much effort they're putting into this. Though it's a pain, I'd feel bad just ignoring them."
-    "They all have ideas for how to improve the warehouse. It's just unfortunate that all their plans hinge on me."
-    "Maybe it's unfair of me to keep toiling away, like nothing out of the ordinary is going on."
+    "In a way, it's amazing how much effort they're putting into this. They all have ideas for how to improve the warehouse."
+    "Though it's a pain, I'd feel bad just ignoring them."
     play sound footsteps
     scene bg warehouse posters with dissolve
     pause 1
@@ -289,8 +288,8 @@ label day2_3A:
     show cee perus
     C "Were we to work harder, would it not in actuality decrease our output? Eat the marlin's roe, and be bereft of the fish. She is thinking short term, when what matters is the long term."
     show cee karmiva hymy at hop
-    C "Unwittingly, she may yet be furthering my goals."
-    C "She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures. Rather than a moth, she is a locust. Nay, a disease!"
+    C "Unwittingly, she may yet be furthering my goals. She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures."
+    C "Rather than a moth, she is a locust. Nay, a disease!"
     MC "Stop."
     show cee kauhistus at hop
     C "...!"
@@ -343,20 +342,21 @@ label day2_3B:
     A "A few years back, the whole undead servant thing ruffled some feathers. Do you remember?"
     MC "Not really. News travels slow to the dungeon."
     show agatha vakava
-    A "The Monsters' Rights Union started advocating for undeads' rights. They were outraged that our dead were being raised as thoughtless, wantless servants."
+    A "The Monsters' Rights Union started advocating for undeads' rights. They were outraged that our dead were being raised as servants."
     show agatha vakava at hop
-    A "The huge public protests were the talk of the land."
-    A "The necromancers' guild eventually yielded. In response to the protests, they did something drastic: they signed an agreement to preserve the corpse's personality as they raised it."
+    A "The huge protests were the talk of the land."
+    A "The necromancers' guild eventually yielded. In response to the protests, they signed an agreement to preserve the corpse's personality as they raised it."
     show agatha at hop
     A "A huge victory, right?"
     show agatha alakuloinen
     A "Turns out an undead with a personality intact might have a thing or two to say about being forced into service."
     A "The necromancers have since discontinued the agreement, returning to the old ways, but the undead raised under the agreement remain."
-    MC "You're saying Karkhos was a …test dummy? I had no idea he had gone through something like this. Though he has always been pretty opinionated for an undead."
+    MC "You're saying Karkhos was a …test dummy?"
+    MC "I had no idea he had gone through something like this. Though he has always been pretty opinionated for an undead."
     show agatha vakava
-    A "I don't know the details, but I suspect Karkhos was raised as an employee for the Chain of Loot."
+    A "I don't know the details, but I suspect Karkhos was resurrected to be an employee for the Chain of Loot."
     A "He probably needs to work here, per the necromantic contract, or something bad happens. Here, or somewhere else in the chain."
-    MC "Maybe Karkhos will tell us himself when he's ready. This is plenty of gossip for one day."
+    MC "Maybe Karkhos will tell us himself when he's ready. This is enough gossip for one day."
     A "Ask him yourself, then."
     show agatha at hop
     A "But you see? Someone forced into working isn't the best judge of what's good for the warehouse. His opinions are tinted by his horrible and inescapable circumstances."
@@ -367,7 +367,7 @@ label day2_3B:
     A "I don't know what's wrong with him, and I don't care. He's handling it about as poorly as one can."
     show agatha at hop
     A "I won't let him drag us down with him."
-    MC "That's for Boss to decide. He's not harming any of us."
+    MC "That's for Boss to decide. Karkhos isn't harming any of us."
     show agatha vakava
     A "Isn't he? Karkhos never participates in the holiday gift exchanges, eats the communal foods even though he doesn't need to, doesn't clean up after himself, is always late..."
     show agatha vihainen at hop
@@ -393,14 +393,18 @@ label day2_3B:
     A "Then Boss will hire a lobotomy wizard to make US into thoughtless, wantless servants."
     show agatha pelokas at middle
     MC "Now you're just exaggerating."
-    MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't okay."
+    MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't part of the job."
     show agatha vakava at hop
     A "Fine. Suit yourself."
+    A "Once Boss returns, I won't let this behavior continue."
     play sound wingflap
     hide agatha with easeoutright
     # agatha läpsyttelee pois
-    "Wow. If what Agatha told me is true…"
-    "How would I feel about working at the warehouse if I was forced into it?"
+    "If what Agatha told me is true…"
+    "How would I feel about doing forced labor?"
+    #TODO: conditional skenessä 2.5B jos pelaaja saanu tän skenen
+
+
     return
 
 label day2_3C:
@@ -612,7 +616,8 @@ label day2_5B:
     scene bg hallway posters with dissolve
     pause 1
     scene bg hallway posters night with dissolve
-    "Second day done. Can't wait to go home and melt in my bathtub shaped hole. Keeping my professionally cubistic shape together is tiring."
+    "Second day done. Can't wait to go home and melt in my bathtub shaped hole. Keeping a good posture without any bones takes effort."
+    "Still, work was a lot easier when I didn't push myself so hard."
     "I can still hear conveyor belt sounds coming from the warehouse. Some of the guys are still working."
     "As for who isn't, I have a guess."
 
@@ -657,7 +662,8 @@ label day2_5B:
             K "Huh? Sure is. Moisture good for ya?"
             MC "For slimekind, hydration is very important. Mom used to spray me with sugar water during dry seasons."
             show karkhos alakuloinen
-            K "For me, moisture's trouble. I gotta be careful my brain doesn't become a residence for some mold. I've already got a tenant, and Wormy even pays rent. And eats the mold."
+            K "For me, moisture's trouble. I gotta be careful my brain doesn't become a residence for some mold."
+            K "I've already got a tenant, and Wormy even pays rent. And eats the mold."
             show karkhos alakuloinen mato at hop
             "Wormy wriggles up to nod vehemently."
             "...! This is it, the perfect lead in."
@@ -680,22 +686,23 @@ label day2_5B:
     K "Uh. When I said it's a Q and A, I sorta hoped you'd ask about workers' right to more breaks."
     MC "Sorry. Your death is probably a difficult memory."
     show karkhos perus
-    K "Nah, man. I used to be an orc. The way I died was stupid. Didn't have Loot on me, while my clan mates did. The last thing I saw was their retreating feet."
+    K "Nah, man. I used to be an orc. The way I died was stupid."
+    K "Didn't have Loot on me, while my clan mates did. The last thing I saw was their retreating feet."
     show karkhos at hop
-    K "That should've been it for me, but I woke up in the chain's restoration facility."
+    K "That should've been it for me, but I woke up in the chain's restoration facility. Guess I looked strong enough to turn into an undead?"
     K "No hard feelings to the necromancer who patched me up. Though I think she took my kidney. And something else over in my mid abdomen. The cavity sometimes gathers liquid."
     # K happy sprite
     show karkhos iloinen
     K "Oh well! I've still got lots of organs to spare. Not like they do much now. They've probably spoiled anyway."
     MC "You were… happy to be turned into an undead?"
     # K neutral sprite
-    K "Getting a new chance at life doesn't happen to everyone."
-    K "There was still a lot I wanted to experience, and I was happy to give back. The Loot saved my clan mates, and the chain gave me a second life."
+    K "Getting a new chance at life doesn't happen to everyone. There was still a lot I wanted to experience, and I was happy to give back."
     show karkhos perus
-    K "In the beginning, didn't matter I was destined to work until my body fell apart."
+    K "The Loot saved my clan mates, and the chain gave me a second life. Didn't matter I was destined to work until my body fell apart."
     # sad sprite
     show karkhos alakuloinen
-    K "But this job… Seems I was happy too soon, huh?"
+    K "But this job… When I was alive, daily chores were never this taxing."
+    K "As days have trickled by, not even the good cause keeps my feet moving."
     K "I've worked all my life, but even after death, the grind goes on." 
     # angry sprite
     show karkhos pikkuviha
@@ -708,9 +715,9 @@ label day2_5B:
     show karkhos pikkuviha
     MC "Maybe you just need a holiday? When's the last time you had time off?"
     show karkhos alakuloinen
-    K "When I was alive. Back in the orc village, we had a thing called \"rest day\". No such things here."
+    K "When I was alive. Back in the orc village, we had a thing called \"rest day\". No such things here. If only the Boss would give us a few days off."
     show karkhos vihainen at shake
-    K "If I had a few days off, I'd go lava surfing, cave diving, ride a wyrm and kiss the moon. Just because I'm dead doesn't mean I can't LIVE A LITTLE."
+    K "I'd go lava surfing, cave diving, ride a wyrm and kiss the moon. Just because I'm dead doesn't mean I can't LIVE A LITTLE."
     "The shout echoes down every branching cavern. Anyone creeping around the dungeon probably turned to run."
     show karkhos perus at hop
     K "That being so, we need to reach a resolution with this fight. Cee and Agatha need to learn that enough's enough."
