@@ -356,7 +356,13 @@ label upgradetreeTest:
     return
 
 label upgradeTree:
-    scene bg warehouse
+    if workShift == 1 or workShift == 2:
+        scene bg warehouse
+    elif workShift == 3 or workShift == 4 or workShift == 5:
+        scene bg warehouse posters
+    else: 
+        scene bg warehouse
+
     "Time for another shift!"
     if _skipping:
         hide screen skip_indicator
@@ -499,7 +505,7 @@ screen pointView:
                 add "order bone.png"
 
 screen upgradeTree:
-    add "bigspace_day.png"
+    #add "bigspace_day.png"
     modal True
 
     #point status view
