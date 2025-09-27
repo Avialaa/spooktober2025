@@ -94,8 +94,8 @@ label start:
         call day2_3A
     elif currentStoryRoute == "karkhos":
         call day2_3B
-    #elif currentStoryRoute == "cee":
-    #   call day2_3C
+    elif currentStoryRoute == "cee":
+        call day2_3C
     #neljäs minipelityövuoro
     call upgradeTree
     call warehouse_gameplay

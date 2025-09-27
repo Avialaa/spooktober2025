@@ -61,33 +61,62 @@ label day2_1:
 
 label day2_2: 
 # (After morning minigame, at warehouse)
-
+    scene bg warehouse posters with dissolve
     "Phew!"
     "I'm getting the hang of this new system."
     "After I turn off my conveyor belt, the warehouse falls quiet. Everyone's already left for lunch. Could get used to a silence like this."
 
     # At breakroom, show all sprites
+    scene bg breakroom posters with dissolve
+    show agatha perus zorder 1 at middle with dissolve
+    show cee perus zorder 3 at cright with dissolve
+    show karkhos perus mato zorder 2 at cleft with dissolve
+
     "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
+    show agatha vihainen at hop
     A "Unbelivable. I expected better from you two."
+    show karkhos pikkuviha mato
     K "As if you are one to talk."
+    show cee vihainen at hop
     C "This is mutiny!"
+    pause 0.5
     "Briefly, I entertain the fantasy of abandoning lunch, turning around and returning to work. But all four of Agatha's eyes turn to me."
+    show agatha vakava
     A "[MC]! Will you talk sense into these two?"
+    show karkhos at hop
     K "Why're you dragging [MC] into this? Don't try to misdirect. What you did isn't cool."
+    show cee perus
     C "Mister Destroyer, I dare argue your actions have proven just as despicable."
+    show karkhos kauhistus mato
     K "What actions?"
+    show cee at hop
     C "Précis!"
+    show karkhos perus mato
     MC "One at a time? I'm sure nobody did it on purpose, whatever it is."
+    show cee vihainen
     C "Miss Agatha here has conspired to make wretches of us all."
+    show karkhos pikkuviha mato
     K "Cee has done that too!"
-    A "Don't forget Karkhos has compromised the monsterkind's safety, the warehouse's very purpose."
+    show agatha vakava at hop
+    A "Don't forget Karkhos has compromised monsterkind's safety, the warehouse's very purpose."
+    show agatha vihainen at hop
     A "We agreed on not going against Boss' orders until MC has decided. And here we are."
+    show cee vihainen at hop
+    show karkhos perus mato
     C "What fungus has infested thine brain for you to think you're exempt?"
+    show agatha
     A "Working hard is EXACTLY what the Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
+    show cee perus
     C "I'm simply practicing some much needed service development. As per the Boss' orders."
+    show agatha at hop
     A "You're practically begging to get fired!"
+    show cee at hop
     C "Isn't there someone here asking for it rather more insistently?"
+    show karkhos pikkuviha mato
     K "...What, me?! No! All I ask for are better conditions."
+    show agatha vakava
+    show cee perus
+    show karkhos perus mato
     MC "Wait wait wait… One at a time."
     # (!!!!! Valinta jossa pitää valita kaikki 3 vaihtoehtoa että pääsee eteenpäin)
     #
@@ -99,45 +128,68 @@ label day2_2:
             "Agatha, what did you actually do?":
                 $ visited.add("Agatha, what did you actually do?")
                 # A neutral
+                show agatha vihainen at hop
+                show karkhos perus mato
+                show cee perus
                 A "Don't act like I'm some villain. I've worked harder than anyone here."
                 MC "Just, sounded like something serious has happened."
+                show agatha vakava
                 A "Fine, for the sake of transparency."
                 A "I might have ordered a triple of everything."
+                show agatha at hop
                 A "Wisely! So that we can better show our capabilities."
                 A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
                 MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
                 # A smile
+                show agatha iloinen suukiinni
                 A "..."
+                show agatha iloinen at hop
                 A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
                 "Oh, Agatha."
                 jump qqquestions
             "Karkhos, how many boxes today?":
                 $ visited.add("Karkhos, how many boxes today?")
+                show karkhos pikkuviha mato
+                show agatha vakava
+                show cee perus
                 K "Why's that important? I have done what's within my capabilities."
                 MC "Which is…?"
+                show karkhos perus mato
                 K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
                 K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
-                K "I've completed a full and whole– A whopping total of a—"
+                K "I've completed a full and whole- A whopping total of a—"
                 # K sad
+                show karkhos alakuloinen mato
                 K "...a…"
                 # K angry
+                show karkhos vihainen mato
                 K "I have prioritized quality over quantity."
                 "I can see why the others are upset."
                 jump qqquestions
             "Cee, what's this development stuff?":
                 $ visited.add("Cee, what's this development stuff?")
+                show cee hullu hymy
+                show agatha vakava
+                show karkhos perus mato
                 C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
                 MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
+                show cee perus
                 C "Very well, my sluggish companion. I put fish into all the orders."
                 MC "Yeah, that's… yeah."
+                show cee iloinen
                 C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
                 "WHAT."
+                show agatha vakava at hop
+                show karkhos pikkuviha mato at hop
                 "Agatha and Karkhos give me knowing looks."
+                show cee tosi iloinen at hop
                 C "Rejoice: we shall soon have fresh water aplenty."
                 MC "That's insane!"
+                show cee perus
                 C "It is what anyone in my situation ought to have done."
                 MC "I don't think ANYONE but you would have done that."
                 # C smiles
+                show cee tosi iloinen
                 C "Oh, you do flatter me."
                 jump qqquestions
 
@@ -145,16 +197,29 @@ label day2_2:
         "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
         "So much for democracy."
         "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
+        show karkhos perus mato
+        show cee perus
+        show agatha vakava
         MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
+        show agatha vihainen at hop
         A "Yeah, get it together, guys!"
+        show karkhos pikkuviha mato
         K "You too."
+        show karkhos vihainen mato
         K "This isn't fair. I have done what I can. If what I've accomplished is not enough, then from now on, I will not pack a single box."
+        show cee vihainen
         C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
+        show cee at hop
         C "What I must do cannot wait. Farewell!!!"
+        hide cee with easeoutleft
         # C pois, footsteps
+        show agatha at hop
         A "ARGH!!!"
+        hide agatha with moveouttop
         # A pois, wing flaps
+        show karkhos pikkuviha mato
         K "...too pissed to nap…"
+        hide karkhos with easeoutright
         # K pois, footsteps
         "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
         "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
@@ -189,7 +254,7 @@ label day2_3A:
         xoffset -1650
         yoffset -400
     "Cee ushers me into a crevice in the corridor. I follow, initially reluctant, except…"
-    "Ever since Boss left, I haven't really talked with Cee. What's so important that they waited for me, after storming off like that? I'm a bit curious."
+    "What's so important that they waited for me, after storming off like that? I'm a bit curious."
     "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
     show cee vihainen at hop
     C "Pardon the precautions. I had to make sure that the tiny control freak wasn't following us."
@@ -319,10 +384,74 @@ label day2_3B:
     "How would I feel about working at the warehouse if I was forced into it?"
     return
 
+label day2_3C:
+    # bg käytävä
+    scene bg hallway posters
+
+    "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
+    show karkhos pikkuviha mato at middle with dissolve
+    K "[MC], I gotta speak to you."
+    MC "Huh? You waited for me?"
+    K "It's about Cee."
+    "What's so important that he waited for me, after storming off like that? I'm a bit curious."
+    MC "Has Cee done something?"
+    show karkhos nukkuva mato
+    K "Besides what they've confessed to? For sure."
+    show karkhos perus mato
+    K "But that's not what I'm here for."
+    K "You know, Cee was already employed here when I started. I was just a newbie, in need of guidance in the ways of the warehouse."
+    show karkhos pikkuviha mato
+    K "On that first day, you know what Cee said to me?"
+    show karkhos vihainen mato
+    K "NOTHING."
+    K "I tried to be nice, but I got treated like there was nothing going on between my ears. Cee just gave me murderous side-eyes and a mean cold shoulder."
+    MC "Cee ignored me in the beginning too. It probably wasn't personal."
+    K "Cuz Cee looks down on everyone."
+    show karkhos pikkuviha mato
+    K "Be honest: do you even know what Cee's advocating for?"
+    MC "Uh… Equality and better benefits?"
+    K "But what's Cee gonna DO about it?"
+    "I only pause to think for a second, but Karkhos reads my silence as an admission."
+    K "See, you don't even know."
+    K "Be real. Cee has no plans to let you in on the jig. They're a solo monster."
+    MC "That's not true. Cee wants to increase efficiency by building better recreational facilities."
+    K "So more boxes packed, but less tired workers? How's that gonna math out?"
+    K "If it was possible to do more without doing more, don't you think I'd be campaigning for it? How's messing with the conveyor belt gonna \"revolutionize the system\"? Miracle cures don't exist."
+    K "[MC], sorry to break it to you, but Cee's using you."
+    show karkhos vihainen mato
+    K "All day long Cee calls us fools, idiots, and so on. Clear as day what their opinion of us is."
+    K "They've used big words to confuse you. But all that fancy talk is like a small pufferfish inhaling water to look bigger."
+    MC "If Cee's just a pufferfish, then you have no reason to be provoked by them."
+    show karkhos at hop
+    K "I'm not getting provoked! It's annoying, is all."
+
+    menu:
+        "I get to side with whoever I want.":
+            MC "I choose. That's the spirit of the game."
+        "It's not okay to badmouth coworkers.":
+            MC "Karkhos, you've gone too far."
+            show karkhos pikkuviha mato
+            K "Tit for tat. I haven't done anything Cee hasn't."
+            MC "Then be the bigger monster and stop."
+
+    show karkhos nukkuva mato at hop
+    "Karkhos sighs and shrugs."
+    K "Welp. I tried. Guess that's that."
+    show karkhos perus mato
+    K "So long, [MC], and take it easy with the fish."
+    # karkhos menee pois
+    hide karkhos with easeoutright
+    "Without any further convincing, Karkhos stomps back into the breakroom. He gave up shockingly fast."
+    "Though he had a point, he has also misunderstood Cee's intentions."
+    "Cee's the only one looking far into the future. That's admirable."
+    "And Karkhos was wrong. I know exactly what Cee's planning."
+    pause 1
+    "...Right?"
+    return
 
 
 label day2_5A:
-    scene bg breakroom posters night 
+    scene bg breakroom posters night with dissolve
     "As I start heading home, I see something shocking out of the corner of my eye."
     show agatha alakuloinen at agathabreakroom
     "Is that… Agatha? Sitting in the break room and not working?"
