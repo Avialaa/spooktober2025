@@ -63,7 +63,7 @@ define gui.text_font = "DMSans-Light.ttf"
 define gui.name_text_font = "Raleway-Bold.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "DMSans-Light.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 33

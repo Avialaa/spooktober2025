@@ -114,3 +114,21 @@ screen day_change:
         xcenter 0.5 ycenter 0.5
         at next_day
     timer 2.0 action [Hide(), Return()]
+
+label tutorial:
+    scene bg warehouse
+    "Someone left sticky notes on the new work station... Looks like instructions on how to use the new system."
+label sticky_notes_tutorial:
+    window hide
+    scene tutorial with fade
+    pause
+    scene bg warehouse with fade
+
+    menu:
+        "Take another look at the sticky notes.":
+            jump sticky_notes_tutorial
+        "Start your work shift.":
+            pass
+    
+    return
+
