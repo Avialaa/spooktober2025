@@ -1,41 +1,45 @@
 ﻿# The script of the game goes in this file.
 
 init python:
+    renpy.music.register_channel("beeps", mixer="voice") #custom channel for character voices
+
     def karkhosSpeak(event, interact = True, **kwargs):
         if not interact:
             return
         if event == "show":
-            renpy.sound.play("audio/speakKarkhos.mp3")
+            renpy.sound.play("audio/speakKarkhos.mp3", channel='beeps')
         elif event == "slow_done" or event == "end":
-            renpy.sound.stop()
+            renpy.sound.stop(channel='beeps')
     def agathaSpeak(event, interact = True, **kwargs):
         if not interact:
             return
         if event == "show":
-            renpy.sound.play("audio/speakAgatha.mp3")
+            renpy.sound.play("audio/speakAgatha.mp3", channel='beeps')
         elif event == "slow_done" or event == "end":
-            renpy.sound.stop()
+            renpy.sound.stop(channel='beeps')
     def ceeSpeak(event, interact = True, **kwargs):
         if not interact:
             return
         if event == "show":
-            renpy.sound.play("audio/speakCee.mp3")
+            renpy.sound.play("audio/speakCee.mp3", channel='beeps')
         elif event == "slow_done" or event == "end":
-            renpy.sound.stop()
+            renpy.sound.stop(channel='beeps')
     def MCSpeak(event, interact = True, **kwargs):
         if not interact:
             return
         if event == "show":
-            renpy.sound.play("audio/speakMC.mp3")
+            renpy.sound.play("audio/speakMC.mp3", channel='beeps')
         elif event == "slow_done" or event == "end":
-            renpy.sound.stop()
+            renpy.sound.stop(channel='beeps')
     def allspeak(event, interact = True, **kwargs):
         if not interact:
             return
         if event == "show":
-            renpy.sound.play("audio/allspeak.mp3")
+            renpy.sound.play("audio/allspeak.mp3", channel='beeps')
         elif event == "slow_done" or event == "end":
-            renpy.sound.stop(1)
+            renpy.sound.stop(channel='beeps', fadeout=1)
+    
+    
 
 define e = Character("Eileen")
 define A = Character("Agatha", who_color="#CB985F", callback=agathaSpeak)
