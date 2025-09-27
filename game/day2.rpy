@@ -447,6 +447,7 @@ label day2_3C:
     "And Karkhos was wrong. I know exactly what Cee's planning."
     pause 1
     "...Right?"
+    return
 
 
 label day2_5A:

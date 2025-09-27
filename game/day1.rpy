@@ -114,7 +114,7 @@ label day1_2:
     #worm sprite
     show karkhos pikkuviha mato at hop
     "I nod as a greeting to Wormy, who returns the gesture."
-    show karkhos perus mato
+    show karkhos perus
     MC "I'm headed to lunch. You want to come?"
     K "Nah. Cool seeing you."
     K "…"
