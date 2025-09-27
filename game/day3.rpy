@@ -21,6 +21,8 @@ label day3_1:
     "I'm just going to ignore that."
     "This is the final shift before we decide on a winner. Better make my choices count."
 
+    return
+
 
 label day3_A1:
     scene bg hallway posters with dissolve

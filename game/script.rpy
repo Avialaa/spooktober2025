@@ -108,6 +108,7 @@ label start:
     elif currentStoryRoute == "cee":
         call day2_5C
     call day_change #day changes!!
+    call day3_1
 
     #Viides työvuoro
     call upgradeTree
