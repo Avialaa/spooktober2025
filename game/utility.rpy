@@ -117,7 +117,7 @@ screen day_change:
 
 label tutorial:
     scene bg warehouse
-    "Someone left sticky notes on the new work station..."
+    "Someone left sticky notes on the new work station... Looks like instructions on how to use the new system."
 label sticky_notes_tutorial:
     window hide
     scene tutorial with fade
