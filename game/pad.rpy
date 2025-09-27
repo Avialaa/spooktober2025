@@ -14,6 +14,8 @@ style padNextStyle:
     line_spacing -10
     size 28
 
+default itemNameDict = {"light": "Lantern", "sleep": "Nap", "fish": "Fish", "bone": "Bone", "meat": "Meat", "weapon": "Blade", "keys": "Key", "treasure": "Coin"}
+
 init python:
     def updateOrders():
         global orderItems1
@@ -64,7 +66,7 @@ screen magicPad:
                     hbox:
                         add "order [item]" #current order has icons; next orders don't
                         vbox:
-                            text "[item]  " style "padStyle"
+                            text "[itemNameDict.get(item)]  " style "padStyle"
                             if orders[0].count(item) == [item.name for item in itemsInBox].count(item):
                                 add "minigame checkmark.png" zoom 0.5
                             else:
@@ -74,13 +76,13 @@ screen magicPad:
                 text "Next order" style "padNextStyle"
                 for item in orderItems2:
                     hbox:
-                        text "[item]  "style "padNextStyle"
+                        text "[itemNameDict.get(item)]  "style "padNextStyle"
                         text "x[orders[1].count(item)]" style "padNextStyle" #returns number of items
                 text " "
             vbox: #next next order
                 text "Next next order" style "padNextStyle"
                 for item in orderItems3:
                     hbox:
-                        text "[item]  " style "padNextStyle"
+                        text "[itemNameDict.get(item)]  " style "padNextStyle"
                         text "x[orders[2].count(item)]" style "padNextStyle" #returns number of items
                 text " "
