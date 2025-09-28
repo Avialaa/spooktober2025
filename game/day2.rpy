@@ -27,17 +27,20 @@ label day2_1:
     "Decorations…? Is today a festival?"
     "On closer inspection, these are probably related to the fight. It seems they hope to sway me with slogans and art. Seems kinda cheap." 
     #TODO: arttien näyttäminen
+    play sound paper
     show julisteet2 at middle with dissolve:
         zoom 1.5
         yoffset -400
     "Agatha promises streamlined efficiency for the safety of all monsterkind."
     pause 0.5
+    play sound paper
     hide julisteet2 with dissolve
     show julisteet3 at middle with dissolve:
         zoom 1.5
         yoffset -400
     "Karkhos… seems to be advocating for workplace wellness?"
     pause 0.5
+    play sound paper
     hide julisteet3 with dissolve
     show julisteet1 at middle with dissolve:
         zoom 1.5
@@ -61,6 +64,7 @@ label day2_1:
     # \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
     # \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
     window hide
+    play sound paper
     show notes_from_characters with dissolve
     pause
     MC "...Huh."

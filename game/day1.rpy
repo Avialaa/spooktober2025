@@ -172,16 +172,13 @@ label day1_2:
     C "Was it not you, Karkhos, who slacked off? Perhaps your sacred right ought to be revoked."
     show agatha vihainen at shake
     A "You can't revoke the policy mandated lunch break!"
-    show karkhos at shake
-    # show agatha vihainen at hop
-    # show cee vihainen at hop
-    play music ilo
+    show agatha vihainen at hop
+    show cee vihainen at hop
     "They're really getting fired up."
     "Maybe all this time, they just pretended to like each other because Boss was here."
     "Doesn't feel like much of a break when the noise level is this high."
     "Well, not gonna ruin my day. As long as they're leaving me out of it."
     show agatha iloinen at hop
-    play music riita
     A "What's your stance, [MC]?"
     # C smile
     show cee iloinen at hop

@@ -101,6 +101,7 @@ label day3_A1:
     scene black with dissolve
     pause 1.5
     #musta ruutu täs välis
+    call day_change #day changes!!
 
 label day4_A2:
     #day 4 grafiikka
@@ -129,7 +130,6 @@ label day4_A2:
     MC "Thanks. Tastes like the sun."
     show agatha iloinen
     A "Tastes like work well done."
-    stop music
     show agatha perus
     #TODO: footsteps tosi hiljasella
     play sound footsteps volume 0.7
@@ -149,15 +149,16 @@ label day4_A2:
     play sound speakdistantdelivery fadein 1 loop volume 0.5
     "Behind, a dozen more delivery monsters slump down and fumble for their waterskins. The carts they were pulling take up the whole corridor, and are overflowing with unsorted Loot."
     DeliveryAgent "Could you finally tell us what the emergency is? Unrest is spreading. We've heard the rumors."
+    stop music
     MC "Wait, what rumors?"
     DeliveryAgent "That a warband of thousand humans intends to raid the dungeon! Everyone's scared."
+    stop sound fadeout 1
     DeliveryAgent "The fear was the only thing keeping us moving all night."
     "Like a stone pushed downhill, everything's suddenly happening too fast for my tired mind."
     MC "Uh… Leave the unsorted Loot here. We've packed more boxes for delivery."
     DeliveryAgent "Delivery to where? Last I checked, all monsters already had Loot."
     pause 0.5
     MC "...Could you wait a minute? I have to check with someone."
-    stop sound fadeout 1
     play sound footsteps
     scene black with dissolve
     pause 1.0
@@ -173,8 +174,10 @@ label day4_A2:
     stop sound fadeout 3
     C "You appear dismayed. No wonder."
     MC "Did you know that all monsters already have Loot? Isn't that really amazing?"
-    show cee at hop
-    C "Ah. Suspect it, I did. It appears our efforts have borne fruit."
+    show cee alakuloinen at hop
+    C "Ah. Suspect it, I did."
+    show cee perus
+    C "It appears our efforts have borne fruit."
     C "And yet, I hear no cheers nor praise, but angry muttering from the entryway."
     play sound footsteps
     show karkhos perus mato zorder 2 at cleft with easeinleft:
@@ -336,6 +339,7 @@ label day4_A2:
     show karkhos alakuloinen mato
     K "Look, I shouldn't have just stopped working. Must've been stressful to you. But you're just too fast. I had …trouble keeping up."
     K "Being compared to you made me feel small."
+    show agatha alakuloinen at hop
     A "Small?"
     show cee alakuloinen
     C "For a fish on dry land, far from home as I am, your standards were difficult to understand. You were scary."
@@ -379,6 +383,27 @@ label day4_A2:
     show agatha vakava at hop
     "The whites of her cheeks are turning redder."
     A "Maybe it's alright to take the afternoon easy. Just this once."
+    show agatha vakava at hop
+    A "But only because there are no more orders!"
+    show karkhos tosi iloinen mato at hop
+    K "An empty docket calls for celebration! I know just the place."
+    show cee alakuloinen
+    C "You two… You would celebrate with me?"
+    show karkhos iloinen mato at hop
+    show cee iloinen
+    K "Yeah, 'course!"
+    show agatha perus
+    A "Hmm… Have we ever gone out as a group?"
+    show agatha iloinen suukiinni
+    A "I must say, the idea of afterhours bonding is compelling."
+    show agatha tosi iloinen at hop
+    A "If we all go together, it's not so scary to leave the dungeon."
+    show agatha vakava
+    A "But all in moderation. Let's return by sunset."
+    show agatha tosi iloinen
+    show karkhos tosi iloinen mato
+    show cee tosi iloinen
+    MC "Hehe."
     scene black with dissolve
     pause 2
 
@@ -477,6 +502,7 @@ label day3_B1:
     "This result… Was it really alright?"
     scene black with fade
     pause 1
+    call day_change #day changes!!
 
 
 label day4_B2:
@@ -724,7 +750,6 @@ label day4_B2:
 
 
 label day3_C1:  #Cee wins
-    play music ilo
     scene bg hallway
     "They went inside my dispatch platform some time ago. This is it."
     "!! They're coming out!!"
@@ -736,6 +761,7 @@ label day3_C1:  #Cee wins
     play sound wingflap
     show agatha vihainen zorder 1 at cright with moveinright
     play sound footsteps
+    play music metkut
     show cee tosi iloinen zorder 3 at hop, middle with moveinright
     stop sound fadeout 3
     C "Justice! Finally!"
@@ -768,13 +794,16 @@ label day3_C1:  #Cee wins
             MC "You sure did. Good to know you haven't forgotten us little monsters now that you're in charge, haha."
             show cee tosi iloinen
             C "As if I could ever forget my dear benevolent benefactor."
-            show cee iloinen
+            show cee iloinen at hop
+            show karkhos pikkuviha
+            show agatha vakava
             C "I shall send my minions to find the softest of sands and create the paradise we all deserve!"
             "Minions? It seems that Cee has already adapted to their new position."
 
         "\"If you need a list of silly little drinks that'll boost our motivation, you know who to call.\"":
             show cee tosi iloinen
             C "Splendid! I knew I could always count on you. So what are you suggesting?"
+            show karkhos iloinen
             MC "First of all, no matter what we're going to drink, it has to be served in a coconut shell. Don't forget to add the little umbrella decorations either."
             show cee iloinen
             C "Duly noted. What else?"
@@ -784,16 +813,23 @@ label day3_C1:  #Cee wins
             
     
     show cee tosi iloinen at hop
+    show karkhos perus
+    show agatha alakuloinen
     C "Ahh, I am practically brimming with energy. My great master plan shall finally come into fruition!"
 
     MC "I'm looking forward to all the changes you've planned. Soon we'll have a fairer workplace for everyone."
-    show cee karmiva hymy
+    show cee karmiva hymy at hop
+    show karkhos kauhistus
+    show agatha vakava
     C "Précis. I've got it all planned out. My effulgence will guide us all towards a wetter tomorrow!"
     MC "Um, you mean BETTER tomorrow?"
     show cee iloinen
+    show karkhos perus
+    show agatha alakuloinen
     C "Ah, yes. That, too, of course."
     MC "C'mon, Karkhos, Agatha, let's go take a break and leave Cee to their own devices."
     #Agatha and Karhkos leave with the MC
+    show karkhos alakuloinen
     play sound wingflap
     hide agatha with moveoutright
     play sound footsteps
@@ -808,11 +844,12 @@ label day3_C1:  #Cee wins
     pause 1.0
     scene black with fade
     pause 1
+    call day_change #day changes!!
 
 
 #TODO lisää joku ääniefekti ehkä? 
 label day4_C2:
-    play music suru
+    play music metkut
     scene bg warehouse cee with dissolve
     # Käytävät tulvivat. Märkää loottia lilluu vedessä.
     "Paradise island? That's what we were promised, but…"
@@ -909,6 +946,7 @@ label day4_C2:
     show cee alakuloinen at shake
     A "I heard the vampires are going to riot. They're gonna miss this month's Bloody Friday because they can't come to work thanks to running water."
     K "A nasty gnoll yelled at me on the phone. She said she's gonna leave a negative review."
+    stop music fadeout 6
     MC "Cee, please listen to us. This isn't working and we have to do something until something terrible happens."
     show cee vihainen at shake, hop:
         zoom 1.3
@@ -941,6 +979,7 @@ label day4_C2:
         zoom 2.0
         yoffset 550
     stop sound fadeout 1
+    play music suru
     "Ah, there's Cee! They sure swim fast."
     "Luckily there's a dead-end at the end of this hallway. There's no way Cee can escape me."
 
@@ -1019,6 +1058,7 @@ label day4_C2:
     show cee iloinen
     C "I consider myself quite verbose. However, I'm feeling something rather ineffable right now. I'll leave it up to you to imagine and translate the depths of my soul."
     MC "Don't worry, Cee, I think I have a pretty good idea of how you're feeling." 
+    stop music fadeout 5
     play sound footstepswater
     scene bg warehouse cee with fade:
         zoom 1.0
@@ -1049,6 +1089,7 @@ label day4_C2:
     "Cee looks like they're actually sorry. Good."
     C "Yes, well. I got a little carried away. I'm sorry."
     show karkhos perus at hop
+    play music ending
     K "Don't mention it. No hard feelings." 
     show agatha vakava at hop
     A "Apology accepted. Just don't do it again!"
@@ -1071,14 +1112,12 @@ label day4_C2:
     MC "See, Cee? The others value your input. I'm sure your ideas will be useful when we discuss how to run things here from now on."
     show cee tosi iloinen at hop
     C "Yes, well, if you inist, I suppose..."
-    stop music fadeout 3
     #"As it should be." leikkasin tän pois ni ehk luonnollisemp viel lisä toi mikä lopetus kahes muut endingis on?
 
     #voisko joku tehä tähä viel jonku transition idk
     #toimisko tällee? -o
     scene black with dissolve
     pause 2
-    play music ending
     "I look at Cee, Agatha and Karkhos."
     "No more distrust. No more fighting. Landlubbers and sea creatures, trying their best together."
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."

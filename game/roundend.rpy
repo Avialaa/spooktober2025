@@ -28,6 +28,28 @@ init:
 label roundEnd:
     #Minigame is concluded by calling this label
     python:
+
+        #calculating capstone points
+        capOrderrPoints = (roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
+        capOrderbPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
+        capOrderyPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
+        capOrdergPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
+        capOrderoPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
+        capOrdervPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
+        capOrderpPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
+        capOrderlPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))
+
+        #adding capstone points to round point total
+        roundrPoints += capOrderrPoints*validityFactor
+        roundbPoints += capOrderbPoints*validityFactor
+        roundyPoints += capOrderyPoints*validityFactor
+        roundoPoints += capOrderoPoints*validityFactor
+        roundgPoints += capOrdergPoints*validityFactor
+        roundvPoints += capOrdervPoints*validityFactor
+        roundpPoints += capOrderpPoints*validityFactor
+        roundlPoints += capOrderlPoints*validityFactor
+
+        #adjusting current points based on round points
         rPoints += roundrPoints+timerPoints
         bPoints += roundbPoints+timerPoints
         yPoints += roundyPoints+timerPoints
@@ -56,6 +78,7 @@ label roundEnd:
         roundEndTotalvPoints = False
         roundEndTotalpPoints = False
         roundEndTotallPoints = False
+    stop music
     call screen roundEndScreen
     python:
         roundrPoints = 0

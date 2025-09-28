@@ -1,5 +1,3 @@
-default preferences.text_cps = 40
-
 style karkhosNameStyle:
     color "#91A571"
     line_spacing -10
@@ -134,7 +132,7 @@ label day_change:
         $ _skipping = False
         $ renpy.config.skipping = False
     scene black with dissolve
-    #TODO: add day change sound
+    play sound nextday
     call screen day_change
     $ _skipping = True
     return
@@ -146,13 +144,14 @@ screen day_change:
     text "The next day...":
         xcenter 0.5 ycenter 0.5
         at next_day
-    timer 2.0 action [Hide(), Return()]
+    timer 3.5 action [Hide(), Return()]
 
 label tutorial:
     scene bg warehouse
     "Someone left sticky notes on the new work station... Looks like instructions on how to use the new system."
 label sticky_notes_tutorial:
     window hide
+    play sound paper
     scene tutorial with fade
     pause
     scene bg warehouse with fade
