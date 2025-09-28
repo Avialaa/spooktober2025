@@ -678,7 +678,7 @@ screen upgradeTree:
                     if 'meat3Multiplier' in upgradesBought:
                         use upgradeNode("Supreme Meat","meatCap", 10, (0.16, 0.29), 80*(2**upgradesBought.get("meatCap",0)), 0, 0, 0, 0, 0, 0, 0, "Each point gained from meat gives 0.1 points of every other type.")
                     if 'light3Multiplier' in upgradesBought:
-                        use upgradeNode("Supreme Lantern","lightCap", 10, (0.5, 0.29), 0, 0, 0, 80*(2**upgradesBought.get("lightCap",0)), 0, 0, 0, 0, "Each point gained from lanterns gives 0.1 points of every other type.")
+                        use upgradeNode("Supreme Lantern","lightCap", 10, (0.5, 0.29), 0, 0, 0, 0, 80*(2**upgradesBought.get("lightCap",0)), 0, 0, 0, "Each point gained from lanterns gives 0.1 points of every other type.")
                     if 'treasure3Multiplier' in upgradesBought:
                         use upgradeNode("Supreme Coin","treasureCap", 10, (0.845, 0.29), 0, 0, 80*(2**upgradesBought.get("treasureCap",0)), 0, 0, 0, 0, 0, "Each point gained from coin gives 0.1 points of every other type.")
                     if 'keys3Multiplier' in upgradesBought:
