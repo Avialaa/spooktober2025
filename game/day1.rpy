@@ -168,16 +168,20 @@ label day1_2:
     "Agatha looks ready to pop a wing muscle."
     show cee vihainen at shake
     C "This is the sacredly ordained lunch break."
+    show karkhos pikkuviha
     C "Was it not you, Karkhos, who slacked off? Perhaps your sacred right ought to be revoked."
     show agatha vihainen at shake
     A "You can't revoke the policy mandated lunch break!"
-    show agatha vihainen at hop
-    show cee vihainen at hop
+    show karkhos at shake
+    # show agatha vihainen at hop
+    # show cee vihainen at hop
+    play music ilo
     "They're really getting fired up."
     "Maybe all this time, they just pretended to like each other because Boss was here."
     "Doesn't feel like much of a break when the noise level is this high."
     "Well, not gonna ruin my day. As long as they're leaving me out of it."
     show agatha iloinen at hop
+    play music riita
     A "What's your stance, [MC]?"
     # C smile
     show cee iloinen at hop
@@ -506,11 +510,13 @@ label day1_3C:
     show black with dissolve
     pause 1
     "After lunch, it's back to work again."
+    stop music fadeout 3
     scene bg warehouse with dissolve
     pause 0.5
     # Cee appears
     # Cee perus
     play sound footsteps
+    play music metkut
     show cee iloinen at middle with moveinright
     stop sound fadeout 3
     C "Greetings, my fellow prisoner. Sorry about the brusquerie, but do you have a minute? A fleeting moment to spare?"
@@ -587,7 +593,7 @@ label day1_3C:
         xoffset -20
     pause 1.0
     # Cee karmiva hymy
-    play music ilo
+    play music metkut
     "Yikes!"
     pause 0.5
     show bg warehouse:
@@ -976,6 +982,7 @@ label day1_6C:
     "Ugh, I have a hunch it's going to take 3-5 business days to recover from today…" 
     # Cee appears
     # Cee iloinen
+    play music metkut
     show cee iloinen at middle with easeinright
     C "Good evening, my fellow prisoner."
     MC "Gah! Cee? Where on Earth did you come from?"
@@ -1002,11 +1009,11 @@ label day1_6C:
             show cee hullu hymy at hop
             stop music fadeout 3
             C "It reminds me of the deepest, coldest parts of the ocean."
-            play music bondaus
             pause 0.5
             # Cee iloinen
             show cee iloinen
             C "It reminds me of home."
+            play music metkut
         "\"Nah. Not so keen on that corporate jargon.\"":
             # Cee perus
             show cee perus
@@ -1014,18 +1021,14 @@ label day1_6C:
             MC "Yeah. Our superiors always come up with new, trendy words that actually mean nothing."
             MC "Micro break is a fancy word for closing your eyes for a minute or grabbing a cup of coffee when you can."
             show cee at hop
-            stop music fadeout 3
             C "Hmm. Perhaps you are right, my fellow prisoner."
-            play music bondaus
         "\"Since when were you this interested in my well-being, Cee?\"":
             show cee iloinen at hop
             C "There is no reason to be suspicious, [MC]."
             show cee karmiva hymy
-            stop music fadeout 3
             C "Ever since this friendly little race to power started, I have been observing you. Monitoring you. Watching you."
             MC "That's three reasons to be suspicious, Cee!"
             show cee iloinen
-            play music bondaus
             C "I only have your best interests in mind, my dear sluggish companion." 
     label after_menu:
     show cee perus at hop
@@ -1085,11 +1088,9 @@ label day1_6C:
     C "I can already see the sick leave statistics dropping!"
     MC "Wow, Cee, I'm actually starting to feel enthusiastic about this idea of yours. Well done."
     "Could this warehouse really be turned into a paradise island? Could Cee really achieve that if we let them?"
-    stop music fadeout 4
     "I hope so. I can practically already taste the pina colada and feel the sun on my non-existent skin."
     show cee perus
     # Cee perus
-    play music juoru
     C "That being said, I do hope you aren't considering siding with Karkhos. Using your talents for the benefit of him and his tomfoolery would be an utter waste."
     show cee vihainen at hop
     C "Ugh, we cannot choose that simple-minded brute as our leader."

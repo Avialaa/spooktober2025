@@ -40,6 +40,7 @@ define audio.bondaus2 = "audio/Bittersweet.mp3"
 define audio.suru = "audio/Wounded.mp3"
 define audio.juoru = "audio/Vanes.mp3"
 define audio.ending = "audio/Mana-Two-Part1.mp3"
+define audio.metkut = "audio/Deadly-Roulette.mp3"
 
 
 

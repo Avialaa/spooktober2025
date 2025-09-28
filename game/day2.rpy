@@ -245,6 +245,7 @@ label day2_2:
         hide cee with easeoutleft
         # C pois, footsteps
         show agatha at hop
+        stop sound fadeout 1
         A "ARGH!!!"
         play sound wingflap
         hide agatha with moveouttop
@@ -851,10 +852,8 @@ label day2_5C: #Cee emotional evening
     MC "Darn it. I left my lunch box in the break room."
     "I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
     "I have a hunch which option Agatha and Karkhos have picked, but..."
-    stop music fadeout 3
     "As I open the break room door, I notice I'm not alone."
     play sound footsteps
-    play music bondaus
     scene bg breakroom posters night with dissolve
 
     show cee alakuloinen at ceebreakroom with dissolve
@@ -880,6 +879,7 @@ label day2_5C: #Cee emotional evening
     "Again with the sea puns, I see, Cee."
 
     MC "So, if dry land isn't the problem, what is?"
+    play music metkut
     show cee iloinen at hop
     C "Ah, I'm glad you asked. The targets of my undying wrath are the beasts that INHABIT the dry land and oppress us sea creatures."
     MC "Ah."
@@ -922,8 +922,10 @@ label day2_5C: #Cee emotional evening
     MC "Um, Cee, do you realize that smiling is usually considered a nice gesture? Not intimidating?"
     show cee at hop
     C "I wanted to secure my position from day one so that no one would ever dare question my capability. If the kraken was afraid of me, so would be everyone else!"
+    stop music fadeout 4
     MC "Why on Earth did you want your colleagues to be afraid of you? Wouldn't that make working together difficult?"
     show cee alakuloinen at hop
+    play music bondaus2 fadein 1
     C "My fellow prisoner, do you have any idea how bad it feels when nobody takes you seriously?"
     C "I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
     MC "Ah. I'm sorry, Cee. I had no idea you were feeling that way."
