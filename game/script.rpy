@@ -80,6 +80,7 @@ label start:
     #call day1_3A jos $ agreewithagatha = True, sama day1_3B ja day1_3C
     if minigameOn == True:
         # toinen minipelityövuoro
+        $ renpy.force_autosave()
         call tutorial_again
         call upgradeTree
         call warehouse_gameplay
@@ -102,6 +103,7 @@ label start:
     call day2_1
     if minigameOn == True:
         #kolmas minipelityövuoro
+        $ renpy.force_autosave()
         call upgradeTree
         call warehouse_gameplay
         call roundEnd
@@ -119,6 +121,7 @@ label start:
 
     if minigameOn == True:
         #neljäs minipelityövuoro
+        $ renpy.force_autosave()
         call upgradeTree
         call warehouse_gameplay
         call roundEnd
@@ -138,6 +141,7 @@ label start:
 
     if minigameOn == True:
         #Viides työvuoro
+        $ renpy.force_autosave()
         call upgradeTree
         call warehouse_gameplay
         call roundEnd
