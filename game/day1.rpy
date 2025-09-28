@@ -459,6 +459,10 @@ label day1_3B:
     show karkhos perus
     K "If you limit how many boxes you send out, it'd show you agree with me."
 
+    #Allin lisäys
+    K "Or if you really want to do more, at least get some of orders wrong. To show that pressure causes us to make more mistakes, you know?"
+    K "You might want to get some orders right to earn some workstation upgrades... Just don't overdo it, okay? Mess up orders every now and then."
+
     show karkhos iloinen
     K "We'll show that the warehouse is plenty efficient if we work at a reasonable pace."
     show karkhos tosi iloinen at hop
@@ -494,7 +498,10 @@ label day1_3B:
     "As I get ready to boot up the new system, the food chunks churn in my slime."
     "If the breaks were a bit longer, I certainly wouldn't complain…"
     # MINIPELI OHJE
-    "…Only three boxes per shift, huh?"
+
+    #Allin muutos
+    #"…Only three boxes per shift, huh?"
+    "Slack off, and don't be afraid to make some mistakes, huh?"
     stop music
 
     return
@@ -620,6 +627,7 @@ label day1_3C:
     MC "Um, I'll think about it, I guess."
     show cee iloinen
     C "Marvelous. I'll be observing you, [MC]."
+    C "Apropos; the new system doesn't penalize you for slipping in extra items with correct orders."
     play sound footsteps
     hide cee with moveoutleft
     stop sound fadeout 4
@@ -627,41 +635,6 @@ label day1_3C:
     stop music
     return
 
-
-label day1_4C: #Cee congratulates MC
-
-    scene bg warehouse
-    play music ilo
-    "Thank goo I didn't mess anything up."
-    # Cee appears
-    # Cee iloinen
-    show cee iloinen at middle with moveinleft
-    show cee iloinen at hop
-    C "Well done, [MC]. I'm happy to inform you that I'm pleased with your performance."
-    MC "Glad to hear that, Cee."
-    "Now this is a surprise. I haven't seen Cee this peppy before."
-    # Cee tosi iloinen 
-    show cee tosi iloinen
-    C "You are well beyond capable. Perhaps we should host a soiree to celebrate your prowess."
-    MC "Now now, Cee, you're exaggerating. I was simply doing my job."
-    C "No need to be so modest, my dear sluggish companion. You were MARVELOUS." 
-    show cee tosi iloinen at hop
-    C "A raging tempest destroying everything in its way. Nay, a ferocious SHARK gnashing its teeth and tearing through innocent flesh!"
-    "All I did was slip in some fish, and they're this pleased with me? Wow."
-    show cee iloinen
-    C "Ahhh, I just might shed a tear if I could."
-    # Cee iloinen
-    show cee iloinen
-    MC "Um, sure. If you say so."
-    "I'm pretty sure I haven't done anything extraordinary, but here Cee is, singing my praises."
-    show cee perus
-    C "Small fish like us could use a shark like you. Even the bravest landlubbers go pale at the sight of a shark baring its teeth."
-    MC "I'm still pondering my options here, but thanks, Cee. I'll let you know when I've made my decision."
-    "I start to take my leave, nodding at Cee before I go."
-    show cee at hop     
-    C "Even if you remain vacillating, I shall wait patiently."
-    stop music fadeout 4
-    return
 
 
 label day1_6A:
@@ -820,12 +793,12 @@ label day1_6A:
     pause 1
     #A smile
     show agatha iloinen suukiinni at hop
-    #TODO: chucklet?
     A "Pff."
     "Was that a genuine chuckle?"
     show agatha iloinen
     A "Nice one, [MC]. Problemoth…"
     show agatha iloinen suukiinni at hop
+    play sound agathachuckle volume 2
     "She chuckles again. Yes!!"
     show agatha vinkkaus
     A "Get a good rest, so you can bring your best tomorrow as well!"
@@ -836,7 +809,7 @@ label day1_6A:
     show agatha at hop
     A "I just want to pack a few more boxes. I'll be right behind you, promise."
     MC "Okay…"
-    #A fade out, TODO: wingflap
+    #A fade out, wingflap
     play sound wingflap
     hide agatha with easeoutleft
     "Oh well. To each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
@@ -970,22 +943,35 @@ label day1_6B:
     return
 
 label day1_6C:
-    play music ilo
     scene bg warehouse with dissolve
-    pause 1
-    scene bg warehouse night with dissolve
-    "It's been a long day. Finally, FINALLY I can go home and relax."
-    "Ugh, I have a hunch it's going to take 3-5 business days to recover from today…" 
+    "Thank goo I didn't mess anything up."
     # Cee appears
     # Cee iloinen
+    show cee iloinen at middle with moveinleft
+    show cee iloinen at hop
     play music metkut
-    show cee iloinen at middle with easeinright
-    C "Good evening, my fellow prisoner."
-    MC "Gah! Cee? Where on Earth did you come from?"
-    show cee perus at hop
-    C "Not Earth, I can assure you. I just wanted to come check on you before you retreat into your slimy cave to recover."
-    MC "Riiiiiiight."
+    C "Well done, [MC]. I'm happy to inform you that I'm pleased with your performance."
+    MC "Glad to hear that, Cee."
+    "Now this is a surprise. I haven't seen Cee this peppy before."
+    # Cee tosi iloinen 
+    show cee tosi iloinen
+    C "You are well beyond capable. Perhaps we should host a soiree to celebrate your prowess."
+    MC "Now now, Cee, you're exaggerating. I was simply doing my job."
+    C "No need to be so modest, my dear sluggish companion. You were MARVELOUS." 
+    show cee tosi iloinen at hop
+    C "A raging tempest destroying everything in its way. Nay, a ferocious SHARK gnashing its teeth and tearing through innocent flesh!"
+    "All I did was slip in some fish, and they're this pleased with me? Wow."
     show cee iloinen
+    C "Ahhh, I just might shed a tear if I could."
+    # Cee iloinen
+    show cee iloinen
+    MC "Um, sure. If you say so."
+    "I'm pretty sure I haven't done anything extraordinary, but here Cee is, singing my praises."
+    show cee perus
+    C "Small fish like us could use a shark like you. Even the bravest landlubbers go pale at the sight of a shark baring its teeth."
+    MC "Me? A shark? Um, wow. Thanks, I guess?"
+    C "You're very welcome."
+    C "Before you retreat into your slimy cave…"
     C "Have you remembered to take enough time for yourself today? What's that trendy piece of corporate jargon everyone is using these days…"
     # Cee tosi iloinen
     show cee tosi iloinen
