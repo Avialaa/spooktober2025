@@ -40,14 +40,19 @@ label roundEnd:
         capOrderlPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))
 
         #adding capstone points to round point total
-        roundrPoints += capOrderrPoints*validityFactor
-        roundbPoints += capOrderbPoints*validityFactor
-        roundyPoints += capOrderyPoints*validityFactor
-        roundoPoints += capOrderoPoints*validityFactor
-        roundgPoints += capOrdergPoints*validityFactor
-        roundvPoints += capOrdervPoints*validityFactor
-        roundpPoints += capOrderpPoints*validityFactor
-        roundlPoints += capOrderlPoints*validityFactor
+        roundrPoints += capOrderrPoints
+        roundbPoints += capOrderbPoints
+        roundyPoints += capOrderyPoints
+        roundoPoints += capOrderoPoints
+        roundgPoints += capOrdergPoints
+        roundvPoints += capOrdervPoints
+        roundpPoints += capOrderpPoints
+        roundlPoints += capOrderlPoints
+
+        #adding cee upgrade points
+        roundvPoints += roundvPoints*upgradesBought.get("fishNumber",0)
+        roundvPoints += 50*upgradesBought.get("bounty",0)
+        roundvPoints += upgradesBought.get("fishy",0)*(roundrPoints+roundbPoints+roundyPoints+roundgPoints+roundoPoints+roundpPoints+roundlPoints)
 
         #adjusting current points based on round points
         rPoints += roundrPoints+timerPoints
