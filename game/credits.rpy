@@ -396,6 +396,39 @@ screen creditscreen:
                 color "#8580b1"
                 size 20
                 xalign 0.5
+            text "   "
+            text "\"Bittersweet\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "   "
+            text "\"Deadly Roulette\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            
         vbox:
             xalign 0.5  
             text "Sound effects":
@@ -472,6 +505,11 @@ screen creditscreen:
                 size 30
                 xalign 0.5
             text "PkBiggums":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Valenspire":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
                 size 30
