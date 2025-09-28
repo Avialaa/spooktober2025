@@ -10,11 +10,12 @@ default boxReady = True
 default boxAnimDuration = 0.5
 default roundDuration = 80
 default minigameOver = False
-default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
+default conveyerInterval = 1.0 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
 default subsequentCorrectOrders = 0
 default correctOrders = 0
 default incorrectOrders = 0
 default activeConveyerTags = [] #keep track of current conveyer tags so we can hide the screens when the minigame ends
+default conveyerSpeed = 5.0 #time for item to traverse conveyor
 
 default roundFish = 0
 default agathaPoints = 0
@@ -193,6 +194,7 @@ init python:
     #Checks if anything to spawn on conveyer belt, and spawns first item from list
     global itemIndex #this tells Python that we want to use the global variable itemIndex
     global activeConveyerTags
+    global conveyerSpeed
     if len(itemsOnConveyer) > 0:
       #pop returns the item and removes it from list
       item = itemsOnConveyer.pop(0)
@@ -203,7 +205,7 @@ init python:
     item.setImage()
     tag = f"item_{itemIndex}"
     activeConveyerTags.append(tag)
-    renpy.show_screen("conveyer_item", item, 5, _tag=tag)
+    renpy.show_screen("conveyer_item", item, conveyerSpeed, _tag=tag)
   
   def sendOrder():
     global orders
@@ -223,10 +225,11 @@ init python:
   def countFish():
     global roundFish
     global itemsInBox
+    global upgradesBought
 
     for item in itemsInBox:
       if item.name == "fish":
-        roundFish += 1
+        roundFish += 1+upgradesBought.get("fishNumber",0)
 
 
   def generateOrder():
