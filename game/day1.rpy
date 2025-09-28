@@ -828,12 +828,12 @@ label day1_6A:
     pause 1
     #A smile
     show agatha iloinen suukiinni at hop
-    #TODO: chucklet?
     A "Pff."
     "Was that a genuine chuckle?"
     show agatha iloinen
     A "Nice one, [MC]. Problemoth…"
     show agatha iloinen suukiinni at hop
+    play sound agathachuckle volume 2
     "She chuckles again. Yes!!"
     show agatha vinkkaus
     A "Get a good rest, so you can bring your best tomorrow as well!"
