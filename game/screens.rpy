@@ -314,6 +314,8 @@ screen navigation():
         textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
+        
+        textbutton _("Credits") action Start("finalcredits")
 
         if _in_replay:
 
