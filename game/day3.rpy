@@ -129,7 +129,6 @@ label day4_A2:
     MC "Thanks. Tastes like the sun."
     show agatha iloinen
     A "Tastes like work well done."
-    stop music
     show agatha perus
     #TODO: footsteps tosi hiljasella
     play sound footsteps volume 0.7
@@ -149,15 +148,16 @@ label day4_A2:
     play sound speakdistantdelivery fadein 1 loop volume 0.5
     "Behind, a dozen more delivery monsters slump down and fumble for their waterskins. The carts they were pulling take up the whole corridor, and are overflowing with unsorted Loot."
     DeliveryAgent "Could you finally tell us what the emergency is? Unrest is spreading. We've heard the rumors."
+    stop music
     MC "Wait, what rumors?"
     DeliveryAgent "That a warband of thousand humans intends to raid the dungeon! Everyone's scared."
+    stop sound fadeout 1
     DeliveryAgent "The fear was the only thing keeping us moving all night."
     "Like a stone pushed downhill, everything's suddenly happening too fast for my tired mind."
     MC "Uh… Leave the unsorted Loot here. We've packed more boxes for delivery."
     DeliveryAgent "Delivery to where? Last I checked, all monsters already had Loot."
     pause 0.5
     MC "...Could you wait a minute? I have to check with someone."
-    stop sound fadeout 1
     play sound footsteps
     scene black with dissolve
     pause 1.0
@@ -173,8 +173,10 @@ label day4_A2:
     stop sound fadeout 3
     C "You appear dismayed. No wonder."
     MC "Did you know that all monsters already have Loot? Isn't that really amazing?"
-    show cee at hop
-    C "Ah. Suspect it, I did. It appears our efforts have borne fruit."
+    show cee alakuloinen at hop
+    C "Ah. Suspect it, I did."
+    show cee perus
+    C "It appears our efforts have borne fruit."
     C "And yet, I hear no cheers nor praise, but angry muttering from the entryway."
     play sound footsteps
     show karkhos perus mato zorder 2 at cleft with easeinleft:
@@ -336,6 +338,7 @@ label day4_A2:
     show karkhos alakuloinen mato
     K "Look, I shouldn't have just stopped working. Must've been stressful to you. But you're just too fast. I had …trouble keeping up."
     K "Being compared to you made me feel small."
+    show agatha alakuloinen at hop
     A "Small?"
     show cee alakuloinen
     C "For a fish on dry land, far from home as I am, your standards were difficult to understand. You were scary."
@@ -379,6 +382,27 @@ label day4_A2:
     show agatha vakava at hop
     "The whites of her cheeks are turning redder."
     A "Maybe it's alright to take the afternoon easy. Just this once."
+    show agatha vakava at hop
+    A "But only because there are no more orders!"
+    show karkhos tosi iloinen mato at hop
+    K "An empty docket calls for celebration! I know just the place."
+    show cee alakuloinen
+    C "You two… You would celebrate with me?"
+    show karkhos iloinen mato at hop
+    show cee iloinen
+    K "Yeah, 'course!"
+    show agatha perus
+    A "Hmm… Have we ever gone out as a group?"
+    show agatha iloinen suukiinni
+    A "I must say, the idea of afterhours bonding is compelling."
+    show agatha tosi iloinen at hop
+    A "If we all go together, it's not so scary to leave the dungeon."
+    show agatha vakava
+    A "But all in moderation. Let's return by sunset."
+    show agatha tosi iloinen
+    show karkhos tosi iloinen mato
+    show cee tosi iloinen
+    MC "Hehe."
     scene black with dissolve
     pause 2
 
