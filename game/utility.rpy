@@ -1,3 +1,4 @@
+default preferences.text_cps = 40
 
 style karkhosNameStyle:
     color "#91A571"
@@ -32,7 +33,8 @@ style lightPointsStyle:
     color "#b1b1b1"
 
 define audio.ilo = "audio/Vibing-Over-Venus.mp3"
-define audio.riita = "audio/Clash-Defiant.mp3"
+define audio.riita = "audio/Chase-Pulse.mp3"
+define audio.isoriita = "audio/Clash-Defiant.mp3"
 define audio.bondaus = "audio/Heavy-Heart.mp3"
 define audio.suru = "audio/Wounded.mp3"
 define audio.juoru = "audio/Vanes.mp3"
