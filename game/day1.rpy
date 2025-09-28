@@ -459,6 +459,10 @@ label day1_3B:
     show karkhos perus
     K "If you limit how many boxes you send out, it'd show you agree with me."
 
+    #Allin lisäys
+    K "Or if you really want to do more, at least get some of orders wrong. To show that pressure causes us to make more mistakes, you know?"
+    K "You might want to get some orders right to earn some workstation upgrades... Just don't overdo it, okay? Mess up orders every now and then."
+
     show karkhos iloinen
     K "We'll show that the warehouse is plenty efficient if we work at a reasonable pace."
     show karkhos tosi iloinen at hop
@@ -494,7 +498,10 @@ label day1_3B:
     "As I get ready to boot up the new system, the food chunks churn in my slime."
     "If the breaks were a bit longer, I certainly wouldn't complain…"
     # MINIPELI OHJE
-    "…Only three boxes per shift, huh?"
+    
+    #Allin muutos
+    #"…Only three boxes per shift, huh?"
+    "Slack off, and don't be afraid to make some mistakes, huh?"
     stop music
 
     return

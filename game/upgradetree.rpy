@@ -208,7 +208,7 @@ init python:
 
         roundDuration = 80+(10*upgradesBought.get("timeIncrease",0)) #increase round time by 10 seconds per round time upgrade
         timerPoints = (roundDuration/10)*upgradesBought.get("timePoints",0) #every second gives 0.1 of eachpoint per bought timer point upgrade
-        sleepTimerPoints = (roundDuration)*upgradesBought.get("sleepTimePoints",0) #every second gives 1 green point per bought timer sleep point upgrade
+        sleepTimerPoints = roundDuration*upgradesBought.get("sleepTimePoints",0) #every second gives 1 green point per bought timer sleep point upgrade
         roundDuration = roundDuration/(2**upgradesBought.get("timePace",0)) #halves round duration without affecting timer points for each time pace upgrade bought
         if "noTime"  in upgradesBought:
             roundDuration = 0.1
@@ -216,6 +216,7 @@ init python:
         maxBoxItems = 6+upgradesBought.get("box",0) 
         conveyerSpeed = 5.0*(0.9**upgradesBought.get("speed",0))
         conveyerInterval = 1.0*(0.9**upgradesBought.get("interval",0))*(conveyerSpeed/5)
+        validityFactor = 1.1**upgradesBought.get("fault",0)-1
 
 
 
@@ -710,7 +711,9 @@ screen upgradeTree:
 
                     #Karkhos upgrades
                     if 'sleep2Chance' in upgradesBought:
-                        use upgradeNode("Slack","timePoints", 10, (0.658, 0.57), 0, 0, 0, 10*(2**upgradesBought.get("timePoints",0)), 0, 0, 0, 0, "Every second gain +0.1 of every point type during shift.")
+                        use upgradeNode("Slack","timePoints", 10, (0.657, 0.57), 0, 0, 0, 10*(2**upgradesBought.get("timePoints",0)), 0, 0, 0, 0, "Every second gain +0.1 of every point type during shift.")
+                    if 'sleep2Chance' in upgradesBought:
+                        use upgradeNode("Haphazard","fault", 10, (0.603, 0.605), 0, 0, 0, 10*(2**upgradesBought.get("fault",0)), 0, 0, 0, 0, "Gain +10% of the points from invalid orders.")
                     if 'sleep2Multiplier' in upgradesBought and 'timePoints' in upgradesBought:
                         use upgradeNode("Snore","sleepTimePoint", 10, (0.71, 0.605), 0, 0, 0, 10*(2**upgradesBought.get("sleepTimePoints",0)), 0, 0, 0, 0, "Every second gain +1 green point during shift.")
                     if 'sleep3Chance' in upgradesBought and 'timePoints' in upgradesBought:

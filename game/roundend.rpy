@@ -17,6 +17,15 @@ default roundEndTotalvPoints = False
 default roundEndTotalpPoints = False
 default roundEndTotallPoints = False
 
+default totalrPoints = 0
+default totalbPoints = 0
+default totalyPoints = 0
+default totalgPoints = 0
+default totaloPoints = 0
+default totalvPoints = 0
+default totalpPoints = 0
+default totallPoints = 0
+
 default fishTotal = 0
 default endSensitivity = False
 default sleepTimerPoints = 0
@@ -54,17 +63,36 @@ label roundEnd:
         roundvPoints += 50*upgradesBought.get("bounty",0)
         roundvPoints += upgradesBought.get("fishy",0)*(roundrPoints+roundbPoints+roundyPoints+roundgPoints+roundoPoints+roundpPoints+roundlPoints)
 
-        #adjusting current points based on round points
-        rPoints += roundrPoints+timerPoints
-        bPoints += roundbPoints+timerPoints
-        yPoints += roundyPoints+timerPoints
-        gPoints += roundgPoints+timerPoints+sleepTimerPoints
-        oPoints += roundoPoints+timerPoints
-        vPoints += roundvPoints+timerPoints
-        pPoints += roundpPoints+timerPoints
-        lPoints += roundlPoints+timerPoints
+        #adding timer points
+        roundrPoints += timerPoints
+        roundbPoints += timerPoints
+        roundyPoints += timerPoints
+        roundgPoints += timerPoints+sleepTimerPoints
+        roundoPoints += timerPoints
+        roundvPoints += timerPoints
+        roundpPoints += timerPoints
+        roundlPoints += timerPoints
 
-        fishTotal += roundpPoints #kalapisteiden kokonaismäärä
+
+        #adding round points to point balances
+        rPoints += roundrPoints
+        bPoints += roundbPoints
+        yPoints += roundyPoints
+        gPoints += roundgPoints
+        oPoints += roundoPoints
+        vPoints += roundvPoints
+        pPoints += roundpPoints
+        lPoints += roundlPoints
+
+        #tracking total points earned
+        totalrPoints += roundrPoints
+        totalbPoints += roundbPoints
+        totalyPoints += roundyPoints
+        totalgPoints += roundgPoints
+        totaloPoints += roundoPoints
+        totalvPoints += roundvPoints
+        totalpPoints += roundpPoints
+        totallPoints += roundlPoints
 
         roundEndrPoints = False
         roundEndbPoints = False
