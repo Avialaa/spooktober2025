@@ -27,17 +27,20 @@ label day2_1:
     "Decorations…? Is today a festival?"
     "On closer inspection, these are probably related to the fight. It seems they hope to sway me with slogans and art. Seems kinda cheap." 
     #TODO: arttien näyttäminen
+    play sound paper
     show julisteet2 at middle with dissolve:
         zoom 1.5
         yoffset -400
     "Agatha promises streamlined efficiency for the safety of all monsterkind."
     pause 0.5
+    play sound paper
     hide julisteet2 with dissolve
     show julisteet3 at middle with dissolve:
         zoom 1.5
         yoffset -400
     "Karkhos… seems to be advocating for workplace wellness?"
     pause 0.5
+    play sound paper
     hide julisteet3 with dissolve
     show julisteet1 at middle with dissolve:
         zoom 1.5
@@ -61,6 +64,7 @@ label day2_1:
     # \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
     # \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
     window hide
+    play sound paper
     show notes_from_characters with dissolve
     pause
     MC "...Huh."
@@ -115,28 +119,28 @@ label day2_2:
     K "What actions?"
     show cee at hop
     C "Précis!"
-    show karkhos perus mato
+    show karkhos pikkuviha mato
+    show cee perus
     MC "One at a time? I'm sure nobody did it on purpose, whatever it is."
     show cee vihainen
     C "Miss Agatha here has conspired to make wretches of us all."
-    show karkhos pikkuviha mato
+    show karkhos pikkuviha mato at hop
     K "Cee has done that too!"
     show agatha vakava at hop
     A "Don't forget Karkhos has compromised monsterkind's safety, the warehouse's very purpose."
     show agatha vihainen at hop
     A "We agreed on not going against Boss' orders until [MC] has decided. And here we are."
     show cee vihainen at hop
-    show karkhos perus mato
     C "What fungus has infested thine brain for you to think you're exempt?"
     show agatha
     A "Working hard is EXACTLY what Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
-    show cee perus
+    show cee hullu hymy
     C "I'm simply practicing some much needed service development. As per Boss' orders."
     show agatha at hop
     A "You're practically begging to get fired!"
     show cee vihainen at hop
     C "Isn't there someone here asking for it rather more insistently?"
-    show karkhos pikkuviha mato
+    show karkhos vihainen mato
     K "...What, me?! No! All I ask for are better conditions."
     show agatha vakava
     show cee perus
@@ -230,12 +234,13 @@ label day2_2:
         stop music fadeout 3
         MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
         show agatha vihainen at hop
-        play music riita
         A "Yeah, get it together, guys!"
         show karkhos pikkuviha mato
         K "You too."
+        play music riita
         show karkhos vihainen mato
-        K "This isn't fair. I have done what I can. If what I've accomplished is not enough, then from now on, I will not pack a single box."
+        K "This isn't fair. I have done what I can."
+        K "If what I've accomplished is not enough, then from now on, I will not pack a single box."
         show cee vihainen
         C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
         show cee at hop
@@ -244,6 +249,7 @@ label day2_2:
         hide cee with easeoutleft
         # C pois, footsteps
         show agatha at hop
+        stop sound fadeout 1
         A "ARGH!!!"
         play sound wingflap
         hide agatha with moveouttop
@@ -255,7 +261,8 @@ label day2_2:
         # K pois, footsteps
         stop sound fadeout 3
         "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
-        "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how. I'm exactly the wrong monster for this second job I didn't even apply for."
+        "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how."
+        "I'm exactly the wrong monster for this second job I didn't even apply for."
         "It's almost time to return to work."
         "…I'll eat later…"
         stop music fadeout 5
@@ -264,13 +271,15 @@ label day2_2:
 default day2_3A_done = False
 label day2_3A:
     $ day2_3A_done = True
+    scene black with fade
+    pause 1
     play music juoru
-    scene bg hallway posters
+    scene bg hallway posters with dissolve
     #footsteps
     play sound footsteps
     "My lunch break evaporated once again. I'll just eat the emergency snack bar I keep at my workstation."
     # Cee appears
-    show cee perus at middle with moveinright
+    show cee karmiva hymy at middle with moveinright
     C "[MC]!"
     show bg hallway posters at hpunch:
         zoom 1.02
@@ -280,10 +289,14 @@ label day2_3A:
     show bg hallway posters:
         zoom 1
         xoffset 0
+    show cee perus
     C "Fret not. You must come with me."
     MC "But the break's almost over."
-    show cee at hop
-    C "The tidings I bring concern Miss Agatha. I'm certain you would be interested. It shall not take long."
+    show cee perus at hop
+    C "The tidings I bring concern Miss Agatha."
+    show cee hullu hymy
+    C "I'm certain you would be interested. It shall not take long."
+    show cee perus
     #haluun zoomata kuvan nurkkaan täs jos on aikaa tutkii miten
     play sound footsteps
     show bg hallway posters with dissolve:
@@ -294,13 +307,13 @@ label day2_3A:
     "Cee ushers me into a crevice in the corridor. I follow, initially reluctant, except…"
     "What's so important that they waited for me, after storming off like that? I'm a bit curious."
     "Cee speaks in a lower voice than usual. Which, granted, is still pretty loud."
-    show cee vihainen at hop
+    show cee alakuloinen
     C "Pardon the precautions. I had to make sure that the tiny control freak wasn't following us."
     show cee perus
     C "I've heard some rather concerning rumours about you and Miss Agatha. The hallways are whispering that you have taken a liking to her rigorous ways."
-    show cee perus at hop
+    show cee kauhistus at hop
     C "[MC], you must not fall under her spell!"
-    show cee perus
+    show cee vihainen
     C "I have seen her true colors. Once, she interrupted my work just to tell me I wasn't projecting enough enthusiasm."
     show cee vihainen at hop
     C "Such insolence!"
@@ -313,11 +326,17 @@ label day2_3A:
     C "Do not be fooled by her big eyes and paper thin wings. Underneath that disguise you'll find a ferocious predator, poised to bite those standing in her way." 
     MC "Hey, that's going too far."
     show cee perus at hop
-    C "Hardly! What shall a mere worker do, when told to triple their efforts? To try is to perish, whilst to not try is to be bitten."
+    C "Hardly! What shall a mere worker do, when told to triple their efforts?"
+    show cee kauhistus
+    C "To try is to perish, whilst to not try is to be bitten."
     show cee perus
-    C "Were we to work harder, would it not in actuality decrease our output? Eat the marlin's roe, and be bereft of the fish. She is thinking short term, when what matters is the long term."
+    C "Were we to work harder, would it not in actuality decrease our output? Eat the marlin's roe, and be bereft of the fish."
+    show cee perus
+    C "She is thinking short term, when what matters is the long term."
+    show cee kauhistus
+    C "Unwittingly, she may yet be furthering my goals."
     show cee karmiva hymy at hop
-    C "Unwittingly, she may yet be furthering my goals. She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures."
+    C "She will wring dry this den of Loot, and whilst we wither, she will flutter away to greener pastures."
     C "Rather than a moth, she is a locust. Nay, a disease!"
     MC "Stop."
     show cee kauhistus at hop
@@ -334,12 +353,15 @@ label day2_3A:
     stop sound fadeout 3
     scene bg hallway posters with dissolve
     "I'm speechless. It's not okay to speak about coworkers like that."
-    "I can't tell if this was just Cee's personal dislike, or an actual worry about our wellbeing. Maybe it was both. Does sound like Agatha should have been nicer to Cee."
-    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now. All Agatha is trying to do is make the land safer for monsters."
+    "I can't tell if this was just Cee's personal dislike, or an actual worry about our wellbeing. Maybe it was both."
+    "Does sound like Agatha should have been nicer to Cee."
+    "Once, even I used to think she was an inconsiderate nitpicker. But I understand her better now."
+    "All Agatha is trying to do is make the land safer for monsters."
     "Nothing predator-like about that."
     pause 0.5
     stop music fadeout 5
     "...Right?"
+    scene black with fade
     return
 
 default day2_3B_done = False
@@ -834,10 +856,8 @@ label day2_5C: #Cee emotional evening
     MC "Darn it. I left my lunch box in the break room."
     "I glide through the empty hallways. Everyone else must either be super busy or have already left for the day."
     "I have a hunch which option Agatha and Karkhos have picked, but..."
-    stop music fadeout 3
     "As I open the break room door, I notice I'm not alone."
     play sound footsteps
-    play music bondaus
     scene bg breakroom posters night with dissolve
 
     show cee alakuloinen at ceebreakroom with dissolve
@@ -863,6 +883,7 @@ label day2_5C: #Cee emotional evening
     "Again with the sea puns, I see, Cee."
 
     MC "So, if dry land isn't the problem, what is?"
+    play music metkut
     show cee iloinen at hop
     C "Ah, I'm glad you asked. The targets of my undying wrath are the beasts that INHABIT the dry land and oppress us sea creatures."
     MC "Ah."
@@ -905,8 +926,10 @@ label day2_5C: #Cee emotional evening
     MC "Um, Cee, do you realize that smiling is usually considered a nice gesture? Not intimidating?"
     show cee at hop
     C "I wanted to secure my position from day one so that no one would ever dare question my capability. If the kraken was afraid of me, so would be everyone else!"
+    stop music fadeout 4
     MC "Why on Earth did you want your colleagues to be afraid of you? Wouldn't that make working together difficult?"
     show cee alakuloinen at hop
+    play music bondaus2 fadein 1
     C "My fellow prisoner, do you have any idea how bad it feels when nobody takes you seriously?"
     C "I try my best to act serious and foreboding, and yet those land-dwellers laugh at me and call me cute. It's mortifying."  
     MC "Ah. I'm sorry, Cee. I had no idea you were feeling that way."

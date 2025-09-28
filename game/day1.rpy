@@ -168,16 +168,20 @@ label day1_2:
     "Agatha looks ready to pop a wing muscle."
     show cee vihainen at shake
     C "This is the sacredly ordained lunch break."
+    show karkhos pikkuviha
     C "Was it not you, Karkhos, who slacked off? Perhaps your sacred right ought to be revoked."
     show agatha vihainen at shake
     A "You can't revoke the policy mandated lunch break!"
-    show agatha vihainen at hop
-    show cee vihainen at hop
+    show karkhos at shake
+    # show agatha vihainen at hop
+    # show cee vihainen at hop
+    play music ilo
     "They're really getting fired up."
     "Maybe all this time, they just pretended to like each other because Boss was here."
     "Doesn't feel like much of a break when the noise level is this high."
     "Well, not gonna ruin my day. As long as they're leaving me out of it."
     show agatha iloinen at hop
+    play music riita
     A "What's your stance, [MC]?"
     # C smile
     show cee iloinen at hop
@@ -201,8 +205,10 @@ label day1_2:
     show karkhos pikkuviha at hop
     show cee vihainen at hop
     show agatha vihainen at hop
+    stop music
     All "...DEMOCRACY!"
     "The declaration echoes in the room."
+    play music ilo
     # all neutral
     show karkhos perus at hop
     show cee perus
@@ -219,15 +225,15 @@ label day1_2:
     All "No!"
     "Suddenly they all agree an awful lot."
     # A smiles
-    play music ilo
     show karkhos perus
     show cee perus
     show agatha tosi iloinen at hop
     A "I'm afraid that's three against one."
     show agatha perus
     A "I've always said we need to work harder. This is our chance to earn Boss' unwavering trust. Our efforts will guarantee monsters across the land safety."
-    show karkhos perus at hop
+    show karkhos nukkuva at hop
     K "Nah, we should take it easy while Boss isn't looking. Rested workers are harder workers."
+    show karkhos perus
     show cee karmiva hymy at hop
     C "Why stop at puny course changes such as those? I propose we invest this time on R&D, on futureproofing this nigh obsolete lair."
     show cee perus
@@ -434,8 +440,10 @@ label day1_3B:
     K "The ones we have now are much better. And I don't gotta wear a shirt."
     MC "It was nice that Boss listened, even though he really liked the evil cult look. He's reasonable when it really counts."
     MC "Must've been because all four of us insisted on it."
-    show karkhos perus
-    K "This time's no different. We need a unified front. What could be more important than the longevity of the very monsters doing all the heavy lifting?"
+    show karkhos nukkuva
+    K "This time's no different. We need a unified front."
+    show karkhos pikkuviha
+    K "What could be more important than the longevity of the very monsters doing all the heavy lifting?"
     # warehouse BG
     play sound footsteps
     show bg warehouse with dissolve
@@ -443,25 +451,42 @@ label day1_3B:
     show karkhos perus at hop
     stop sound fadeout 2
     K "I've been thinking—crazy, I know."
-    K "As long as we send out enough boxes, doesn't really matter what's inside."
-    K "Leave some empty space in those boxes, will you? That would show you agree with me."
+
+    # MINIPELI OHJEET
+    show karkhos pikkuviha
+    K "We can't exactly go on a full strike, but I say we set some boundaries."
+    show karkhos perus at hop
+    K "Three boxes a shift, and that's it."
+    MC "Three?!"
+    show karkhos pikkuviha at hop
+    K "Yeah, one, two, three. For now."
+    show karkhos perus
+    K "If you limit how many boxes you send out, it'd show you agree with me."
+
     show karkhos iloinen
-    K "We'll show that the warehouse is plenty efficient if we work at a reasonable pace. Maybe we'll be MORE efficient with enough breaks."
+    K "We'll show that the warehouse is plenty efficient if we work at a reasonable pace."
+    show karkhos tosi iloinen at hop
+    K "Maybe we'll be MORE efficient with enough breaks."
+    show karkhos perus
     K "When Boss returns, he'll have no choice but to agree."
     MC "How much more free time were you thinking?"
-    show karkhos tosi iloinen
+    show karkhos pikkuviha
     K "Wasn't. Those details will come naturally later. Flexibility, and so on."
     K "As I've gotten older, I've understood it's important to not set plans in stone too early."
     "I feel he might have misunderstood some sound advice there. No way am I correcting him, though."
     MC "Uh, speaking of working."
-    show karkhos pikkuviha at hop
+    show karkhos kauhistus
+    K "Oh."
+    show karkhos pikkuviha
     K "Maybe I've kept you \"too long\"?"
     "He makes air quotes."
     MC "Are you going to continue your …break?"
-    show karkhos perus
+    show karkhos perus at hop
     K "Nah, I'll get to packing shortly. Promised to work normally until you decide."
     K "We even shook on it, me and the two hurrywarts."
+    show karkhos nukkuva
     K "None of us want the other two to go rogue. It's the one thing we agreed on."
+    show karkhos perus
     K "Agatha's the most vocal, but Cee's also unbelievably stubborn. So until this thing's settled, I'll go on as usual."
     # K angry
     show karkhos pikkuviha at hop
@@ -472,6 +497,8 @@ label day1_3B:
     "On that note, we get back to packing."
     "As I get ready to boot up the new system, the food chunks churn in my slime."
     "If the breaks were a bit longer, I certainly wouldn't complain…"
+    # MINIPELI OHJE
+    "…Only three boxes per shift, huh?"
     stop music
 
     return
@@ -483,11 +510,13 @@ label day1_3C:
     show black with dissolve
     pause 1
     "After lunch, it's back to work again."
+    stop music fadeout 3
     scene bg warehouse with dissolve
     pause 0.5
     # Cee appears
     # Cee perus
     play sound footsteps
+    play music metkut
     show cee iloinen at middle with moveinright
     stop sound fadeout 3
     C "Greetings, my fellow prisoner. Sorry about the brusquerie, but do you have a minute? A fleeting moment to spare?"
@@ -564,7 +593,7 @@ label day1_3C:
         xoffset -20
     pause 1.0
     # Cee karmiva hymy
-    play music ilo
+    play music metkut
     "Yikes!"
     pause 0.5
     show bg warehouse:
@@ -953,6 +982,7 @@ label day1_6C:
     "Ugh, I have a hunch it's going to take 3-5 business days to recover from today…" 
     # Cee appears
     # Cee iloinen
+    play music metkut
     show cee iloinen at middle with easeinright
     C "Good evening, my fellow prisoner."
     MC "Gah! Cee? Where on Earth did you come from?"
@@ -979,11 +1009,11 @@ label day1_6C:
             show cee hullu hymy at hop
             stop music fadeout 3
             C "It reminds me of the deepest, coldest parts of the ocean."
-            play music bondaus
             pause 0.5
             # Cee iloinen
             show cee iloinen
             C "It reminds me of home."
+            play music metkut
         "\"Nah. Not so keen on that corporate jargon.\"":
             # Cee perus
             show cee perus
@@ -991,18 +1021,14 @@ label day1_6C:
             MC "Yeah. Our superiors always come up with new, trendy words that actually mean nothing."
             MC "Micro break is a fancy word for closing your eyes for a minute or grabbing a cup of coffee when you can."
             show cee at hop
-            stop music fadeout 3
             C "Hmm. Perhaps you are right, my fellow prisoner."
-            play music bondaus
         "\"Since when were you this interested in my well-being, Cee?\"":
             show cee iloinen at hop
             C "There is no reason to be suspicious, [MC]."
             show cee karmiva hymy
-            stop music fadeout 3
             C "Ever since this friendly little race to power started, I have been observing you. Monitoring you. Watching you."
             MC "That's three reasons to be suspicious, Cee!"
             show cee iloinen
-            play music bondaus
             C "I only have your best interests in mind, my dear sluggish companion." 
     label after_menu:
     show cee perus at hop
@@ -1062,11 +1088,9 @@ label day1_6C:
     C "I can already see the sick leave statistics dropping!"
     MC "Wow, Cee, I'm actually starting to feel enthusiastic about this idea of yours. Well done."
     "Could this warehouse really be turned into a paradise island? Could Cee really achieve that if we let them?"
-    stop music fadeout 4
     "I hope so. I can practically already taste the pina colada and feel the sun on my non-existent skin."
     show cee perus
     # Cee perus
-    play music juoru
     C "That being said, I do hope you aren't considering siding with Karkhos. Using your talents for the benefit of him and his tomfoolery would be an utter waste."
     show cee vihainen at hop
     C "Ugh, we cannot choose that simple-minded brute as our leader."

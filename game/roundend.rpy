@@ -78,6 +78,7 @@ label roundEnd:
         roundEndTotalvPoints = False
         roundEndTotalpPoints = False
         roundEndTotallPoints = False
+    stop music
     call screen roundEndScreen
     python:
         roundrPoints = 0

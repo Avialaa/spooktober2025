@@ -322,6 +322,8 @@ label warehouse_gameplay:
   $ quick_menu = False #hide the quick menu during minigame
   $ minigameOver = False
 
+  play music "Breakdown.mp3"
+
   call screen warehouse_gameplay
 
 screen warehouse_gameplay:

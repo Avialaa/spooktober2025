@@ -40,6 +40,7 @@ define audio.bondaus2 = "audio/Bittersweet.mp3"
 define audio.suru = "audio/Wounded.mp3"
 define audio.juoru = "audio/Vanes.mp3"
 define audio.ending = "audio/Mana-Two-Part1.mp3"
+define audio.metkut = "audio/Deadly-Roulette.mp3"
 
 
 
@@ -133,7 +134,7 @@ label day_change:
         $ _skipping = False
         $ renpy.config.skipping = False
     scene black with dissolve
-    #TODO: add day change sound
+    play sound nextday
     call screen day_change
     $ _skipping = True
     return
@@ -145,7 +146,7 @@ screen day_change:
     text "The next day...":
         xcenter 0.5 ycenter 0.5
         at next_day
-    timer 2.0 action [Hide(), Return()]
+    timer 3.5 action [Hide(), Return()]
 
 label tutorial:
     scene bg warehouse
