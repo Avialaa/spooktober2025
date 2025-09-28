@@ -106,7 +106,7 @@ label day4_A2:
     #day 4 grafiikka
 
     #varasto BG
-    play music suru fadein 5
+    play music juoru
     scene bg warehouse night with dissolve
     pause 1
     "The glowing mushrooms are changing colors from a sleeping state to awake."
@@ -116,7 +116,7 @@ label day4_A2:
     "My movements have slowed each hour of the all-nighter."
     "I keep dropping Loot, stumbling and scraping, and even mistook a sword for a sausage. Is this what it's like to be undead?"
     "When I saw Cee working, their arms were moving, but there was no light in their eyes. As if the soul had been sucked out."
-    "The last I saw Karkhos, he had crawled under the break room's table. When I checked if he was asleep, he was staring at a crack in the wall."
+    "The last I saw Karkhos, he had crawled under the break room's table. At first, I thought he'd stopped breathing."
     "But the warehouse is nearly empty, and astonishingly well organized. We've accomplished a lot. Though it's been hard."
     #agatha iloinen suukiinni appears
     play sound wingflap
@@ -129,6 +129,7 @@ label day4_A2:
     MC "Thanks. Tastes like the sun."
     show agatha iloinen
     A "Tastes like work well done."
+    stop music
     show agatha perus
     #TODO: footsteps tosi hiljasella
     play sound footsteps volume 0.7
@@ -163,6 +164,7 @@ label day4_A2:
     scene bg warehouse with dissolve
     stop sound fadeout 3
     #musta ruutu, sit varasto
+    play music riita
     "What's going on? Agatha said we are behind schedule, but apparently everyone already has Loot?"
     #cee perus
     play sound footsteps
@@ -180,6 +182,7 @@ label day4_A2:
     # Karkhos appears
     stop sound fadeout 3
     "Karkhos comes in from the corridor. He must've been in the break room."
+    show karkhos pikkuviha mato
     K "Had a chat with the delivery guys. They were pissed. Figures."
     #agatha ilmestyy, vakava
     play sound wingflap
@@ -214,7 +217,7 @@ label day4_A2:
     K "In fact, if we go on working, our lives might be in danger."
     show agatha at hop
     A "My pace has NOT plummeted. And little fatigue never killed anyone."
-    show karkhos perus mato
+    show karkhos nukkuva mato
     K "Dunno about that. But when I told the delivery guys who's in charge, they started digging through the unsorted Loot for weapons."
     #a pelokas, ja c kauhistus
     show agatha pelokas
@@ -236,6 +239,7 @@ label day4_A2:
     show karkhos kauhistus mato
     show cee kauhistus
     A "NOOOOOOOOOOOOOO!"
+    stop music
     play sound wingflap volume 1.7
     # agatha pois vauhdikkaasti
     hide agatha with moveouttop
@@ -254,6 +258,7 @@ label day4_A2:
     scene black with dissolve
     pause 1
     #musta ruutu
+    play music suru
     "None of us saw where she flew, so we start peeking behind boxes and calling for her. Cee sloshes around a bag of nectar and flashes Agatha's favorite lantern."
     "The shelving wobbles as I climb to the top. It's high enough to make me queasy."
     "In the topmost corner of the warehouse, quiet sniffling betrays Agatha's hiding place."
@@ -342,12 +347,15 @@ label day4_A2:
     show agatha alakuloinen
     A "All this time, I thought I was the only one having problems, since I was the smallest."
     A "I guess I never stopped to consider what you two must feel."
+    stop music fadeout 2.0
+    A "..."
     # agatha vakava
     show agatha vakava
     A "To feel small and afraid is an awful thing. I don't wish it on anyone."
     # PLACEHOLDER
     show cee perus
     show karkhos perus mato
+    play music ending
     A "Maybe I was unreasonable. It's not good for the Chain to expand too quickly, either. Maybe Boss had our pace all figured out."
     MC "And despite everything, we worked really hard, and sent Loot to every monster. That's worth celebrating."
     show agatha vakava at hop
@@ -371,18 +379,17 @@ label day4_A2:
     show agatha vakava at hop
     "The whites of her cheeks are turning redder."
     A "Maybe it's alright to take the afternoon easy. Just this once."
-    stop music fadeout 3
     scene black with dissolve
     pause 2
 
     # musta ruutu
     # nää samat höpinät on agatha ja kark endingeis
-    play music ending
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."
     "Though some things didn't go exactly to plan, none of the damage is irreversible."
     "Well, save for one thing."
-    "Throughout all this, the four of us have become closer. If there's one thing that sticks, I hope it's that."
-    MC "Guess monster workplace democracy did solve some of our problems."
+    "Throughout all this, the four of us have become closer."
+    "If there's one thing that sticks, I hope it's that."
+    MC "Guess monster workplace democracy did solve some of our problems after all."
     MC "I can't wait to tell Boss all about it."
 
     return
@@ -708,8 +715,9 @@ label day4_B2:
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."
     "Though some things didn't go exactly to plan, none of the damage is irreversible."
     "Well, save for one thing."
-    "Throughout all this, the four of us have become closer. If there's one thing that sticks, I hope it's that."
-    MC "Guess monster workplace democracy did solve some of our problems."
+    "Throughout all this, the four of us have become closer."
+    "If there's one thing that sticks, I hope it's that."
+    MC "Guess monster workplace democracy did solve some of our problems after all."
     MC "I can't wait to tell Boss all about it."
     
     return
@@ -1076,8 +1084,9 @@ label day4_C2:
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."
     "Though some things didn't go exactly to plan, none of the damage is irreversible."
     "Well, save for one thing."
-    "Throughout all this, the four of us have become closer. If there's one thing that sticks, I hope it's that."
-    MC "Guess monster workplace democracy did solve some of our problems."
+    "Throughout all this, the four of us have become closer."
+    "If there's one thing that sticks, I hope it's that."
+    MC "Guess monster workplace democracy did solve some of our problems after all."
     MC "I can't wait to tell Boss all about it."
 
 
