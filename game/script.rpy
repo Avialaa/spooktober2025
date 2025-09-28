@@ -88,9 +88,7 @@ label start:
     else:
         call testing_choose_route
 
-    if currentStoryRoute == "agatha":
-        call day1_4A
-    elif currentStoryRoute == "cee":
+    if currentStoryRoute == "cee":
         call day1_4C
     # else:
     #     call day1_4B
