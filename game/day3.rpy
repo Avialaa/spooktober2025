@@ -143,18 +143,20 @@ label day4_A2:
     scene bg hallway with dissolve
     stop sound fadeout 3
     #musta ruutu, sit käytävä bg
-    "Delivery agent" "Huff… A… delivery… for the warehouse."
+    DeliveryAgent "Huff… A… delivery… for the warehouse."
     "The monster doubles over and pants heavily."
+    play sound speakdistantdelivery fadein 1 loop volume 0.5
     "Behind, a dozen more delivery monsters slump down and fumble for their waterskins. The carts they were pulling take up the whole corridor, and are overflowing with unsorted Loot."
-    "Delivery agent" "Could you finally tell us what the emergency is? Unrest is spreading. We've heard the rumors."
+    DeliveryAgent "Could you finally tell us what the emergency is? Unrest is spreading. We've heard the rumors."
     MC "Wait, what rumors?"
-    "Delivery agent" "That a warband of thousand humans intends to raid the dungeon! Everyone's scared."
-    "Delivery agent" "The fear was the only thing keeping us moving all night."
+    DeliveryAgent "That a warband of thousand humans intends to raid the dungeon! Everyone's scared."
+    DeliveryAgent "The fear was the only thing keeping us moving all night."
     "Like a stone pushed downhill, everything's suddenly happening too fast for my tired mind."
     MC "Uh… Leave the unsorted Loot here. We've packed more boxes for delivery."
-    "Delivery agent" "Delivery to where? Last I checked, all monsters already had Loot."
+    DeliveryAgent "Delivery to where? Last I checked, all monsters already had Loot."
     pause 0.5
     MC "...Could you wait a minute? I have to check with someone."
+    stop sound fadeout 1
     play sound footsteps
     scene black with dissolve
     pause 1.0
@@ -499,15 +501,16 @@ label day4_B2:
     "Maybe Karkhos knows what he's doing. Maybe our productivity will be off the charts today. Hopefully not on the low end."
     #TODO: kävely äänii
     play sound footsteps
-    stop music fadeout 2.0
+    stop music fadeout 4
+    play sound speakdistantdelivery fadein 2 volume 0.75
     "As I approach the warehouse, I hear the commotion of a crowd."
-    stop sound fadeout 3
     "A group of delivery agents has gathered in front of the main entrance."
-    "Delivery agent" "Hey! Why's the warehouse not giving Loot to deliver?"
-    "Delivery agent" "We've got a huge number of deliveries to make. Humans attacked this morning, and many monsters used their Loot."
+    DeliveryAgent "Hey! Why's the warehouse not giving Loot to deliver?"
+    DeliveryAgent "We've got a huge number of deliveries to make. Humans attacked this morning, and many monsters used their Loot."
     "Uh oh." 
     "I apologize and squeeze past. If there's one thing the slimekind are good at, it's this."
     "They grumble, but when I say I only work here, they let me in."
+    stop sound fadeout 3
 
     #TODO: warehouse. Vettä ja roinaa versio.
     play sound footsteps
@@ -554,7 +557,7 @@ label day4_B2:
     show karkhos kauhistus mato at hop
     K "But this mess… We were only away from one noon to the next!"
     #K angry
-    play music riita
+    play music isoriita
     show karkhos vihainen mato at hop
     show cee alakuloinen
     show agatha alakuloinen at shake2 with ease:

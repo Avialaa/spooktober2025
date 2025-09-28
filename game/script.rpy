@@ -38,6 +38,13 @@ init python:
             renpy.sound.play("audio/allspeak.mp3", channel='beeps')
         elif event == "slow_done" or event == "end":
             renpy.sound.stop(channel='beeps', fadeout=1)
+    def DeliverySpeak(event, interact = True, **kwargs):
+        if not interact:
+            return
+        if event == "show":
+            renpy.sound.play("audio/speakDelivery.mp3", channel='beeps')
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop(channel='beeps')
     
     
 
@@ -47,13 +54,13 @@ define MC = Character("[mcName]", who_color="#84bdaf", callback=MCSpeak) # myöh
 define K = Character("Karkhos\n{size=-17}{font=DMSans-Light.ttf}The Destroyer{/size}{/font}", who_style="karkhosNameStyle", callback=karkhosSpeak)
 define C = Character("Cee", who_color="#877EA4", callback=ceeSpeak)
 define All = Character("All", callback=allspeak)
+define DeliveryAgent = Character("Delivery Agent", callback=DeliverySpeak)
 
 default mcName = "Petri Dish"
 
 # The game starts here.
 
 label start:
-
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     #call upgradetreeTest
