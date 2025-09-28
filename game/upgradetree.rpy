@@ -424,8 +424,10 @@ screen upgradeNode(name, upgradeID, upgradeLimit, coord, rCost, bCost, yCost, gC
                 color("#2A3124")
             else:
                 color("#4C5942")
-
-        action [Function(openShop, name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description, _update_screens=True), SetVariable("focusUpgradeName", name)]
+        if focusUpgradeID == upgradeID and rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and oPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost and upgradesBought.get(focusUpgradeID,0) < focusUpgradeLimit:
+            action Function(upgradePurchase)
+        else:
+            action [Function(openShop, name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description, _update_screens=True), SetVariable("focusUpgradeName", name)]
 
 
 screen pointView:
