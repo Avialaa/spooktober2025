@@ -6,8 +6,8 @@ label day3_1:
     pause 1
     "Day of truth. Today at lunch, they're going to decide the winner."
     "When Boss left for the trip, I never expected such a strange few days."
-    "I've worked with these monsters for a while, but now I see that I never really knew them. I've always just checked in and checked out."
-    "It's conscientious to not pry, or so I thought. In truth, maybe I didn't care who these guys even are."
+    "I've worked with these monsters for a while, but now I see that I never really knew them."
+    "I've always just checked in and checked out. Maybe I didn't really care who I shared the warehouse with."
     "I'm pretty content with everything, so I assumed they're also content, not holding on to any secret resentments."
     "Well, better late than never."
 
@@ -116,7 +116,7 @@ label day4_A2:
     "My movements have slowed each hour of the all-nighter."
     "I keep dropping Loot, stumbling and scraping, and even mistook a sword for a sausage. Is this what it's like to be undead?"
     "When I saw Cee working, their arms were moving, but there was no light in their eyes. As if the soul had been sucked out."
-    "The last I saw Karkhos, he had crawled under the breakroom's table. When I checked if he was asleep, he was staring at a crack in the wall."
+    "The last I saw Karkhos, he had crawled under the break room's table. When I checked if he was asleep, he was staring at a crack in the wall."
     "But the warehouse is nearly empty, and astonishingly well organized. We've accomplished a lot. Though it's been hard."
     #agatha iloinen suukiinni appears
     play sound wingflap
@@ -177,7 +177,7 @@ label day4_A2:
         xalign 0.01 xoffset -100
     # Karkhos appears
     stop sound fadeout 3
-    "Karkhos comes in from the corridor. He must've been in the breakroom."
+    "Karkhos comes in from the corridor. He must've been in the break room."
     K "Had a chat with the delivery guys. They were pissed. Figures."
     #agatha ilmestyy, vakava
     play sound wingflap
@@ -406,11 +406,15 @@ label day3_B1:
     show karkhos iloinen at hop
     K "Heh. Cheer up, guys. This is only the beginning."
     K "[MC]. Looks like you have shipped less items than usual. That means I win."
-    K "You're living proof that the work's just too hard. Now that you all finally see reason, let's start living like we'll be dead tomorrow."
+    K "You're living proof that the work's just too hard."
+    show karkhos perus
+    K "Now that you all finally see reason, let's start living like we'll be dead tomorrow."
     MC "What will our demands to Boss be?"
+    show karkhos iloinen
     K "Dunno yet. Those details will sort themselves out."
-    show karkhos at hop
+    show karkhos kauhistus at hop
     K "Oh, got it! We need something to get the brain juices flowing."
+    show karkhos iloinen
     K "I hear the gargoyles down the river invented a new cocktail. It's got dryad liquor and distilled dire-ant venom. You'll need a stomach of stone for it."
     K "I've wanted to try it ever since I died."
     show karkhos tosi iloinen at hop
@@ -425,8 +429,11 @@ label day3_B1:
     K "See, even Agatha is already relaxed enough to be cracking jokes."
     show agatha alakuloinen
     K "I reckon lunch is as good a time to go on a little excursion as any."
+    show karkhos perus
     K "The Loot orders will start piling up, but that's a positive."
+    show karkhos pikkuviha
     K "Monsters these days are way too demanding. A few days of delivery delay should be the new normal."
+    show karkhos tosi iloinen
     K "It's good to set healthy boundaries in these things."
     show cee alakuloinen at hop
     C "Uh. Before we depart, I must-"
@@ -467,21 +474,20 @@ label day4_B2:
     #(päivä 4 grafiikka)
 
     scene black
-    play music suru
+    play music juoru
     #musta ruutu
     "Bleary. Dizzy. I open my eyes after a dreamless black."
     "The only reason I believe it's an hour to noon is because my clock says so."
     MC "Ouch... It's like I haven't slept a wink."
     "Even my aches have aches. My body's toxin percentage must be very high."
     "We left work after lunch. Though Karkhos is always tired at work, he was practically hopping out the dungeon."
-    "He took us to village after village. We drank and tried local dares not even the residents themselves would do."
     "Losing the whole \"who's right and who's wrong\" thing did a number on Cee and Agatha. They went along with Karkhos' whims, though unenthusiastically. I suppose I did, too."
     "Agatha was the first one to wash out. In the goblin village, she bathed in Karkhos' ale mug. After that, she tried to explain flower crossbreeding to us."
-    "She started crying uncontrollably, said horticulture is so beautiful, and curled up to sleep on the table."
+    "She started crying, said horticulture is so beautiful, and curled up to sleep on the table."
     "All evening, Cee kept looking at the clock and fidgeting."
-    "When we were visiting the salamanders, Cee wanted to try inventing a new drink. They kept the ingredients a secret, but everyone who drank the concoction blacked out. Cee included."
+    "When we were visiting the salamanders, Cee tried inventing a new drink. They kept the ingredients a secret, but everyone who drank the concoction blacked out. Cee included."
     "Karkhos was in a great mood though." 
-    "A night to remember. I had fun, but can't say I feel more rested. Our demands to the Boss aren't any clearer, either."
+    "A night to remember. I had fun, but can't say I feel more rested. Our demands to Boss aren't any clearer, either."
 
     #TODO: walking sound
     #käytävä BG
@@ -493,6 +499,7 @@ label day4_B2:
     "Maybe Karkhos knows what he's doing. Maybe our productivity will be off the charts today. Hopefully not on the low end."
     #TODO: kävely äänii
     play sound footsteps
+    stop music fadeout 2.0
     "As I approach the warehouse, I hear the commotion of a crowd."
     stop sound fadeout 3
     "A group of delivery agents has gathered in front of the main entrance."
@@ -523,9 +530,13 @@ label day4_B2:
     show agatha alakuloinen
     C "It appears the downsides of a \"work-life balance\" have become apparent."
     MC "You left your weird pump running, didn't you."
+    show cee kauhistus
     C "Leave it I did. For yesterday, I was ordered to drop everything."
+    show cee perus
     C "Mayhaps I ought to have opposed our new overlord. \nAlas, I did not."
+    show cee kauhistus at hop
     C "Absent overlord, I might add."
+    show cee perus
     show agatha at hop
     A "Where is Karkhos? It's past noon."
     #TODO: footsteps in water approaching. They stop.
@@ -540,8 +551,10 @@ label day4_B2:
     K "What's going on…"
     K "There were delivery agents outside." 
     K "I told them to take the day off, but it just made them angrier."
-    K "But this mess… \nWe were only away from one noon to the next!"
+    show karkhos kauhistus mato at hop
+    K "But this mess… We were only away from one noon to the next!"
     #K angry
+    play music riita
     show karkhos vihainen mato at hop
     show cee alakuloinen
     show agatha alakuloinen at shake2 with ease:
@@ -550,7 +563,8 @@ label day4_B2:
     show karkhos at shake
     K "None of this is my fault, right?! It's not my fault Agatha ordered triples, or that Cee wanted to turn this place into an aquarium?! It's not my fault!"
     show karkhos at hop
-    "He's getting winded from yelling. He looks at each of us for support. Agatha is so miserable she barely stays in the air. Cee is staring at their hands through the wavering water."
+    "He's getting winded from yelling. He looks at each of us for support."
+    "Agatha is so miserable she barely stays in the air. Cee is staring at their hands through the wavering water."
     show karkhos alakuloinen mato
     K "If we'd been here in the evening, we would have noticed the flooding earlier. None of this loot would be ruined."
     show karkhos vihainen mato
@@ -563,6 +577,7 @@ label day4_B2:
     show agatha pelokas at middle
     show cee kauhistus
     "Karkhos grips his gut and slumps into the water."
+    stop music fadeout 1.0
     "Brownish blood is oozing through his fingers. The large suture in his abdomen has ripped."
     MC "?!?!"
     show agatha pelokas at hop
@@ -587,6 +602,8 @@ label day4_B2:
     pause 1
     show karkhos at hop:
         yoffset 200
+    play music suru
+    K "..."
     K "My gut always rips when I get too agitated. I've gotten pretty good at sewing thanks to it. Hurts, though."
     MC "Amazing it didn't rip last night."
     show karkhos perus mato
@@ -618,14 +635,12 @@ label day4_B2:
     A "...I'm sorry…"
     show karkhos perus mato at hop
     K "Hey, what for?"
-    show agatha vakava
-    A "...When I lost the vote to you, I started doubting everything I believed in. Is what I have been advocating for really alright? So I stopped thinking and went along with your stupid plan blindly."
+    show agatha alakuloinen
+    A "...When I lost the vote to you, I started doubting everything I believed in. I stopped thinking and went along with your stupid plan blindly."
     show cee alakuloinen at hop
     C "I also thought, that though my aims had been clear to me, perhaps I had been looking at the world through dyed water."
-    show agatha alakuloinen
     C "How could I ever again be certain of anything? So when our new overlord ejected us from labor, I neglected to exercise due caution."
     show karkhos at hop
-    show cee perus
     K "Guys…"
     show karkhos alakuloinen mato
     K "Oh man. Yet another thing I've Karkhos the Destroyer'd… It just keeps happening."
@@ -636,6 +651,7 @@ label day4_B2:
     C "You ought not have taken the name if it was slanderous."
     show karkhos pikkuviha mato
     K "If it fits, it sits."
+    show cee alakuloinen
     show agatha alakuloinen
     A "..."
     A "I'm sorry, Karkhos. I was so focused on myself, that I didn't see how much you were struggling. I didn't want to believe you were doing your best."
@@ -645,10 +661,17 @@ label day4_B2:
     K "Nah. I've been the biggest idiot of all."
     K "When I noticed I couldn't keep up with the rest of you, it made me feel weak and useless."
     K "Agatha is so small, yet she did double what I did."
-    K "I was too afraid to ask for reduced hours without everyone backing me up. Hell, I'd rather have disintegrated than admitted my weakness. So I blamed the work."
+    K "I was too afraid to ask for reduced hours without everyone backing me up."
+    show karkhos nukkuva mato
+    K "Hell, I'd rather have disintegrated than admitted my weakness."
+    show karkhos alakuloinen mato
+    K "So I blamed the work."
     MC "You were so intimidating, that I thought you knew how to stand up for yourself. I never thought..."
     show agatha vakava
+    stop music fadeout 4.0
     MC "But now that we see what has gone wrong, it's an opportunity to fix things. Nothing irreversible has happened, right?"
+    "Agatha's eyes light up."
+    play music ending
     show agatha iloinen suukiinni
     A "Right! Though I might not be ready to work less myself, I will stand behind Karkhos on this."
     show agatha iloinen at hop
@@ -656,21 +679,29 @@ label day4_B2:
     A "I will write a persuasive speech to Boss, demanding your hours be reduced, without touching your employment contract."
     A "I bet the necromantic contract doesn't care how many hours you work."
     show cee iloinen at hop
-    show karkhos iloinen mato
     C "Perhaps there is yet more to be done. I shall consult the necromancer. More magical energy might invigorate thine mal maintained cadaver."
     C "The kidney and liver had mayhaps a purpose as well."
-    show karkhos tosi iloinen mato
+    show karkhos kauhistus mato
     MC "And I'm going to start cleaning up. Lots to be done before Boss returns."
     show karkhos alakuloinen mato
     "Karkhos turns away. Though he's trying to appear casual, I see him wiping the corners of his eyes."
+    K "Even if I get tired, and even if it's hard…"
+    K "Even if I'm not the fastest..."
+    show karkhos perus mato
+    K "Maybe I'd forgotten that my contributions also matter."
+    K "From now on, I want to make the work I do count."
+    show agatha at hop
+    show cee at hop
+    MC "Yeah!"
     show karkhos tosi iloinen mato
     K "Let's Karkhos the Destroyer this mess!"
-    stop music fadeout 5
+    show agatha at hop
+    show cee at hop
+    show karkhos at hop
     All "Yeah!"
     # musta ruutu?
     scene black with dissolve
     pause 2
-    play music ending
     "When Boss left, I wanted to go on working as usual. But the others started planning a revolution, and I went along reluctantly."
     "Though some things didn't go exactly to plan, none of the damage is irreversible."
     "Well, save for one thing."
