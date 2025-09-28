@@ -30,7 +30,7 @@ label roundEnd:
         rPoints += roundrPoints+timerPoints
         bPoints += roundbPoints+timerPoints
         yPoints += roundyPoints+timerPoints
-        gPoints += roundgPoints+timerPoints
+        gPoints += roundgPoints+timerPoints+sleepTimerPoints
         oPoints += roundoPoints+timerPoints
         vPoints += roundvPoints+timerPoints
         pPoints += roundpPoints+timerPoints
