@@ -153,6 +153,7 @@ label sticky_notes_tutorial:
     pause
     scene bg warehouse with fade
 
+label sticky_notes_menu:
     menu:
         "Take another look at the sticky notes.":
             jump sticky_notes_tutorial
@@ -161,3 +162,7 @@ label sticky_notes_tutorial:
     
     return
 
+label tutorial_again:
+    scene bg warehouse
+    "The sticky notes containing instructions are still on the work station."
+    jump sticky_notes_menu
