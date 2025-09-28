@@ -14,6 +14,7 @@ label day3_1:
     #  varasto bg
     play sound footsteps
     show bg warehouse posters with dissolve
+    pause 1
     stop sound fadeout 3
     "Conveyor belts whirl in the depths of the warehouse. Are the others already here?"
     "Either they arrived early, or they never left. Not even Agatha has ever stayed overnight before."
@@ -807,6 +808,7 @@ label day3_C1:  #Cee wins
             MC "First of all, no matter what we're going to drink, it has to be served in a coconut shell. Don't forget to add the little umbrella decorations either."
             show cee iloinen
             C "Duly noted. What else?"
+            show karkhos perus
             MC "Tropical fruit and colors are always good. However, the drinks can't be too sweet - the aftermath of sugar rush will only wreck our productivity. You've gotta be careful!"
             show cee perus
             C "Thank you for your input, [MC]. I'll see what I can do."  
@@ -851,8 +853,10 @@ label day3_C1:  #Cee wins
 label day4_C2:
     play music metkut
     scene bg warehouse cee with dissolve
+    pause 2
     # Käytävät tulvivat. Märkää loottia lilluu vedessä.
     "Paradise island? That's what we were promised, but…"
+    pause 1
     # Karkhos appears.
     # Karkhos alakuloinen
     play sound footstepswater
@@ -1025,9 +1029,12 @@ label day4_C2:
     show cee alakuloinen at hop
     # Cee alakuloinen
     C "Very well then. It seems that I was right to make you my partner in crime, [MC]. You clearly possess something even I do not."
+    show cee iloinen
     C "I take back what I said - you are not a shark sinking its teeth into flesh, you are a gentle whale gliding through the depths."
     MC "Aww, thank you, Cee."
+    pause 1
     show cee perus
+    play sound wingflap volume 0.5
     show bg with hpunch
     "As I start to head back, Cee grabs me."
     C "I was not being completely honest with you before. I mentioned wanting to be feared by everyone - even Boss."
@@ -1053,6 +1060,7 @@ label day4_C2:
     C "Fine, I'll remain here and face the consequences. If the land-dwelling masses end up demanding punishment as compensation for my actions, I suppose I shall not plead for impunity."
     MC "That's very mature of you, Cee. However, I'm sure we can talk this out with everyone, no punishment required."
     MC "It's not like we can't fix this place, and I bet most folks understand that you were only trying to make things better."
+    show cee at hop
     MC "Besides, you don't have to do this alone. I'm the one who decided to side with you. Like you said, I'm your partner in crime."
     # Cee smiles
     show cee iloinen
@@ -1110,12 +1118,12 @@ label day4_C2:
     A "I suppose I can't ignore the fact that you were trying to make our work environment more pleasant, either. Statistics do show that thriving workers are more productive, after all."
     show cee iloinen
     MC "See, Cee? The others value your input. I'm sure your ideas will be useful when we discuss how to run things here from now on."
-    show cee tosi iloinen at hop
-    C "Yes, well, if you inist, I suppose..."
-    #"As it should be." leikkasin tän pois ni ehk luonnollisemp viel lisä toi mikä lopetus kahes muut endingis on?
+    show cee iloinen at hop
+    C "Hmm. Perhaps I was wrong to call you fools."
+    show cee tosi iloinen
+    C "Very well then. I shall use my immense capabilities for the benefit of us all. Heed my words!"
+    pause 2
 
-    #voisko joku tehä tähä viel jonku transition idk
-    #toimisko tällee? -o
     scene black with dissolve
     pause 2
     "I look at Cee, Agatha and Karkhos."

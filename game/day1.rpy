@@ -172,8 +172,7 @@ label day1_2:
     C "Was it not you, Karkhos, who slacked off? Perhaps your sacred right ought to be revoked."
     show agatha vihainen at shake
     A "You can't revoke the policy mandated lunch break!"
-    show agatha vihainen at hop
-    show cee vihainen at hop
+    show karkhos at shake
     "They're really getting fired up."
     "Maybe all this time, they just pretended to like each other because Boss was here."
     "Doesn't feel like much of a break when the noise level is this high."

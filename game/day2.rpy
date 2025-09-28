@@ -951,5 +951,7 @@ label day2_5C: #Cee emotional evening
     MC "Glad to see you being your old self again, Cee."
     "Tomorrow, change is coming. One way or another."
     "Maybe I'M the one feeling nervous."
+    scene black with dissolve
     stop music fadeout 5
+    pause 2
     return
