@@ -73,6 +73,7 @@ label start:
     #call day1_3A jos $ agreewithagatha = True, sama day1_3B ja day1_3C
     if minigameOn == True:
         # toinen minipelityövuoro
+        call tutorial_again
         call upgradeTree
         call warehouse_gameplay
         call roundEnd
