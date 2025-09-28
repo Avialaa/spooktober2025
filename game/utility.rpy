@@ -51,6 +51,11 @@ label after_minigame:
     $ renpy.block_rollback()
     $ config.rollback_enabled = True #allow rollback again
 
+    $ config.keymap['game_menu'].append('K_ESCAPE')
+    $ config.keymap['game_menu'].append('K_MENU')
+    $ config.keymap['game_menu'].append('mouseup_3')
+    $ renpy.clear_keymap_cache() #clear cache for keymap changes to take effect
+
     if currentStoryRoute:
         e "Current route: [currentStoryRoute]"
 

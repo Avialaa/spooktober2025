@@ -80,15 +80,15 @@ init python:
 
     if workShift == 1:
       correctOrdersDemandedByAgatha = 4
-      fishDemandedByCee = 6
+      fishDemandedByCee = 7
     elif workShift == 2:
       correctOrdersDemandedByAgatha = 4
-      fishDemandedByCee = 8
+      fishDemandedByCee = 9
     elif workShift == 3:
-      correctOrdersDemandedByAgatha = 4
-      fishDemandedByCee = 10
+      correctOrdersDemandedByAgatha = 5
+      fishDemandedByCee = 12
     elif workShift == 4:
-      correctOrdersDemandedByAgatha = 4
+      correctOrdersDemandedByAgatha = 5
       fishDemandedByCee = 14
     elif workShift == 5:
       correctOrdersDemandedByAgatha = 5
@@ -311,6 +311,12 @@ label warehouse_gameplay:
     hide screen skip_indicator
     $ _skipping = False
   $ renpy.config.skipping = False
+
+  #prevent the player from opening menu (timers don't stop while in menu)
+  $ config.keymap['game_menu'].remove('K_ESCAPE')
+  $ config.keymap['game_menu'].remove('K_MENU')
+  $ config.keymap['game_menu'].remove('mouseup_3')
+  $ renpy.clear_keymap_cache() #clear cache for keymap changes to take effect
 
   #generate 3 orders at the start of the minigame
   $ generateOrder()
