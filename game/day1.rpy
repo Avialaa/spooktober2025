@@ -696,7 +696,7 @@ label day1_6A:
     show agatha perus at zoomToNormalSize:
         yoffset 0
     #Make A normal size
-    play music bondaus
+    play music bondaus2
     A "Don't sell yourself short, [MC]! What you do means a lot. Really."
     "Yeah, she's being REALLY nice. I know she just wants to butter me up… But it's kind of nice to be appreciated."
     show agatha vakava
