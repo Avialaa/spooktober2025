@@ -153,6 +153,7 @@ label tutorial:
     "Someone left sticky notes on the new work station... Looks like instructions on how to use the new system."
 label sticky_notes_tutorial:
     window hide
+    play sound paper
     scene tutorial with fade
     pause
     scene bg warehouse with fade
