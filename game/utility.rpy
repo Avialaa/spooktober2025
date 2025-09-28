@@ -134,7 +134,7 @@ label day_change:
         $ _skipping = False
         $ renpy.config.skipping = False
     scene black with dissolve
-    #TODO: add day change sound
+    play sound nextday
     call screen day_change
     $ _skipping = True
     return
@@ -146,7 +146,7 @@ screen day_change:
     text "The next day...":
         xcenter 0.5 ycenter 0.5
         at next_day
-    timer 2.0 action [Hide(), Return()]
+    timer 3.5 action [Hide(), Return()]
 
 label tutorial:
     scene bg warehouse
