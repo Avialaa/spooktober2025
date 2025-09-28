@@ -8,7 +8,7 @@ default orders = [] #list of orders (list of nested lists?)
 default isOrderCorrect = True
 default boxReady = True
 default boxAnimDuration = 0.5
-default roundDuration = 50
+default roundDuration = 80
 default minigameOver = False
 default conveyerInterval = 1 #miten tiuhaan tavarat on liukuhihnalla, sekunneissa spawnausväli (pienempi = tiheämpi)
 default subsequentCorrectOrders = 0
@@ -78,10 +78,10 @@ init python:
     global correctOrdersDemandedByAgatha
 
     if workShift == 1:
-      correctOrdersDemandedByAgatha = 3
+      correctOrdersDemandedByAgatha = 4
       fishDemandedByCee = 6
     elif workShift == 2:
-      correctOrdersDemandedByAgatha = 3
+      correctOrdersDemandedByAgatha = 4
       fishDemandedByCee = 8
     elif workShift == 3:
       correctOrdersDemandedByAgatha = 4
