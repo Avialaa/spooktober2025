@@ -498,7 +498,7 @@ label day1_3B:
     "As I get ready to boot up the new system, the food chunks churn in my slime."
     "If the breaks were a bit longer, I certainly wouldn't complain…"
     # MINIPELI OHJE
-    
+
     #Allin muutos
     #"…Only three boxes per shift, huh?"
     "Slack off, and don't be afraid to make some mistakes, huh?"
@@ -627,6 +627,7 @@ label day1_3C:
     MC "Um, I'll think about it, I guess."
     show cee iloinen
     C "Marvelous. I'll be observing you, [MC]."
+    C "Apropos; the new system doesn't penalize you for slipping in extra items with correct orders."
     play sound footsteps
     hide cee with moveoutleft
     stop sound fadeout 4
