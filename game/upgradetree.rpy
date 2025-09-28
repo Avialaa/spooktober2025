@@ -208,14 +208,15 @@ init python:
 
         roundDuration = 80+(10*upgradesBought.get("timeIncrease",0)) #increase round time by 10 seconds per round time upgrade
         timerPoints = (roundDuration/10)*upgradesBought.get("timePoints",0) #every second gives 0.1 of eachpoint per bought timer point upgrade
-        sleepTimerPoints = (roundDuration)*upgradesBought.get("sleepTimePoints",0) #every second gives 1 green point per bought timer sleep point upgrade
+        sleepTimerPoints = roundDuration*upgradesBought.get("sleepTimePoints",0) #every second gives 1 green point per bought timer sleep point upgrade
         roundDuration = roundDuration/(2**upgradesBought.get("timePace",0)) #halves round duration without affecting timer points for each time pace upgrade bought
         if "noTime"  in upgradesBought:
             roundDuration = 0.1
         failPoints = upgradesBought.get("failPoint",0)*0.1
-        maxBoxItems = 6+upgradesBought.get("boxSize",0) 
+        maxBoxItems = 6+upgradesBought.get("box",0) 
         conveyerSpeed = 5.0*(0.9**upgradesBought.get("speed",0))
         conveyerInterval = 1.0*(0.9**upgradesBought.get("interval",0))*(conveyerSpeed/5)
+        validityFactor = 1.1**upgradesBought.get("fault",0)-1
 
 
 
@@ -553,15 +554,15 @@ screen upgradeTree:
     #add "bigspace_day.png"
     modal True
 
-    text "{size=+10}{color=#ddd}Upgrades":
-        align (0.5,0)
+    text "{size=+7}{color=#ddd}Workshop Upgrades":
+        align (0.5,0.001)
     
     #return button
     frame:
         background "upgradeBox"
         padding (20,10)
         xalign 0.5
-        yalign 1.0
+        yalign 0.999
         textbutton "{color=#ddd}{size=+9}Done":
             action [SetVariable("focusUpgradeName", "0"), Return()]
 
@@ -687,9 +688,9 @@ screen upgradeTree:
                     if 'fish3Multiplier' in upgradesBought:
                         use upgradeNode("Supreme Fish","fishCap", 10, (0.16, 0.71), 0, 0, 0, 0, 0, 80*(2**upgradesBought.get("fishCap",0)), 0, 0, "Each point gained from fish gives 0.1 points of every other type.")
                     if 'weapon3Multiplier' in upgradesBought:
-                        use upgradeNode("Supreme Blade","weaponCap", 10, (0.5, 0.71), 0, 80*(2**upgradesBought.get("fishCap",0)), 0, 0, 0, 0, 0, 0, "Each point gained from blades gives 0.1 points of every other type.")
+                        use upgradeNode("Supreme Blade","weaponCap", 10, (0.5, 0.71), 0, 80*(2**upgradesBought.get("weaponCap",0)), 0, 0, 0, 0, 0, 0, "Each point gained from blades gives 0.1 points of every other type.")
                     if 'sleep3Multiplier' in upgradesBought:
-                        use upgradeNode("Supreme Nap","sleepCap", 10, (0.845, 0.71), 0, 0, 0, 80*(2**upgradesBought.get("fishCap",0)), 0, 0, 0, 0, "Each point gained from nap items gives 0.1 points of every other type.")
+                        use upgradeNode("Supreme Nap","sleepCap", 10, (0.845, 0.71), 0, 0, 0, 80*(2**upgradesBought.get("sleepCap",0)), 0, 0, 0, 0, "Each point gained from nap items gives 0.1 points of every other type.")
                     #combo
                     if 'sleepMultiplier' in upgradesBought and 'boneMultiplier' in upgradesBought:
                         use upgradeNode("{size=-9}Rot Combo","glCombo", 15, (0.605, 0.535), 0, 0, 0, 1*(2**upgradesBought.get("glCombo",0)), 0, 0, 0, 1*(2**upgradesBought.get("glCombo",0)), "Bones and nap items get a +10% bonus from each other.")
@@ -710,7 +711,9 @@ screen upgradeTree:
 
                     #Karkhos upgrades
                     if 'sleep2Chance' in upgradesBought:
-                        use upgradeNode("Slack","timePoints", 10, (0.658, 0.57), 0, 0, 0, 10*(2**upgradesBought.get("timePoints",0)), 0, 0, 0, 0, "Every second gain +0.1 of every point type during shift.")
+                        use upgradeNode("Slack","timePoints", 10, (0.657, 0.57), 0, 0, 0, 10*(2**upgradesBought.get("timePoints",0)), 0, 0, 0, 0, "Every second gain +0.1 of every point type during shift.")
+                    if 'sleep2Chance' in upgradesBought:
+                        use upgradeNode("Haphazard","fault", 10, (0.603, 0.605), 0, 0, 0, 10*(2**upgradesBought.get("fault",0)), 0, 0, 0, 0, "Gain +10% of the points from invalid orders.")
                     if 'sleep2Multiplier' in upgradesBought and 'timePoints' in upgradesBought:
                         use upgradeNode("Snore","sleepTimePoint", 10, (0.71, 0.605), 0, 0, 0, 10*(2**upgradesBought.get("sleepTimePoints",0)), 0, 0, 0, 0, "Every second gain +1 green point during shift.")
                     if 'sleep3Chance' in upgradesBought and 'timePoints' in upgradesBought:
@@ -728,11 +731,14 @@ screen upgradeTree:
                         
 
                     #Cee upgrades
-                    #kalamäärämultiplier
-                    #laatikon koko
-                    #laatikon automaattinen täyttö kalalla
-                    #maxBoxItems
-                    #all other points give fish points
+                    if 'fish2Chance' in upgradesBought:
+                        use upgradeNode("Moist","fishy", 10, (0.345, 0.57), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fishy",0)), 0, 0, "All other items also give fish points.")
+                    if 'fish2Multiplier' in upgradesBought and "fishy" in upgradesBought:
+                        use upgradeNode("Big Box","box", 10, (0.292, 0.605), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("box",0)), 0, 0, "Increases box size by one.")
+                    if 'fish2Multiplier' in upgradesBought and "box" in upgradesBought:
+                        use upgradeNode("Smuggle","fishNumber", 10, (0.24, 0.64), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fishNumber",0)), 0, 0, "Each fish is counted as +1 extra fish.")
+                    if 'fish3Multiplier' in upgradesBought and "fishNumber" in upgradesBought:
+                        use upgradeNode("Bounty of the Sea","bounty", 10, (0.135, 0.675), 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("bounty",0)), 0, 0, "Gain +50 fish points at the end of shift.")
 
         #scrollbars of the viewport
         bar value XScrollValue("zoom_vp") xalign 0.5
