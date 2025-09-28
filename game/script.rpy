@@ -61,7 +61,6 @@ default mcName = "Petri Dish"
 # The game starts here.
 
 label start:
-    call day4_B2
     # Kutsutaan vuorotellen eri osat peliä call-funktiolla.
     # Peliosion loppuun laitetaan return niin kontrolli palaa tähän runkoon.
     #call upgradetreeTest
