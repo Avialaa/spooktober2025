@@ -208,7 +208,7 @@ init python:
 
         roundDuration = 80+(10*upgradesBought.get("timeIncrease",0)) #increase round time by 10 seconds per round time upgrade
         timerPoints = (roundDuration/10)*upgradesBought.get("timePoints",0) #every second gives 0.1 of eachpoint per bought timer point upgrade
-        sleepTimerPoints = roundDuration*upgradesBought.get("sleepTimePoints",0) #every second gives 1 green point per bought timer sleep point upgrade
+        sleepTimerPoints = roundDuration*upgradesBought.get("sleepTimerPoints",0) #every second gives 1 green point per bought timer sleep point upgrade
         roundDuration = roundDuration/(2**upgradesBought.get("timePace",0)) #halves round duration without affecting timer points for each time pace upgrade bought
         if "noTime"  in upgradesBought:
             roundDuration = 0.1
