@@ -101,6 +101,7 @@ label day3_A1:
     scene black with dissolve
     pause 1.5
     #musta ruutu täs välis
+    call day_change #day changes!!
 
 label day4_A2:
     #day 4 grafiikka
@@ -501,6 +502,7 @@ label day3_B1:
     "This result… Was it really alright?"
     scene black with fade
     pause 1
+    call day_change #day changes!!
 
 
 label day4_B2:
@@ -842,6 +844,7 @@ label day3_C1:  #Cee wins
     pause 1.0
     scene black with fade
     pause 1
+    call day_change #day changes!!
 
 
 #TODO lisää joku ääniefekti ehkä? 
