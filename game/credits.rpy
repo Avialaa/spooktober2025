@@ -1,19 +1,19 @@
 label finalcredits:
     $ quick_menu = False
     scene black
-    show screen creditscreen
-    pause 
+    call screen creditscreen
+    
     
     # or however long it takes to scroll through in a reasonable speed
     
-    hide screen creditscreen
-    #skip credits nappi????
+    
+   
     return
 
 screen creditscreen:
-    textbutton "Skip" action Hide() xpos 0.95 ypos 0.95
+    textbutton "Skip" action Return() xpos 0.95 ypos 0.95
     modal True
-    timer 150 action Hide()
+    timer 120 action Return()
     vbox:
         xsize 1080 # horizontal size of the credits
         ysize 9000 # how much vertical space your rolling credits take.
@@ -234,7 +234,7 @@ screen creditscreen:
                 color "#8580b1"
                 size 30
                 xalign 0.5   
-            text "Asset artist/2D artist":
+            text "Asset artist":
                 font "DMSans-Light.ttf"
                 color "#6b8b89"
                 size 40
