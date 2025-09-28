@@ -306,22 +306,22 @@ init python:
 
         #adding combo points
 
-        cOrderrPoints = orderpPoints*((1,1**upgradesBought.get(rpCombo,0))-1)
-        cOrderrPoints = orderoPoints*((1,1**upgradesBought.get(roCombo,0))-1)
-        cOrderoPoints = orderrPoints*((1,1**upgradesBought.get(roCombo,0))-1)
-        cOrderoPoints = orderyPoints*((1,1**upgradesBought.get(yoCombo,0))-1)
-        cOrderyPoints = orderoPoints*((1,1**upgradesBought.get(yoCombo,0))-1)
-        cOrderyPoints = orderlPoints*((1,1**upgradesBought.get(ylCombo,0))-1)
-        cOrderlPoints = orderyPoints*((1,1**upgradesBought.get(ylCombo,0))-1)
-        cOrderlPoints = ordergPoints*((1,1**upgradesBought.get(glCombo,0))-1)
-        cOrdergPoints = orderlPoints*((1,1**upgradesBought.get(glCombo,0))-1)
-        cOrdergPoints = orderbPoints*((1,1**upgradesBought.get(gbCombo,0))-1)
-        cOrderbPoints = ordergPoints*((1,1**upgradesBought.get(gbCombo,0))-1)
-        cOrderbPoints = ordervPoints*((1,1**upgradesBought.get(vbCombo,0))-1)
-        cOrdervPoints = orderbPoints*((1,1**upgradesBought.get(vbCombo,0))-1)
-        cOrdervPoints = orderpPoints*((1,1**upgradesBought.get(vpCombo,0))-1)
-        cOrderpPoints = ordervPoints*((1,1**upgradesBought.get(vpCombo,0))-1)
-        cOrderpPoints = orderrPoints*((1,1**upgradesBought.get(rpCombo,0))-1)
+        cOrderrPoints = orderpPoints*((1.1**upgradesBought.get("rpCombo",0))-1)
+        cOrderrPoints = orderoPoints*((1.1**upgradesBought.get("roCombo",0))-1)
+        cOrderoPoints = orderrPoints*((1.1**upgradesBought.get("roCombo",0))-1)
+        cOrderoPoints = orderyPoints*((1.1**upgradesBought.get("yoCombo",0))-1)
+        cOrderyPoints = orderoPoints*((1.1**upgradesBought.get("yoCombo",0))-1)
+        cOrderyPoints = orderlPoints*((1.1**upgradesBought.get("ylCombo",0))-1)
+        cOrderlPoints = orderyPoints*((1.1**upgradesBought.get("ylCombo",0))-1)
+        cOrderlPoints = ordergPoints*((1.1**upgradesBought.get("glCombo",0))-1)
+        cOrdergPoints = orderlPoints*((1.1**upgradesBought.get("glCombo",0))-1)
+        cOrdergPoints = orderbPoints*((1.1**upgradesBought.get("gbCombo",0))-1)
+        cOrderbPoints = ordergPoints*((1.1**upgradesBought.get("gbCombo",0))-1)
+        cOrderbPoints = ordervPoints*((1.1**upgradesBought.get("vbCombo",0))-1)
+        cOrdervPoints = orderbPoints*((1.1**upgradesBought.get("vbCombo",0))-1)
+        cOrdervPoints = orderpPoints*((1.1**upgradesBought.get("vpCombo",0))-1)
+        cOrderpPoints = ordervPoints*((1.1**upgradesBought.get("vpCombo",0))-1)
+        cOrderpPoints = orderrPoints*((1.1**upgradesBought.get("rpCombo",0))-1)
         
         #adding order point totals into round point count       
         roundrPoints += (orderrPoints+cOrderrPoints)*validityFactor
@@ -666,7 +666,7 @@ screen upgradeTree:
                 if 'sleepMultiplier' in upgradesBought and 'boneMultiplier' in upgradesBought:
                     use upgradeNode("{size=-9}Rot Combo","glCombo", 15, (0.605, 0.535), 0, 0, 0, 1*(2**upgradesBought.get("glCombo",0)), 0, 0, 0, 1*(2**upgradesBought.get("glCombo",0)), "Bones and nap items get a +10% bonus from each other.")
                 if 'sleepMultiplier' in upgradesBought and 'weaponMultiplier' in upgradesBought:
-                    use upgradeNode("{size=-9}Death Combo","gbCombo", 15, (0.556, 0.57), 0, 1*(2**upgradesBought.get("glCombo",0)), 0, 1*(2**upgradesBought.get("gbCombo",0)), 0, 0, 0, 0, "Blades and nap items get a +10% bonus from each other.")
+                    use upgradeNode("{size=-9}Death Combo","gbCombo", 15, (0.556, 0.57), 0, 1*(2**upgradesBought.get("gbCombo",0)), 0, 1*(2**upgradesBought.get("gbCombo",0)), 0, 0, 0, 0, "Blades and nap items get a +10% bonus from each other.")
                 if 'fishMultiplier' in upgradesBought and 'weaponMultiplier' in upgradesBought:
                     use upgradeNode("{size=-9}Sushi Combo","vbCombo", 15, (0.4455, 0.57), 0, 1*(2**upgradesBought.get("vbCombo",0)), 0, 0, 0, 1*(2**upgradesBought.get("vbCombo",0)), 0, 0, "Blades and fish get a +10% bonus from each other.")
                 if 'fishMultiplier' in upgradesBought and 'keysMultiplier' in upgradesBought:
@@ -676,9 +676,9 @@ screen upgradeTree:
                 if 'meatMultiplier' in upgradesBought and 'lightMultiplier' in upgradesBought:
                     use upgradeNode("{size=-9}Fry Combo","roCombo", 15, (0.444, 0.43), 1*(2**upgradesBought.get("roCombo",0)), 0, 0, 0, 1*(2**upgradesBought.get("roCombo",0)), 0, 0, 0, "Lanterns and meat get a +10% bonus from each other.")
                 if 'treasureMultiplier' in upgradesBought and 'lightMultiplier' in upgradesBought:
-                    use upgradeNode("{size=-9}Shine Combo","yoCombo", 15, (0.561, 0.43), 0, 0, 0, 2*(2**upgradesBought.get("glCombo",0)), 0, 0, 0, 0, "Bones and nap items get a +10% bonus from each other.")
+                    use upgradeNode("{size=-9}Shine Combo","yoCombo", 15, (0.561, 0.43), 0, 0, 1*(2**upgradesBought.get("yoCombo",0)), 0, 1*(2**upgradesBought.get("yoCombo",0)), 0, 0, 0, "Lanterns and coins get a +10% bonus from each other.")
                 if 'treasureMultiplier' in upgradesBought and 'boneMultiplier' in upgradesBought:
-                    use upgradeNode("{size=-9}Greed Combo","ybCombo", 15, (0.61, 0.465), 0, 0, 0, 2*(2**upgradesBought.get("glCombo",0)), 0, 0, 0, 0, "Bones and nap items get a +10% bonus from each other.")
+                    use upgradeNode("{size=-9}Greed Combo","ylCombo", 15, (0.61, 0.465), 0, 0, 1*(2**upgradesBought.get("ylCombo",0)), 0, 0, 0, 0, 1*(2**upgradesBought.get("ylCombo",0)), "Bones and coins get a +10% bonus from each other.")
 
                 #Karkhos upgrades
                 if 'sleep2Chance' in upgradesBought:

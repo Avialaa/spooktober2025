@@ -19,6 +19,7 @@ default roundEndTotallPoints = False
 
 default fishTotal = 0
 default endSensitivity = False
+default sleepTimerPoints = 0
 
 init:
     image scoreBox = Frame("minigame scorebg.png", 40, 50)
