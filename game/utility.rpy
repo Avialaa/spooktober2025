@@ -56,8 +56,8 @@ label after_minigame:
     $ config.keymap['game_menu'].append('mouseup_3')
     $ renpy.clear_keymap_cache() #clear cache for keymap changes to take effect
 
-    if currentStoryRoute:
-        e "Current route: [currentStoryRoute]"
+    #if currentStoryRoute:
+    #    e "Current route: [currentStoryRoute]"
 
     return
 
@@ -184,3 +184,23 @@ label tutorial_again:
     scene bg warehouse
     "The sticky notes containing instructions are still on the work station."
     jump sticky_notes_menu
+
+
+label upgrade_tutorial:
+    #scene bg warehouse
+    "Looks like the new work station upgrade system is up and running. Someone left more sticky notes..."
+label upgrade_sticky_notes_tutorial:
+    window hide
+    play sound paper
+    scene upgradetree_tutorial with fade
+    pause
+    scene bg warehouse with fade
+
+label upgrade_sticky_notes_menu:
+    menu:
+        "Take another look at the sticky notes.":
+            jump upgrade_sticky_notes_tutorial
+        "Take a look at the upgrades.":
+            pass
+    
+    return

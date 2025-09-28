@@ -83,16 +83,16 @@ init python:
       fishDemandedByCee = 7
     elif workShift == 2:
       correctOrdersDemandedByAgatha = 4
-      fishDemandedByCee = 9
+      fishDemandedByCee = 11
     elif workShift == 3:
       correctOrdersDemandedByAgatha = 5
-      fishDemandedByCee = 12
+      fishDemandedByCee = 13
     elif workShift == 4:
       correctOrdersDemandedByAgatha = 5
-      fishDemandedByCee = 14
+      fishDemandedByCee = 15
     elif workShift == 5:
       correctOrdersDemandedByAgatha = 5
-      fishDemandedByCee = 20
+      fishDemandedByCee = 22
 
 
   def chooseRoute():
