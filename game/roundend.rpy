@@ -93,9 +93,9 @@ screen roundEndScreen:
     timer 4.2 action SetVariable("roundEndTotallPoints", True)
 
     #screen can be skipped by click or space after 1 second, automatically skip after 30 s
-    timer 1.0 action Setvariable("endSensitivity", True)
+    timer 1.0 action SetVariable("endSensitivity", True)
     if endSensitivity:
-        key ["mousedown_1", "K_SPACE"] action [Return(), Setvariable("endSensitivity", False)]
+        key ["mousedown_1", "K_SPACE"] action [Return(), SetVariable("endSensitivity", False)]
     timer 30 action Return()
 
     hbox:

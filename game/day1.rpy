@@ -12,7 +12,8 @@ label day1_1:
     "Another morning, another day at the Loot warehouse."
     "The work's hard, but not as hard as life outside the dungeon."
     "As long as I work here, I get three meals a day. What more could a slime ask for, right?"
-    "But this week, Boss is away on a business trip. Though he isn't a bad guy, nothing beats the freedom of no superiors breathing down your neck. Well, proverbial neck."
+    "But this week, Boss is away on a business trip."
+    "Though he isn't a bad guy, nothing beats the freedom of no superiors breathing down your neck. Well, proverbial neck."
     "This fluffy feeling of freedom… It's like I'm on a holiday!"
 
 
@@ -172,10 +173,10 @@ label day1_2:
     A "You can't revoke the policy mandated lunch break!"
     show agatha vihainen at hop
     show cee vihainen at hop
-    "They're really getting fired up. Maybe all this time, they just pretended to like each other because Boss was here. Doesn't feel like much of a break when the noise level is this high."
+    "They're really getting fired up."
+    "Maybe all this time, they just pretended to like each other because Boss was here."
+    "Doesn't feel like much of a break when the noise level is this high."
     "Well, not gonna ruin my day. As long as they're leaving me out of it."
-    # A smile
-    play music riita
     show agatha iloinen at hop
     A "What's your stance, [MC]?"
     # C smile
@@ -206,7 +207,8 @@ label day1_2:
     show karkhos perus at hop
     show cee perus
     show agatha perus
-    K "It's just the four of us working here. No hierarchies, just equals. Makes only sense we all participate in decision making."
+    K "It's just the four of us packing boxes here at the warehouse."
+    K "No hierarchies, just equals. Makes only sense we all participate in decision making."
     show agatha perus at hop
     A "It's not a democratic decision if one of us abstains from voting."
     MC "Can't abstinence also be a type of choice?"
@@ -301,7 +303,7 @@ label day1_2:
 
 label day1_3A:
     scene bg breakroom
-    "I feel like if I don't put my metaphorical foot down now, I won't have time to {i}eat{/i} on this \"sacredly\"-whatever lunch break."
+    "If I don't put my metaphorical foot down now, I definitely won't have time to {i}eat{/i} on this \"sacredly\"-whatever lunch break."
     #eat itallics
     #wing flaps sound
     play sound wingflap
@@ -374,7 +376,7 @@ label day1_3A:
     A "{i}If{/i} you want to support me for the good of all, I'd ask you to just work as hard as you can!"
     #if itallics
     show agatha perus
-    A "Ship as many orders as you can muster!"
+    A "Ship as many orders as you can muster, and remember that everyone appreciates a freebie. You can slip in a few extras when there's room in the box!"
     show agatha pelokas
     A "But remember how Boss gets about mistakes."
     #Shake A
@@ -600,20 +602,6 @@ label day1_3C:
     stop music
     return
 
-label day1_4A:
-
-    scene bg warehouse
-    show agatha iloinen at middle, hop
-    A "Good work, [MC]! You shipped a lot of good orders today."
-    A "I knew I could count on you!"
-    show agatha iloinen suukiinni
-    MC "Uh, thanks?"
-    "How on earth has she kept track of my performance?"
-    "I never see her eyes leave the…"
-    #ehkä zoom in A? yks siipi wink
-    show agatha vinkkaus at hop
-    "My gaze is drawn to the side. One of her wing eyes winks at me."
-    return
 
 label day1_4C: #Cee congratulates MC
 
@@ -654,9 +642,9 @@ label day1_4C: #Cee congratulates MC
 label day1_6A:
 
     play music ilo
-    scene bg hallway with dissolve
+    scene bg warehouse with dissolve
     pause 1
-    scene bg hallway night with dissolve
+    scene bg warehouse night with dissolve
     
     "Okay, I made it through my first day with the new system pretty respectably."
     "Can't wait to get home and snack on the rest of that rare moss I've been saving."
@@ -668,7 +656,21 @@ label day1_6A:
     #A pikku hyppy
     show agatha iloinen at hop
     A "?"
-    A "I just wanted to reiterate, great work today! Your numbers were off the charts… The old charts, anyway."
+    A "Good work! You shipped a lot of good orders today."
+    show agatha iloinen suukiinni
+    MC "Uh, thanks?"
+    "How on earth has she kept track of my performance?"
+    "I never see her eyes leave the…"
+    #ehkä zoom in A? yks siipi wink
+    show agatha vinkkaus at hop
+    "My gaze is drawn to the side. One of her wing eyes winks at me."
+    play sound wingflap
+    play sound footsteps
+    show bg hallway night with dissolve
+    pause 1
+    stop sound fadeout 3
+    show agatha perus at hop
+    A "Indeed, your numbers were off the charts… The old charts, anyway."
     "She's been really nice to me ever since I was pressured into voting. It's getting pretty transparent, but oh well."
     MC "Thanks. Maybe I'll catch up to you if I keep it up, haha!"
     #A twitch
@@ -677,7 +679,7 @@ label day1_6A:
     "..."
     MC "Anyway, I should get…"
     show agatha vakava at hop 
-    A "If you don't mind, [MC], could I have a moment of your time?"
+    A "If you don't mind, [MC], could I have a moment more of your time?"
     "Moss…"
     MC "Sure. What's up?"
     show agatha perus
@@ -818,6 +820,9 @@ label day1_6A:
     return
 
 label day1_6B:
+    scene black
+    "As we work, Karkhos and I commiserate over a particularly large order of swords."
+    
     play music ilo
     scene bg warehouse with dissolve
     pause 1
@@ -842,8 +847,12 @@ label day1_6B:
     show karkhos perus at hop
     play music bondaus
     K "Anyway."
+    show karkhos nukkuva
     K "The new system's more thinking and less hauling than I'm used to."
-    K "Agatha said it's just the learning curve, but I dunno. Sounds like a trick. A real fact is that my brain's overheating."
+    show karkhos perus
+    K "Agatha said it's just the learning curve, but I dunno. Sounds like a trick."
+    show karkhos pikkuviha
+    K "A real fact is that my brain's overheating."
     show karkhos alakuloinen
     # sad sprite
     K "And where will Wormy go if my skull's a sauna?"
@@ -888,7 +897,8 @@ label day1_6B:
     "He seems to get lost in the good memory."
     MC "Why'd you leave then?"
     show karkhos perus mato
-    K "Didn't. Got the boot. Must've been cuz they hate zombies or something."
+    K "Didn't. Got the boot."
+    K "Must've been cuz they hate zombies or something."
     MC "..."
     show karkhos alakuloinen mato
     K "Over here, it's all different. I haven't seen the sun in months."
@@ -898,7 +908,9 @@ label day1_6B:
     show karkhos perus mato at hop
     K "Sorry. I ended up yammering again."
     K "Gotta be honest here. I feel like you get where I'm coming from."
+    show karkhos pikkuviha mato
     K "The other two are stubborn, and Boss thinks he's always right. But you're not like that."
+    show karkhos perus mato
     K "It's like you adapt to what's around you."
     MC "Thanks, I get that alot."
     show karkhos pikkuviha mato at hop
@@ -908,7 +920,6 @@ label day1_6B:
     K "Really?!"
     show karkhos alakuloinen mato
     K "Damn. Guess that was insensitive of me."
-
     menu:
         "I appreciate the sentiment.":
             show karkhos alakuloinen mato
@@ -921,6 +932,7 @@ label day1_6B:
     show karkhos iloinen mato
     K "Was nice having a proper heart to hear with you. Can't believe how little we've chatted up till now."
     K "Let's go for drinks sometime? If we ever get a day off, that is."
+    MC "Sure!"
     play sound footsteps
     hide karkhos with easeoutright
     stop sound fadeout 4

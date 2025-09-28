@@ -67,7 +67,7 @@ screen magicPad:
                         add "order [item]" #current order has icons; next orders don't
                         vbox:
                             text "[itemNameDict.get(item)]  " style "padStyle"
-                            if orders[0].count(item) == [item.name for item in itemsInBox].count(item):
+                            if [item.name for item in itemsInBox].count(item) >= orders[0].count(item):
                                 add "minigame checkmark.png" zoom 0.5
                             else:
                                 text "x[orders[0].count(item)]" style "padStyle"#returns number of items

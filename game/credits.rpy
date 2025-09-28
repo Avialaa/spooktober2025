@@ -1,4 +1,5 @@
 label finalcredits:
+    $ quick_menu = False
     scene black
     show screen creditscreen
     pause 
@@ -6,96 +7,490 @@ label finalcredits:
     # or however long it takes to scroll through in a reasonable speed
     
     hide screen creditscreen
+    #skip credits nappi????
     return
 
 screen creditscreen:
+    textbutton "Skip" action Hide() xpos 0.95 ypos 0.95
     modal True
-    timer 50 action Hide()
+    timer 150 action Hide()
     vbox:
         xsize 1080 # horizontal size of the credits
-        ysize 4000 # how much vertical space your rolling credits take.
+        ysize 9000 # how much vertical space your rolling credits take.
         xalign 0.5
         yalign 0.0
+        
         at transform:
             subpixel True
-            linear 40: # or however long it takes to scroll through in a reasonable speed
+            linear 110: # or however long it takes to scroll through in a reasonable speed
                 yalign 1.0
                 yoffset -500
 
         vbox:
-            ysize 720 # enter vertical resolution, so that it starts with an empty screen
-        text "Monstrocracy: Monster Workplace Democracy": #tähän logo kuvana? TO DO
+            ysize 1100 # enter vertical resolution, so that it starts with an empty screen
+        add 'gamelogo.png':
+            xalign 0.5 # center horizontally
+        text " ":
+            size 50
+
+        text "Made with Ren'Py for the Spooktober 2025 Jam":
             font "DMSans-Light.ttf"
-            color "#6ea380"
-            size 70
+            color "#91a197"
             xalign 0.5
 
         vbox:
             xalign 0.5
             spacing 10
+            text "Developement team":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
             text "Lila Lukkarinen" :
                 font "DMSans-Light.ttf"
                 color "#8580b1"
-                size 50
+                size 30
                 xalign 0.5
             text "Aimo Kurki":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
-                size 50
+                size 30
                 xalign 0.5
             text "Alli \"Aviala\" Loikkanen":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
-                size 50
+                size 30
                 xalign 0.5
             text "Lotta \"Otava\" Kokkonen":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
-                size 50
+                size 30
                 xalign 0.5
             text "Nnancy":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
-                size 50
+                size 30
                 xalign 0.5
             text "Noora \"Nuuri\" Nousiainen":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
-                size 50
+                size 30
                 xalign 0.5
             text "Tuukka Mattila":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
-                size 50
+                size 30
                 xalign 0.5   
-            text "Julia": #TO DO julian nimi
+            text "Julia Limpet": 
                 font "DMSans-Light.ttf"
                 color "#8580b1"
+                size 30
+                xalign 0.5
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Project leader":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
                 size 50
+                xalign 0.5
+                bold True
+            text "Lila Lukkarinen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5        
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Writing":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            vbox:
+                xalign 0.5
+                spacing 10
+                text "Original concept, Karkhos, Agatha":
+                    font "DMSans-Light.ttf"
+                    color "#6a8885"
+                    size 40
+                    xalign 0.5
+                    bold True
+                text "Julia Limpet":
+                    font "DMSans-Light.ttf"
+                    color "#8580b1"
+                    size 30
+                    xalign 0.5
+                text "Agatha":
+                    font "DMSans-Light.ttf"
+                    color "#6b8b89"
+                    size 40
+                    xalign 0.5
+                    bold True
+                text "Lotta \"Otava\" Kokkonen":
+                    font "DMSans-Light.ttf"
+                    color "#8580b1"
+                    size 30
+                    xalign 0.5
+                text "Cee":
+                    font "DMSans-Light.ttf"
+                    color "#6b8b89"
+                    size 40
+                    xalign 0.5
+                    bold True
+                text "Nnancy":
+                    font "DMSans-Light.ttf"
+                    color "#8580b1"
+                    size 30
+                    xalign 0.5
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Game design and minigame":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            text "Alli \"Aviala\" Loikkanen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5     
+            text "Tuukka Mattila":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5     
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Lead programmer":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            text "Alli \"Aviala\" Loikkanen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Programmers":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            text "Tuukka Mattila":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+            text "Lotta \"Otava\" Kokkonen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+            text "Aimo Kurki":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Art":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            text "Art lead, UI design, Character art":
+                font "DMSans-Light.ttf"
+                color "#6b8b89"
+                size 40
+                xalign 0.5
+                bold True
+            text "Lila Lukkarinen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+            text "Background art":
+                font "DMSans-Light.ttf"
+                color "#6b8b89"
+                size 40
+                xalign 0.5
+                bold True
+            text "Aimo Kurki":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+            text "Asset artist/2D artist":
+                font "DMSans-Light.ttf"
+                color "#6b8b89"
+                size 40
+                xalign 0.5
+                bold True
+            text "Noora \"Nuuri\" Nousiainen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Sound design":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            text "Lotta \"Otava\" Kokkonen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+            text "Noora \"Nuuri\" Nousiainen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+            text "Alli \"Aviala\" Loikkanen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5   
+            text "Julia Limpet":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5  
+
+        vbox:
+            xalign 0.5
+            spacing 20
+            text "Character sounds":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            text "Lotta \"Otava\" Kokkonen":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5  
+
+        vbox:
+            xalign 0.5
+            spacing 10
+            text "Music":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+
+            text "\"Vibing Over Venus\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "   "
+            text "\"Clash Defiant\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "   "
+            text "\"Heavy Heart\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "   "
+            text "\"Wounded\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "   "
+            text "\"Vanes\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "   "
+            text "\"Mana Two - Part 1\" Kevin MacLeod (incompetech.com)": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Licensed under Creative Commons: By Attribution 4.0 License": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+            text "http://creativecommons.org/licenses/by/4.0/": 
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 20
+                xalign 0.5
+        vbox:
+            xalign 0.5  
+            text "Sound effects":
+                font "DMSans-Light.ttf"
+                color "#a37a9a"
+                size 50
+                xalign 0.5
+                bold True
+            text "Thank you to the following users of freesound.org:":
+                font "DMSans-Light.ttf"
+                color "#6b8b89"
+                size 40
+                xalign 0.5
+                bold True
+            text "xkeril":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "qubodup":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "bruno.auzet":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "RutgerMuller":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Godowan":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "Kneeling":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+
+            text "LeonsFlashlight":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "CrownieYT":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "magnuswaker":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "TheBuilder15":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "CogFireStudios":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "kwahmah_02":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
+                xalign 0.5
+            text "PkBiggums":
+                font "DMSans-Light.ttf"
+                color "#8580b1"
+                size 30
                 xalign 0.5
         vbox:
             xalign 0.5
             spacing 10
             text "Zoom Viewport":
                 font "DMSans-Light.ttf"
-                color "#9e6f94"
+                color "#a37a9a"
                 size 50
                 xalign 0.5
+                bold True
             text "Feniks @ feniksdev.com":
                 font "DMSans-Light.ttf"
                 color "#8580b1"
                 size 30
                 xalign 0.5
-        # text ""
-        # text "Made with Ren'Py.":
-        #     font "DMSans-Light.ttf"
-        #     bold True
-        #     xalign 0.5
-        # vbox:
-        #     ysize 100 # some empty space in between
-        # add "a/a cg piano.png": # adding a picture in-between the text
-        #     zoom 0.75
-        #     xalign 0.5
+ 
 
 
         text "Thank you for playing!":
@@ -104,7 +499,7 @@ screen creditscreen:
             bold True
             xalign 0.5
         vbox:
-            ysize 500 # enter vertical resolution, so that it starts with an empty screen
+            ysize 500 
 
         text "The End":
             font "DMSans-Light.ttf"
