@@ -109,20 +109,30 @@ label test_minigame:
     call warehouse_gameplay
     call roundEnd
     call after_minigame
-    call upgradeTree
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
-    call upgradeTree
-    call warehouse_gameplay
-    call roundEnd
-    call after_minigame
+
     call upgradeTree
     call warehouse_gameplay
     call roundEnd
     call after_minigame
 
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
+
     return
+
 
 transform next_day:
     on show:
