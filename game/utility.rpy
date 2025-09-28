@@ -1,3 +1,4 @@
+default preferences.text_cps = 40
 
 style karkhosNameStyle:
     color "#91A571"
