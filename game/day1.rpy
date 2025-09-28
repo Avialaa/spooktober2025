@@ -201,8 +201,10 @@ label day1_2:
     show karkhos pikkuviha at hop
     show cee vihainen at hop
     show agatha vihainen at hop
+    stop music
     All "...DEMOCRACY!"
     "The declaration echoes in the room."
+    play music ilo
     # all neutral
     show karkhos perus at hop
     show cee perus
@@ -219,15 +221,15 @@ label day1_2:
     All "No!"
     "Suddenly they all agree an awful lot."
     # A smiles
-    play music ilo
     show karkhos perus
     show cee perus
     show agatha tosi iloinen at hop
     A "I'm afraid that's three against one."
     show agatha perus
     A "I've always said we need to work harder. This is our chance to earn Boss' unwavering trust. Our efforts will guarantee monsters across the land safety."
-    show karkhos perus at hop
+    show karkhos nukkuva at hop
     K "Nah, we should take it easy while Boss isn't looking. Rested workers are harder workers."
+    show karkhos perus
     show cee karmiva hymy at hop
     C "Why stop at puny course changes such as those? I propose we invest this time on R&D, on futureproofing this nigh obsolete lair."
     show cee perus
@@ -434,8 +436,10 @@ label day1_3B:
     K "The ones we have now are much better. And I don't gotta wear a shirt."
     MC "It was nice that Boss listened, even though he really liked the evil cult look. He's reasonable when it really counts."
     MC "Must've been because all four of us insisted on it."
-    show karkhos perus
-    K "This time's no different. We need a unified front. What could be more important than the longevity of the very monsters doing all the heavy lifting?"
+    show karkhos nukkuva
+    K "This time's no different. We need a unified front."
+    show karkhos pikkuviha
+    K "What could be more important than the longevity of the very monsters doing all the heavy lifting?"
     # warehouse BG
     play sound footsteps
     show bg warehouse with dissolve
@@ -443,25 +447,42 @@ label day1_3B:
     show karkhos perus at hop
     stop sound fadeout 2
     K "I've been thinking—crazy, I know."
-    K "As long as we send out enough boxes, doesn't really matter what's inside."
-    K "Leave some empty space in those boxes, will you? That would show you agree with me."
+
+    # MINIPELI OHJEET
+    show karkhos pikkuviha
+    K "We can't exactly go on a full strike, but I say we set some boundaries."
+    show karkhos perus at hop
+    K "Three boxes a shift, and that's it."
+    MC "Three?!"
+    show karkhos pikkuviha at hop
+    K "Yeah, one, two, three. For now."
+    show karkhos perus
+    K "If you limit how many boxes you send out, it'd show you agree with me."
+
     show karkhos iloinen
-    K "We'll show that the warehouse is plenty efficient if we work at a reasonable pace. Maybe we'll be MORE efficient with enough breaks."
+    K "We'll show that the warehouse is plenty efficient if we work at a reasonable pace."
+    show karkhos tosi iloinen at hop
+    K "Maybe we'll be MORE efficient with enough breaks."
+    show karkhos perus
     K "When Boss returns, he'll have no choice but to agree."
     MC "How much more free time were you thinking?"
-    show karkhos tosi iloinen
+    show karkhos pikkuviha
     K "Wasn't. Those details will come naturally later. Flexibility, and so on."
     K "As I've gotten older, I've understood it's important to not set plans in stone too early."
     "I feel he might have misunderstood some sound advice there. No way am I correcting him, though."
     MC "Uh, speaking of working."
-    show karkhos pikkuviha at hop
+    show karkhos kauhistus
+    K "Oh."
+    show karkhos pikkuviha
     K "Maybe I've kept you \"too long\"?"
     "He makes air quotes."
     MC "Are you going to continue your …break?"
-    show karkhos perus
+    show karkhos perus at hop
     K "Nah, I'll get to packing shortly. Promised to work normally until you decide."
     K "We even shook on it, me and the two hurrywarts."
+    show karkhos nukkuva
     K "None of us want the other two to go rogue. It's the one thing we agreed on."
+    show karkhos perus
     K "Agatha's the most vocal, but Cee's also unbelievably stubborn. So until this thing's settled, I'll go on as usual."
     # K angry
     show karkhos pikkuviha at hop
@@ -472,6 +493,8 @@ label day1_3B:
     "On that note, we get back to packing."
     "As I get ready to boot up the new system, the food chunks churn in my slime."
     "If the breaks were a bit longer, I certainly wouldn't complain…"
+    # MINIPELI OHJE
+    "…Only three boxes per shift, huh?"
     stop music
 
     return
