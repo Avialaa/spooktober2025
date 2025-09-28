@@ -19,6 +19,7 @@ default roundEndTotallPoints = False
 
 default fishTotal = 0
 default endSensitivity = False
+default sleepTimerPoints = 0
 
 init:
     image scoreBox = Frame("minigame scorebg.png", 40, 50)
@@ -30,7 +31,7 @@ label roundEnd:
         rPoints += roundrPoints+timerPoints
         bPoints += roundbPoints+timerPoints
         yPoints += roundyPoints+timerPoints
-        gPoints += roundgPoints+timerPoints
+        gPoints += roundgPoints+timerPoints+sleepTimerPoints
         oPoints += roundoPoints+timerPoints
         vPoints += roundvPoints+timerPoints
         pPoints += roundpPoints+timerPoints

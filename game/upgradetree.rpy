@@ -111,6 +111,7 @@ init python:
         global tier3ChanceDict
         global roundDuration
         global timerPoints
+        global sleepTimerPoints
         global failPoints
 
         #subtracts upgrade cost from points
@@ -152,6 +153,12 @@ init python:
         global fvCost
         global fpCost
         global flCost
+
+        global roundDuration
+        global timerPoints
+        global sleepTimerPoints
+        global failPoints
+        global maxBoxItems
         
         itemValueDict["light"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("lightMultiplier",0)))
         itemValueDict["sleep"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("sleepMultiplier",0)))
@@ -198,10 +205,14 @@ init python:
         tier3ChanceDict["keys"] = upgradesBought.get("keys3Chance",0)
         tier3ChanceDict["treasure"] = upgradesBought.get("treasure3Chance",0)
 
-        roundDuration = (60+5*upgradesBought.get("timeIncrease",0))/(1+upgradesBought.get("timeIncrease",0))
-        timerPoints = (roundDuration/5)*upgradesBought.get("timePoints",0) #every 5 seconds gives 1 point
-        roundDuration = roundDuration/(2**upgradesBought.get("timePace",0))
-        failPoints = upgradesBought.get("pointMultiplier",0)*0,1
+        roundDuration = 60+(5*upgradesBought.get("timeIncrease",0)) #increase round time by 5 seconds per round time upgrade
+        timerPoints = (roundDuration/10)*upgradesBought.get("timePoints",0) #every second gives 0.1 of eachpoint per bought timer point upgrade
+        sleepTimerPoints = (roundDuration)*upgradesBought.get("sleepTimePoints",0) #every second gives 1 green point per bought timer sleep point upgrade
+        roundDuration = roundDuration/(2**upgradesBought.get("timePace",0)) #halves round duration without affecting timer points for each time pace upgrade bought
+        if "noTime"  in upgradesBought:
+            roundDuration = 0.1
+        failPoints = upgradesBought.get("failPoint",0)*0.1
+        maxBoxItems = 6+upgradesBought.get("boxSize",0) 
 
 
 
@@ -232,6 +243,7 @@ init python:
         global tier3ValueDict
 
         global isOrderCorrect
+        global upgradesBought
 
         itemCountList = [] #list is used to count items one tier at a time
         #zeroing the initial point count of the order
@@ -291,16 +303,35 @@ init python:
             validityFactor = 1
         else:
             validityFactor = failPoints
+
+        #adding combo points
+
+        cOrderrPoints = orderpPoints*((1.1**upgradesBought.get("rpCombo",0))-1)
+        cOrderrPoints = orderoPoints*((1.1**upgradesBought.get("roCombo",0))-1)
+        cOrderoPoints = orderrPoints*((1.1**upgradesBought.get("roCombo",0))-1)
+        cOrderoPoints = orderyPoints*((1.1**upgradesBought.get("yoCombo",0))-1)
+        cOrderyPoints = orderoPoints*((1.1**upgradesBought.get("yoCombo",0))-1)
+        cOrderyPoints = orderlPoints*((1.1**upgradesBought.get("ylCombo",0))-1)
+        cOrderlPoints = orderyPoints*((1.1**upgradesBought.get("ylCombo",0))-1)
+        cOrderlPoints = ordergPoints*((1.1**upgradesBought.get("glCombo",0))-1)
+        cOrdergPoints = orderlPoints*((1.1**upgradesBought.get("glCombo",0))-1)
+        cOrdergPoints = orderbPoints*((1.1**upgradesBought.get("gbCombo",0))-1)
+        cOrderbPoints = ordergPoints*((1.1**upgradesBought.get("gbCombo",0))-1)
+        cOrderbPoints = ordervPoints*((1.1**upgradesBought.get("vbCombo",0))-1)
+        cOrdervPoints = orderbPoints*((1.1**upgradesBought.get("vbCombo",0))-1)
+        cOrdervPoints = orderpPoints*((1.1**upgradesBought.get("vpCombo",0))-1)
+        cOrderpPoints = ordervPoints*((1.1**upgradesBought.get("vpCombo",0))-1)
+        cOrderpPoints = orderrPoints*((1.1**upgradesBought.get("rpCombo",0))-1)
         
         #adding order point totals into round point count       
-        roundrPoints += orderrPoints*validityFactor
-        roundbPoints += orderbPoints*validityFactor
-        roundyPoints += orderyPoints*validityFactor
-        roundoPoints += orderoPoints*validityFactor
-        roundgPoints += ordergPoints*validityFactor
-        roundvPoints += ordervPoints*validityFactor
-        roundpPoints += orderpPoints*validityFactor
-        roundlPoints += orderlPoints*validityFactor
+        roundrPoints += (orderrPoints+cOrderrPoints)*validityFactor
+        roundbPoints += (orderbPoints+cOrderbPoints)*validityFactor
+        roundyPoints += (orderyPoints+cOrderyPoints)*validityFactor
+        roundoPoints += (orderoPoints+cOrderoPoints)*validityFactor
+        roundgPoints += (ordergPoints+cOrdergPoints)*validityFactor
+        roundvPoints += (ordervPoints+cOrdervPoints)*validityFactor
+        roundpPoints += (orderpPoints+cOrderpPoints)*validityFactor
+        roundlPoints += (orderlPoints+cOrderlPoints)*validityFactor
 
     def openShop(name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description):
         #function that is run when upgrade node is clicked
@@ -531,10 +562,6 @@ screen upgradeTree:
         xysize (1260, 910)
         align (0.35, 0.38)
         viewport:
-            ## The zoom_viewport takes all the standard viewport properties,
-            ## like draggable, xinitial/yinitial, child_size, arrowkeys, etc.
-            ## However, it does *not* take the scrollbars property; you will
-            ## need to add any scrollbars manually as shown.
             xysize (1260, 910)
             child_size (4000,2000)
             draggable True
@@ -543,64 +570,7 @@ screen upgradeTree:
             arrowkeys True
             pagekeys True
             mousewheel True
-            ## This ID is used for the scrollbars, and also for the zoom
-            ## in/out buttons.
             id "zoom_vp"
-            ## The mousewheel property has the special "zoom" value, which
-            ## means the mousewheel will be used for zooming! You can still
-            ## use the mousewheel normally by providing other values (e.g. True,
-            ## "horizontal") and just use buttons or pinch zoom for zooming.
-            #mousewheel "zoom"
-            ## Note! If you would like to use yadjustment/xadjustment arguments
-            ## to remember the value of those adjustments, you may want to use
-            ## a MyAdjustment() object rather than ui.adjustment() if you're
-            ## on a version <8.3.0. The MyAdjustment object includes the
-            ## argument restart_interaction_at_range, which can be set to True
-            ## so any scroll bars will adjust their size as the viewport zooms
-            ## in/out. MyAdjustment otherwise works the same as ui.adjustment
-            ####################################################################
-            ## The following are zoom_viewport-specific properties.
-            ####################################################################
-            ## This controls how much the zoom changes when zooming in/out.
-            ## So, a value of 0.2 means zooming in from 1.0 will take you to
-            ## 1.2x zoom, and zooming out from 1.0 will take you to 0.8x zoom.
-            #zoom_amount 0.2
-            ## This controls how fast the zoom changes when zooming in/out. In
-            ## general, this is how long it takes to zoom one zoom_amount.
-            ## So, if zoom_amount is 0.5 and zoom_speed is 1.0, it will take
-            ## 1 second to zoom from 1.0 to 1.5x zoom, from 1.0 to 0.5, etc.
-            #zoom_speed 0.4
-            ## By default, zoom_min is already None. This means the minimum
-            ## zoom only lets you zoom out such that the entire viewport
-            ## contents are visible at once. You can set this to a specific
-            ## number instead, like 0.5, to limit how far you can zoom out.
-            ## If the player should only zoom in, not out, set this to 1.0.
-            #zoom_min None
-            ## This is how far you can zoom in. It's 2.0 by default, aka
-            ## twice as large.
-            #zoom_max 1.0
-            ## By default, the zoom starts at 1.0. You can change this to
-            ## start at a different zoom level. If you want it to start
-            ## at whatever zoom_min is calculated to be, just set it to 0.0.
-            #start_zoom 1.0
-            ## If the child of the viewport doesn't fill the viewport in one
-            ## dimension (e.g. if it's fully zoomed out), this controls how
-            ## the child is aligned in the viewport. (0.5, 0.5) means it will
-            ## be centered in whichever dimension it doesn't fill. By default
-            ## this is None, aka no adjustments are made to alignment.
-            #zoom_align (0.5, 0.5)
-            ## This is a function that can modify the zoom_amount based on the
-            ## percentage of the maximum zoom level. It's called with one
-            ## argument, the % between zoom min and max, and is expected to
-            ## return a number (generally between 0 and 1, but can be greater
-            ## than 1) which will be multiplied by the zoom amount and added
-            ## to it. So, with this function, the zoom amount will be close to
-            ## 0.2 when the zoom level is at its minimum (around 0.4x) and close
-            ## to 0.4 when the zoom level is near its maximum (3.0x). Typically
-            ## going from 2.5x-3.0x feels like a much smaller difference than
-            ## something like 0.5x-1.0x, so this function adjusts the amount to
-            ## help it feel responsive at different zoom levels.
-            #zoom_curve _warper.easeout_cubic
 
             #upgradenodes are here
             fixed:
@@ -609,8 +579,9 @@ screen upgradeTree:
                 use upgradeNode("Point +","pointMultiplier", 100, (0.5, 0.5), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), "Increases all point gain by 10%")
                 if 'pointMultiplier' in upgradesBought:
                     use upgradeNode("Meat +","meatMultiplier", 15, (0.444, 0.465), 1*(2**upgradesBought.get("meatMultiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
+                #regular point multipliers
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Lantern +","lightMultiplier", 15, (0.5, 0.465), 0, 0, 0, 0, 1*(2**upgradesBought.get("lightMultiplier",0)), 0, 0, 0, "Increases all points gained from lantern items by 10%") 
+                    use upgradeNode("{size=-2}Lantern +","lightMultiplier", 15, (0.5, 0.465), 0, 0, 0, 0, 1*(2**upgradesBought.get("lightMultiplier",0)), 0, 0, 0, "Increases all points gained from lantern items by 10%") 
                 if 'pointMultiplier' in upgradesBought:
                     use upgradeNode("Coin +","treasureMultiplier", 15, (0.556, 0.465), 0, 0, 1*(2**upgradesBought.get("treasureMultiplier",0)), 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
                 if 'pointMultiplier' in upgradesBought:
@@ -623,26 +594,28 @@ screen upgradeTree:
                     use upgradeNode("Blade +","weaponMultiplier", 15, (0.5, 0.535), 0, 1*(2**upgradesBought.get("weaponMultiplier",0)), 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
                 if 'pointMultiplier' in upgradesBought:
                     use upgradeNode("Nap +","sleepMultiplier", 15, (0.556, 0.535), 0, 0, 0, 1*(2**upgradesBought.get("sleepMultiplier",0)), 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
+                #tier2
                 if 'meatMultiplier' in upgradesBought:
-                    use upgradeNode("Meat 2","meat2Chance", 5, (0.397, 0.43), 3*(2**upgradesBought.get("meat2Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 2 meat with 10 times the point value.")
+                    use upgradeNode("Meat 2","meat2Chance", 5, (0.397, 0.43), 3*(2**upgradesBought.get("meat2Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10% chance of appearing as Tier 2 meat with 10 times the point value.")
                 if 'lightMultiplier' in upgradesBought:
-                    use upgradeNode("Lantern 2","light2Chance", 5, (0.5, 0.43), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Chance",0)), 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 2 lantern with 10 times the point value.")
+                    use upgradeNode("{size=-2}Lantern 2","light2Chance", 5, (0.5, 0.43), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Chance",0)), 0, 0, 0, "Lantern has a +10% chance of appearing as Tier 2 lantern with 10 times the point value.")
                 if 'treasureMultiplier' in upgradesBought:
-                    use upgradeNode("Coin 2","treasure2Chance", 5, (0.605, 0.43), 0, 0, 3*(2**upgradesBought.get("treasure2Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as tier 2 coin with 10 times the point value.")
+                    use upgradeNode("Coin 2","treasure2Chance", 5, (0.611, 0.43), 0, 0, 3*(2**upgradesBought.get("treasure2Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10% chance of appearing as tier 2 coin with 10 times the point value.")
                 if 'keysMultiplier' in upgradesBought:
-                    use upgradeNode("Key 2","keys2Chance", 5, (0.397, 0.5), 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("keys2Chance",0)), 0, "Key has a +10%% chance of appearing as tier 2 key with 10 times the point value.")
+                    use upgradeNode("Key 2","keys2Chance", 5, (0.397, 0.5), 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("keys2Chance",0)), 0, "Key has a +10% chance of appearing as tier 2 key with 10 times the point value.")
                 if 'boneMultiplier' in upgradesBought:
-                    use upgradeNode("Bone 2","bone2Chance", 5, (0.605, 0.5), 0, 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("bone2Chance",0)), "Bone has a +10%% chance of appearing as tier 2 bone with 10 times the point value.")
+                    use upgradeNode("Bone 2","bone2Chance", 5, (0.605, 0.5), 0, 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("bone2Chance",0)), "Bone has a +10% chance of appearing as tier 2 bone with 10 times the point value.")
                 if 'fishMultiplier' in upgradesBought:
-                    use upgradeNode("Fish 2","fish2Chance", 5, (0.397, 0.57), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fish2Chance",0)), 0, 0, "Fish has a +10%% chance of appearing as tier 2 fish with 10 times the point value.")
+                    use upgradeNode("Fish 2","fish2Chance", 5, (0.397, 0.57), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fish2Chance",0)), 0, 0, "Fish has a +10% chance of appearing as tier 2 fish with 10 times the point value.")
                 if 'weaponMultiplier' in upgradesBought:
-                    use upgradeNode("Blade 2","weapon2Chance", 5, (0.5, 0.57), 0, 3*(2**upgradesBought.get("weapon2Chance",0)), 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as tier 2 blade with 10 times the point value.")
+                    use upgradeNode("Blade 2","weapon2Chance", 5, (0.5, 0.57), 0, 3*(2**upgradesBought.get("weapon2Chance",0)), 0, 0, 0, 0, 0, 0, "Blade has a +10% chance of appearing as tier 2 blade with 10 times the point value.")
                 if 'sleepMultiplier' in upgradesBought:
-                    use upgradeNode("Nap 2","sleep2Chance", 5, (0.605, 0.57), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Chance",0)), 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 2 nap item with 10 times the point value.")
+                    use upgradeNode("Nap 2","sleep2Chance", 5, (0.605, 0.57), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Chance",0)), 0, 0, 0, 0, "Nap item has a +10% chance of appearing as Tier 2 nap item with 10 times the point value.")
+                #tier2+
                 if 'meat2Chance' in upgradesBought:
                     use upgradeNode("Meat 2+","meat2Multiplier", 15, (0.345, 0.395), 3*(2**upgradesBought.get("meat2Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 2 meat point value is increased by 10%.")
                 if 'light2Chance' in upgradesBought:
-                    use upgradeNode("Lantern 2+","light2Multiplier", 15, (0.5, 0.395), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Multiplier",0)), 0, 0, 0, "Tier 2 lantern point value is increased by 10%.")
+                    use upgradeNode("{size=-2}Lantern 2+","light2Multiplier", 15, (0.5, 0.395), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Multiplier",0)), 0, 0, 0, "Tier 2 lantern point value is increased by 10%.")
                 if 'treasure2Chance' in upgradesBought:
                     use upgradeNode("Coin 2+","treasure2Multiplier", 15, (0.658, 0.395), 0, 0, 3*(2**upgradesBought.get("treasure2Multiplier",0)), 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 10%.")
                 if 'keys2Chance' in upgradesBought:
@@ -655,26 +628,28 @@ screen upgradeTree:
                     use upgradeNode("Blade 2+","weapon2Multiplier", 15, (0.5, 0.605), 0, 3*(2**upgradesBought.get("weapon2Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 10%.")
                 if 'sleep2Chance' in upgradesBought:
                     use upgradeNode("Nap 2+","sleep2Multiplier", 15, (0.658, 0.605), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Multiplier",0)), 0, 0, 0, 0, "Tier 2 nap item point value is increased by 10%.")
+                #tier3
                 if 'meat2Multiplier' in upgradesBought:
-                    use upgradeNode("Meat 3","meat3Chance", 5, (0.295, 0.36), 15*(2**upgradesBought.get("meat3Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
+                    use upgradeNode("Meat 3","meat3Chance", 5, (0.295, 0.36), 15*(2**upgradesBought.get("meat3Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10% chance of appearing as Tier 3 meat with 100 times the point value.")
                 if 'light2Multiplier' in upgradesBought:
-                    use upgradeNode("Lantern 3","light3Chance", 5, (0.5, 0.36), 0, 0, 0, 0, 15*(2**upgradesBought.get("light3Chance",0)), 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
+                    use upgradeNode("{size=-2}Lantern 3","light3Chance", 5, (0.5, 0.36), 0, 0, 0, 0, 15*(2**upgradesBought.get("light3Chance",0)), 0, 0, 0, "Lantern has a +10% chance of appearing as Tier 3 meat with 100 times the point value.")
                 if 'treasure2Multiplier' in upgradesBought:
-                    use upgradeNode("Coin 3","treasure3Chance", 5, (0.71, 0.36), 0, 0, 15*(2**upgradesBought.get("treasure3Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as lantern 3 meat with 100 times the point value.")
+                    use upgradeNode("Coin 3","treasure3Chance", 5, (0.71, 0.36), 0, 0, 15*(2**upgradesBought.get("treasure3Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10% chance of appearing as lantern 3 meat with 100 times the point value.")
                 if 'keys2Multiplier' in upgradesBought:
-                    use upgradeNode("Key 3","keys3Chance", 5, (0.295, 0.5), 0, 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("keys3Chance",0)), 0, "Key has a +10%% chance of appearing as Tier 3 key with 100 times the point value.")
+                    use upgradeNode("Key 3","keys3Chance", 5, (0.295, 0.5), 0, 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("keys3Chance",0)), 0, "Key has a +10% chance of appearing as Tier 3 key with 100 times the point value.")
                 if 'bone2Multiplier' in upgradesBought:
-                    use upgradeNode("Bone 3","bone3Chance", 5, (0.71, 0.5), 0, 0, 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("bone3Chance",0)), "Bone has a +10%% chance of appearing as Tier 3 bone with 100 times the point value.")
+                    use upgradeNode("Bone 3","bone3Chance", 5, (0.71, 0.5), 0, 0, 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("bone3Chance",0)), "Bone has a +10% chance of appearing as Tier 3 bone with 100 times the point value.")
                 if 'fish2Multiplier' in upgradesBought:
-                    use upgradeNode("Fish 3","fish3Chance", 5, (0.295, 0.64), 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("fish3Chance",0)), 0, 0, "Fish has a +10%% chance of appearing as Tier 3 fish with 100 times the point value.")
+                    use upgradeNode("Fish 3","fish3Chance", 5, (0.295, 0.64), 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("fish3Chance",0)), 0, 0, "Fish has a +10% chance of appearing as Tier 3 fish with 100 times the point value.")
                 if 'weapon2Multiplier' in upgradesBought:
-                    use upgradeNode("Blade 3","weapon3Chance", 5, (0.5, 0.64), 0, 15*(2**upgradesBought.get("weapon3Chance",0)), 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as Tier 3 blade with 100 times the point value.")
+                    use upgradeNode("Blade 3","weapon3Chance", 5, (0.5, 0.64), 0, 15*(2**upgradesBought.get("weapon3Chance",0)), 0, 0, 0, 0, 0, 0, "Blade has a +10% chance of appearing as Tier 3 blade with 100 times the point value.")
                 if 'sleep2Multiplier' in upgradesBought:
-                    use upgradeNode("Nap 3","sleep3Chance", 5, (0.71, 0.64), 0, 0, 0, 15*(2**upgradesBought.get("sleep3Chance",0)), 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 3 nap item with 100 times the point value.")
+                    use upgradeNode("Nap 3","sleep3Chance", 5, (0.71, 0.64), 0, 0, 0, 15*(2**upgradesBought.get("sleep3Chance",0)), 0, 0, 0, 0, "Nap item has a +10% chance of appearing as Tier 3 nap item with 100 times the point value.")
+                #tier3+
                 if 'meat3Chance' in upgradesBought:
                     use upgradeNode("Meat 3+","meat3Multiplier", 15, (0.24, 0.325), 10*(2**upgradesBought.get("meat3Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 3 meat point value is increased by 10%.")
                 if 'light3Chance' in upgradesBought:
-                    use upgradeNode("Lantern 3+","light3Multiplier", 15, (0.5, 0.325), 0, 0, 0, 0, 10*(2**upgradesBought.get("light3Multiplier",0)), 0, 0, 0, "Tier 3 lantern point value is increased by 10%.")
+                    use upgradeNode("{size=-2}Lantern 3+","light3Multiplier", 15, (0.5, 0.57), 0, 0, 0, 0, 10*(2**upgradesBought.get("light3Multiplier",0)), 0, 0, 0, "Tier 3 lantern point value is increased by 10%.")
                 if 'treasure3Chance' in upgradesBought:
                     use upgradeNode("Coin 3+","treasure3Multiplier", 15, (0.765, 0.325), 0, 0, 10*(2**upgradesBought.get("treasure3Multiplier",0)), 0, 0, 0, 0, 0, "Tier 3 coin point value is increased by 10%.")
                 if 'keys3Chance' in upgradesBought:
@@ -687,7 +662,38 @@ screen upgradeTree:
                     use upgradeNode("Blade 3+","weapon3Multiplier", 15, (0.5, 0.675), 0, 10*(2**upgradesBought.get("weapon3Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 3 blade point value is increased by 10%.")
                 if 'sleep3Chance' in upgradesBought:
                     use upgradeNode("Nap 3+","sleep3Multiplier", 15, (0.765, 0.675), 0, 0, 0, 10*(2**upgradesBought.get("sleep3Multiplier",0)), 0, 0, 0, 0, "Tier 3 nap item point value is increased by 10%.")
+                #combo
+                if 'sleepMultiplier' in upgradesBought and 'boneMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Rot Combo","glCombo", 15, (0.605, 0.535), 0, 0, 0, 1*(2**upgradesBought.get("glCombo",0)), 0, 0, 0, 1*(2**upgradesBought.get("glCombo",0)), "Bones and nap items get a +10% bonus from each other.")
+                if 'sleepMultiplier' in upgradesBought and 'weaponMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Death Combo","gbCombo", 15, (0.556, 0.57), 0, 1*(2**upgradesBought.get("gbCombo",0)), 0, 1*(2**upgradesBought.get("gbCombo",0)), 0, 0, 0, 0, "Blades and nap items get a +10% bonus from each other.")
+                if 'fishMultiplier' in upgradesBought and 'weaponMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Sushi Combo","vbCombo", 15, (0.4455, 0.57), 0, 1*(2**upgradesBought.get("vbCombo",0)), 0, 0, 0, 1*(2**upgradesBought.get("vbCombo",0)), 0, 0, "Blades and fish get a +10% bonus from each other.")
+                if 'fishMultiplier' in upgradesBought and 'keysMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Deep Combo","vpCombo", 15, (0.392, 0.535), 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("vpCombo",0)), 1*(2**upgradesBought.get("vpCombo",0)), 0, "Keys and fish and nap items get a +10% bonus from each other.")
+                if 'meatMultiplier' in upgradesBought and 'keysMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Taste Combo","rpCombo", 15, (0.39, 0.465), 1*(2**upgradesBought.get("rpCombo",0)), 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("rpCombo",0)), 0, "Keys and meat get a +10% bonus from each other.")
+                if 'meatMultiplier' in upgradesBought and 'lightMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Fry Combo","roCombo", 15, (0.444, 0.43), 1*(2**upgradesBought.get("roCombo",0)), 0, 0, 0, 1*(2**upgradesBought.get("roCombo",0)), 0, 0, 0, "Lanterns and meat get a +10% bonus from each other.")
+                if 'treasureMultiplier' in upgradesBought and 'lightMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Shine Combo","yoCombo", 15, (0.561, 0.43), 0, 0, 1*(2**upgradesBought.get("yoCombo",0)), 0, 1*(2**upgradesBought.get("yoCombo",0)), 0, 0, 0, "Lanterns and coins get a +10% bonus from each other.")
+                if 'treasureMultiplier' in upgradesBought and 'boneMultiplier' in upgradesBought:
+                    use upgradeNode("{size=-9}Greed Combo","ylCombo", 15, (0.61, 0.465), 0, 0, 1*(2**upgradesBought.get("ylCombo",0)), 0, 0, 0, 0, 1*(2**upgradesBought.get("ylCombo",0)), "Bones and coins get a +10% bonus from each other.")
+
+                #Karkhos upgrades
+                if 'sleep2Chance' in upgradesBought:
+                    use upgradeNode("Slack","timePoints", 10, (0.658, 0.57), 0, 0, 0, 10*(2**upgradesBought.get("timePoints",0)), 0, 0, 0, 0, "Every second gain +0.1 of every point type during shift.")
+                if 'sleep2Multiplier' in upgradesBought and 'timePoints' in upgradesBought:
+                    use upgradeNode("Snore","sleepTimePoint", 10, (0.71, 0.605), 0, 0, 0, 10*(2**upgradesBought.get("sleepTimePoints",0)), 0, 0, 0, 0, "Every second gain +1 green point during shift.")
+                if 'sleep3Chance' in upgradesBought and 'timePoints' in upgradesBought:
+                    use upgradeNode("Doze","timePace", 10, (0.71, 0.675), 0, 0, 0, 10*(2**upgradesBought.get("timePace",0)), 0, 0, 0, 0, "Makes every shift feel half as long.")
+                if 'sleep3Multiplier' in upgradesBought and 'timePace' in upgradesBought:
+                    use upgradeNode("Slumber","noTime", 1, (0.82, 0.71), 0, 0, 0, 100, 0, 0, 0, 0, "No work, only points. Skips minigame.")
         
+                #Agatha upgrades
+                if 'light2Chance' in upgradesBought:
+                    use upgradeNode("Overtime","timeIncrease", 10, (0.564, 0.395), 0, 0, 0, 0, 10*(2**upgradesBought.get("timePoints",0)), 0, 0, 0, "Increase shift duration by 5 seconds.")
+
         #scrollbars of the viewport
         bar value XScrollValue("zoom_vp") xalign 0.5
         vbar value YScrollValue("zoom_vp") yalign 0.5
