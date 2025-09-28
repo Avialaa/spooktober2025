@@ -16,7 +16,8 @@ label day2_1:
 
     # kaikkien yhteinen täst eteenpäin kaikki
     "It was only yesterday that going to work felt like a holiday. My hopes for a peaceful week remain shattered on the floor."
-    "The three of them could have cooled down during the night, but even I have trouble being optimistic about this. Being the middleman in such a big fight is like a second job."
+    "The three of them could have cooled down during the night, but even I have trouble being optimistic about this."
+    "Being the middleman in such a big fight is like a second job."
     "And as if dealing with the fight wasn't enough, the Loot never stops pouring in. If we don't keep up, we'll be buried in it."
     "Can't believe I'm about to say this…"
     MC "Boss, please come back sooner!"
@@ -82,7 +83,7 @@ label day2_2:
     show cee perus zorder 3 at cright with dissolve
     show karkhos perus mato zorder 2 at cleft with dissolve
     stop sound fadeout 1
-    "All three of them are already in the breakroom. They're all holding posters, hammers and nails. The empty wallspace in the breakroom must have enticed them."
+    "All three of them are already in the break room. They're all holding posters, hammers and nails. The empty wallspace in the break room must have enticed them."
     show agatha vihainen at hop
     A "Unbelivable. I expected better from you two."
     show karkhos pikkuviha mato
@@ -95,7 +96,7 @@ label day2_2:
     A "[MC]! Will you talk sense into these two?"
     show karkhos at hop
     K "Why're you dragging [MC] into this? Don't try to misdirect. What you did isn't cool."
-    show cee perus
+    show cee vihainen
     C "Mister Destroyer, I dare argue your actions have proven just as despicable."
     show karkhos kauhistus mato
     K "What actions?"
@@ -115,12 +116,12 @@ label day2_2:
     show karkhos perus mato
     C "What fungus has infested thine brain for you to think you're exempt?"
     show agatha
-    A "Working hard is EXACTLY what the Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
+    A "Working hard is EXACTLY what Boss wants. I have not gone against him. Yet you, Cee, have put fish into every order?"
     show cee perus
-    C "I'm simply practicing some much needed service development. As per the Boss' orders."
+    C "I'm simply practicing some much needed service development. As per Boss' orders."
     show agatha at hop
     A "You're practically begging to get fired!"
-    show cee at hop
+    show cee vihainen at hop
     C "Isn't there someone here asking for it rather more insistently?"
     show karkhos pikkuviha mato
     K "...What, me?! No! All I ask for are better conditions."
@@ -166,8 +167,9 @@ label day2_2:
                 show cee perus
                 K "Why's that important? I have done what's within my capabilities."
                 MC "Which is…?"
-                show karkhos perus mato
+                show karkhos nukkuva mato
                 K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
+                show karkhos pikkuviha mato
                 K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
                 K "I've completed a full and whole- A whopping total of a—"
                 # K sad
@@ -188,7 +190,7 @@ label day2_2:
                 show cee perus
                 C "Very well, my sluggish companion. I put fish into all the orders."
                 MC "Yeah, that's… yeah."
-                show cee iloinen
+                show cee karmiva hymy
                 C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
                 "WHAT."
                 show agatha vakava at hop
@@ -197,7 +199,7 @@ label day2_2:
                 show cee tosi iloinen at hop
                 C "Rejoice: we shall soon have fresh water aplenty."
                 MC "That's insane!"
-                show cee perus
+                show cee kauhistus
                 C "It is what anyone in my situation ought to have done."
                 MC "I don't think ANYONE but you would have done that."
                 # C smiles
@@ -206,12 +208,12 @@ label day2_2:
                 jump qqquestions
 
     label after_questions:
-        "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
-        "So much for democracy."
-        "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
         show karkhos perus mato
         show cee perus
         show agatha vakava
+        "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
+        "So much for democracy."
+        "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
         stop music fadeout 3
         MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
         show agatha vihainen at hop
@@ -413,7 +415,7 @@ label day2_3B:
     MC "Let's just go back to work? Badmouthing coworkers behind their backs isn't part of the job."
     show agatha vakava at hop
     A "Fine. Suit yourself."
-    A "Once Boss returns, I won't let this behavior continue."
+    A "But once Boss returns, I won't let this behavior continue."
     play sound wingflap
     hide agatha with easeoutright
     # agatha läpsyttelee pois
@@ -489,7 +491,7 @@ label day2_3C:
     play sound footsteps
     hide karkhos with easeoutright
     stop sound fadeout 3
-    "Without any further convincing, Karkhos stomps back into the breakroom. He gave up shockingly fast."
+    "Without any further convincing, Karkhos stomps back into the break room. He gave up shockingly fast."
     "Though he had a point, he has also misunderstood Cee's intentions."
     "Cee's the only one looking far into the future. That's admirable."
     "And Karkhos was wrong. I know exactly what Cee's planning."
@@ -714,16 +716,20 @@ label day2_5B:
     show karkhos perus
     K "Nah, man. I used to be an orc. The way I died was stupid."
     K "Didn't have Loot on me, while my clan mates did. The last thing I saw was their retreating feet."
-    show karkhos at hop
-    K "That should've been it for me, but I woke up in the chain's restoration facility. Guess I looked strong enough to turn into an undead?"
-    K "No hard feelings to the necromancer who patched me up. Though I think she took my kidney. And something else over in my mid abdomen. The cavity sometimes gathers liquid."
+    show karkhos alakuloinen at hop
+    K "That should've been it for me, but I woke up in the chain's restoration facility. Guess I looked strong enough to be turned into an undead?"
+    show karkhos perus
+    K "But no hard feelings to the necromancer who patched me up."
+    K "Though I think she took my kidney. And something else over in my mid abdomen. The cavity sometimes gathers liquid."
     # K happy sprite
     show karkhos iloinen
     K "Oh well! I've still got lots of organs to spare. Not like they do much now. They've probably spoiled anyway."
-    MC "You were… happy to be turned into an undead?"
-    # K neutral sprite
-    K "Getting a new chance at life doesn't happen to everyone. There was still a lot I wanted to experience, and I was happy to give back."
     show karkhos perus
+    MC "You were… happy to be turned into an undead?"
+    K "Getting a new chance at life doesn't happen to everyone."
+    show karkhos iloinen at hop
+    K "There was still a lot I wanted to experience, and I was happy to give back."
+    show karkhos nukkuva
     K "The Loot saved my clan mates, and the chain gave me a second life. Didn't matter I was destined to work until my body fell apart."
     # sad sprite
     show karkhos alakuloinen
@@ -741,19 +747,22 @@ label day2_5B:
     show karkhos pikkuviha
     MC "Maybe you just need a holiday? When's the last time you had time off?"
     show karkhos alakuloinen
-    K "When I was alive. Back in the orc village, we had a thing called \"rest day\". No such things here. If only the Boss would give us a few days off."
+    K "When I was alive. Back in the orc village, we had a thing called \"rest day\". No such things here. If only Boss would give us a few days off."
     show karkhos vihainen at shake
-    K "I'd go lava surfing, cave diving, ride a wyrm and kiss the moon. Just because I'm dead doesn't mean I can't LIVE A LITTLE."
+    K "I'd go lava surfing, cave diving, ride a wyrm and kiss the moon."
+    show karkhos vihainen at hop
+    K "Just because I'm dead doesn't mean I can't LIVE A LITTLE."
     "The shout echoes down every branching cavern. Anyone creeping around the dungeon probably turned to run."
-    show karkhos perus at hop
+    show karkhos perus
     K "That being so, we need to reach a resolution with this fight. Cee and Agatha need to learn that enough's enough."
     K "Tomorrow at lunch, we'll check your dispatch records. The winner will have their way with the warehouse."
     show karkhos pikkuviha
-    K "If we all refuse to work these unreasonable hours, the Boss will have no choice but to grant our demands."
+    K "If we all refuse to work these unreasonable hours, Boss will have no choice but to grant our demands."
     K "I'll win by any means necessary, because I'm right."
     MC "Yeah! It's not fair you're being forced into manual labor, even though you're tired."
-    show karkhos perus at hop
+    show karkhos kauhistus at hop
     K "What? No! [MC], it's not fair to ANY of us!"
+    show karkhos pikkuviha
     K "Everyone else has just gone numb and capitulated to the horrible conditions. Like they were, I dunno, a bunch of zombies?"
     show karkhos alakuloinen at hop
     K "...Not you, of course! But everyone else."
@@ -770,7 +779,7 @@ label day2_5B:
             show karkhos kauhistus at hop
             "Karkhos clears his throat."
             show karkhos alakuloinen
-            K "My bad. Got carried away. I'm sure the other two think they can handle the workload."
+            K "My bad. Got carried away. I'm sure the other two THINK they can handle the workload."
 
     show karkhos pikkuviha at hop
     show bg hallway posters night:
@@ -785,6 +794,8 @@ label day2_5B:
     # karkhos tosi iloinen
     show karkhos tosi iloinen at hop
     K "I have no idea what's going to happen tomorrow. Pretty exciting."
+    MC "See you tomorrow."
+    K "See ya."
     play sound footsteps
     hide karkhos with moveoutright
     stop sound fadeout 4

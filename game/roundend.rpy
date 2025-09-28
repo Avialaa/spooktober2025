@@ -18,6 +18,7 @@ default roundEndTotalpPoints = False
 default roundEndTotallPoints = False
 
 default fishTotal = 0
+default endSensitivity = False
 
 init:
     image scoreBox = Frame("minigame scorebg.png", 40, 50)
@@ -91,8 +92,11 @@ screen roundEndScreen:
     timer 4.0 action SetVariable("roundEndTotalpPoints", True)
     timer 4.2 action SetVariable("roundEndTotallPoints", True)
 
-    #Returns automatically TODO: quicken with action
-    timer 6.0 action Return()
+    #screen can be skipped by click or space after 1 second, automatically skip after 30 s
+    timer 1.0 action SetVariable("endSensitivity", True)
+    if endSensitivity:
+        key ["mousedown_1", "K_SPACE"] action [Return(), SetVariable("endSensitivity", False)]
+    timer 30 action Return()
 
     hbox:
         align(0.5, 0.5)
@@ -101,7 +105,7 @@ screen roundEndScreen:
             padding(30, 20)
             background "scoreBox"
             vbox:
-                xysize (250, 600)
+                xysize (250, 800)
                 text "This round:"
                 if roundEndrPoints:
                     hbox:
@@ -110,7 +114,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndbPoints:
                     hbox:
                         text "[f'{roundbPoints:.2f}']" style "bluePointsStyle"
@@ -118,7 +122,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndyPoints:
                     hbox:
                         text "[f'{roundyPoints:.2f}']" style "yellowPointsStyle"
@@ -126,7 +130,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndgPoints:
                     hbox:
                         text "[f'{roundgPoints:.2f}']" style "greenPointsStyle"
@@ -134,7 +138,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndoPoints:
                     hbox:
                         text "[f'{roundoPoints:.2f}']" style "orangePointsStyle"
@@ -142,7 +146,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndvPoints:
                     hbox:
                         text "[f'{roundvPoints:.2f}']" style "violetPointsStyle"
@@ -150,7 +154,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndpPoints:
                     hbox:
                         text "[f'{roundpPoints:.2f}']" style "pinkPointsStyle"
@@ -158,7 +162,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndlPoints:
                     hbox:
                         text "[f'{roundlPoints:.2f}']" style "lightPointsStyle"
@@ -174,7 +178,7 @@ screen roundEndScreen:
             padding(30, 20)
             background "scoreBox"
             vbox:
-                xysize (250, 600)
+                xysize (250, 800)
                 text "Total Points:"
                 if roundEndTotalrPoints:
                     hbox:
@@ -183,7 +187,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndTotalbPoints:
                     hbox:
                         text "[f'{bPoints:.2f}']" style "bluePointsStyle"
@@ -191,7 +195,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndTotalyPoints:
                     hbox:
                         text "[f'{yPoints:.2f}']" style "yellowPointsStyle"
@@ -199,7 +203,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndTotalgPoints:
                     hbox:
                         text "[f'{gPoints:.2f}']" style "greenPointsStyle"
@@ -207,7 +211,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndTotaloPoints:
                     hbox:
                         text "[f'{oPoints:.2f}']" style "orangePointsStyle"
@@ -215,7 +219,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndTotalvPoints:
                     hbox:
                         text "[f'{vPoints:.2f}']" style "violetPointsStyle"
@@ -223,7 +227,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndTotalpPoints:
                     hbox:
                         text "[f'{pPoints:.2f}']" style "pinkPointsStyle"
@@ -231,7 +235,7 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
                 if roundEndTotallPoints:
                     hbox:
                         text "[f'{lPoints:.2f}']" style "lightPointsStyle"
@@ -239,5 +243,5 @@ screen roundEndScreen:
                             fit "scale-down"
                             xysize (40,40)
                 else: 
-                    null height 38
+                    null height 36
 

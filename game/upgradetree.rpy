@@ -321,14 +321,14 @@ init python:
         focusUpgradeName = name
         focusUpgradeID = upgradeID
         focusUpgradeLimit = upgradeLimit
-        frCost = rCost*(2**upgradesBought.get(upgradeID,0))
-        fbCost = bCost*(2**upgradesBought.get(upgradeID,0))
-        fyCost = yCost*(2**upgradesBought.get(upgradeID,0))
-        fgCost = gCost*(2**upgradesBought.get(upgradeID,0))
-        foCost = oCost*(2**upgradesBought.get(upgradeID,0))
-        fvCost = vCost*(2**upgradesBought.get(upgradeID,0))
-        fpCost = pCost*(2**upgradesBought.get(upgradeID,0))
-        flCost = lCost*(2**upgradesBought.get(upgradeID,0))
+        frCost = rCost
+        fbCost = bCost
+        fyCost = yCost
+        fgCost = gCost
+        foCost = oCost
+        fvCost = vCost
+        fpCost = pCost
+        flCost = lCost
         focusDescription = description
 
 label upgradetreeTest:
@@ -424,8 +424,10 @@ screen upgradeNode(name, upgradeID, upgradeLimit, coord, rCost, bCost, yCost, gC
                 color("#2A3124")
             else:
                 color("#4C5942")
-
-        action [Function(openShop, name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description, _update_screens=True), SetVariable("focusUpgradeName", name)]
+        if focusUpgradeID == upgradeID and rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and oPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost and upgradesBought.get(focusUpgradeID,0) < focusUpgradeLimit:
+            action Function(upgradePurchase)
+        else:
+            action [Function(openShop, name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description, _update_screens=True), SetVariable("focusUpgradeName", name)]
 
 
 screen pointView:
@@ -508,6 +510,9 @@ screen upgradeTree:
     #add "bigspace_day.png"
     modal True
 
+    text "{size=+10}{color=#ddd}Upgrades":
+        align (0.5,0)
+
     #point status view
     use pointView
     
@@ -517,23 +522,23 @@ screen upgradeTree:
         padding (20,10)
         xalign 0.5
         yalign 1.0
-        textbutton "Done":
+        textbutton "{color=#ddd}{size=+9}Done":
             action [SetVariable("focusUpgradeName", "0"), Return()]
 
     #viewport for upgrade nodes
 
     side 'c b r':
-        xysize (1250, 950)
-        align (0.4, 0.35)
+        xysize (1260, 910)
+        align (0.35, 0.38)
         viewport:
             ## The zoom_viewport takes all the standard viewport properties,
             ## like draggable, xinitial/yinitial, child_size, arrowkeys, etc.
             ## However, it does *not* take the scrollbars property; you will
             ## need to add any scrollbars manually as shown.
-            xysize (1250, 950)
+            xysize (1260, 910)
             child_size (4000,2000)
             draggable True
-            xinitial 0.5
+            xinitial 0.47
             yinitial 0.5
             arrowkeys True
             pagekeys True
@@ -601,87 +606,87 @@ screen upgradeTree:
             fixed:
                 xfit False
                 yfit False
-                use upgradeNode("Point +","pointMultiplier", 5, (0.5, 0.5), 1, 1, 1, 1, 1, 1, 1, 1, "Increases all point gain by 10%")
+                use upgradeNode("Point +","pointMultiplier", 100, (0.5, 0.5), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), "Increases all point gain by 10%")
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Meat +","meatMultiplier", 5, (0.444, 0.465), 1, 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
+                    use upgradeNode("Meat +","meatMultiplier", 15, (0.444, 0.465), 1*(2**upgradesBought.get("meatMultiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 10%")
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Lantern +","lightMultiplier", 5, (0.5, 0.465), 0, 0, 0, 0, 1, 0, 0, 0, "Increases all points gained from lantern items by 10%") 
+                    use upgradeNode("Lantern +","lightMultiplier", 15, (0.5, 0.465), 0, 0, 0, 0, 1*(2**upgradesBought.get("lightMultiplier",0)), 0, 0, 0, "Increases all points gained from lantern items by 10%") 
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Coin +","treasureMultiplier", 5, (0.556, 0.465), 0, 0, 1, 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
+                    use upgradeNode("Coin +","treasureMultiplier", 15, (0.556, 0.465), 0, 0, 1*(2**upgradesBought.get("treasureMultiplier",0)), 0, 0, 0, 0, 0, "Increases all points gained from coin items by 10%")
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Key +","keysMultiplier", 5, (0.444, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Increases all points gained from key items by 10%")
+                    use upgradeNode("Key +","keysMultiplier", 15, (0.444, 0.5), 0, 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("keysMultiplier",0)), 0, "Increases all points gained from key items by 10%")
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Bone +","boneMultiplier", 5, (0.556, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Increases all points gained from bone items by 10%")
+                    use upgradeNode("Bone +","boneMultiplier", 15, (0.556, 0.5), 0, 0, 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("boneMultiplier",0)), "Increases all points gained from bone items by 10%")
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Fish +","fishMultiplier", 5, (0.444, 0.535), 0, 0, 0, 0, 0, 1, 0, 0, "Increases all points gained from fish items by 10%")
+                    use upgradeNode("Fish +","fishMultiplier", 15, (0.444, 0.535), 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("fishMultiplier",0)), 0, 0, "Increases all points gained from fish items by 10%")
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Blade +","weaponMultiplier", 5, (0.5, 0.535), 0, 1, 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
+                    use upgradeNode("Blade +","weaponMultiplier", 15, (0.5, 0.535), 0, 1*(2**upgradesBought.get("weaponMultiplier",0)), 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 10%")
                 if 'pointMultiplier' in upgradesBought:
-                    use upgradeNode("Nap +","sleepMultiplier", 5, (0.556, 0.535), 0, 0, 0, 1, 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
+                    use upgradeNode("Nap +","sleepMultiplier", 15, (0.556, 0.535), 0, 0, 0, 1*(2**upgradesBought.get("sleepMultiplier",0)), 0, 0, 0, 0, "Increases all points gained from nap items by 10%")
                 if 'meatMultiplier' in upgradesBought:
-                    use upgradeNode("Meat 2","meat2Chance", 5, (0.397, 0.43), 1, 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 2 meat with 10 times the point value.")
+                    use upgradeNode("Meat 2","meat2Chance", 5, (0.397, 0.43), 3*(2**upgradesBought.get("meat2Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 2 meat with 10 times the point value.")
                 if 'lightMultiplier' in upgradesBought:
-                    use upgradeNode("Lantern 2","light2Chance", 5, (0.5, 0.43), 0, 0, 0, 0, 1, 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 2 lantern with 10 times the point value.")
+                    use upgradeNode("Lantern 2","light2Chance", 5, (0.5, 0.43), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Chance",0)), 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 2 lantern with 10 times the point value.")
                 if 'treasureMultiplier' in upgradesBought:
-                    use upgradeNode("Coin 2","treasure2Chance", 5, (0.605, 0.43), 0, 0, 1, 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as tier 2 coin with 10 times the point value.")
+                    use upgradeNode("Coin 2","treasure2Chance", 5, (0.605, 0.43), 0, 0, 3*(2**upgradesBought.get("treasure2Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as tier 2 coin with 10 times the point value.")
                 if 'keysMultiplier' in upgradesBought:
-                    use upgradeNode("Key 2","keys2Chance", 5, (0.397, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Key has a +10%% chance of appearing as tier 2 key with 10 times the point value.")
+                    use upgradeNode("Key 2","keys2Chance", 5, (0.397, 0.5), 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("keys2Chance",0)), 0, "Key has a +10%% chance of appearing as tier 2 key with 10 times the point value.")
                 if 'boneMultiplier' in upgradesBought:
-                    use upgradeNode("Bone 2","bone2Chance", 5, (0.605, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Bone has a +10%% chance of appearing as tier 2 bone with 10 times the point value.")
+                    use upgradeNode("Bone 2","bone2Chance", 5, (0.605, 0.5), 0, 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("bone2Chance",0)), "Bone has a +10%% chance of appearing as tier 2 bone with 10 times the point value.")
                 if 'fishMultiplier' in upgradesBought:
-                    use upgradeNode("Fish 2","fish2Chance", 5, (0.397, 0.57), 0, 0, 0, 0, 0, 1, 0, 0, "Fish has a +10%% chance of appearing as tier 2 fish with 10 times the point value.")
+                    use upgradeNode("Fish 2","fish2Chance", 5, (0.397, 0.57), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fish2Chance",0)), 0, 0, "Fish has a +10%% chance of appearing as tier 2 fish with 10 times the point value.")
                 if 'weaponMultiplier' in upgradesBought:
-                    use upgradeNode("Blade 2","weapon2Chance", 5, (0.5, 0.57), 0, 1, 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as tier 2 blade with 10 times the point value.")
+                    use upgradeNode("Blade 2","weapon2Chance", 5, (0.5, 0.57), 0, 3*(2**upgradesBought.get("weapon2Chance",0)), 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as tier 2 blade with 10 times the point value.")
                 if 'sleepMultiplier' in upgradesBought:
-                    use upgradeNode("Nap 2","sleep2Chance", 5, (0.605, 0.57), 0, 0, 0, 1, 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 2 nap item with 10 times the point value.")
+                    use upgradeNode("Nap 2","sleep2Chance", 5, (0.605, 0.57), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Chance",0)), 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 2 nap item with 10 times the point value.")
                 if 'meat2Chance' in upgradesBought:
-                    use upgradeNode("Meat 2+","meat2Multiplier", 5, (0.345, 0.395), 1, 0, 0, 0, 0, 0, 0, 0, "Tier 2 meat point value is increased by 10%.")
+                    use upgradeNode("Meat 2+","meat2Multiplier", 15, (0.345, 0.395), 3*(2**upgradesBought.get("meat2Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 2 meat point value is increased by 10%.")
                 if 'light2Chance' in upgradesBought:
-                    use upgradeNode("Lantern 2+","light2Multiplier", 5, (0.5, 0.395), 0, 0, 0, 0, 1, 0, 0, 0, "Tier 2 lantern point value is increased by 10%.")
+                    use upgradeNode("Lantern 2+","light2Multiplier", 15, (0.5, 0.395), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Multiplier",0)), 0, 0, 0, "Tier 2 lantern point value is increased by 10%.")
                 if 'treasure2Chance' in upgradesBought:
-                    use upgradeNode("Coin 2+","treasure2Multiplier", 5, (0.658, 0.395), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 10%.")
+                    use upgradeNode("Coin 2+","treasure2Multiplier", 15, (0.658, 0.395), 0, 0, 3*(2**upgradesBought.get("treasure2Multiplier",0)), 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 10%.")
                 if 'keys2Chance' in upgradesBought:
-                    use upgradeNode("Key 2+","keys2Multiplier", 5, (0.345, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Tier 2 key point value is increased by 10%.")
+                    use upgradeNode("Key 2+","keys2Multiplier", 15, (0.345, 0.5), 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("keys2Multiplier",0)), 0, "Tier 2 key point value is increased by 10%.")
                 if 'bone2Chance' in upgradesBought:
-                    use upgradeNode("Bone 2+","bone2Multiplier", 5, (0.658, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 2 bone point value is increased by 10%.")
+                    use upgradeNode("Bone 2+","bone2Multiplier", 15, (0.658, 0.5), 0, 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("bone2Multiplier",0)), "Tier 2 bone point value is increased by 10%.")
                 if 'fish2Chance' in upgradesBought:
-                    use upgradeNode("Fish 2+","fish2Multiplier", 5, (0.345, 0.605), 0, 0, 0, 0, 0, 1, 0, 0, "Tier 2 fish point value is increased by 10%.")
+                    use upgradeNode("Fish 2+","fish2Multiplier", 15, (0.345, 0.605), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fish2Multiplier",0)), 0, 0, "Tier 2 fish point value is increased by 10%.")
                 if 'weapon2Chance' in upgradesBought:
-                    use upgradeNode("Blade 2+","weapon2Multiplier", 5, (0.5, 0.605), 0, 1, 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 10%.")
+                    use upgradeNode("Blade 2+","weapon2Multiplier", 15, (0.5, 0.605), 0, 3*(2**upgradesBought.get("weapon2Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 10%.")
                 if 'sleep2Chance' in upgradesBought:
-                    use upgradeNode("Nap 2+","sleep2Multiplier", 5, (0.658, 0.605), 0, 0, 0, 1, 0, 0, 0, 0, "Tier 2 nap item point value is increased by 10%.")
+                    use upgradeNode("Nap 2+","sleep2Multiplier", 15, (0.658, 0.605), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Multiplier",0)), 0, 0, 0, 0, "Tier 2 nap item point value is increased by 10%.")
                 if 'meat2Multiplier' in upgradesBought:
-                    use upgradeNode("Meat 3","meat3Chance", 5, (0.295, 0.36), 1, 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
+                    use upgradeNode("Meat 3","meat3Chance", 5, (0.295, 0.36), 15*(2**upgradesBought.get("meat3Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
                 if 'light2Multiplier' in upgradesBought:
-                    use upgradeNode("Lantern 3","light3Chance", 5, (0.5, 0.36), 0, 0, 0, 0, 1, 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
+                    use upgradeNode("Lantern 3","light3Chance", 5, (0.5, 0.36), 0, 0, 0, 0, 15*(2**upgradesBought.get("light3Chance",0)), 0, 0, 0, "Lantern has a +10%% chance of appearing as Tier 3 meat with 100 times the point value.")
                 if 'treasure2Multiplier' in upgradesBought:
-                    use upgradeNode("Coin 3","treasure3Chance", 5, (0.71, 0.36), 0, 0, 1, 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as lantern 3 meat with 100 times the point value.")
+                    use upgradeNode("Coin 3","treasure3Chance", 5, (0.71, 0.36), 0, 0, 15*(2**upgradesBought.get("treasure3Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10%% chance of appearing as lantern 3 meat with 100 times the point value.")
                 if 'keys2Multiplier' in upgradesBought:
-                    use upgradeNode("Key 3","keys3Chance", 5, (0.295, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Key has a +10%% chance of appearing as Tier 3 key with 100 times the point value.")
+                    use upgradeNode("Key 3","keys3Chance", 5, (0.295, 0.5), 0, 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("keys3Chance",0)), 0, "Key has a +10%% chance of appearing as Tier 3 key with 100 times the point value.")
                 if 'bone2Multiplier' in upgradesBought:
-                    use upgradeNode("Bone 3","bone3Chance", 5, (0.71, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Bone has a +10%% chance of appearing as Tier 3 bone with 100 times the point value.")
+                    use upgradeNode("Bone 3","bone3Chance", 5, (0.71, 0.5), 0, 0, 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("bone3Chance",0)), "Bone has a +10%% chance of appearing as Tier 3 bone with 100 times the point value.")
                 if 'fish2Multiplier' in upgradesBought:
-                    use upgradeNode("Fish 3","fish3Chance", 5, (0.295, 0.64), 0, 0, 0, 0, 0, 1, 0, 0, "Fish has a +10%% chance of appearing as Tier 3 fish with 100 times the point value.")
+                    use upgradeNode("Fish 3","fish3Chance", 5, (0.295, 0.64), 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("fish3Chance",0)), 0, 0, "Fish has a +10%% chance of appearing as Tier 3 fish with 100 times the point value.")
                 if 'weapon2Multiplier' in upgradesBought:
-                    use upgradeNode("Blade 3","weapon3Chance", 5, (0.5, 0.64), 0, 1, 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as Tier 3 blade with 100 times the point value.")
+                    use upgradeNode("Blade 3","weapon3Chance", 5, (0.5, 0.64), 0, 15*(2**upgradesBought.get("weapon3Chance",0)), 0, 0, 0, 0, 0, 0, "Blade has a +10%% chance of appearing as Tier 3 blade with 100 times the point value.")
                 if 'sleep2Multiplier' in upgradesBought:
-                    use upgradeNode("Nap 3","sleep3Chance", 5, (0.71, 0.64), 0, 0, 0, 1, 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 3 nap item with 100 times the point value.")
+                    use upgradeNode("Nap 3","sleep3Chance", 5, (0.71, 0.64), 0, 0, 0, 15*(2**upgradesBought.get("sleep3Chance",0)), 0, 0, 0, 0, "Nap item has a +10%% chance of appearing as Tier 3 nap item with 100 times the point value.")
                 if 'meat3Chance' in upgradesBought:
-                    use upgradeNode("Meat 3+","meat3Multiplier", 5, (0.24, 0.325), 1, 0, 0, 0, 0, 0, 0, 0, "Tier 3 meat point value is increased by 10%.")
+                    use upgradeNode("Meat 3+","meat3Multiplier", 15, (0.24, 0.325), 10*(2**upgradesBought.get("meat3Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 3 meat point value is increased by 10%.")
                 if 'light3Chance' in upgradesBought:
-                    use upgradeNode("Lantern 3+","light3Multiplier", 5, (0.5, 0.325), 0, 0, 0, 0, 1, 0, 0, 0, "Tier 3 lantern point value is increased by 10%.")
+                    use upgradeNode("Lantern 3+","light3Multiplier", 15, (0.5, 0.325), 0, 0, 0, 0, 10*(2**upgradesBought.get("light3Multiplier",0)), 0, 0, 0, "Tier 3 lantern point value is increased by 10%.")
                 if 'treasure3Chance' in upgradesBought:
-                    use upgradeNode("Coin 3+","treasure3Multiplier", 5, (0.765, 0.325), 0, 0, 1, 0, 0, 0, 0, 0, "Tier 3 coin point value is increased by 10%.")
+                    use upgradeNode("Coin 3+","treasure3Multiplier", 15, (0.765, 0.325), 0, 0, 10*(2**upgradesBought.get("treasure3Multiplier",0)), 0, 0, 0, 0, 0, "Tier 3 coin point value is increased by 10%.")
                 if 'keys3Chance' in upgradesBought:
-                    use upgradeNode("Key 3+","keys3Multiplier", 5, (0.24, 0.5), 0, 0, 0, 0, 0, 0, 1, 0, "Tier 3 key point value is increased by 10%.")
+                    use upgradeNode("Key 3+","keys3Multiplier", 15, (0.24, 0.5), 0, 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("keys3Multiplier",0)), 0, "Tier 3 key point value is increased by 10%.")
                 if 'bone3Chance' in upgradesBought:
-                    use upgradeNode("Bone 3+","bone3Multiplier", 5, (0.765, 0.5), 0, 0, 0, 0, 0, 0, 0, 1, "Tier 3 bone point value is increased by 10%.")
+                    use upgradeNode("Bone 3+","bone3Multiplier", 15, (0.765, 0.5), 0, 0, 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("bone3Multiplier",0)), "Tier 3 bone point value is increased by 10%.")
                 if 'fish3Chance' in upgradesBought:
-                    use upgradeNode("Fish 3+","fish3Multiplier", 5, (0.24, 0.675), 0, 0, 0, 0, 0, 1, 0, 0, "Tier 3 fish point value is increased by 10%.")
+                    use upgradeNode("Fish 3+","fish3Multiplier", 15, (0.24, 0.675), 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("fish3Multiplier",0)), 0, 0, "Tier 3 fish point value is increased by 10%.")
                 if 'weapon3Chance' in upgradesBought:
-                    use upgradeNode("Blade 3+","weapon3Multiplier", 5, (0.5, 0.675), 0, 1, 0, 0, 0, 0, 0, 0, "Tier 3 blade point value is increased by 10%.")
+                    use upgradeNode("Blade 3+","weapon3Multiplier", 15, (0.5, 0.675), 0, 10*(2**upgradesBought.get("weapon3Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 3 blade point value is increased by 10%.")
                 if 'sleep3Chance' in upgradesBought:
-                    use upgradeNode("Nap 3+","sleep3Multiplier", 5, (0.765, 0.675), 0, 0, 0, 1, 0, 0, 0, 0, "Tier 3 nap item point value is increased by 10%.")
+                    use upgradeNode("Nap 3+","sleep3Multiplier", 15, (0.765, 0.675), 0, 0, 0, 10*(2**upgradesBought.get("sleep3Multiplier",0)), 0, 0, 0, 0, "Tier 3 nap item point value is increased by 10%.")
         
         #scrollbars of the viewport
         bar value XScrollValue("zoom_vp") xalign 0.5
@@ -772,13 +777,13 @@ screen upgradeTree:
                         text "Buy":
                             if upgradesBought.get(focusUpgradeID) == focusUpgradeLimit:
                                 color("#5A6056")
-                            elif rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and pPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost:
+                            elif rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and oPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost:
                                 color("#2A3124")
                             else:
                                 color("#654C4C")
                                 
                             font "fonts/DMSans-Light.ttf"
-                        if rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and pPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost and upgradesBought.get(focusUpgradeID,0) < focusUpgradeLimit:
+                        if rPoints >= frCost and bPoints >= fbCost and yPoints >= fyCost and gPoints >= fgCost and oPoints >= foCost and vPoints >= fvCost and pPoints >= fpCost and lPoints >= flCost and upgradesBought.get(focusUpgradeID,0) < focusUpgradeLimit:
                             action Function(upgradePurchase)
 
 screen unused:
