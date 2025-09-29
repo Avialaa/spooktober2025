@@ -25,6 +25,7 @@ default currentStoryRoute = None
 default correctOrdersDemandedByAgatha = 3
 default fishDemandedByCee = 5
 default workShift = 0
+default thisRoundWinner = None
 
 default move_text = None #set transform to none
 
@@ -106,6 +107,7 @@ init python:
     global workShift
     global correctOrdersDemandedByAgatha
     global fishDemandedByCee
+    global thisRoundWinner
 
     #First shift doesn't affect route
     if workShift == 1:
