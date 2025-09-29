@@ -1037,7 +1037,7 @@ screen meatFeedback:
             at point_feedback_transform_8
         elif rfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[orderrPoints]" style "redPointsStyle"
+        text "{size=+30}+[f'{orderrPoints:.2f}']" style "redPointsStyle"
         add "order meat.png":
             fit "scale-down"
             xysize (70,70)
@@ -1063,7 +1063,7 @@ screen weaponFeedback:
             at point_feedback_transform_8
         elif bfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[orderbPoints]" style "bluePointsStyle"
+        text "{size=+30}+[f'{orderbPoints:.2f}']" style "bluePointsStyle"
         add "order weapon.png":
             fit "scale-down"
             xysize (70,70)
@@ -1089,7 +1089,7 @@ screen treasureFeedback:
             at point_feedback_transform_8
         elif yfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[orderyPoints]" style "yellowPointsStyle"
+        text "{size=+30}+[f'{orderyPoints:.2f}']" style "yellowPointsStyle"
         add "order treasure.png":
             fit "scale-down"
             xysize (70,70)
@@ -1115,7 +1115,7 @@ screen sleepFeedback:
             at point_feedback_transform_8
         elif gfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[ordergPoints]" style "greenPointsStyle"
+        text "{size=+30}+[f'{ordergPoints:.2f}']" style "greenPointsStyle"
         add "order sleep.png":
             fit "scale-down"
             xysize (70,70)
@@ -1141,7 +1141,7 @@ screen lightFeedback:
             at point_feedback_transform_8
         elif ofeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[orderoPoints]" style "orangePointsStyle"
+        text "{size=+30}+[f'{orderoPoints:.2f}']" style "orangePointsStyle"
         add "order light.png":
             fit "scale-down"
             xysize (70,70)
@@ -1167,7 +1167,7 @@ screen fishFeedback:
             at point_feedback_transform_8
         elif vfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[ordervPoints]" style "violetPointsStyle"
+        text "{size=+30}+[f'{ordervPoints:.2f}']" style "violetPointsStyle"
         add "order fish.png":
             fit "scale-down"
             xysize (70,70)
@@ -1193,7 +1193,7 @@ screen keysFeedback:
             at point_feedback_transform_8
         elif pfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[orderpPoints]" style "pinkPointsStyle"
+        text "{size=+30}+[f'{orderpPoints:.2f}']" style "pinkPointsStyle"
         add "order keys.png":
             fit "scale-down"
             xysize (70,70)
@@ -1219,7 +1219,7 @@ screen boneFeedback:
             at point_feedback_transform_8
         elif lfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+30}+[orderlPoints]" style "lightPointsStyle"
+        text "{size=+30}+[f'{orderlPoints:.2f}']" style "lightPointsStyle"
         add "order bone.png":
             fit "scale-down"
             xysize (70,70)
