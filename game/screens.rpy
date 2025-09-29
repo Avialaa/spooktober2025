@@ -316,6 +316,8 @@ screen navigation():
         textbutton _("Preferences") action ShowMenu("preferences")
         
         textbutton _("Credits") action Start("finalcredits")
+        
+        textbutton _("Endless Mode") action Start("endless_mode")
 
         if _in_replay:
 

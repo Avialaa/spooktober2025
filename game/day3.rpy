@@ -106,6 +106,7 @@ label day3_A1:
 
 label day4_A2:
     #day 4 grafiikka
+    $ persistent.agathaEndingPlayed = True
 
     #varasto BG
     play music juoru
@@ -508,7 +509,7 @@ label day3_B1:
 
 label day4_B2:
     #(päivä 4 grafiikka)
-
+    $ persistent.karkhosEndingPlayed = True
     scene black
     play music juoru
     #musta ruutu
@@ -851,6 +852,7 @@ label day3_C1:  #Cee wins
 
 #TODO lisää joku ääniefekti ehkä? 
 label day4_C2:
+    $ persistent.ceeEndingPlayed = True
     play music metkut
     scene bg warehouse cee with dissolve
     pause 2
