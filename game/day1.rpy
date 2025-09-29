@@ -826,7 +826,9 @@ label day1_6A:
     hide agatha with easeoutleft
     "Oh well. To each their own, and she did seem to cheer up from my pun. Now, I've got a date waiting."
     "Moss, sweet moss…"
-    stop music fadeout 3
+    scene black with dissolve
+    stop music fadeout 5
+    pause 2
     return
 
 label day1_6B:
@@ -950,8 +952,9 @@ label day1_6B:
     "He truly just cares about our wellbeing."
     "Though chatting was nice, now I'm tired enough to pass out."
     "I wonder… With more rest, what would I be capable of?"
-
-    stop music fadeout 3
+    scene black with dissolve
+    stop music fadeout 5
+    pause 2
     return
 
 label day1_6C:
@@ -1143,6 +1146,7 @@ label day1_6C:
     "Hmm."
     "Choosing between doing nothing, doing too much, and paradise island, seems quite simple, when you put it that way. But is it really that simple?"
     "Ugh, I need to get home and de-stress before thinking about any big decisions."
-    stop music fadeout 4
-
+    scene black with dissolve
+    stop music fadeout 5
+    pause 2
     return

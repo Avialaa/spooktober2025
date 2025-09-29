@@ -502,7 +502,7 @@ label day3_B1:
     stop music fadeout 3
     "This result… Was it really alright?"
     scene black with fade
-    pause 1
+    pause 2
     call day_change #day changes!!
 
 
@@ -845,7 +845,7 @@ label day3_C1:  #Cee wins
     C "Hehehe. Hehehehehehehehehehe."
     pause 1.0
     scene black with fade
-    pause 1
+    pause 2
     call day_change #day changes!!
 
 
