@@ -297,7 +297,7 @@ screen navigation():
         style_prefix "navigation"
 
         xpos gui.navigation_xpos
-        yalign 0.65
+        yalign 0.75
 
         spacing gui.navigation_spacing
 
