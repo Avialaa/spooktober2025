@@ -242,8 +242,6 @@ init python:
     global orders
     global orderList
 
-    #TODO: Test game and set order sizes that feel good; decide if box size affects order size
-    #Or maybe order size could grow as days pass?
     if maxBoxItems < 8:
       orderSize =  renpy.random.randint(4,5)
     else:
@@ -292,10 +290,8 @@ init python:
 
     for orderItem in copiedOrder:
         if orderItem in itemNamesInBox:
-          #TODO: give points for correct item?
           itemNamesInBox.remove(orderItem)  # Remove to handle duplicates correctly
         else:
-          #TODO: remove points for incorrect item?
           isOrderCorrect = False
     
     #track how many orders have been correct in a row
@@ -366,7 +362,6 @@ screen conveyer_item(item, timeOnConveyer):
   imagebutton:
     auto "{}_%s.png".format(item.image)
     #can't use Hide() because it uses screen names, not tags; must use renpy.hide_screen(tag) wrapped into a custom function
-    #TODO: check if can use tags with Hide() after all
     #if box is full, button can't be clicked.
     #if len(itemsInBox) +1 <= maxBoxItems:
     action If(boxReady, true=[Function(hideItem, renpy.current_screen().tag), AddToSet(itemsInBox, item), Function(closeBox), Show("warehouse_box"), Play('audio', 'clickItem_leonsflashlight__box-open.mp3')], false=[SetVariable("move_text", box_text_shake), Show("box_text_shake_timer"), Play('audio', 'boxFull_pkbiggums__box_shatter2.mp3')])

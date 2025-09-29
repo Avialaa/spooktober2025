@@ -470,24 +470,24 @@ screen upgradeTree:
                 fixed:
                     xfit False
                     yfit False
-                    use upgradeNode("Point +","pointMultiplier", 100, (0.5, 0.5), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), "Increases all point gain by 20%")
-                    if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("Meat +","meatMultiplier", 15, (0.444, 0.465), 1*(2**upgradesBought.get("meatMultiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 20%")
+                    use upgradeNode("Point +","pointMultiplier", 30, (0.5, 0.5), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), 1*(2**upgradesBought.get("pointMultiplier",0)), "Increases all point gain by 20%")
                     #regular point multipliers
                     if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("{size=-2}Lantern +","lightMultiplier", 15, (0.5, 0.465), 0, 0, 0, 0, 1*(2**upgradesBought.get("lightMultiplier",0)), 0, 0, 0, "Increases all points gained from lantern items by 20%") 
+                        use upgradeNode("Meat +","meatMultiplier", 30, (0.444, 0.465), 1*(2**upgradesBought.get("meatMultiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Increases all points gained from meat items by 20%")
                     if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("Coin +","treasureMultiplier", 15, (0.556, 0.465), 0, 0, 1*(2**upgradesBought.get("treasureMultiplier",0)), 0, 0, 0, 0, 0, "Increases all points gained from coin items by 20%")
+                        use upgradeNode("{size=-2}Lantern +","lightMultiplier", 30, (0.5, 0.465), 0, 0, 0, 0, 1*(2**upgradesBought.get("lightMultiplier",0)), 0, 0, 0, "Increases all points gained from lantern items by 20%") 
                     if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("Key +","keysMultiplier", 15, (0.444, 0.5), 0, 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("keysMultiplier",0)), 0, "Increases all points gained from key items by 20%")
+                        use upgradeNode("Coin +","treasureMultiplier", 30, (0.556, 0.465), 0, 0, 1*(2**upgradesBought.get("treasureMultiplier",0)), 0, 0, 0, 0, 0, "Increases all points gained from coin items by 20%")
                     if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("Bone +","boneMultiplier", 15, (0.556, 0.5), 0, 0, 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("boneMultiplier",0)), "Increases all points gained from bone items by 20%")
+                        use upgradeNode("Key +","keysMultiplier", 30, (0.444, 0.5), 0, 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("keysMultiplier",0)), 0, "Increases all points gained from key items by 20%")
                     if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("Fish +","fishMultiplier", 15, (0.444, 0.535), 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("fishMultiplier",0)), 0, 0, "Increases all points gained from fish items by 20%")
+                        use upgradeNode("Bone +","boneMultiplier", 30, (0.556, 0.5), 0, 0, 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("boneMultiplier",0)), "Increases all points gained from bone items by 20%")
                     if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("Blade +","weaponMultiplier", 15, (0.5, 0.535), 0, 1*(2**upgradesBought.get("weaponMultiplier",0)), 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 20%")
+                        use upgradeNode("Fish +","fishMultiplier", 30, (0.444, 0.535), 0, 0, 0, 0, 0, 1*(2**upgradesBought.get("fishMultiplier",0)), 0, 0, "Increases all points gained from fish items by 20%")
                     if 'pointMultiplier' in upgradesBought:
-                        use upgradeNode("Nap +","sleepMultiplier", 15, (0.556, 0.535), 0, 0, 0, 1*(2**upgradesBought.get("sleepMultiplier",0)), 0, 0, 0, 0, "Increases all points gained from nap items by 20%")
+                        use upgradeNode("Blade +","weaponMultiplier", 30, (0.5, 0.535), 0, 1*(2**upgradesBought.get("weaponMultiplier",0)), 0, 0, 0, 0, 0, 0, "Increases all points gained from blade items by 20%")
+                    if 'pointMultiplier' in upgradesBought:
+                        use upgradeNode("Nap +","sleepMultiplier", 30, (0.556, 0.535), 0, 0, 0, 1*(2**upgradesBought.get("sleepMultiplier",0)), 0, 0, 0, 0, "Increases all points gained from nap items by 20%")
                     #tier2
                     if 'meatMultiplier' in upgradesBought:
                         use upgradeNode("Meat 2","meat2Chance", 5, (0.397, 0.43), 3*(2**upgradesBought.get("meat2Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10% chance of appearing as Tier 2 meat with 10 times the point value.")
@@ -507,21 +507,21 @@ screen upgradeTree:
                         use upgradeNode("Nap 2","sleep2Chance", 5, (0.605, 0.57), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Chance",0)), 0, 0, 0, 0, "Nap item has a +10% chance of appearing as Tier 2 nap item with 10 times the point value.")
                     #tier2+
                     if 'meat2Chance' in upgradesBought:
-                        use upgradeNode("Meat 2+","meat2Multiplier", 15, (0.345, 0.395), 3*(2**upgradesBought.get("meat2Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 2 meat point value is increased by 10%.")
+                        use upgradeNode("Meat 2+","meat2Multiplier", 15, (0.345, 0.395), 3*(2**upgradesBought.get("meat2Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 2 meat point value is increased by 20%.")
                     if 'light2Chance' in upgradesBought:
-                        use upgradeNode("{size=-2}Lantern 2+","light2Multiplier", 15, (0.5, 0.395), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Multiplier",0)), 0, 0, 0, "Tier 2 lantern point value is increased by 10%.")
+                        use upgradeNode("{size=-2}Lantern 2+","light2Multiplier", 15, (0.5, 0.395), 0, 0, 0, 0, 3*(2**upgradesBought.get("light2Multiplier",0)), 0, 0, 0, "Tier 2 lantern point value is increased by 20%.")
                     if 'treasure2Chance' in upgradesBought:
-                        use upgradeNode("Coin 2+","treasure2Multiplier", 15, (0.658, 0.395), 0, 0, 3*(2**upgradesBought.get("treasure2Multiplier",0)), 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 10%.")
+                        use upgradeNode("Coin 2+","treasure2Multiplier", 15, (0.658, 0.395), 0, 0, 3*(2**upgradesBought.get("treasure2Multiplier",0)), 0, 0, 0, 0, 0, "Tier 2 coin point value is increased by 20%.")
                     if 'keys2Chance' in upgradesBought:
-                        use upgradeNode("Key 2+","keys2Multiplier", 15, (0.345, 0.5), 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("keys2Multiplier",0)), 0, "Tier 2 key point value is increased by 10%.")
+                        use upgradeNode("Key 2+","keys2Multiplier", 15, (0.345, 0.5), 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("keys2Multiplier",0)), 0, "Tier 2 key point value is increased by 20%.")
                     if 'bone2Chance' in upgradesBought:
-                        use upgradeNode("Bone 2+","bone2Multiplier", 15, (0.658, 0.5), 0, 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("bone2Multiplier",0)), "Tier 2 bone point value is increased by 10%.")
+                        use upgradeNode("Bone 2+","bone2Multiplier", 15, (0.658, 0.5), 0, 0, 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("bone2Multiplier",0)), "Tier 2 bone point value is increased by 20%.")
                     if 'fish2Chance' in upgradesBought:
-                        use upgradeNode("Fish 2+","fish2Multiplier", 15, (0.345, 0.605), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fish2Multiplier",0)), 0, 0, "Tier 2 fish point value is increased by 10%.")
+                        use upgradeNode("Fish 2+","fish2Multiplier", 15, (0.345, 0.605), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fish2Multiplier",0)), 0, 0, "Tier 2 fish point value is increased by 20%.")
                     if 'weapon2Chance' in upgradesBought:
-                        use upgradeNode("Blade 2+","weapon2Multiplier", 15, (0.5, 0.605), 0, 3*(2**upgradesBought.get("weapon2Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 10%.")
+                        use upgradeNode("Blade 2+","weapon2Multiplier", 15, (0.5, 0.605), 0, 3*(2**upgradesBought.get("weapon2Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 2 blade point value is increased by 20%.")
                     if 'sleep2Chance' in upgradesBought:
-                        use upgradeNode("Nap 2+","sleep2Multiplier", 15, (0.658, 0.605), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Multiplier",0)), 0, 0, 0, 0, "Tier 2 nap item point value is increased by 10%.")
+                        use upgradeNode("Nap 2+","sleep2Multiplier", 15, (0.658, 0.605), 0, 0, 0, 3*(2**upgradesBought.get("sleep2Multiplier",0)), 0, 0, 0, 0, "Tier 2 nap item point value is increased by 20%.")
                     #tier3
                     if 'meat2Multiplier' in upgradesBought:
                         use upgradeNode("Meat 3","meat3Chance", 5, (0.295, 0.36), 15*(2**upgradesBought.get("meat3Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10% chance of appearing as Tier 3 meat with 100 times the point value.")
@@ -541,21 +541,21 @@ screen upgradeTree:
                         use upgradeNode("Nap 3","sleep3Chance", 5, (0.71, 0.64), 0, 0, 0, 15*(2**upgradesBought.get("sleep3Chance",0)), 0, 0, 0, 0, "Nap item has a +10% chance of appearing as Tier 3 nap item with 100 times the point value.")
                     #tier3+
                     if 'meat3Chance' in upgradesBought:
-                        use upgradeNode("Meat 3+","meat3Multiplier", 15, (0.24, 0.325), 10*(2**upgradesBought.get("meat3Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 3 meat point value is increased by 10%.")
+                        use upgradeNode("Meat 3+","meat3Multiplier", 15, (0.24, 0.325), 10*(2**upgradesBought.get("meat3Multiplier",0)), 0, 0, 0, 0, 0, 0, 0, "Tier 3 meat point value is increased by 20%.")
                     if 'light3Chance' in upgradesBought:
-                        use upgradeNode("{size=-2}Lantern 3+","light3Multiplier", 15, (0.5, 0.325), 0, 0, 0, 0, 10*(2**upgradesBought.get("light3Multiplier",0)), 0, 0, 0, "Tier 3 lantern point value is increased by 10%.")
+                        use upgradeNode("{size=-2}Lantern 3+","light3Multiplier", 15, (0.5, 0.325), 0, 0, 0, 0, 10*(2**upgradesBought.get("light3Multiplier",0)), 0, 0, 0, "Tier 3 lantern point value is increased by 20%.")
                     if 'treasure3Chance' in upgradesBought:
-                        use upgradeNode("Coin 3+","treasure3Multiplier", 15, (0.765, 0.325), 0, 0, 10*(2**upgradesBought.get("treasure3Multiplier",0)), 0, 0, 0, 0, 0, "Tier 3 coin point value is increased by 10%.")
+                        use upgradeNode("Coin 3+","treasure3Multiplier", 15, (0.765, 0.325), 0, 0, 10*(2**upgradesBought.get("treasure3Multiplier",0)), 0, 0, 0, 0, 0, "Tier 3 coin point value is increased by 20%.")
                     if 'keys3Chance' in upgradesBought:
-                        use upgradeNode("Key 3+","keys3Multiplier", 15, (0.24, 0.5), 0, 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("keys3Multiplier",0)), 0, "Tier 3 key point value is increased by 10%.")
+                        use upgradeNode("Key 3+","keys3Multiplier", 15, (0.24, 0.5), 0, 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("keys3Multiplier",0)), 0, "Tier 3 key point value is increased by 20%.")
                     if 'bone3Chance' in upgradesBought:
-                        use upgradeNode("Bone 3+","bone3Multiplier", 15, (0.765, 0.5), 0, 0, 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("bone3Multiplier",0)), "Tier 3 bone point value is increased by 10%.")
+                        use upgradeNode("Bone 3+","bone3Multiplier", 15, (0.765, 0.5), 0, 0, 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("bone3Multiplier",0)), "Tier 3 bone point value is increased by 20%.")
                     if 'fish3Chance' in upgradesBought:
-                        use upgradeNode("Fish 3+","fish3Multiplier", 15, (0.24, 0.675), 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("fish3Multiplier",0)), 0, 0, "Tier 3 fish point value is increased by 10%.")
+                        use upgradeNode("Fish 3+","fish3Multiplier", 15, (0.24, 0.675), 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("fish3Multiplier",0)), 0, 0, "Tier 3 fish point value is increased by 20%.")
                     if 'weapon3Chance' in upgradesBought:
-                        use upgradeNode("Blade 3+","weapon3Multiplier", 15, (0.5, 0.675), 0, 10*(2**upgradesBought.get("weapon3Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 3 blade point value is increased by 10%.")
+                        use upgradeNode("Blade 3+","weapon3Multiplier", 15, (0.5, 0.675), 0, 10*(2**upgradesBought.get("weapon3Multiplier",0)), 0, 0, 0, 0, 0, 0, "Tier 3 blade point value is increased by 20%.")
                     if 'sleep3Chance' in upgradesBought:
-                        use upgradeNode("Nap 3+","sleep3Multiplier", 15, (0.765, 0.675), 0, 0, 0, 10*(2**upgradesBought.get("sleep3Multiplier",0)), 0, 0, 0, 0, "Tier 3 nap item point value is increased by 10%.")
+                        use upgradeNode("Nap 3+","sleep3Multiplier", 15, (0.765, 0.675), 0, 0, 0, 10*(2**upgradesBought.get("sleep3Multiplier",0)), 0, 0, 0, 0, "Tier 3 nap item point value is increased by 20%.")
                     #capstone
                     if 'meat3Multiplier' in upgradesBought:
                         use upgradeNode("Supreme Meat","meatCap", 10, (0.16, 0.29), 80*(2**upgradesBought.get("meatCap",0)), 0, 0, 0, 0, 0, 0, 0, "Each point gained from meat gives 0.1 points of every other type.")
