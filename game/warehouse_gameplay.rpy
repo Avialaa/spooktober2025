@@ -224,6 +224,8 @@ init python:
       renpy.show_screen("pointFeedback")
     else:
       renpy.sound.play("wrong_thebuilder15__wrong.mp3")
+      if "fault" in upgradesBought:
+        renpy.show_screen("pointFeedback")
   
   def countFish():
     global roundFish
