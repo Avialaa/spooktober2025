@@ -959,6 +959,8 @@ label day1_6B:
 
 label day1_6C:
     scene bg warehouse with dissolve
+    pause 1
+    scene bg warehouse night with dissolve
     "Thank goo I didn't mess anything up."
     # Cee appears
     # Cee iloinen
