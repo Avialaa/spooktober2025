@@ -834,7 +834,7 @@ label day1_6A:
     return
 
 label day1_6B:
-    scene black
+    scene black with dissolve
     "As we work, Karkhos and I commiserate over a particularly large order of swords."
     
     play music ilo
