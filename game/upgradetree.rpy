@@ -599,7 +599,7 @@ screen upgradeTree:
                     if 'sleep2Multiplier' in upgradesBought and 'timePoints' in upgradesBought:
                         use upgradeNode("Snore","sleepTimePoint", 10, (0.71, 0.605), 0, 0, 0, 10*(2**upgradesBought.get("sleepTimePoints",0)), 0, 0, 0, 0, "Every second gain +1 green point during shift.")
                     if 'sleep3Chance' in upgradesBought and 'timePoints' in upgradesBought:
-                        use upgradeNode("Doze","timePace", 10, (0.71, 0.675), 0, 0, 0, 10*(2**upgradesBought.get("timePace",0)), 0, 0, 0, 0, "Makes every shift feel half as long.")
+                        use upgradeNode("Doze","timePace", 5, (0.71, 0.675), 0, 0, 0, 10*(2**upgradesBought.get("timePace",0)), 0, 0, 0, 0, "Makes every shift feel half as long.")
                     if 'sleepCap' in upgradesBought and 'timePace' in upgradesBought:
                         use upgradeNode("Slumber","noTime", 1, (0.91, 0.745), 0, 0, 0, 100, 0, 0, 0, 0, "No work, only points. Skips minigame.")
             
