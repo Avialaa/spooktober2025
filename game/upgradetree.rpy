@@ -605,7 +605,7 @@ screen upgradeTree:
             
                     #Agatha upgrades
                     if 'light2Chance' in upgradesBought:
-                        use upgradeNode("Speed","speed", 10, (0.554, 0.395), 0, 0, 0, 0, 2*(2**upgradesBought.get("speed",0)), 0, 0, 0, "Increase conveyer belt speed by 10%.")
+                        use upgradeNode("Speed","speed", 5, (0.554, 0.395), 0, 0, 0, 0, 2*(2**upgradesBought.get("speed",0)), 0, 0, 0, "Increase conveyer belt speed by 10%.")
                     if 'light2Multiplier' in upgradesBought and 'speed' in upgradesBought:
                         use upgradeNode("Efficiency","interval", 5, (0.566, 0.36), 0, 0, 0, 0, 3*(2**upgradesBought.get("interval",0)), 0, 0, 0, "Decrease the distance between the items on the conveyor belt by 10%.")
                     if 'light3Chance' in upgradesBought and 'interval' in upgradesBought:
