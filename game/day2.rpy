@@ -2,7 +2,7 @@ define visited = set()
 
 label day2_1:
     play music ilo
-    scene black
+    scene black with dissolve
     #(Conditional: reittiin sopiva kommentti skenen alussa)
     # A
     if currentStoryRoute == "agatha":
@@ -74,7 +74,7 @@ label day2_1:
 
 label day2_2: 
 # (After morning minigame, at warehouse)
-    scene black
+    scene black with dissolve
     if thisRoundWinner == "agatha":
         "As we work, Agatha and I gossip about the other departments. We also exchange plans for tomorrow's snacks."
         "She seems happy with my performance."
@@ -537,7 +537,7 @@ label day2_3C:
     return
 
 label day2_5:
-    scene black
+    scene black with dissolve
     if thisRoundWinner == "agatha":
         "At one point, I almost drop a heavy box, but Agatha catches me. She's surprisingly strong."
     # B

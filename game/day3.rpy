@@ -510,7 +510,7 @@ label day3_B1:
 label day4_B2:
     #(päivä 4 grafiikka)
     $ persistent.karkhosEndingPlayed = True
-    scene black
+    scene black with dissolve
     play music juoru
     #musta ruutu
     "Bleary. Dizzy. I open my eyes after a dreamless black."
