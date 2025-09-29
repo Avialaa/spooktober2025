@@ -32,6 +32,12 @@ init python:
 screen magicPad:
     zorder 100
     #show visual timer (actual timer is in warehouse_gameplay screen)
+
+    on "show":
+        action Show("starting_item_button_tutorial_timer")
+    
+    on "hide":
+        action [Hide("starting_item_button_tutorial_timer"), Hide("item_button_tutorial_timer")]
     
 
     imagemap:
@@ -39,14 +45,14 @@ screen magicPad:
         align (1.0, 0.25)
         
         #buttons to call loot items to conveyor belt
-        hotspot (413, 189, 166, 165) action [Function(addMeat), Play('sound', 'click_kwahmah_02__click.mp3')]
-        hotspot (583, 192, 166, 163) action [Function(addWeapon), Play('sound', 'click_kwahmah_02__click.mp3')]
-        hotspot (586, 696, 161, 163) action [Function(addTreasure), Play('sound', 'click_kwahmah_02__click.mp3')]
-        hotspot (587, 361, 163, 160) action [Function(addSleep), Play('sound', 'click_kwahmah_02__click.mp3')]
-        hotspot (587, 530, 160, 162) action [Function(addLight), Play('sound', 'click_kwahmah_02__click.mp3')]
-        hotspot (414, 529, 165, 161) action [Function(addFish), Play('sound', 'click_kwahmah_02__click.mp3')]
-        hotspot (418, 695, 162, 163) action [Function(addKeys), Play('sound', 'click_kwahmah_02__click.mp3')]
-        hotspot (418, 358, 163, 164) action [Function(addBone), Play('sound', 'click_kwahmah_02__click.mp3')]
+        hotspot (413, 189, 166, 165) action [Function(addMeat), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
+        hotspot (583, 192, 166, 163) action [Function(addWeapon), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
+        hotspot (586, 696, 161, 163) action [Function(addTreasure), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
+        hotspot (587, 361, 163, 160) action [Function(addSleep), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
+        hotspot (587, 530, 160, 162) action [Function(addLight), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
+        hotspot (414, 529, 165, 161) action [Function(addFish), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
+        hotspot (418, 695, 162, 163) action [Function(addKeys), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
+        hotspot (418, 358, 163, 164) action [Function(addBone), Play('sound', 'click_kwahmah_02__click.mp3'), Hide("item_button_tutorial_timer"), Hide("starting_item_button_tutorial_timer"), Show("item_button_tutorial_timer")]
     
     vbox:
         xpos 1570 yalign 0.9 
@@ -86,3 +92,21 @@ screen magicPad:
                         text "[itemNameDict.get(item)]  " style "padNextStyle"
                         text "x[orders[2].count(item)]" style "padNextStyle" #returns number of items
                 text " "
+
+screen item_button_tutorial_timer:
+    timer 15 action Show("buttonHighlights")
+
+screen starting_item_button_tutorial_timer:
+    timer 7 action Show("buttonHighlights") repeat True
+
+screen buttonHighlights:
+    zorder 101
+
+    add "pad_highlight.png" at transform:
+        align (1.0, 0.25)
+        alpha 0.0
+        linear 0.3 alpha 0.7
+        linear 0.3 alpha 0.0
+        linear 0.3 alpha 0.7
+        linear 0.3 alpha 0.0
+    timer 2.0 action Hide()
