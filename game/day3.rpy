@@ -123,7 +123,7 @@ label day4_A2:
     "But the warehouse is nearly empty, and astonishingly well organized. We've accomplished a lot. Though it's been hard."
     #agatha iloinen suukiinni appears
     play sound wingflap
-    show agatha iloinen suukiinni at shake2, middle with easeinleft #TODO: jos aikaa, slow ease in?
+    show agatha iloinen suukiinni at shake2, middle with easeinleft 
     "Agatha has trouble flying straight as she approaches."
     show agatha iloinen
     A "Great work out there, [MC]. Here, some nectar to get the day started."
@@ -133,7 +133,7 @@ label day4_A2:
     show agatha iloinen
     A "Tastes like work well done."
     show agatha perus
-    #TODO: footsteps tosi hiljasella
+    
     play sound footsteps volume 0.7
     pause 1
     show agatha iloinen
@@ -273,7 +273,7 @@ label day4_A2:
     A "They're going to swat at me…"
     "The sobs are coming from a partially rusted suit of armor. The crying echoes off the metal. I peek inside. "
 
-    #TODO: PLACEHOLDER Tähän valinta lähestyyks varovasti vai ei tms?
+    
 
     # agatha alakuloinen kyynel
     show agatha alakuloinen kyynel at middle with dissolve
@@ -322,7 +322,7 @@ label day4_A2:
     show karkhos at cleft with ease:
         xalign 0.01 xoffset -100
     # A slow fade in
-    #TODO: short allspeak?
+    
     "All" "..."
     pause 1
     MC "Krhm. Agatha would like to speak."
@@ -378,7 +378,7 @@ label day4_A2:
         xoffset 0
     show karkhos tosi iloinen mato
     C "Rejoice! The winter has passed!"
-    show karkhos tosi iloinen mato at cleft with ease: #TODO: onks tää positio väärä
+    show karkhos tosi iloinen mato at cleft with ease: 
         xoffset 0
     K "This new Agatha ain't half bad."
     # A vakava
@@ -526,7 +526,7 @@ label day4_B2:
     "Karkhos was in a great mood though." 
     "A night to remember. I had fun, but can't say I feel more rested. Our demands to Boss aren't any clearer, either."
 
-    #TODO: walking sound
+   
     #käytävä BG
     play sound footsteps
     scene bg hallway with fade
@@ -534,7 +534,7 @@ label day4_B2:
     stop sound fadeout 3
     "Karkhos told us to not come to the warehouse until noon, and to bring a pillow."
     "Maybe Karkhos knows what he's doing. Maybe our productivity will be off the charts today. Hopefully not on the low end."
-    #TODO: kävely äänii
+    
     play sound footsteps
     stop music fadeout 4
     play sound speakdistantdelivery fadein 2 volume 0.75
@@ -547,7 +547,7 @@ label day4_B2:
     "They grumble, but when I say I only work here, they let me in."
     stop sound fadeout 3
 
-    #TODO: warehouse. Vettä ja roinaa versio.
+    
     play sound footsteps
     scene bg warehouse karkhos with dissolve
     stop sound fadeout 3
@@ -559,7 +559,7 @@ label day4_B2:
     "Agatha flutters above the water. I've never seen her this rundown."
     show agatha at hop
     A "I can't do this anymore. Just because this was the majority decision…"
-    #TODO: kävely vedessä ääni
+    
     play sound footstepswater
     "Cee is crawling through the water that's not deep enough for swimming. They gurgle something in the water."
     # C sprite
@@ -577,7 +577,7 @@ label day4_B2:
     show cee perus
     show agatha at hop
     A "Where is Karkhos? It's past noon."
-    #TODO: footsteps in water approaching. They stop.
+    
     play sound footstepswater
     pause 0.5
     stop sound fadeout 3
@@ -611,7 +611,7 @@ label day4_B2:
     show karkhos vihainen mato with ease:
         yoffset 200
     stop sound fadeout 0.5
-    #TODO: onks tää liian goofy
+    
     show agatha pelokas at middle
     show cee kauhistus
     "Karkhos grips his gut and slumps into the water."
@@ -633,7 +633,7 @@ label day4_B2:
     "She flies up to the ceiling and hides behind a stalactite."
     show cee perus at hop
     C "I'll go."
-    #TODO: walking (running?) in water sound
+    
     play sound runningwater
     hide cee with easeoutbottom
     stop sound fadeout 3
@@ -647,7 +647,7 @@ label day4_B2:
     show karkhos perus mato
     K "Oh. Now that you say it, that's probably it."
     K "All that carousing and drinking must've weakened the stitches."
-    #TODO: water footsteps
+    
     play sound footstepswater
     show cee perus zorder 2 at cright with moveinbottom
     stop sound fadeout 1
@@ -850,7 +850,7 @@ label day3_C1:  #Cee wins
     call day_change #day changes!!
 
 
-#TODO lisää joku ääniefekti ehkä? 
+
 label day4_C2:
     $ persistent.ceeEndingPlayed = True
     play music metkut
@@ -863,7 +863,7 @@ label day4_C2:
     # Karkhos alakuloinen
     play sound footstepswater
     show karkhos alakuloinen at middle with moveinleft
-    #TODO hitaampi moveinleft
+    
     stop sound fadeout 2
     K "Ugh, it's so hard to move through these waters. Guess I'm not the only one who's not gonna make it to the next shift on time."
     #Karkhos disappears
@@ -970,7 +970,7 @@ label day4_C2:
     hide cee with moveoutleft
     stop sound fadeout 5
     pause 1
-    # C storms off. TODO: Swimming sounds.
+    
 
     MC "Oh no. I'll go after them."
     #Karkhos alakuloinen
@@ -1107,7 +1107,7 @@ label day4_C2:
     C "Yes yes, no need to rub it in my face."
 
     window hide
-    show bg warehouse cee with fade #TODO: slow fade?
+    show bg warehouse cee with fade 
     show cee perus
     pause 0.5
 
