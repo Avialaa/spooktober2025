@@ -213,7 +213,7 @@ init python:
     global orders
     global isOrderCorrect
     isOrderCorrect = checkOrderValidity()
-    pointCount() 
+    pointCount()
     generateOrder()
     countFish()
     orders.pop(0) #remove finished order
@@ -221,6 +221,7 @@ init python:
     updateOrders() #update orders for pad UI
     if isOrderCorrect == True:
       renpy.sound.play("correct_thebuilder15__notification-correct.mp3")
+      renpy.show_screen("pointFeedback")
     else:
       renpy.sound.play("wrong_thebuilder15__wrong.mp3")
   
