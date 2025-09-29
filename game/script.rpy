@@ -154,6 +154,8 @@ label start:
         call day3_B1
     if currentStoryRoute == "cee":
         call day3_C1
+    if persistent.agathaEndingPlayed and persistent.ceeEndingPlayed and persistent.karkhosEndingPlayed:
+        $ persistent.endlessMode = True
     call finalcredits
     return
 

@@ -1,6 +1,7 @@
 default persistent.karkhosEndingPlayed = False
 default persistent.agathaEndingPlayed = False
 default persistent.ceeEndingPlayed = False
+default persistent.endlessMode = False
 
 style karkhosNameStyle:
     color "#91A571"
