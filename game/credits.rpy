@@ -13,16 +13,16 @@ label finalcredits:
 screen creditscreen:
     textbutton "Skip" action Return() xpos 0.95 ypos 0.95
     modal True
-    timer 120 action Return()
+    timer 125 action Return()
     vbox:
         xsize 1080 # horizontal size of the credits
-        ysize 9000 # how much vertical space your rolling credits take.
+        ysize 9500 # how much vertical space your rolling credits take.
         xalign 0.5
         yalign 0.0
         
         at transform:
             subpixel True
-            linear 110: # or however long it takes to scroll through in a reasonable speed
+            linear 115: # or however long it takes to scroll through in a reasonable speed
                 yalign 1.0
                 yoffset -500
 
@@ -33,10 +33,6 @@ screen creditscreen:
         text " ":
             size 50
 
-        text "Made with Ren'Py for the Spooktober 2025 Jam":
-            font "DMSans-Light.ttf"
-            color "#91a197"
-            xalign 0.5
 
         vbox:
             xalign 0.5
@@ -544,9 +540,34 @@ screen creditscreen:
                 color "#8580b1"
                 size 30
                 xalign 0.5
- 
 
+        vbox:
+            ysize 200
 
+        vbox:
+            xalign 0.5
+            add 'spooklogo.png':
+                xalign 0.5 # center horizontally
+            text " ":
+                size 20
+
+            text "Made with Ren'Py for the Spooktober 2025 Jam":
+                font "DMSans-Light.ttf"
+                color "#91a197"
+                xalign 0.5
+        vbox:
+            ysize 200     
+
+        text "A big thank you to all our playtesters!":
+            font "DMSans-Light.ttf"
+            color "#8580b1"
+            bold True
+            xalign 0.5
+        text "And most importantly:":
+            font "DMSans-Light.ttf"
+            color "#8580b1"
+            bold True
+            xalign 0.5
         text "Thank you for playing!":
             font "DMSans-Light.ttf"
             color "#8580b1"
