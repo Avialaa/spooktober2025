@@ -152,121 +152,122 @@ label day2_2:
     #
 
 
-    label qqquestions:  
-        menu qquestions:
-            set visited
-            "Agatha, what did you actually do?":
-                $ visited.add("Agatha, what did you actually do?")
-                # A neutral
-                show agatha vihainen at hop
-                show karkhos perus mato
-                show cee perus
-                A "Don't act like I'm some villain. I've worked harder than anyone here."
-                MC "Just, sounded like something serious has happened."
-                show agatha vakava
-                A "Fine, for the sake of transparency."
-                A "I might have ordered a triple of everything."
-                show agatha at hop
-                A "Wisely! So that we can better show our capabilities."
-                A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
-                MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
-                # A smile
-                show agatha iloinen suukiinni
-                A "..."
-                show agatha iloinen at hop
-                A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
-                "Oh, Agatha."
-                jump qqquestions
-            "Karkhos, how many boxes today?":
-                $ visited.add("Karkhos, how many boxes today?")
-                show karkhos pikkuviha mato
-                show agatha vakava
-                show cee perus
-                K "Why's that important? I have done what's within my capabilities."
-                MC "Which is…?"
-                show karkhos nukkuva mato
-                K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
-                show karkhos pikkuviha mato
-                K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
-                K "I've completed a full and whole- A whopping total of a—"
-                # K sad
-                show karkhos alakuloinen mato
-                K "...a…"
-                # K angry
-                show karkhos vihainen mato
-                K "I have prioritized quality over quantity."
-                "I can see why the others are upset."
-                jump qqquestions
-            "Cee, what's this development stuff?":
-                $ visited.add("Cee, what's this development stuff?")
-                show cee hullu hymy
-                show agatha vakava
-                show karkhos perus mato
-                C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
-                MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
-                show cee perus
-                C "Very well, my sluggish companion. I put fish into all the orders."
-                MC "Yeah, that's… yeah."
-                show cee karmiva hymy
-                C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
-                "WHAT."
-                show agatha vakava at hop
-                show karkhos pikkuviha mato at hop
-                "Agatha and Karkhos give me knowing looks."
-                show cee tosi iloinen at hop
-                C "Rejoice: we shall soon have fresh water aplenty."
-                MC "That's insane!"
-                show cee kauhistus
-                C "It is what anyone in my situation ought to have done."
-                MC "I don't think ANYONE but you would have done that."
-                # C smiles
-                show cee tosi iloinen
-                C "Oh, you do flatter me."
-                jump qqquestions
+label qqquestions:  
+    menu:
+        set visited
+        "Agatha, what did you actually do?":
+            $ visited.add("Agatha, what did you actually do?")
+            # A neutral
+            show agatha vihainen at hop
+            show karkhos perus mato
+            show cee perus
+            A "Don't act like I'm some villain. I've worked harder than anyone here."
+            MC "Just, sounded like something serious has happened."
+            show agatha vakava
+            A "Fine, for the sake of transparency."
+            A "I might have ordered a triple of everything."
+            show agatha at hop
+            A "Wisely! So that we can better show our capabilities."
+            A "Would be difficult to work hard without anything to pack. I'm sure you see where I'm coming from."
+            MC "But even at normal capacity, the cavern is pretty stuffed. Where did you plan to store all this triple loot?"
+            # A smile
+            show agatha iloinen suukiinni
+            A "..."
+            show agatha iloinen at hop
+            A "Look around. Vacant floor space everywhere. And we won't be needing the break room once all the Loot arrives."
+            "Oh, Agatha."
+            jump qqquestions
+        "Karkhos, how many boxes today?":
+            $ visited.add("Karkhos, how many boxes today?")
+            show karkhos pikkuviha mato
+            show agatha vakava
+            show cee perus
+            K "Why's that important? I have done what's within my capabilities."
+            MC "Which is…?"
+            show karkhos nukkuva mato
+            K "Hey, it's not my fault the Loot I got sent today was especially tricky to pack. Couldn't have done it any faster."
+            show karkhos pikkuviha mato
+            K "I had to do a thorough quality inspection, sort everything, and the conveyor belt was misbehaving so I had to fix it, and…"
+            K "I've completed a full and whole- A whopping total of a—"
+            # K sad
+            show karkhos alakuloinen mato
+            K "...a…"
+            # K angry
+            show karkhos vihainen mato
+            K "I have prioritized quality over quantity."
+            "I can see why the others are upset."
+            jump qqquestions
+        "Cee, what's this development stuff?":
+            $ visited.add("Cee, what's this development stuff?")
+            show cee hullu hymy
+            show agatha vakava
+            show karkhos perus mato
+            C "There festers a livid darkness within these cavernous halls. To develop our machinations faster than it can grow, such is my design."
+            MC "Sorry, my lowly slime brain has lost the thread. Could you rephrase that?"
+            show cee perus
+            C "Very well, my sluggish companion. I put fish into all the orders."
+            MC "Yeah, that's… yeah."
+            show cee karmiva hymy
+            C "...AND drilled down to groundwater, installed a pump, and harnessed the conveyor belt for power."
+            "WHAT."
+            show agatha vakava at hop
+            show karkhos pikkuviha mato at hop
+            "Agatha and Karkhos give me knowing looks."
+            show cee tosi iloinen at hop
+            C "Rejoice: we shall soon have fresh water aplenty."
+            MC "That's insane!"
+            show cee kauhistus
+            C "It is what anyone in my situation ought to have done."
+            MC "I don't think ANYONE but you would have done that."
+            # C smiles
+            show cee tosi iloinen
+            C "Oh, you do flatter me."
+            jump qqquestions
 
-    label after_questions:
-        show karkhos perus mato
-        show cee perus
-        show agatha vakava
-        "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
-        "So much for democracy."
-        "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
-        stop music fadeout 3
-        MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
-        show agatha vihainen at hop
-        A "Yeah, get it together, guys!"
-        show karkhos pikkuviha mato
-        K "You too."
-        play music riita
-        show karkhos vihainen mato
-        K "This isn't fair. I have done what I can."
-        K "If what I've accomplished is not enough, then from now on, I will not pack a single box."
-        show cee vihainen
-        C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
-        show cee at hop
-        C "What I must do cannot wait. Farewell!!!"
-        play sound footsteps
-        hide cee with easeoutleft
-        # C pois, footsteps
-        show agatha at hop
-        stop sound fadeout 1
-        A "ARGH!!!"
-        play sound wingflap
-        hide agatha with moveouttop
-        # A pois, wing flaps
-        show karkhos pikkuviha mato
-        K "...too pissed to nap…"
-        play sound footsteps
-        hide karkhos with easeoutright
-        # K pois, footsteps
-        stop sound fadeout 3
-        "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
-        "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how."
-        "I'm exactly the wrong monster for this second job I didn't even apply for."
-        "It's almost time to return to work."
-        "…I'll eat later…"
-        stop music fadeout 5
-        return
+label after_questions:
+    $ visited.clear()
+    show karkhos perus mato
+    show cee perus
+    show agatha vakava
+    "Whoa. They've rewritten the rules and don't seem to regret a thing. They promised to not disturb the warehouse's purpose until this dispute is settled, and yet."
+    "So much for democracy."
+    "Honestly though, I kind of understand. I haven't always gone strictly by Boss' orders either. Following all these orders and agreements is really hard, okay!"
+    stop music fadeout 3
+    MC "Listen. We all do stupid things sometimes. Accidentally or deliberately. What matters is what we do from now on."
+    show agatha vihainen at hop
+    A "Yeah, get it together, guys!"
+    show karkhos pikkuviha mato
+    K "You too."
+    play music riita
+    show karkhos vihainen mato
+    K "This isn't fair. I have done what I can."
+    K "If what I've accomplished is not enough, then from now on, I will not pack a single box."
+    show cee vihainen
+    C "I also refuse to waste time. These superfluous meetings are gobbling up the most productive hours of the day."
+    show cee at hop
+    C "What I must do cannot wait. Farewell!!!"
+    play sound footsteps
+    hide cee with easeoutleft
+    # C pois, footsteps
+    show agatha at hop
+    stop sound fadeout 1
+    A "ARGH!!!"
+    play sound wingflap
+    hide agatha with moveouttop
+    # A pois, wing flaps
+    show karkhos pikkuviha mato
+    K "...too pissed to nap…"
+    play sound footsteps
+    hide karkhos with easeoutright
+    # K pois, footsteps
+    stop sound fadeout 3
+    "Our fragile social harmony is falling apart. Agatha and I are the only ones still properly working."
+    "All my life, I've only practiced avoiding fights. Now that I need to stop one, I don't know how."
+    "I'm exactly the wrong monster for this second job I didn't even apply for."
+    "It's almost time to return to work."
+    "…I'll eat later…"
+    stop music fadeout 5
+    return
 
 default day2_3A_done = False
 label day2_3A:
