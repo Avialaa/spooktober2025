@@ -75,15 +75,15 @@ label day2_1:
 label day2_2: 
 # (After morning minigame, at warehouse)
     scene black
-    if currentStoryRoute == "agatha":
+    if thisRoundWinner == "agatha":
         "As we work, Agatha and I gossip about the other departments. We also exchange plans for tomorrow's snacks."
         "She seems happy with my performance."
     # B
-    if currentStoryRoute == "karkhos":
+    if thisRoundWinner == "karkhos":
         "While working, Karkhos and I exchange complaints. It makes the minutes go a little faster."
         "He seems pleased with my pace."
     # C
-    if currentStoryRoute == "cee":
+    if thisRoundWinner == "cee":
         "While working, I listen to Cee rant about their big plans. It makes the hours go by a bit faster."
         "Cee seems happy with how many fish I'm adding."
     
@@ -535,10 +535,20 @@ label day2_3C:
     "...Right?"
     return
 
+label day2_5:
+    scene black
+    if thisRoundWinner == "agatha":
+        "At one point, I almost drop a heavy box, but Agatha catches me. She's surprisingly strong."
+    # B
+    if thisRoundWinner == "karkhos":
+        "Mid-shift, I knock over a large pallet of packed boxes. Karkhos rushes to help me clean up."
+    # C
+    if thisRoundWinner == "cee":
+        "Mid-shift, Cee brings me some water. The kind gesture gives me strength."
+
+    return
 
 label day2_5A:
-    scene black
-    "At one point, I almost drop a heavy box, but Agatha catches me. She's surprisingly strong."
     
     scene bg breakroom posters night with dissolve
     play music bondaus
@@ -676,8 +686,6 @@ label day2_5A:
     return
 
 label day2_5B:
-    scene black
-    "Mid-shift, I knock over a large pallet of packed boxes. Karkhos rushes to help me clean up."
 
     play music bondaus
     scene bg hallway posters with dissolve
@@ -845,8 +853,6 @@ label day2_5B:
     return
 
 label day2_5C: #Cee emotional evening
-    scene black
-    "Mid-shift, Cee brings me some water. The kind gesture gives me strength."
 
     play music ilo
     scene bg hallway posters with dissolve

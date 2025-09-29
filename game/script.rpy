@@ -128,7 +128,7 @@ label start:
     else:
         call testing_choose_route
 
-
+    call day2_5
     if currentStoryRoute == "agatha":
         call day2_5A
     elif currentStoryRoute == "karkhos":
