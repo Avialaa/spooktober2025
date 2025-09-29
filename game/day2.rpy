@@ -683,7 +683,9 @@ label day2_5A:
     "She flutters back towards the packing area, humming a cheerful tune."
     "I worry a bit about how long she's going to keep working, but at least she cheered up."
     "I also feel energized, looking at her. Maybe I'll go for an evening waddle before returning home."
+    scene black with dissolve
     stop music fadeout 5
+    pause 2
     return
 
 label day2_5B:
@@ -850,7 +852,9 @@ label day2_5B:
     stop sound fadeout 4
     "I wave. Karkhos enters the stream of monsters, and disappears behind a bend in a cavern."
     "Tomorrow, huh. I have a feeling that after tomorrow, nothing will be the same."
+    scene black with dissolve
     stop music fadeout 5
+    pause 2
     return
 
 label day2_5C: #Cee emotional evening

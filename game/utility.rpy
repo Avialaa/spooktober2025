@@ -1,3 +1,7 @@
+default persistent.karkhosEndingPlayed = False
+default persistent.agathaEndingPlayed = False
+default persistent.ceeEndingPlayed = False
+
 style karkhosNameStyle:
     color "#91A571"
     line_spacing -10
@@ -214,3 +218,24 @@ label upgrade_tutorial_again:
     scene bg warehouse posters
     "The sticky notes about upgrades are still here."
     jump upgrade_sticky_notes_menu
+
+default endlessShift = 0
+
+label endless_mode:
+
+    $ endlessShift += 1
+    call upgradeTree
+    call warehouse_gameplay
+    call roundEnd
+    call after_minigame
+
+    "Endless shift [endlessShift] completed."
+
+    menu:
+        "Another shift?"
+
+        "Play another shift":
+            jump endless_mode
+        "Back to main menu":
+            return
+
