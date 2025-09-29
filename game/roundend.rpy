@@ -38,30 +38,8 @@ label roundEnd:
     #Minigame is concluded by calling this label
     python:
 
-        #calculating capstone points
-        capOrderrPoints = (roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
-        capOrderbPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
-        capOrderyPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
-        capOrdergPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
-        capOrderoPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
-        capOrdervPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
-        capOrderpPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundlPoints*(1.1**upgradesBought.get("boneCap",0)-1))
-        capOrderlPoints = (roundrPoints*(1.1**upgradesBought.get("meatCap",0)-1))+(roundbPoints*(1.1**upgradesBought.get("weaponCap",0)-1))+(roundyPoints*(1.1**upgradesBought.get("treasureCap",0)-1))+(roundgPoints*(1.1**upgradesBought.get("sleepCap",0)-1))+(roundoPoints*(1.1**upgradesBought.get("lightCap",0)-1))+(roundvPoints*(1.1**upgradesBought.get("fishCap",0)-1))+(roundpPoints*(1.1**upgradesBought.get("keysCap",0)-1))
-
-        #adding capstone points to round point total
-        roundrPoints += capOrderrPoints
-        roundbPoints += capOrderbPoints
-        roundyPoints += capOrderyPoints
-        roundoPoints += capOrderoPoints
-        roundgPoints += capOrdergPoints
-        roundvPoints += capOrdervPoints
-        roundpPoints += capOrderpPoints
-        roundlPoints += capOrderlPoints
-
         #adding cee upgrade points
-        roundvPoints += roundvPoints*upgradesBought.get("fishNumber",0)
         roundvPoints += 50*upgradesBought.get("bounty",0)
-        roundvPoints += upgradesBought.get("fishy",0)*(roundrPoints+roundbPoints+roundyPoints+roundgPoints+roundoPoints+roundpPoints+roundlPoints)
 
         #adding timer points
         roundrPoints += timerPoints
@@ -166,6 +144,8 @@ screen roundEndScreen:
                 text "This round:"
                 if roundEndrPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundrPoints:.2f}']" style "redPointsStyle"
                         add "order meat.png":
                             fit "scale-down"
@@ -174,6 +154,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndbPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundbPoints:.2f}']" style "bluePointsStyle"
                         add "order weapon.png":
                             fit "scale-down"
@@ -182,6 +164,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndyPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundyPoints:.2f}']" style "yellowPointsStyle"
                         add "order treasure.png":
                             fit "scale-down"
@@ -190,6 +174,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndgPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundgPoints:.2f}']" style "greenPointsStyle"
                         add "order sleep.png":
                             fit "scale-down"
@@ -198,6 +184,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndoPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundoPoints:.2f}']" style "orangePointsStyle"
                         add "order light.png":
                             fit "scale-down"
@@ -206,6 +194,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndvPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundvPoints:.2f}']" style "violetPointsStyle"
                         add "order fish.png":
                             fit "scale-down"
@@ -214,6 +204,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndpPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundpPoints:.2f}']" style "pinkPointsStyle"
                         add "order keys.png":
                             fit "scale-down"
@@ -222,6 +214,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndlPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{roundlPoints:.2f}']" style "lightPointsStyle"
                         add "order bone.png":
                             fit "scale-down"
@@ -239,6 +233,8 @@ screen roundEndScreen:
                 text "Total Points:"
                 if roundEndTotalrPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{rPoints:.2f}']" style "redPointsStyle"
                         add "order meat.png":
                             fit "scale-down"
@@ -247,6 +243,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndTotalbPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{bPoints:.2f}']" style "bluePointsStyle"
                         add "order weapon.png":
                             fit "scale-down"
@@ -255,6 +253,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndTotalyPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{yPoints:.2f}']" style "yellowPointsStyle"
                         add "order treasure.png":
                             fit "scale-down"
@@ -263,6 +263,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndTotalgPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{gPoints:.2f}']" style "greenPointsStyle"
                         add "order sleep.png":
                             fit "scale-down"
@@ -271,6 +273,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndTotaloPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{oPoints:.2f}']" style "orangePointsStyle"
                         add "order light.png":
                             fit "scale-down"
@@ -279,6 +283,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndTotalvPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{vPoints:.2f}']" style "violetPointsStyle"
                         add "order fish.png":
                             fit "scale-down"
@@ -287,6 +293,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndTotalpPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{pPoints:.2f}']" style "pinkPointsStyle"
                         add "order keys.png":
                             fit "scale-down"
@@ -295,6 +303,8 @@ screen roundEndScreen:
                     null height 36
                 if roundEndTotallPoints:
                     hbox:
+                        xfill True
+                        box_align 1.0
                         text "[f'{lPoints:.2f}']" style "lightPointsStyle"
                         add "order bone.png":
                             fit "scale-down"

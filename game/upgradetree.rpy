@@ -161,32 +161,32 @@ init python:
         global maxBoxItems
         global conveyerSpeed
         
-        itemValueDict["light"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("lightMultiplier",0)))
-        itemValueDict["sleep"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("sleepMultiplier",0)))
-        itemValueDict["fish"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("fishMultiplier",0)))
-        itemValueDict["bone"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("boneMultiplier",0)))
-        itemValueDict["meat"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("meatMultiplier",0)))
-        itemValueDict["weapon"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("weaponMultiplier",0)))
-        itemValueDict["keys"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("keysMultiplier",0)))
-        itemValueDict["treasure"] = (1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("treasureMultiplier",0)))
+        itemValueDict["light"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("lightMultiplier",0)))
+        itemValueDict["sleep"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("sleepMultiplier",0)))
+        itemValueDict["fish"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("fishMultiplier",0)))
+        itemValueDict["bone"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("boneMultiplier",0)))
+        itemValueDict["meat"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("meatMultiplier",0)))
+        itemValueDict["weapon"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("weaponMultiplier",0)))
+        itemValueDict["keys"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("keysMultiplier",0)))
+        itemValueDict["treasure"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("treasureMultiplier",0)))
         
-        tier2ValueDict["light"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("light2Multiplier",0)))*(1.1**float(upgradesBought.get("lightMultiplier",0)))
-        tier2ValueDict["sleep"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("sleep2Multiplier",0)))*(1.1**float(upgradesBought.get("sleepMultiplier",0)))
-        tier2ValueDict["fish"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("fish2Multiplier",0)))*(1.1**float(upgradesBought.get("fishMultiplier",0)))
-        tier2ValueDict["bone"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("bone2Multiplier",0)))*(1.1**float(upgradesBought.get("boneMultiplier",0)))
-        tier2ValueDict["meat"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("meat2Multiplier",0)))*(1.1**float(upgradesBought.get("meatMultiplier",0)))
-        tier2ValueDict["weapon"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("weapon2Multiplier",0)))*(1.1**float(upgradesBought.get("weaponMultiplier",0)))
-        tier2ValueDict["keys"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("keys2Multiplier",0)))*(1.1**float(upgradesBought.get("keysMultiplier",0)))
-        tier2ValueDict["treasure"] = 10*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("treasure2Multiplier",0)))*(1.1**float(upgradesBought.get("treasureMultiplier",0)))
+        tier2ValueDict["light"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("light2Multiplier",0)))*(1.2**float(upgradesBought.get("lightMultiplier",0)))
+        tier2ValueDict["sleep"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("sleep2Multiplier",0)))*(1.2**float(upgradesBought.get("sleepMultiplier",0)))
+        tier2ValueDict["fish"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("fish2Multiplier",0)))*(1.2**float(upgradesBought.get("fishMultiplier",0)))
+        tier2ValueDict["bone"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("bone2Multiplier",0)))*(1.2**float(upgradesBought.get("boneMultiplier",0)))
+        tier2ValueDict["meat"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("meat2Multiplier",0)))*(1.2**float(upgradesBought.get("meatMultiplier",0)))
+        tier2ValueDict["weapon"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("weapon2Multiplier",0)))*(1.2**float(upgradesBought.get("weaponMultiplier",0)))
+        tier2ValueDict["keys"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("keys2Multiplier",0)))*(1.2**float(upgradesBought.get("keysMultiplier",0)))
+        tier2ValueDict["treasure"] = 10*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("treasure2Multiplier",0)))*(1.2**float(upgradesBought.get("treasureMultiplier",0)))
         
-        tier3ValueDict["light"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("light3Multiplier",0)))*(1.1**float(upgradesBought.get("lightMultiplier",0)))
-        tier3ValueDict["sleep"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("sleep3Multiplier",0)))*(1.1**float(upgradesBought.get("sleepMultiplier",0)))
-        tier3ValueDict["fish"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("fish3Multiplier",0)))*(1.1**float(upgradesBought.get("fishMultiplier",0)))
-        tier3ValueDict["bone"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("bone3Multiplier",0)))*(1.1**float(upgradesBought.get("boneMultiplier",0)))
-        tier3ValueDict["meat"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("meat3Multiplier",0)))*(1.1**float(upgradesBought.get("meatMultiplier",0)))
-        tier3ValueDict["weapon"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("weapon3Multiplier",0)))*(1.1**float(upgradesBought.get("weaponMultiplier",0)))
-        tier3ValueDict["keys"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("keys3Multiplier",0)))*(1.1**float(upgradesBought.get("keysMultiplier",0)))
-        tier3ValueDict["treasure"] = 100*(1.1**float(upgradesBought.get("pointMultiplier",0)))*(1.1**float(upgradesBought.get("treasure3Multiplier",0)))*(1.1**float(upgradesBought.get("treasureMultiplier",0)))
+        tier3ValueDict["light"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("light3Multiplier",0)))*(1.2**float(upgradesBought.get("lightMultiplier",0)))
+        tier3ValueDict["sleep"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("sleep3Multiplier",0)))*(1.2**float(upgradesBought.get("sleepMultiplier",0)))
+        tier3ValueDict["fish"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("fish3Multiplier",0)))*(1.2**float(upgradesBought.get("fishMultiplier",0)))
+        tier3ValueDict["bone"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("bone3Multiplier",0)))*(1.2**float(upgradesBought.get("boneMultiplier",0)))
+        tier3ValueDict["meat"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("meat3Multiplier",0)))*(1.2**float(upgradesBought.get("meatMultiplier",0)))
+        tier3ValueDict["weapon"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("weapon3Multiplier",0)))*(1.2**float(upgradesBought.get("weaponMultiplier",0)))
+        tier3ValueDict["keys"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("keys3Multiplier",0)))*(1.2**float(upgradesBought.get("keysMultiplier",0)))
+        tier3ValueDict["treasure"] = 100*(1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("treasure3Multiplier",0)))*(1.2**float(upgradesBought.get("treasureMultiplier",0)))
         
         tier2ChanceDict["light"] = upgradesBought.get("light2Chance",0)
         tier2ChanceDict["sleep"] = upgradesBought.get("sleep2Chance",0)
@@ -208,7 +208,7 @@ init python:
 
         roundDuration = 80+(10*upgradesBought.get("timeIncrease",0)) #increase round time by 10 seconds per round time upgrade
         timerPoints = (roundDuration/10)*upgradesBought.get("timePoints",0) #every second gives 0.1 of eachpoint per bought timer point upgrade
-        sleepTimerPoints = roundDuration*upgradesBought.get("sleepTimerPoints",0) #every second gives 1 green point per bought timer sleep point upgrade
+        sleepTimerPoints = roundDuration*upgradesBought.get("sleepTimePoints",0) #every second gives 1 green point per bought timer sleep point upgrade
         roundDuration = roundDuration/(2**upgradesBought.get("timePace",0)) #halves round duration without affecting timer points for each time pace upgrade bought
         if "noTime"  in upgradesBought:
             roundDuration = 0.1
@@ -217,124 +217,6 @@ init python:
         conveyerSpeed = 5.0*(0.9**upgradesBought.get("speed",0))
         conveyerInterval = 1.0*(0.9**upgradesBought.get("interval",0))*(conveyerSpeed/5)
         validityFactor = 1.1**upgradesBought.get("fault",0)-1
-
-
-
-    def pointCount():
-        #counts points when order is sent
-
-        global orderrPoints
-        global orderbPoints
-        global orderyPoints
-        global orderoPoints
-        global ordergPoints
-        global ordervPoints
-        global orderpPoints
-        global orderlPoints
-
-        global roundrPoints
-        global roundbPoints
-        global roundyPoints
-        global roundoPoints
-        global roundgPoints
-        global roundvPoints
-        global roundpPoints
-        global roundlPoints
-
-        global itemValueDict
-        global tier2ValueDict
-        global tier3ValueDict
-
-        global isOrderCorrect
-        global upgradesBought
-
-        itemCountList = [] #list is used to count items one tier at a time
-        #zeroing the initial point count of the order
-        orderrPoints = 0
-        orderbPoints = 0
-        orderyPoints = 0
-        orderoPoints = 0
-        ordergPoints = 0
-        ordervPoints = 0
-        orderpPoints = 0
-        orderlPoints = 0
-        #adding tier 1 items into the counting list
-        for item in itemsInBox:
-            if item.tier == 1:
-                itemCountList.append(item.name)
-        #storing tier 1 item point values into order-specific variables
-        orderrPoints = itemCountList.count("meat") * itemValueDict.get("meat")
-        orderbPoints = itemCountList.count("weapon") * itemValueDict.get("weapon")
-        orderyPoints = itemCountList.count("treasure") * itemValueDict.get("treasure")
-        orderoPoints = itemCountList.count("light") * itemValueDict.get("light")
-        ordergPoints = itemCountList.count("sleep") * itemValueDict.get("sleep")
-        ordervPoints = itemCountList.count("fish") * itemValueDict.get("fish")
-        orderpPoints = itemCountList.count("keys") * itemValueDict.get("keys")
-        orderlPoints = itemCountList.count("bone") * itemValueDict.get("bone")
-        itemCountList = [] #clearing counting list for tier 2 items
-        #repeating process for tier 2 items
-        for item in itemsInBox:
-            if item.tier == 2:
-                itemCountList.append(item.name)
-        #this time tier 2 point multiplier is applied
-        orderrPoints += itemCountList.count("meat") * itemValueDict.get("meat") * tier2ValueDict.get("meat")
-        orderbPoints += itemCountList.count("weapon") * itemValueDict.get("weapon") * tier2ValueDict.get("weapon")
-        orderyPoints += itemCountList.count("treasure") * itemValueDict.get("treasure") * tier2ValueDict.get("treasure")
-        orderoPoints += itemCountList.count("light") * itemValueDict.get("light") * tier2ValueDict.get("light")
-        ordergPoints += itemCountList.count("sleep") * itemValueDict.get("sleep") * tier2ValueDict.get("sleep")
-        ordervPoints += itemCountList.count("fish") * itemValueDict.get("fish") * tier2ValueDict.get("fish")
-        orderpPoints += itemCountList.count("keys") * itemValueDict.get("keys") * tier2ValueDict.get("keys")
-        orderlPoints += itemCountList.count("bone") * itemValueDict.get("bone") * tier2ValueDict.get("bone")
-        itemCountList = []
-        #then the same for tier 3 items
-        for item in itemsInBox:
-            if item.tier == 3:
-                itemCountList.append(item.name)
-
-        orderrPoints += itemCountList.count("meat") * itemValueDict.get("meat") * tier3ValueDict.get("meat")
-        orderbPoints += itemCountList.count("weapon") * itemValueDict.get("weapon") * tier3ValueDict.get("weapon")
-        orderyPoints += itemCountList.count("treasure") * itemValueDict.get("treasure") * tier3ValueDict.get("treasure")
-        orderoPoints += itemCountList.count("light") * itemValueDict.get("light") * tier3ValueDict.get("light")
-        ordergPoints += itemCountList.count("sleep") * itemValueDict.get("sleep") * tier3ValueDict.get("sleep")
-        ordervPoints += itemCountList.count("fish") * itemValueDict.get("fish") * tier3ValueDict.get("fish")
-        orderpPoints += itemCountList.count("keys") * itemValueDict.get("keys") * tier3ValueDict.get("keys")
-        orderlPoints += itemCountList.count("bone") * itemValueDict.get("bone") * tier3ValueDict.get("bone")
-        
-        #checking for order validity and applying point multiplier
-
-        if isOrderCorrect:
-            validityFactor = 1
-        else:
-            validityFactor = failPoints
-
-        #adding combo points
-        cOrderrPoints = orderpPoints*((1.1**upgradesBought.get("rpCombo",0))-1)
-        cOrderrPoints = orderoPoints*((1.1**upgradesBought.get("roCombo",0))-1)
-        cOrderoPoints = orderrPoints*((1.1**upgradesBought.get("roCombo",0))-1)
-        cOrderoPoints = orderyPoints*((1.1**upgradesBought.get("yoCombo",0))-1)
-        cOrderyPoints = orderoPoints*((1.1**upgradesBought.get("yoCombo",0))-1)
-        cOrderyPoints = orderlPoints*((1.1**upgradesBought.get("ylCombo",0))-1)
-        cOrderlPoints = orderyPoints*((1.1**upgradesBought.get("ylCombo",0))-1)
-        cOrderlPoints = ordergPoints*((1.1**upgradesBought.get("glCombo",0))-1)
-        cOrdergPoints = orderlPoints*((1.1**upgradesBought.get("glCombo",0))-1)
-        cOrdergPoints = orderbPoints*((1.1**upgradesBought.get("gbCombo",0))-1)
-        cOrderbPoints = ordergPoints*((1.1**upgradesBought.get("gbCombo",0))-1)
-        cOrderbPoints = ordervPoints*((1.1**upgradesBought.get("vbCombo",0))-1)
-        cOrdervPoints = orderbPoints*((1.1**upgradesBought.get("vbCombo",0))-1)
-        cOrdervPoints = orderpPoints*((1.1**upgradesBought.get("vpCombo",0))-1)
-        cOrderpPoints = ordervPoints*((1.1**upgradesBought.get("vpCombo",0))-1)
-        cOrderpPoints = orderrPoints*((1.1**upgradesBought.get("rpCombo",0))-1)
-        
-        #adding order point totals into round point count
-        roundrPoints += (orderrPoints+cOrderrPoints)*validityFactor
-        roundbPoints += (orderbPoints+cOrderbPoints)*validityFactor
-        roundyPoints += (orderyPoints+cOrderyPoints)*validityFactor
-        roundoPoints += (orderoPoints+cOrderoPoints)*validityFactor
-        roundgPoints += (ordergPoints+cOrdergPoints)*validityFactor
-        roundvPoints += (ordervPoints+cOrdervPoints)*validityFactor
-        roundpPoints += (orderpPoints+cOrderpPoints)*validityFactor
-        roundlPoints += (orderlPoints+cOrderlPoints)*validityFactor
-
 
     def openShop(name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description):
         #function that is run when upgrade node is clicked
@@ -564,7 +446,7 @@ screen upgradeTree:
         xalign 0.5
         yalign 0.999
         textbutton "{color=#ddd}{size=+9}Done":
-            action [SetVariable("focusUpgradeName", "0"), Return()]
+            action [SetVariable("focusUpgradeName", "0"), SetVariable("focusUpgradeID", "0"), Return()]
 
     #viewport for upgrade nodes
 
@@ -644,9 +526,9 @@ screen upgradeTree:
                     if 'meat2Multiplier' in upgradesBought:
                         use upgradeNode("Meat 3","meat3Chance", 5, (0.295, 0.36), 15*(2**upgradesBought.get("meat3Chance",0)), 0, 0, 0, 0, 0, 0, 0, "Meat has a +10% chance of appearing as Tier 3 meat with 100 times the point value.")
                     if 'light2Multiplier' in upgradesBought:
-                        use upgradeNode("{size=-2}Lantern 3","light3Chance", 5, (0.5, 0.36), 0, 0, 0, 0, 15*(2**upgradesBought.get("light3Chance",0)), 0, 0, 0, "Lantern has a +10% chance of appearing as Tier 3 meat with 100 times the point value.")
+                        use upgradeNode("{size=-2}Lantern 3","light3Chance", 5, (0.5, 0.36), 0, 0, 0, 0, 15*(2**upgradesBought.get("light3Chance",0)), 0, 0, 0, "Lantern has a +10% chance of appearing as Tier 3 lantern with 100 times the point value.")
                     if 'treasure2Multiplier' in upgradesBought:
-                        use upgradeNode("Coin 3","treasure3Chance", 5, (0.71, 0.36), 0, 0, 15*(2**upgradesBought.get("treasure3Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10% chance of appearing as lantern 3 meat with 100 times the point value.")
+                        use upgradeNode("Coin 3","treasure3Chance", 5, (0.71, 0.36), 0, 0, 15*(2**upgradesBought.get("treasure3Chance",0)), 0, 0, 0, 0, 0, "Coin has a +10% chance of appearing as Tier 3 coin with 100 times the point value.")
                     if 'keys2Multiplier' in upgradesBought:
                         use upgradeNode("Key 3","keys3Chance", 5, (0.295, 0.5), 0, 0, 0, 0, 0, 0, 15*(2**upgradesBought.get("keys3Chance",0)), 0, "Key has a +10% chance of appearing as Tier 3 key with 100 times the point value.")
                     if 'bone2Multiplier' in upgradesBought:
@@ -729,14 +611,13 @@ screen upgradeTree:
                     if 'light3Chance' in upgradesBought and 'interval' in upgradesBought:
                         use upgradeNode("Overtime","timeIncrease", 10, (0.564, 0.325), 0, 0, 0, 0, 10*(2**upgradesBought.get("timeIncrease",0)), 0, 0, 0, "Increase shift duration by 10 seconds.")
                         
-
                     #Cee upgrades
                     if 'fish2Chance' in upgradesBought:
-                        use upgradeNode("Moist","fishy", 10, (0.345, 0.57), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fishy",0)), 0, 0, "All other items also give fish points.")
+                        use upgradeNode("Moist","fishy", 10, (0.345, 0.57), 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("fishy",0)), 0, 0, "All other items also give some fish points.")
                     if 'fish2Multiplier' in upgradesBought and "fishy" in upgradesBought:
                         use upgradeNode("Big Box","box", 10, (0.292, 0.605), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("box",0)), 0, 0, "Increases box size by one.")
                     if 'fish2Multiplier' in upgradesBought and "box" in upgradesBought:
-                        use upgradeNode("Smuggle","fishNumber", 10, (0.24, 0.64), 0, 0, 0, 0, 0, 3*(2**upgradesBought.get("fishNumber",0)), 0, 0, "Each fish is counted as +1 extra fish.")
+                        use upgradeNode("Smuggle","fishNumber", 10, (0.24, 0.64), 0, 0, 0, 0, 0, 5*(2**upgradesBought.get("fishNumber",0)), 0, 0, "Each fish is counted as +1 extra fish.")
                     if 'fish3Multiplier' in upgradesBought and "fishNumber" in upgradesBought:
                         use upgradeNode("Bounty of the Sea","bounty", 10, (0.135, 0.675), 0, 0, 0, 0, 0, 10*(2**upgradesBought.get("bounty",0)), 0, 0, "Gain +50 fish points at the end of shift.")
 

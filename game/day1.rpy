@@ -380,6 +380,9 @@ label day1_3A:
     #if itallics
     show agatha perus
     A "Ship as many orders as you can muster, and remember that everyone appreciates a freebie. You can slip in a few extras when there's room in the box!"
+    show agatha vinkkaus at hop
+    A "My recommendation: I think you simply cannot have too many lanterns."
+    pause 0.5
     show agatha pelokas
     A "But remember how Boss gets about mistakes."
     #Shake A
