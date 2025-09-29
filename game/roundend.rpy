@@ -42,15 +42,14 @@ label roundEnd:
         roundvPoints += 50*upgradesBought.get("bounty",0)
 
         #adding timer points
-        roundrPoints += timerPoints
-        roundbPoints += timerPoints
-        roundyPoints += timerPoints
-        roundgPoints += timerPoints+sleepTimerPoints
-        roundoPoints += timerPoints
-        roundvPoints += timerPoints
-        roundpPoints += timerPoints
-        roundlPoints += timerPoints
-
+        roundrPoints += timerPoints*itemValueDict.get("meat")
+        roundbPoints += timerPoints*itemValueDict.get("weapon")
+        roundyPoints += timerPoints*itemValueDict.get("treasure")
+        roundgPoints += (timerPoints+sleepTimerPoints)*itemValueDict.get("sleep")
+        roundoPoints += timerPoints*itemValueDict.get("light")
+        roundvPoints += timerPoints*itemValueDict.get("fish")
+        roundpPoints += timerPoints*itemValueDict.get("keys")
+        roundlPoints += timerPoints*itemValueDict.get("bone")
 
         #adding round points to point balances
         rPoints += roundrPoints
