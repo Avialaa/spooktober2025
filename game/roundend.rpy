@@ -140,7 +140,7 @@ screen roundEndScreen:
             padding(30, 20)
             background "scoreBox"
             vbox:
-                ysize (250, 800)
+                xysize (250, 800)
                 text "This round:"
                 if roundEndrPoints:
                     hbox:
