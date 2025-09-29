@@ -119,7 +119,7 @@ label day4_A2:
     "My movements have slowed each hour of the all-nighter."
     "I keep dropping Loot, stumbling and scraping, and even mistook a sword for a sausage. Is this what it's like to be undead?"
     "When I saw Cee working, their arms were moving, but there was no light in their eyes. As if the soul had been sucked out."
-    "The last I saw Karkhos, he had crawled under the break room's table. At first, I thought he'd stopped breathing."
+    "The last I saw Karkhos, he had crawled under the break room's table. At first, I thought he'd stopped breathing. Then I remembered he's undead."
     "But the warehouse is nearly empty, and astonishingly well organized. We've accomplished a lot. Though it's been hard."
     #agatha iloinen suukiinni appears
     play sound wingflap
