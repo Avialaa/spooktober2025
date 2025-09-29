@@ -194,13 +194,23 @@ label upgrade_sticky_notes_tutorial:
     play sound paper
     scene upgradetree_tutorial with fade
     pause
-    scene bg warehouse with fade
+    if workShift == 1:
+        scene bg warehouse with fade
+    elif workShift == 2:
+        scene bg warehouse posters with fade
+    else: 
+        scene bg warehouse posters with fade
 
 label upgrade_sticky_notes_menu:
     menu:
         "Take another look at the sticky notes.":
             jump upgrade_sticky_notes_tutorial
-        "Take a look at the upgrades.":
+        "Start upgrading the work station.":
             pass
     
     return
+
+label upgrade_tutorial_again:
+    scene bg warehouse posters
+    "The sticky notes about upgrades are still here."
+    jump upgrade_sticky_notes_menu

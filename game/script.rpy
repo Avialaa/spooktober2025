@@ -100,7 +100,9 @@ label start:
     call day2_1
     if minigameOn == True:
         #kolmas minipelityövuoro
+
         $ renpy.force_autosave()
+        call upgrade_tutorial_again
         call upgradeTree
         call warehouse_gameplay
         call roundEnd
