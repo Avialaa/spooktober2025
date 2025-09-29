@@ -455,6 +455,7 @@ label day1_3B:
     # MINIPELI OHJEET
     show karkhos pikkuviha
     K "Agatha's always on my case about mistakes, but mistakes are as natural as bowel movements."
+    show karkhos perus
     K "We can't exactly go on full strike, but I say we set some boundaries."
     show karkhos nukkuva
     K "Pressure to be perfect gets in our head. Let's embrace it."
@@ -463,12 +464,13 @@ label day1_3B:
     show karkhos kauhistus at hop
     K "Although… The new workstation's still missing many quality of life improvements."
     show karkhos perus
-    K "I wanna earn the ones that make life easier. The green ones."
-    show karkhos nukkuva at hop
-    K "Guess I need to prioritize shipping out the nap items."
+    K "There's no upper limit on mistakes, but we might wanna get a few orders right now and then. To earn those upgrades."
+    show karkhos pikkuviha at hop
+    K "I wanna earn the ones that make life easier, so I'll prioritize shipping out \"nap\" items."
+    show karkhos nukkuva
     MC "A good pillow is important."
     show karkhos tosi iloinen
-    K "A basic necessity, for sure."
+    K "A basic necessity. The \"nap\" items will entice humans for sure."
 
     #Allin lisäys
     # K "Or if you really want to do more, at least get some of orders wrong. To show that pressure causes us to make more mistakes, you know?"
