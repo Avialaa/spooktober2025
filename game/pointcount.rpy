@@ -209,12 +209,12 @@ init python:
         
 
 transform point_feedback_transform_1:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -223,12 +223,12 @@ transform point_feedback_transform_1:
         linear 0.5 alpha 0
 
 transform point_feedback_transform_2:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -241,12 +241,12 @@ transform point_feedback_transform_2:
         easein 2.0 xoffset 100
 
 transform point_feedback_transform_3:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1 
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -259,12 +259,12 @@ transform point_feedback_transform_3:
         easein 2.0 xoffset -100
         
 transform point_feedback_transform_4:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -277,12 +277,12 @@ transform point_feedback_transform_4:
         easein 2.0 xoffset 200
 
 transform point_feedback_transform_5:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -295,12 +295,12 @@ transform point_feedback_transform_5:
         easein 2.0 xoffset -200
         
 transform point_feedback_transform_6:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1 
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -313,12 +313,12 @@ transform point_feedback_transform_6:
         easein 2.0 xoffset 300
 
 transform point_feedback_transform_7:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1 
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -331,12 +331,12 @@ transform point_feedback_transform_7:
         easein 2.0 xoffset -300
         
 transform point_feedback_transform_8:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1 
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
@@ -349,12 +349,12 @@ transform point_feedback_transform_8:
         easein 2.0 xoffset 400
 
 transform point_feedback_transform_9:
-    xalign 0.05 
-    yalign 0.9
+    xalign 0.1 
+    yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -200
-        ease 1.0 yoffset 100
+        easein 1.0 yoffset -150
+        ease 1.0 yoffset -40
 
     parallel:
         alpha 0
