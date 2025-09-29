@@ -56,7 +56,7 @@ label day2_1:
     pause 1
     stop sound fadeout 1
     "Well, I'll deal with the posters later. The guys promised to not mess things up for the warehouse. On this at least, I trust them."
-    "As I get ready to start packing, I notice three pieces of paper on my workstation."
+    "As I get ready to start packing, I notice several pieces of paper on my workstation."
     MC "What is it this time? Let's see."
 
     # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki -TO DO
