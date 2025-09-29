@@ -37,6 +37,7 @@ init python:
 
         global isOrderCorrect
         global upgradesBought
+        global failPoints
 
         itemCountList = [] #list is used to count items one tier at a time
         #zeroing the initial point count of the order

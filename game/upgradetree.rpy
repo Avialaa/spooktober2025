@@ -213,11 +213,10 @@ init python:
         roundDuration = roundDuration/(2**upgradesBought.get("timePace",0)) #halves round duration without affecting timer points for each time pace upgrade bought
         if "noTime"  in upgradesBought:
             roundDuration = 0.1
-        failPoints = upgradesBought.get("failPoint",0)*0.1
+        failPoints = upgradesBought.get("fault",0)*0.1
         maxBoxItems = 6+upgradesBought.get("box",0) 
         conveyerSpeed = 5.0*(0.9**upgradesBought.get("speed",0))
         conveyerInterval = 1.0*(0.9**upgradesBought.get("interval",0))*(conveyerSpeed/5)
-        validityFactor = 1.1**upgradesBought.get("fault",0)-1
 
     def openShop(name, upgradeID, upgradeLimit, rCost, bCost, yCost, gCost, oCost, vCost, pCost, lCost, description):
         #function that is run when upgrade node is clicked
