@@ -183,11 +183,12 @@ label day1_2:
     show cee iloinen at hop
     C "Yes, do join and settle this petty dispute of fools."
     # K neutral
-    show karkhos perus at hop
+    show karkhos kauhistus at hop
     K "…did you just call yourself…"
+    show karkhos pikkuviha
     MC "No, no. I'm okay with whatever you decide."
     # C neutral
-    show cee perus at hop
+    show cee kauhistus at hop
     C "Nay! You must not remain impartial."
     MC "I really don't mind. I'm not even involved."
     show karkhos at hop
@@ -269,11 +270,11 @@ label day1_2:
     MC "I guess since I have to say, I would…"
     show agatha vakava at hop
     show karkhos perus
-    show cee perus
     A "Stop!"
     MC "Why???"
-    show cee perus at hop
+    show cee hullu hymy at hop
     C "We cannot be appeased with mere words."
+    show cee perus
     show karkhos pikkuviha at hop
     K "Words are cheap. We need actions."
     show agatha perus
@@ -450,26 +451,33 @@ label day1_3B:
 
     # MINIPELI OHJEET
     show karkhos pikkuviha
-    K "We can't exactly go on a full strike, but I say we set some boundaries."
-    show karkhos perus at hop
-    K "Three boxes a shift, and that's it."
-    MC "Three?!"
-    show karkhos pikkuviha at hop
-    K "Yeah, one, two, three. For now."
+    K "Agatha's always on my case about mistakes, but mistakes are as natural as bowel movements."
+    K "We can't exactly go on full strike, but I say we set some boundaries."
+    show karkhos nukkuva
+    K "Pressure to be perfect gets in our head. Let's embrace it."
+    show karkhos vihainen
+    K "Let's show them what rushing can cause. Lots and lots of mistakes."
+    show karkhos kauhistus at hop
+    K "Although… The new workstation's still missing many quality of life improvements."
     show karkhos perus
-    K "If you limit how many boxes you send out, it'd show you agree with me."
+    K "I wanna earn the ones that make life easier. The green ones."
+    show karkhos nukkuva at hop
+    K "Guess I need to prioritize shipping out the nap items."
+    MC "A good pillow is important."
+    show karkhos tosi iloinen
+    K "A basic necessity, for sure."
 
     #Allin lisäys
-    K "Or if you really want to do more, at least get some of orders wrong. To show that pressure causes us to make more mistakes, you know?"
-    K "You might want to get some orders right to earn some workstation upgrades... Just don't overdo it, okay? Mess up orders every now and then."
+    # K "Or if you really want to do more, at least get some of orders wrong. To show that pressure causes us to make more mistakes, you know?"
+    # K "You might want to get some orders right to earn some workstation upgrades... Just don't overdo it, okay? Mess up orders every now and then."
 
     show karkhos iloinen
-    K "We'll show that the warehouse is plenty efficient if we work at a reasonable pace."
+    K "We'll show that the warehouse is plenty efficient if we work within reasonable expectations."
     show karkhos tosi iloinen at hop
-    K "Maybe we'll be MORE efficient with enough breaks."
+    K "Maybe we'll be MORE efficient with less pressure."
     show karkhos perus
     K "When Boss returns, he'll have no choice but to agree."
-    MC "How much more free time were you thinking?"
+    MC "What were you thinking of pitching Boss?"
     show karkhos pikkuviha
     K "Wasn't. Those details will come naturally later. Flexibility, and so on."
     K "As I've gotten older, I've understood it's important to not set plans in stone too early."
@@ -501,7 +509,8 @@ label day1_3B:
 
     #Allin muutos
     #"…Only three boxes per shift, huh?"
-    "Slack off, and don't be afraid to make some mistakes, huh?"
+    # "Slack off, and don't be afraid to make some mistakes, huh?"
+    "Embrace the mistakes, huh?"
     stop music
 
     return
