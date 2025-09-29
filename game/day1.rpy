@@ -40,7 +40,7 @@ label day1_1:
     "Phew! Whatever they were fighting about, I'm sure they'll sort it out. Let's see here…"
     "Before leaving on the business trip, Boss got a wizard to install a new loot dispatch system. He told us to test it while he's gone."
     "It's unexpectedly complicated… Still, I won't let this dampen my easygoing week! The sooner I start, the more boxes I'll pack before lunch."
-    stop music
+    #stop music
     return
 
 label day1_2: 
@@ -398,7 +398,7 @@ label day1_3A:
     #A bounces off
     MC "Thanks, you too?"
     "...Was that a well-wish or a threat?"
-    stop music
+    #stop music
     return
     
 
@@ -511,7 +511,7 @@ label day1_3B:
     #"…Only three boxes per shift, huh?"
     # "Slack off, and don't be afraid to make some mistakes, huh?"
     "Embrace the mistakes, huh?"
-    stop music
+    #stop music
 
     return
 
@@ -641,7 +641,7 @@ label day1_3C:
     hide cee with moveoutleft
     stop sound fadeout 4
     "Oh no. I can already feel the performance anxiety hitting."
-    stop music
+    #stop music
     return
 
 
