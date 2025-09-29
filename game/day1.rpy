@@ -464,10 +464,10 @@ label day1_3B:
     show karkhos kauhistus at hop
     K "Although… The new workstation's still missing many quality of life improvements."
     show karkhos perus
-    K "There's no upper limit on mistakes, but we might wanna get a few orders right now and then. To earn those upgrades."
-    show karkhos pikkuviha at hop
+    K "There's no upper limit on mistakes, but we might wanna get a few orders correct, now and then. To earn those upgrades."
+    show karkhos nukkuva at hop
     K "I wanna earn the ones that make life easier, so I'll prioritize shipping out \"nap\" items."
-    show karkhos nukkuva
+    show karkhos perus
     MC "A good pillow is important."
     show karkhos tosi iloinen
     K "A basic necessity. The \"nap\" items will entice humans for sure."
