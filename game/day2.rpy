@@ -26,7 +26,7 @@ label day2_1:
     scene bg hallway posters with dissolve
     "Decorations…? Is today a festival?"
     "On closer inspection, these are probably related to the fight. It seems they hope to sway me with slogans and art. Seems kinda cheap." 
-    #TODO: arttien näyttäminen
+   
     play sound paper
     show julisteet2 at middle with dissolve:
         zoom 1.5
@@ -59,7 +59,7 @@ label day2_1:
     "As I get ready to start packing, I notice several pieces of paper on my workstation."
     MC "What is it this time? Let's see."
 
-    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki -TO DO
+    # jos nä sais mahtuu kaikki samal kerral textboxiin se ois hyvä. Omil riveil kaikki -
     # "\"Please pack as many perfect orders as you can. Best, AGATHA.\"
     # \"Hey. Take it easy. The orders are just suggestions. -KARKHOS\"
     # \"Prithee, pack many a fish into every order. Yours truly, CEE.\""
@@ -457,7 +457,7 @@ label day2_3B:
     # agatha läpsyttelee pois
     "If what Agatha told me is true…"
     "How would I feel about doing forced labor?"
-    #TODO: conditional skenessä 2.5B jos pelaaja saanu tän skenen
+
     stop music fadeout 5
     
     return
