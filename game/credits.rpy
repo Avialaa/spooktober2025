@@ -583,4 +583,89 @@ screen creditscreen:
             yalign 0.5
 
 
+label statScreen:
+    $ quick_menu = False
+    call screen statScreen
+    return
+
+screen statScreen:
+    vbox:
+        align (0.5,0.5)
+        spacing 10
+        key ["mousedown_1", "K_SPACE"] action Return()
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            text "Total points earned:"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            hbox:
+                spacing 2
+                text "[f'{totalrPoints:.2f}']" style "redPointsStyle":
+                    yoffset 25
+                add "order meat.png"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{totalbPoints:.2f}']" style "bluePointsStyle":
+                    yoffset 25
+                add "order weapon.png"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{totalyPoints:.2f}']" style "yellowPointsStyle":
+                    yoffset 25
+                add "order treasure.png"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{totalgPoints:.2f}']" style "greenPointsStyle":
+                    yoffset 25
+                add "order sleep.png"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{totaloPoints:.2f}']" style "orangePointsStyle":
+                    yoffset 25
+                add "order light.png"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{totalvPoints:.2f}']" style "violetPointsStyle":
+                    yoffset 25
+                add "order fish.png"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            has hbox:
+                spacing 2
+                text "[f'{totalpPoints:.2f}']" style "pinkPointsStyle":
+                    yoffset 25
+                add "order keys.png"
+        frame:
+            background "upgradeBox"
+            padding (20, 10)
+            hbox:
+                spacing 2
+                box_align 0.5
+                text "[f'{totallPoints:.2f}']" style "lightPointsStyle":
+                    yoffset 25
+                add "order bone.png"
+
 
