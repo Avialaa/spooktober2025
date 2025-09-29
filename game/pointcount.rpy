@@ -245,7 +245,7 @@ transform point_feedback_transform_3:
     yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -150
+        easein 1.0 yoffset -200
         ease 1.0 yoffset -40
 
     parallel:
@@ -263,7 +263,7 @@ transform point_feedback_transform_4:
     yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -150
+        easein 1.0 yoffset -200
         ease 1.0 yoffset -40
 
     parallel:
@@ -335,7 +335,7 @@ transform point_feedback_transform_8:
     yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -150
+        easein 1.0 yoffset -170
         ease 1.0 yoffset -40
 
     parallel:
@@ -353,7 +353,7 @@ transform point_feedback_transform_9:
     yalign 0.8
 
     parallel:
-        easein 1.0 yoffset -150
+        easein 1.0 yoffset -170
         ease 1.0 yoffset -40
 
     parallel:
