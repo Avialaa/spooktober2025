@@ -209,169 +209,166 @@ init python:
         
 
 transform point_feedback_transform_1:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
 transform point_feedback_transform_2:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset 100
+        easein 2.0 xoffset 100
 
 transform point_feedback_transform_3:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset -100
+        easein 2.0 xoffset -100
         
 transform point_feedback_transform_4:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset 200
+        easein 2.0 xoffset 200
 
 transform point_feedback_transform_5:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset -200
+        easein 2.0 xoffset -200
         
 transform point_feedback_transform_6:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset 300
+        easein 2.0 xoffset 300
 
 transform point_feedback_transform_7:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset -300
+        easein 2.0 xoffset -300
         
 transform point_feedback_transform_8:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset 400
+        easein 2.0 xoffset 400
 
 transform point_feedback_transform_9:
-    xalign 0.5
-    yalign 1.0
-    yoffset 100
+    xalign 0.05 
+    yalign 0.9
 
     parallel:
-        easein 0.3 yoffset -400
-        easeout 0.3 yoffset 400
+        easein 1.0 yoffset -200
+        ease 1.0 yoffset 100
 
     parallel:
         alpha 0
         linear 0.1 alpha 1.0
+        pause 1.4
         linear 0.5 alpha 0
 
     parallel:
         xoffset 0
-        linear 0.6 xoffset -400
+        easein 2.0 xoffset -400
 
 screen pointFeedback:
     zorder 200
-    frame:
-        at point_feedback_transform_1
-        text "Point!" size 60 color "#fff"
-    timer 1.0 action Hide("pointFeedback")
+    timer 2.1 action Hide("pointFeedback")
     if len(feedbackList) == 1:
         if "meat" in feedbackList:
             timer 0.1 action [SetVariable("rfeedbackPosition", 1), Show("meatFeedback")]
@@ -1020,7 +1017,7 @@ screen pointFeedback:
                 timer 0.1 action [SetVariable("lfeedbackPosition", 9), Show("boneFeedback")]
 
 screen meatFeedback:
-    timer 0.6 action Hide("meatFeedback")
+    timer 2.0 action Hide("meatFeedback")
     hbox:
         if rfeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1040,13 +1037,13 @@ screen meatFeedback:
             at point_feedback_transform_8
         elif rfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderrPoints]" style "redPointsStyle"
+        text "{size=+30}+[orderrPoints]" style "redPointsStyle"
         add "order meat.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
             
 screen weaponFeedback:
-    timer 0.6 action Hide("weaponFeedback")
+    timer 2.0 action Hide("weaponFeedback")
     hbox:
         if bfeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1066,13 +1063,13 @@ screen weaponFeedback:
             at point_feedback_transform_8
         elif bfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderbPoints]" style "bluePointsStyle"
+        text "{size=+30}+[orderbPoints]" style "bluePointsStyle"
         add "order weapon.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
             
 screen treasureFeedback:
-    timer 0.6 action Hide("treasureFeedback")
+    timer 2.0 action Hide("treasureFeedback")
     hbox:
         if yfeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1092,13 +1089,13 @@ screen treasureFeedback:
             at point_feedback_transform_8
         elif yfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderyPoints]" style "yellowPointsStyle"
+        text "{size=+30}+[orderyPoints]" style "yellowPointsStyle"
         add "order treasure.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
             
 screen sleepFeedback:
-    timer 0.6 action Hide("sleepFeedback")
+    timer 2.0 action Hide("sleepFeedback")
     hbox:
         if gfeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1118,13 +1115,13 @@ screen sleepFeedback:
             at point_feedback_transform_8
         elif gfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderrPoints]" style "greenPointsStyle"
+        text "{size=+30}+[ordergPoints]" style "greenPointsStyle"
         add "order sleep.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
             
 screen lightFeedback:
-    timer 0.6 action Hide("lightFeedback")
+    timer 2.0 action Hide("lightFeedback")
     hbox:
         if ofeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1144,13 +1141,13 @@ screen lightFeedback:
             at point_feedback_transform_8
         elif ofeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderrPoints]" style "orangePointsStyle"
+        text "{size=+30}+[orderoPoints]" style "orangePointsStyle"
         add "order light.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
             
 screen fishFeedback:
-    timer 0.6 action Hide("fishFeedback")
+    timer 2.0 action Hide("fishFeedback")
     hbox:
         if vfeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1170,13 +1167,13 @@ screen fishFeedback:
             at point_feedback_transform_8
         elif vfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderrPoints]" style "violetPointsStyle"
+        text "{size=+30}+[ordervPoints]" style "violetPointsStyle"
         add "order fish.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
             
 screen keysFeedback:
-    timer 0.6 action Hide("keysFeedback")
+    timer 2.0 action Hide("keysFeedback")
     hbox:
         if pfeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1196,13 +1193,13 @@ screen keysFeedback:
             at point_feedback_transform_8
         elif pfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderrPoints]" style "pinkPointsStyle"
+        text "{size=+30}+[orderpPoints]" style "pinkPointsStyle"
         add "order keys.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
             
 screen boneFeedback:
-    timer 0.6 action Hide("boneFeedback")
+    timer 2.0 action Hide("boneFeedback")
     hbox:
         if lfeedbackPosition == 1:
             at point_feedback_transform_1
@@ -1222,7 +1219,7 @@ screen boneFeedback:
             at point_feedback_transform_8
         elif lfeedbackPosition == 9:
             at point_feedback_transform_9
-        text "{size=+20}[orderrPoints]" style "lightPointsStyle"
+        text "{size=+30}+[orderlPoints]" style "lightPointsStyle"
         add "order bone.png":
             fit "scale-down"
-            xysize (60,60)
+            xysize (70,70)
