@@ -160,6 +160,7 @@ init python:
         global failPoints
         global maxBoxItems
         global conveyerSpeed
+        global conveyerInterval
         
         itemValueDict["light"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("lightMultiplier",0)))
         itemValueDict["sleep"] = (1.2**float(upgradesBought.get("pointMultiplier",0)))*(1.2**float(upgradesBought.get("sleepMultiplier",0)))
