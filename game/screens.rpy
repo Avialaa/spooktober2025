@@ -313,11 +313,11 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
+        textbutton _("Endless Mode") action If(persistent.endlessMode == True, true=Start("endless_mode"), false=None)
+
         textbutton _("Preferences") action ShowMenu("preferences")
         
-        textbutton _("Credits") action Start("finalcredits")
-        
-        textbutton _("Endless Mode") action Start("endless_mode")
+        textbutton _("Credits") action Start("finalcredits") 
 
         if _in_replay:
 
